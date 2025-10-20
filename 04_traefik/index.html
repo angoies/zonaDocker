@@ -1,0 +1,1240 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../03-docker-ejercicios/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Traefik - Zona Docker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#traefik" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Zona Docker" class="md-header__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Docker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Traefik
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-docker-tutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../02-servidores-web/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-docker-ejercicios/" class="md-tabs__link">
+        
+  
+    
+  
+  Ejercicios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Traefik
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Zona Docker" class="md-nav__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Docker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-docker-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidores Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-bd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidor de Aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-amplia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ampliación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-docker-ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-traefik-como-proxy-inverso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Traefik como proxy inverso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1. Traefik como proxy inverso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-edge-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1. Edge Router¶
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-auto-service-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2. Auto Service Discovery¶
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-iniciar-traefik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Iniciar Traefik
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-descubriendo-servicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Descubriendo servicios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Descubriendo servicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ejemplo-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Ejemplo inicial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ampliando-el-ejemplo-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ampliando el ejemplo inicial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ampliando el ejemplo inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#32-servicio-web-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Servicio web nginx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-servidor-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Servidor php
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-escalar-el-servicio-balanceo-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Escalar el servicio: balanceo de carga
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-propuesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ejercicio propuesto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-enlaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Enlaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-anexo-fichero-docker-composeyml-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Anexo: Fichero docker-compose.yml completo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-traefik-como-proxy-inverso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Traefik como proxy inverso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1. Traefik como proxy inverso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-edge-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1. Edge Router¶
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-auto-service-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.2. Auto Service Discovery¶
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-iniciar-traefik" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Iniciar Traefik
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-descubriendo-servicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Descubriendo servicios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Descubriendo servicios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-ejemplo-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Ejemplo inicial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ampliando-el-ejemplo-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ampliando el ejemplo inicial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ampliando el ejemplo inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#32-servicio-web-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Servicio web nginx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-servidor-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Servidor php
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-escalar-el-servicio-balanceo-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Escalar el servicio: balanceo de carga
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejercicio-propuesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ejercicio propuesto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-enlaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Enlaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-anexo-fichero-docker-composeyml-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Anexo: Fichero docker-compose.yml completo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
+<p>Un proxy inverso es un servidor que se sitúa delante de uno o varios servidores web, e intercepta las solicitudes de los clientes. Esto es diferente de un proxy de reenvío, en el que el proxy se sitúa delante de los clientes. Con un proxy inverso, cuando los clientes envían solicitudes al servidor de origen de un sitio web, el servidor de proxy inverso intercepta esas solicitudes en el perímetro de la red. El servidor proxy inverso enviará entonces las solicitudes al servidor de origen y recibirá las respuestas del servidor de origen.</p>
+<p>La diferencia entre un proxy de reenvío y uno inverso es sutil pero importante. Una forma simplificada de resumirla sería decir que un proxy de reenvío se sitúa delante de un cliente y se asegura de que ningún servidor de origen se comunique nunca directamente con ese cliente específico. Por otro lado, un proxy inverso se sitúa delante de un servidor de origen y se asegura de que ningún cliente se comunique nunca directamente con ese servidor de origen.</p>
+<h3 id="11-traefik-como-proxy-inverso">1.1. Traefik como proxy inverso<a class="headerlink" href="#11-traefik-como-proxy-inverso" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Nginx o Apache pueden cumplir perfectamente esta función, aunque hoy en día hay una nueva categoría de proxys reversos pensados para microservicios y también diseñados para “dialogar” con plataformas de contenedores como Docker, Kubernetes, etc. Este es el caso de Traefik.</p>
+<p>Traefik is an open-source Edge Router that makes publishing your services a fun and easy experience. It receives requests on behalf of your system and finds out which components are responsible for handling them.</p>
+</blockquote>
+<p><img alt="" src="../figuras/traefik-architecture.webp" /></p>
+<blockquote>
+<p>What sets Traefik apart, besides its many features, is that it automatically discovers the right configuration for your services. The magic happens when Traefik inspects your infrastructure, where it finds relevant information and discovers which service serves which request.</p>
+<p>The main features include dynamic configuration, automatic service discovery, and support for multiple backends and protocols.</p>
+<p>Traefik is based on the concept of EntryPoints, Routers, Middlewares and Services.</p>
+<ul>
+<li>EntryPoints: EntryPoints are the network entry points into Traefik. They define the port which will receive the packets, and whether to listen for TCP or UDP.</li>
+<li>Routers: A router is in charge of connecting incoming requests to the services that can handle them.</li>
+<li>Middlewares: Attached to the routers, middlewares can modify the requests or responses before they are sent to your service</li>
+<li>Services: Services are responsible for configuring how to reach the actual services that will eventually handle the incoming requests.</li>
+</ul>
+</blockquote>
+<h4 id="111-edge-router">1.1.1. Edge Router¶<a class="headerlink" href="#111-edge-router" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Traefik is an Edge Router, it means that it's the door to your platform, and that it intercepts and routes every incoming request: it knows all the logic and every rule that determine which services handle which requests (based on the path, the host, headers, etc.).</p>
+</blockquote>
+<h4 id="112-auto-service-discovery">1.1.2. Auto Service Discovery¶<a class="headerlink" href="#112-auto-service-discovery" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Where traditionally edge routers (or reverse proxies) need a configuration file that contains every possible route to your services, Traefik gets them from the services themselves.</p>
+<p>Deploying your services, you attach information that tells Traefik the characteristics of the requests the services can handle.</p>
+</blockquote>
+<h2 id="2-iniciar-traefik">2. Iniciar Traefik<a class="headerlink" href="#2-iniciar-traefik" title="Permanent link">&para;</a></h2>
+<p>Se parte del ejemplo que proporciona Traefik en su <a href="https://doc.traefik.io/traefik/getting-started/quick-start/">guía rápida</a>. </p>
+<p>El fichero inicial sólo contiene el servicio de nombre <code>traefik</code> que lanza Traefik</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">traefik</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik:v3.5</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--api.insecure=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">      </span>
+</code></pre></div>
+<p>Inicie el servicio con el comando  <code>docker compose</code> y puede acceder al <em>dashboard</em>:</p>
+<blockquote>
+<p>Because we explicitly enabled insecure mode, the dashboard is reachable on port 8080 without authentication. <strong>Do not enable this flag in production</strong>.
+You can access the dashboard at:
+http://localhost:8080/dashboard/</p>
+</blockquote>
+<h2 id="3-descubriendo-servicios">3. Descubriendo servicios<a class="headerlink" href="#3-descubriendo-servicios" title="Permanent link">&para;</a></h2>
+<h3 id="31-ejemplo-inicial">3.1. Ejemplo inicial<a class="headerlink" href="#31-ejemplo-inicial" title="Permanent link">&para;</a></h3>
+<p>La guía rápida nos propone añadir un servicio web de nombre <em>whoami</em> que muestra información del equipo sobre el que se ejecuta ese servicio en un fichero de nombre <code>whoami.yml</code></p>
+<p>En Docker, las labels son una forma de añadir metadatos a los contenedores. Traefik usa estas etiquetas para descubrir automáticamente servicios y configurar dinámicamente las rutas, puertos, reglas, etc.</p>
+<div class="highlight"><span class="filename">whoami.yml</span><pre><span></span><code># whoami.yml
+services:
+  whoami:
+    image: traefik/whoami
+    labels:
+      - &quot;traefik.http.routers.whoami.rule=Host(`whoami.localhost`)&quot;
+</code></pre></div>
+<p>Apply the configuration:</p>
+<div class="highlight"><pre><span></span><code>docker-compose -f whoami.yml up -d
+</code></pre></div>
+<p>Test Your Setup¶</p>
+<div class="highlight"><pre><span></span><code>curl http://whoami.localhost
+</code></pre></div>
+<p>Detener los servicios:</p>
+<div class="highlight"><pre><span></span><code>docker compose up --remove-orphans -d
+</code></pre></div>
+<h2 id="ampliando-el-ejemplo-inicial">Ampliando el ejemplo inicial<a class="headerlink" href="#ampliando-el-ejemplo-inicial" title="Permanent link">&para;</a></h2>
+<p>Vamos a generar un ejemplo con una dirección "real" y añadir toda la configuración en un único fichero. </p>
+<p>Este es el bloque a añadir en <code>docker-compose.yml</code> .Observe qeu se ha modificado el servicio <code>whoami</code> para usar el dominio <code>md.internal</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># A container that exposes an API to show its IP address</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik/whoami</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span><span class="c1"># es necesario si  la opción de traefik --providers.docker.exposedbydefault=false</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.entrypoints=http&quot;</span><span class="w"> </span><span class="c1"># valor por defecto, se podróa obviar</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.rule=Host(`whoami.md.internal`)&quot;</span>
+</code></pre></div>
+<p>Y se ha añadido al ejemplo de la guía rápida las labels:</p>
+<ul>
+<li><code>"traefik.enable=true"</code>: es una opción necesaria en el servicio si en la opciones de traefik estuviera activa la opción  <code>--providers.docker.exposedbydefault=false</code>. Por defecto cuando Traefik se conecta al socket Docker expone automáticamente todos los contenedores como servicios. Es decir, si <code>--providers.docker.exposedbydefault</code> está en true (valor por defecto), cualquier contenedor puede ser accesible públicamente si tiene un puerto abierto. Con <code>traefik.enable</code> se controla dicha exposición a nivel de servicio.</li>
+<li><code>"traefik.http.routers.whoami.entrypoints=web"</code>. En este caso esta opción no es necesaria ya que <code>web</code> y <code>websecure</code> son entrypoints ya definidos en Traefik cuando no defines explícitamente otros en la configuración (web se corresponde con el puerto 80). <blockquote>
+<p>If not specified, HTTP routers are attached to all entry points.</p>
+<p>the entryPoints web (port 80), websecure (port 443), traefik (port 8080) and metrics (port 9100) are created by default. The entryPoints web, websecure are exposed by default using a Service.</p>
+</blockquote>
+</li>
+</ul>
+<p>Para iniciar los servicios</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$ docker compose  up -d
+</code></pre></div>
+<p>Traefik descubre este nuevo servicio y lo añade a su configuración creando una ruta que enlaza la dirección <code>whoami.md.internal</code> al servicio. </p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$ curl -H &quot;Host:whoami.md.internal&quot; localhost
+Hostname: fc5ab2a1c07a
+IP: 127.0.0.1
+...
+X-Real-Ip: 172.18.0.1
+
+alu@xd13:~/pr/traefik$
+</code></pre></div>
+<p>Observe que se prueba el servicio:
+* con el comando <code>curl</code>
+* el parámetro <code>-H "Host:whoami.md.internal"</code> (ya que la dirección <code>whoami.md.internal</code> no tiene asociada ninguna IP añadimos el campo <code>Host</code> en la petición HTTP)
+* como destino <code>localhost</code>:  si intentamos acceder a la dirección whoami.md.com (en el navegador o haciendo ping) dará error ya que no existe ese host ni ese dominio y no hay ninguna IP asociada.</p>
+<p>Para resolver la IP de un nombre de host se consulta primero el fichero <code>/etc/hosts</code> y si no hay correspondencia a los servidores DNS. Para hacer una prueba más cercana a la realidad se asocia en ese fichero el nombre <code>whoami.md.internal</code> a la dirección local 127.0.0.1, Y ya podría usar ese nombre en sus pruebas en local con el navegador, etc.</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  sudo nano /etc/hosts
+alu@xd13:~/pr/traefik$  cat /etc/hosts
+127.0.0.1       whoami.md.internal localhost
+127.0.1.1       xd13
+...
+alu@xd13:~/pr/traefik$ 
+</code></pre></div>
+<p>Puede probar ahora con <code>ping</code> la resolución del nombre a IP:</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  ping whoami.md.internal 
+PING whoami.md.internal (127.0.0.1) 56(84) bytes of data.
+64 bytes from whoami.md.internal (127.0.0.1): icmp_seq=1 ttl=64 time=0.064 ms
+64 bytes from whoami.md.internal (127.0.0.1): icmp_seq=2 ttl=64 time=0.088 ms
+^C
+--- whoami.md.internal ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1021ms
+rtt min/avg/max/mdev = 0.064/0.076/0.088/0.012 ms
+alu@xd13:~/pr/traefik$  
+</code></pre></div>
+<p>Y ahora puede acceder con curl sin la opción -H (o desde el navegador web)
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  curl whoami.md.internal
+Hostname: 5d2d95b8f9b3
+IP: 127.0.0.1
+IP: 172.19.0.3
+...
+alu@xd13:~/pr/traefik$  firefox whoami.md.internal &amp;
+[1] 9050
+alu@xd13:~/pr/traefik$  
+</code></pre></div></p>
+<p>Añada ahora otras dos direcciones (que se usan en apartados posteriores) al fichero <code>/etc/hosts</code>:</p>
+<ul>
+<li><code>web.md.internal</code> (se asociará a un servidor nginx)</li>
+<li><code>php.otrodominio.internal</code> (se asociará a un servidor PHP)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  sudo nano /etc/hosts
+alu@xd13:~/pr/traefik$  cat /etc/hosts
+127.0.0.1       php.otrodominio.internal web.md.internal whoami.md.internal localhost
+127.0.1.1       vm 
+...
+alu@xd13:~/pr/traefik$ 
+</code></pre></div>
+<h3 id="32-servicio-web-nginx">3.2. Servicio web nginx<a class="headerlink" href="#32-servicio-web-nginx" title="Permanent link">&para;</a></h3>
+<p>En este apartado se añade un servidor web <code>nginx</code>. En este caso se asocia el host <code>web.md.internal</code> al servicio. El bloque a añadir en <code>docker-compose.yml</code> sería:</p>
+<div class="highlight"><pre><span></span><code>  nginx:
+    image: nginx
+    labels:
+      - &quot;traefik.enable=true&quot; 
+      - &quot;traefik.http.routers.nginx.entrypoints=web&quot;  
+      - &quot;traefik.http.routers.nginx.rule=Host(`web.md.internal`)&quot;  
+</code></pre></div>
+<p>Observe que hay que darle un nombre a la "ruta", y se ha usado en las labels <code>entrypoints</code> y <code>rule</code> el mismo nombre del servicio. Para activar dicho servicio:</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  docker compose up -d nginx
+[+] Running 1/1
+ ✔ Container p04_traefik-nginx-1  Started    0.0s 
+alu@xd13:~/pr/traefik$  
+</code></pre></div>
+<p>Nuevamente Traefik descubre el servicio en tiempo real y lo añade a sus rutas. Ahora puede acceder a la dirección <code>web.md.internal</code> (con curl o firefox)</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  curl web.md.internal
+&lt;!DOCTYPE html&gt;
+....
+&lt;body&gt;
+    &lt;p&gt;Página inicio servidor nginx. &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+alu@xd13:~/pr/traefik$  
+</code></pre></div>
+<h3 id="33-servidor-php">3.3. Servidor php<a class="headerlink" href="#33-servidor-php" title="Permanent link">&para;</a></h3>
+<p>En este apartado se añade un servidor web con PHP. Además se usa un TLD distinto (<code>otrodominio.internal</code>). Y como variación el servidor web-PHP mapea un directorio local al contenedor. En el directorio está el fichero <code>index.php</code> que muestra la IP y nombre del host. El contenido del fichero <code>index.php</code> es:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s1">&#39;Server IP: &#39;</span><span class="o">.</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SERVER_ADDR&#39;</span><span class="p">]</span><span class="o">.</span><span class="nb">nl2br</span><span class="p">(</span><span class="s2">&quot; </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span><span class="cp">?&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="s1">&#39;Hostname: &#39;</span><span class="o">.</span><span class="nb">gethostname</span><span class="p">()</span><span class="o">.</span><span class="nb">nl2br</span><span class="p">(</span><span class="s2">&quot; </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span><span class="cp">?&gt;</span>
+</code></pre></div>
+<p>Se añade el nuevo servicio a <code>docker-compose.yml</code>. Observe el nombre de las rutas usado (<code>phpserver</code>)y el valor de <code>Host</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">phpserver</span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php:apache</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./html:/var/www/html</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.entrypoints=web&quot;</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.rule=Host(`php.otrodominio.internal`)&quot;</span><span class="w">    </span>
+</code></pre></div>
+<p>Se lanza el servicio:</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  docker compose up -d phpserver 
+[+] Running 1/1
+ ✔ Container p04_traefik-phpserver-1  Started   0.1s 
+alu@xd13:~/pr/traefik$  
+</code></pre></div>
+<p>Y pruebe el nuevo servicio (en consola y navegador):</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  curl php.otrodominio.internal
+Server IP: 172.20.0.5 &lt;br /&gt;
+Hostname: 93206dc48cea &lt;br /&gt;
+alu@xd13:~/pr/traefik$  firefox php.otrodominio.internal &amp;
+</code></pre></div>
+<h2 id="4-escalar-el-servicio-balanceo-de-carga">4. Escalar el servicio: balanceo de carga<a class="headerlink" href="#4-escalar-el-servicio-balanceo-de-carga" title="Permanent link">&para;</a></h2>
+<p>Puede "<em>escalar</em>" este último servicio creando replicas con la opción <code>--scale</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  docker compose up -d --scale phpserver=3
+[+] Running 6/6
+ ✔ Container p04_traefik-reverse-proxy-1 Running   0.0s 
+ ✔ Container p04_traefik-nginx-1         Running   0.0s 
+ ✔ Container p04_traefik-whoami-1        Running   0.0s 
+ ✔ Container p04_traefik-phpserver-1     Running   0.0s 
+ ✔ Container p04_traefik-phpserver-3     Started   0.0s 
+ ✔ Container p04_traefik-phpserver-2     Started   0.1s
+alu@xd13:~/pr/traefik$  
+</code></pre></div>
+<p>Si accede ahora al servicio puede comprobar cómo responden las distintas replicas ya que traefik hace balanceo de carga: </p>
+<div class="highlight"><pre><span></span><code>alu@xd13:~/pr/traefik$  curl php.otrodominio.internal
+Server IP: 172.20.0.5 &lt;br /&gt;
+Hostname: 93206dc48cea &lt;br /&gt;
+alu@xd13:~/pr/traefik$  curl php.otrodominio.internal
+Server IP: 172.20.0.6 &lt;br /&gt;
+Hostname: a23b9ac33c77 &lt;br /&gt;
+alu@xd13:~/pr/traefik$  curl php.otrodominio.internal
+Server IP: 172.20.0.7 &lt;br /&gt;
+Hostname: 8ecfc43015ab &lt;br /&gt;
+alu@xd13:~/pr/traefik$  curl php.otrodominio.internal
+Server IP: 172.20.0.5 &lt;br /&gt;
+Hostname: 93206dc48cea &lt;br /&gt;
+alu@xd13:~/pr/traefik$  
+</code></pre></div>
+<h2 id="5-ejercicio-propuesto">5. Ejercicio propuesto<a class="headerlink" href="#5-ejercicio-propuesto" title="Permanent link">&para;</a></h2>
+<p>Añadir a traefik un servicio <code>Wordpres</code> en el dominio <code>miblog.example.internal</code>. Tenga en cuenta que son dos servicios: wordpress y la base da datos.</p>
+<h2 id="6-enlaces">6. Enlaces<a class="headerlink" href="#6-enlaces" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://doc.traefik.io/traefik/getting-started/quick-start/">Quickstart de Traefik</a></li>
+<li><a href="https://www.middlewareinventory.com/blog/traefik-docker/?utm_source=pocket_reader">Traefik Docker Example and Introduction</a></li>
+</ul>
+<h2 id="7-anexo-fichero-docker-composeyml-completo">7. Anexo: Fichero <code>docker-compose.yml</code> completo<a class="headerlink" href="#7-anexo-fichero-docker-composeyml-completo" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># compose.yml</span>
+<span class="nt">services</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">traefik</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik:v3.5</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--api.insecure=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker=true&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+
+<span class="w">  </span><span class="nt">whoami</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># A container that exposes an API to show its IP address</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik/whoami</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span><span class="c1"># es necesario si  la opción de traefik --providers.docker.exposedbydefault=false</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.entrypoints=web&quot;</span><span class="w"> </span><span class="c1"># valor por defecto, se podróa obviar</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.rule=Host(`whoami.md.internal`)&quot;</span><span class="w">     </span>
+
+<span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.entrypoints=web&quot;</span><span class="w">  </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.rule=Host(`web.md.internal`)&quot;</span><span class="w">        </span>
+
+<span class="w">  </span><span class="nt">phpserver</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">php:apache</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./html:/var/www/html</span>
+<span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.entrypoints=web&quot;</span><span class="w"> </span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.rule=Host(`php.otrodominio.internal`)&quot;</span><span class="w">   </span>
+</code></pre></div>
+<blockquote>
+<p><strong>Aviso</strong>: en este enunciado se usa como TLD para los ejemplos <code>.internal</code>. Es uno de los dominios recomendados para <em>Private DNS Namespaces</em>, entre los que podría usar <code>.intranet</code>, <code>.private</code>, <code>.corp</code>, <code>.home</code> o <code>.lan</code>. En prácticas posteriores se usará un dominio DNS real. 
+</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../03-docker-ejercicios/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ejercicios">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Ejercicios
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tabs", "navigation.tracking", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

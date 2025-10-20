@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02-servidores-bd/">
+      
+      
+        <link rel="next" href="../02-servidores-amplia/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Servidor de Aplicaciones - Zona Docker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-que-es-un-servidor-de-aplicaciones" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Zona Docker" class="md-header__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Docker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servidor de Aplicaciones
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-docker-tutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../02-servidores-web/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-docker-ejercicios/" class="md-tabs__link">
+        
+  
+    
+  
+  Ejercicios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04_traefik/" class="md-tabs__link">
+        
+  
+    
+  
+  Traefik
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Zona Docker" class="md-nav__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Docker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-docker-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidores Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-bd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Servidor de Aplicaciones
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Servidor de Aplicaciones
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-un-servidor-de-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. ¿Qué es un servidor de aplicaciones?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-apache-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Apache Tomcat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tomcat-con-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tomcat con Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Práctica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Práctica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. La aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-crear-la-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Crear la imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-probarla" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Probarla
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-con-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Con compose
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-amplia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ampliación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-docker-ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_traefik/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-un-servidor-de-aplicaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. ¿Qué es un servidor de aplicaciones?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-apache-tomcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Apache Tomcat
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tomcat-con-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tomcat con Docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Práctica
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Práctica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. La aplicación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-crear-la-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Crear la imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-probarla" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. Probarla
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-con-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Con compose
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Servidor de Aplicaciones</h1>
+
+<h2 id="1-que-es-un-servidor-de-aplicaciones">1. ¿Qué es un servidor de aplicaciones?<a class="headerlink" href="#1-que-es-un-servidor-de-aplicaciones" title="Permanent link">&para;</a></h2>
+<p>Un servidor de aplicaciones es un software que proporciona un entorno para ejecutar aplicaciones, generalmente en el lado del servidor. Sus funciones incluyen:</p>
+<ul>
+<li>Gestionar peticiones HTTP desde clientes (navegadores).</li>
+<li>Ejecutar código Java, servlets, JSP o frameworks web.</li>
+<li>Ofrecer servicios comunes: seguridad, gestión de sesiones, conexión a bases de datos, logging, etc.</li>
+</ul>
+<p>👉 Ejemplos de servidores de aplicaciones:</p>
+<ul>
+<li>Apache Tomcat (muy usado para Java EE o Jakarta EE Web Profile)</li>
+<li>WildFly (antes JBoss)</li>
+<li>GlassFish / Payara</li>
+<li>Jetty</li>
+</ul>
+<h2 id="2-apache-tomcat">2. Apache Tomcat<a class="headerlink" href="#2-apache-tomcat" title="Permanent link">&para;</a></h2>
+<p>Tomcat  es un servidor open source desarrollado por la Apache Software Foundation.
+Implementa las especificaciones Servle y JSP.</p>
+<p>Características principales:</p>
+<ul>
+<li>Ligero y fácil de configurar.</li>
+<li>Ideal para desplegar aplicaciones Java web (archivos <code>.war</code>).</li>
+<li>Se puede ejecutar como servicio o en contenedor Docker.</li>
+<li>Accesible por defecto en el puerto 8080.</li>
+</ul>
+<h2 id="3-tomcat-con-docker">3. Tomcat con Docker<a class="headerlink" href="#3-tomcat-con-docker" title="Permanent link">&para;</a></h2>
+<p>En lugar de instalar Tomcat manualmente, podemos usar una imagen Docker (<code>tomcat:10</code> o <code>tomcat:9</code>).Ventajas:</p>
+<ul>
+<li>No hay que configurar Java ni Tomcat en el sistema.</li>
+<li>Entorno limpio, reproducible y aislado.</li>
+<li>Ideal para entornos educativos y despliegue rápido.</li>
+</ul>
+<p>Requisitos previos</p>
+<ul>
+<li>Tener Docker instalado y funcionando,</li>
+<li>Disponer de una aplicación web Java empaquetada en un archivo <code>.war</code>.</li>
+</ul>
+<h2 id="4-practica">4. Práctica<a class="headerlink" href="#4-practica" title="Permanent link">&para;</a></h2>
+<h3 id="41-la-aplicacion">4.1. La aplicación<a class="headerlink" href="#41-la-aplicacion" title="Permanent link">&para;</a></h3>
+<p>Crear un directorio:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>tomcat-docker
+<span class="nb">cd</span><span class="w"> </span>tomcat-docker
+</code></pre></div>
+<p>Se le proporciona en este ejemplo una aplicacion desarrolada en JSP  que solicita que el usuario adivine un nombre. Este es el fichero que debe descargar:</p>
+<p>Fichero <a href="src/tomcat-docker/guess-number.zip">guess-number.zip</a></p>
+<p>Ahora baste descomprimir, y  crear el fichero war:</p>
+<div class="admonition terminal">
+<p class="admonition-title">Ejecuta en tu terminal</p>
+</div>
+<div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>guess-number.zip
+<span class="nb">cd</span><span class="w"> </span>guess-number
+jar<span class="w"> </span>cvf<span class="w"> </span>guess-number.war<span class="w">  </span>*.jsp
+</code></pre></div>
+<h3 id="42-crear-la-imagen">4.2. Crear la imagen<a class="headerlink" href="#42-crear-la-imagen" title="Permanent link">&para;</a></h3>
+<p>Usar un Dockerfile similar a este que debe almacenar en la carpeta <code>tomcat-docjer</code></p>
+<div class="highlight"><span class="filename">Dockerfile</span><pre><span></span><code><span class="c"># Usar la imagen oficial de Tomcat</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">tomcat</span>
+<span class="c"># FROM tomcat:10-jdk17</span>
+
+<span class="c"># Copiar nuestra app al directorio webapps</span>
+<span class="k">COPY</span><span class="w"> </span>./guess-number/guess-number.war<span class="w"> </span>/usr/local/tomcat/webapps/ROOT.war
+
+<span class="c"># Exponer el puerto 8080</span>
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
+</code></pre></div>
+<p>Y construir la imagen</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>mitomcat-app<span class="w"> </span>.
+</code></pre></div>
+<h3 id="43-probarla">4.3. Probarla<a class="headerlink" href="#43-probarla" title="Permanent link">&para;</a></h3>
+<div class="admonition terminal">
+<p class="admonition-title">Ejecuta en tu terminal</p>
+</div>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>--name<span class="w"> </span>tomcat-app<span class="w"> </span>mitomcat-app
+
+firefox<span class="w"> </span>http://localhost:8080
+</code></pre></div>
+<p>Deberías ver la aplicación Java funcionando dentro del contenedor Tomcat.</p>
+<h2 id="5-con-compose">5. Con compose<a class="headerlink" href="#5-con-compose" title="Permanent link">&para;</a></h2>
+<p>En este caso no se crea una imagen sino que se usa la de tomcat y un volumen para la aplicación. Usar un compose similar a este:</p>
+<div class="highlight"><span class="filename">compose.yaml</span><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tomcat</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tomcat</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mitomcat</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./guess-number/guess-number.war:/usr/local/tomcat/webapps/ROOT.war</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</code></pre></div>
+<p>Y para ejecutar</p>
+<div class="admonition example">
+<p class="admonition-title">Comprobando servicio</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="go">docker compose up -d </span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../02-servidores-bd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bases de Datos">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Bases de Datos
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-servidores-amplia/" class="md-footer__link md-footer__link--next" aria-label="Next: Ampliación">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Ampliación
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tabs", "navigation.tracking", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
