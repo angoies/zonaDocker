@@ -248,6 +248,23 @@
   
 
       
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fuentes/" class="md-tabs__link">
+        
+  
+    
+  
+  Fuentes
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -619,6 +636,27 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fuentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -782,17 +820,14 @@ Implementa las especificaciones Servle y JSP.</p>
 <span class="nb">cd</span><span class="w"> </span>tomcat-docker
 </code></pre></div>
 <p>Se le proporciona en este ejemplo una aplicacion desarrolada en JSP  que solicita que el usuario adivine un nombre. Este es el fichero que debe descargar:</p>
-<p>Fichero <a href="src/tomcat-docker/guess-number.zip">guess-number.zip</a></p>
-<p>Ahora baste descomprimir, y  crear el fichero war:</p>
-<div class="admonition terminal">
-<p class="admonition-title">Ejecuta en tu terminal</p>
-</div>
+<p>Fichero <a href="../src/03_guess-number.zip">guess-number.zip</a></p>
+<p>Ahora basta descomprimir y  crear el fichero war:</p>
 <div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>guess-number.zip
 <span class="nb">cd</span><span class="w"> </span>guess-number
 jar<span class="w"> </span>cvf<span class="w"> </span>guess-number.war<span class="w">  </span>*.jsp
 </code></pre></div>
 <h3 id="42-crear-la-imagen">4.2. Crear la imagen<a class="headerlink" href="#42-crear-la-imagen" title="Permanent link">&para;</a></h3>
-<p>Usar un Dockerfile similar a este que debe almacenar en la carpeta <code>tomcat-docjer</code></p>
+<p>Usar un Dockerfile similar a este que debe almacenar en la carpeta <code>tomcat-docker</code></p>
 <div class="highlight"><span class="filename">Dockerfile</span><pre><span></span><code><span class="c"># Usar la imagen oficial de Tomcat</span>
 <span class="k">FROM</span><span class="w"> </span><span class="s">tomcat</span>
 <span class="c"># FROM tomcat:10-jdk17</span>
@@ -816,7 +851,7 @@ firefox<span class="w"> </span>http://localhost:8080
 </code></pre></div>
 <p>Deberías ver la aplicación Java funcionando dentro del contenedor Tomcat.</p>
 <h2 id="5-con-compose">5. Con compose<a class="headerlink" href="#5-con-compose" title="Permanent link">&para;</a></h2>
-<p>En este caso no se crea una imagen sino que se usa la de tomcat y un volumen para la aplicación. Usar un compose similar a este:</p>
+<p>En este caso no se crea una imagen sino que se usa la de tomcat, y un volumen para la aplicación. Usar un compose similar a este:</p>
 <div class="highlight"><span class="filename">compose.yaml</span><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">tomcat</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tomcat</span>
@@ -827,9 +862,6 @@ firefox<span class="w"> </span>http://localhost:8080
 <span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 </code></pre></div>
 <p>Y para ejecutar</p>
-<div class="admonition example">
-<p class="admonition-title">Comprobando servicio</p>
-</div>
 <div class="highlight"><pre><span></span><code><span class="go">docker compose up -d </span>
 </code></pre></div>
 

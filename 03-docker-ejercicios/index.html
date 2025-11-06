@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ejercicios-tras-tutorial-docker" class="md-skip">
+        <a href="#ejercicios" class="md-skip">
           Skip to content
         </a>
       
@@ -242,6 +242,23 @@
     
   
   Traefik
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fuentes/" class="md-tabs__link">
+        
+  
+    
+  
+  Fuentes
 
       </a>
     </li>
@@ -512,27 +529,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-servidores" class="md-nav__link">
+  <a href="#servidores" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Servidores
+      Servidores
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configuraciones-multicontenedor" class="md-nav__link">
+  <a href="#crear-su-propia-imagen" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configuraciones multicontenedor
+      Crear su propia imagen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-opcionales" class="md-nav__link">
+  <a href="#configuraciones-multicontenedor" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Opcionales
+      Configuraciones multicontenedor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traefik" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traefik
     </span>
   </a>
   
@@ -558,6 +584,27 @@
   
   <span class="md-ellipsis">
     Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fuentes
     
   </span>
   
@@ -594,27 +641,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-servidores" class="md-nav__link">
+  <a href="#servidores" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Servidores
+      Servidores
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-configuraciones-multicontenedor" class="md-nav__link">
+  <a href="#crear-su-propia-imagen" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configuraciones multicontenedor
+      Crear su propia imagen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-opcionales" class="md-nav__link">
+  <a href="#configuraciones-multicontenedor" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Opcionales
+      Configuraciones multicontenedor
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#traefik" class="md-nav__link">
+    <span class="md-ellipsis">
+      Traefik
     </span>
   </a>
   
@@ -636,8 +692,8 @@
 
 
 
-<h1 id="ejercicios-tras-tutorial-docker">Ejercicios tras tutorial docker<a class="headerlink" href="#ejercicios-tras-tutorial-docker" title="Permanent link">&para;</a></h1>
-<h2 id="1-servidores">1. Servidores<a class="headerlink" href="#1-servidores" title="Permanent link">&para;</a></h2>
+<h1 id="ejercicios">Ejercicios<a class="headerlink" href="#ejercicios" title="Permanent link">&para;</a></h1>
+<h2 id="servidores">Servidores<a class="headerlink" href="#servidores" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Lanzar contenedor con servidor web nginx. Probar. Parar y borrar.</li>
 <li>Lanzar contenedor con servidor web nginx mapeando un directorio del host como sitio web (usar por ejemplo fuentes del juego 2048). Probar.</li>
@@ -646,22 +702,28 @@
 <li>Lanzar contenedor con <strong>servidor web con php</strong>. Ver variantes de la imagen php con apache. Mapear un directorio local que contenga un fichero <code>index.php</code> de prueba. Probar. Parar y borrar.</li>
 <li>Lanzar servidor con BD <code>mysql</code>. Acceder luego a la consola <code>mysql</code> del contenedor usando <code>docker exec</code>. Parar y borrar.</li>
 <li>Lanzar servidor con BD <code>mariadb</code> usando un volumen docker. Hacerlo generando una clave de root aleatoria.</li>
+<li>
+<ol>
+<li>Investigar: Se propone que al lanzar un contenedor con un motor de BD (pe. mysql) se cree una base de datos y se rellene con datos iniciales. <strong>Pista</strong>: <code>docker-entrypoint-initdb.d</code> (puede usar los ficheros de ejemplo).</li>
 </ol>
-<h2 id="2-configuraciones-multicontenedor">2. Configuraciones multicontenedor<a class="headerlink" href="#2-configuraciones-multicontenedor" title="Permanent link">&para;</a></h2>
+</li>
+</ol>
+<h2 id="crear-su-propia-imagen">Crear su propia imagen<a class="headerlink" href="#crear-su-propia-imagen" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Crear una imagen propia con el juego 2028. Antes modificar el <code>title</code> de la página principal para indicar vuestro nombre. Probar. Subir a DockerHub.</li>
+</ol>
+<h2 id="configuraciones-multicontenedor">Configuraciones multicontenedor<a class="headerlink" href="#configuraciones-multicontenedor" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Crear un fichero <code>docker-compose</code> para lanzar una base de datos y el gestor <code>adminer</code> (o <code>phpmyadmin</code>) en dos contenedores. Probar el acceso desde adminer a la BD (ejemplo en la info de la imagen <code>adminer</code>).</li>
-<li>Modificar anterior para almacenar la BD en un volumen docker. Generar info desde <code>adminer</code> y comprobar que persiste tras reiniciar el contenedor</li>
+<li>Modificar anterior para almacenar la BD en un volumen. Generar info desde <code>adminer</code> y comprobar que persiste tras reiniciar el contenedor</li>
 <li>Crear/buscar fichero <code>docker-compose</code> para lanzar Wordpress en dos contenedores (aplicación y BD). Probar. </li>
 <li>Revisar apartado anterior: Añadir una entrada y un tema nuevo a Wordpress. Probar. Detener y borrar los contenedores. Reiniciar el servicio y comprobar que permanece la entrada y el tema. Si no, solucionar.</li>
+<li>Opcional: probar configuración multicontenedor de algún otro CMS como joomla o drupal.</li>
 </ol>
-<h2 id="3-opcionales">3. Opcionales<a class="headerlink" href="#3-opcionales" title="Permanent link">&para;</a></h2>
+<h2 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Crear una imagen propia con el juego 2028. Antes modificar el <code>title</code> de la página principal para indicar vuestro nombre. Probar.</li>
-<li>Investigar: Se propone que al lanzar un contenedor con un motor de BD (pe. mysql) se cree una base de datos (y se rellene con datos iniciales, etc). <strong>Pista</strong>: <code>docker-entrypoint-initdb.d</code>. Puede usar los ficheros de ejemplo sql en la unidad compartida.</li>
+<li>Añadir a ejemplos de clase el servicio <code>jugar</code> que lanza la imagen  del juego 2048 construida previamente. Debe responder en la dirección <code>http://jugar.sitio1.internal</code>.</li>
 </ol>
-<blockquote>
-<p>Fuentes para ejemplos en la unidad compartida (o en la plataforma y/o el repositorio).</p>
-</blockquote>
 
 
 

@@ -248,6 +248,23 @@
   
 
       
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fuentes/" class="md-tabs__link">
+        
+  
+    
+  
+  Fuentes
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -369,6 +386,15 @@
   <a href="#2-realizar-paso-a-paso-el-tutorial-docker-101" class="md-nav__link">
     <span class="md-ellipsis">
       2. Realizar paso a paso el tutorial docker 101
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tipicos-problemas-en-el-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Típicos problemas en el aula
     </span>
   </a>
   
@@ -558,6 +584,27 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fuentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -602,6 +649,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-tipicos-problemas-en-el-aula" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Típicos problemas en el aula
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -632,6 +688,24 @@
 <p>Once it has started, you can open your browser to http://localhost.</p>
 </blockquote>
 <p>Además dispone en la plataforma de un curso de <em>Introducción a Docker</em>. </p>
+<h2 id="3-tipicos-problemas-en-el-aula">3. Típicos problemas en el aula<a class="headerlink" href="#3-tipicos-problemas-en-el-aula" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Levantar un contenedor con un nombre que ya está siendo usado por otro contenedor (activo o no).</li>
+<li>Levantar un contenedor mapeando un puerto del host que ya está siendo usado por otro contenedor.</li>
+<li>
+<p>Ojo con la "cache" del navegador, puede ser necesario forzar la recarga de la página, o usar el comando <code>curl</code>, etc.</p>
+</li>
+<li>
+<p>Existen dos versiones del tutorial docker, y el código de la aplicación de ejemplo que se utiliza es diferente en cada versión. No puede mezclar la aplicación de un tutorial con los comandos o el <code>docker-compose.yml</code> del otro. Las dos versiones del tutorial son:</p>
+<ul>
+<li>docker/getting-started:latest (usa node 18 y mysql 8)</li>
+<li>docker/getting-started:pwd (usa node 10 y mysql 5.7)</li>
+</ul>
+</li>
+<li>
+<p>Cuidado al crear y usar un volumen para una versión de una base de datos  e intentar usar ese volumen con otra versión de la base de datos (o con otra base de datos).</p>
+</li>
+</ul>
 
 
 
