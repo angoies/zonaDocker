@@ -253,6 +253,23 @@
   
   
     <li class="md-tabs__item">
+      <a href="../05_docker_swarm/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Swarm
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../fuentes/" class="md-tabs__link">
         
   
@@ -601,6 +618,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../05_docker_swarm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Swarm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../fuentes/" class="md-nav__link">
         
   
@@ -697,7 +735,7 @@
 <h2 id="1-desde-cli">1. Desde CLI<a class="headerlink" href="#1-desde-cli" title="Permanent link">&para;</a></h2>
 <p>En este apartado va a desplegar un contenedor usando la imagen de <code>mysql</code>.  Si consulta la documentación de dicha imagen verá qeu la bas de datos se puede configura a través del uso de variables de entorno. En este ejemplo inicial se utilizará la  variable de entorno <code>MYSQL_ROOT_PASSWORD</code> para indicarle al contenedor la clave del usuario root. </p>
 <p>Si usa la linea de comandos las variables de entorno se pasan con la opción <code>-e</code>, en este caso  <code>-e MYSQL_ROOT_PASSWORD=miclave</code>. </p>
-<div class="highlight"><pre><span></span><code>$ docker run -d --name mibd -e MYSQL_ROOT_PASSWORD=miclave  mysql
+<div class="highlight"><pre><span></span><code>docker run -d --name mibd -e MYSQL_ROOT_PASSWORD=miclave  mysql
 </code></pre></div>
 <p>Para comprobar que la BD está operativa se inicia una shell en el contenedor con el comando <code>docker exec</code> y dentro se ejecuta el cliente <code>mysql</code>:</p>
 <div class="highlight"><pre><span></span><code>alu@xd13:~/DW$ docker exec -it mibd bash

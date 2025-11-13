@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  helloworld:
+      image: drhelius/helloworld-node-microservice
+      ports:
+        - "8080:8080"
+      deploy:
+        replicas: 3

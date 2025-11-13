@@ -253,6 +253,23 @@
   
   
     <li class="md-tabs__item">
+      <a href="../05_docker_swarm/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Swarm
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../fuentes/" class="md-tabs__link">
         
   
@@ -694,6 +711,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../05_docker_swarm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Swarm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../fuentes/" class="md-nav__link">
         
   
@@ -905,7 +943,7 @@
     └─ httpd.conf
 </code></pre></div>
 <h3 id="13-configuracion-apache">1.3. Configuración apache<a class="headerlink" href="#13-configuracion-apache" title="Permanent link">&para;</a></h3>
-<p>Necesita lso ficheros: </p>
+<p>Necesita los ficheros: </p>
 <ul>
 <li><code>httpd.conf</code>, configuración genral de apache</li>
 <li><code>httpd-vhosts.conf</code>, configuración de los hosts virtuales <code>httpd-vhosts.conf</code></li>
@@ -926,13 +964,13 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./conf/httpd.conf:/usr/local/apache2/conf/httpd.conf</span><span class="w"> </span>
 </code></pre></div>
 <h3 id="15-probar">1.5. Probar<a class="headerlink" href="#15-probar" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>$ docker compose up -d
-$ curl sitio1.local
-$ curl sitio1.local
+<div class="highlight"><pre><span></span><code>docker compose up -d
+curl sitio1.local
+curl sitio2.local
 </code></pre></div>
 <h2 id="2-ssl-autofirmado">2. SSL (autofirmado)<a class="headerlink" href="#2-ssl-autofirmado" title="Permanent link">&para;</a></h2>
 <h3 id="21-entorno">2.1. Entorno<a class="headerlink" href="#21-entorno" title="Permanent link">&para;</a></h3>
-<p>Añadir una carpeta <code>certs</code> y un nuevo archivo de configuración <code>vhosts-ssl.conf</code>:</p>
+<p>Se añaden  a continuación una carpeta <code>certs</code> y un nuevo archivo de configuración <code>vhosts-ssl.conf</code> y la estructura quedará:</p>
 <div class="highlight"><pre><span></span><code>apache-docker/
 ├── docker-compose.yml
 ├── conf/
@@ -947,16 +985,17 @@ $ curl sitio1.local
 </code></pre></div>
 <h3 id="22-generar-certificados-autofirmados">2.2. Generar certificados autofirmados<a class="headerlink" href="#22-generar-certificados-autofirmados" title="Permanent link">&para;</a></h3>
 <p>Ejecutar en la carpeta raíz del proyecto:</p>
-<div class="highlight"><pre><span></span><code>$ mkdir certs
+<div class="highlight"><pre><span></span><code># Crear directorio
+apache-docker$ mkdir certs
 
-# Certificado de sitio1
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+# Crear Certificado de sitio1
+apache-docker$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
  -keyout certs/sitio1.local.key \
  -out certs/sitio1.local.crt \
  -subj &quot;/C=ES/ST=Madrid/L=Madrid/O=LocalDev/CN=sitio1.local&quot;
 
-# Certificado de sitio2
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+# Crear Certificado de sitio2
+apache-docker$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
  -keyout certs/sitio2.local.key \
  -out certs/sitio2.local.crt \
  -subj &quot;/C=ES/ST=Madrid/L=Madrid/O=LocalDev/CN=sitio2.local&quot;
@@ -986,7 +1025,7 @@ LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
 &lt;/VirtualHost&gt;
 ...
 </code></pre></div>
-<p>Además hay que odificar <code>httpd.conf</code> y añadir al final del mismo estas líneas</p>
+<p>Además hay que modificar <code>httpd.conf</code> y añadir al final del mismo estas líneas:</p>
 <div class="highlight"><pre><span></span><code>...
 # Incluir también la configuración SSL
 Include conf/extra/httpd-vhosts-ssl.conf
@@ -996,7 +1035,7 @@ Include conf/extra/httpd-vhosts-ssl.conf
 <ul>
 <li>Añadir redirección del puerto 443</li>
 <li>Añadir volúmenes:</li>
-<li>con uan ruta a los certificados creados</li>
+<li>con una ruta a los certificados creados</li>
 <li>con el nuevo fichero de configuración <code>vhosts-ssl.conf</code></li>
 <li></li>
 </ul>
@@ -1019,8 +1058,7 @@ Include conf/extra/httpd-vhosts-ssl.conf
       - ./certs/:/usr/local/apache2/conf/certs   
 </code></pre></div>
 <h3 id="25-probar">2.5. Probar<a class="headerlink" href="#25-probar" title="Permanent link">&para;</a></h3>
-<p>Tenga en cuenta que al ser certificados autofirmados el navegador no mostará la página ya avisará de un psoible fallo de seguridad. </p>
-<p>Otra posibilidad es usar el comando <code>curl</code> con la opción <code>-k</code>:</p>
+<p>Tenga en cuenta que al ser certificados autofirmados el navegador no mostará la página y avisará de un posible fallo de seguridad. Otra posibilidad es usar el comando <code>curl</code> con la opción <code>-k</code>:</p>
 <div class="highlight"><pre><span></span><code>$ curl https://sitio2.local
 curl: (60) SSL certificate problem: self-signed certificate
 More details here: https://curl.se/docs/sslcerts.html
@@ -1034,7 +1072,7 @@ $ curl -k https://sitio2.local
 &lt;/html&gt;
 $ 
 </code></pre></div>
-<p>Opciones de utilidad con curl</p>
+<p>Opciones de utilidad con curl:</p>
 <div class="highlight"><pre><span></span><code>Opción  Descripción
 -L      Sigue las redirecciones.
 -k      Ignora errores de certificado.
@@ -1042,7 +1080,7 @@ $
 -v      Modo detallado (verbose).
 </code></pre></div>
 <h3 id="26-ampliacion">2.6. Ampliación<a class="headerlink" href="#26-ampliacion" title="Permanent link">&para;</a></h3>
-<p>Se le propome modificar la configuración del servidor para que las peticiones al puerto 80 se redireccionen al puerto 443 (redirección HTTP → HTTPS)</p>
+<p>Se le propome modificar la configuración del servidor para que las peticiones al puerto 80 se redireccionen al puerto 443 (redirección HTTP a HTTPS)</p>
 
 
 

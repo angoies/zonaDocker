@@ -1,0 +1,1353 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../04_traefik/">
+      
+      
+        <link rel="next" href="../fuentes/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Docker Swarm - Zona Docker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cluster-docker-swarm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Zona Docker" class="md-header__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Docker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker Swarm
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-docker-tutorial/" class="md-tabs__link">
+        
+  
+    
+  
+  Tutorial Docker
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../02-servidores-web/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-docker-ejercicios/" class="md-tabs__link">
+        
+  
+    
+  
+  Ejercicios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04_traefik/" class="md-tabs__link">
+        
+  
+    
+  
+  Traefik
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Swarm
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../fuentes/" class="md-tabs__link">
+        
+  
+    
+  
+  Fuentes
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Zona Docker" class="md-nav__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Docker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-docker-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidores Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-bd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidor de Aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-servidores-amplia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ampliación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-docker-ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_traefik/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker Swarm
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Docker Swarm
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-preparacion-del-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Preparación del swarm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Preparación del swarm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-nodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Nodos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-iniciar-el-enjambre-o-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Iniciar el "enjambre" o swarm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-unir-nodos-worker-al-enjambre" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Unir nodos worker al "enjambre"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-desplegar-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Desplegar servicio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Desplegar servicio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-despliegue-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Despliegue manual
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-borrar-el-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Borrar el servicio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-desplegar-usando-stack-y-fichero-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Desplegar usando stack y fichero compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-herramienta-grafica-portainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Herramienta gráfica: portainer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-anexos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Anexos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Anexos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-despliegue-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. Despliegue en AWS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-kvm-y-clonado-suave" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. KVM y clonado suave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-uso-de-multipass" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. Uso de multipass
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fuentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-preparacion-del-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Preparación del swarm
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Preparación del swarm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-nodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Nodos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-iniciar-el-enjambre-o-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Iniciar el "enjambre" o swarm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-unir-nodos-worker-al-enjambre" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Unir nodos worker al "enjambre"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-desplegar-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Desplegar servicio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Desplegar servicio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-despliegue-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Despliegue manual
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-borrar-el-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Borrar el servicio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-desplegar-usando-stack-y-fichero-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Desplegar usando stack y fichero compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-herramienta-grafica-portainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Herramienta gráfica: portainer
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-anexos" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Anexos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Anexos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-despliegue-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. Despliegue en AWS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-kvm-y-clonado-suave" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. KVM y clonado suave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-uso-de-multipass" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. Uso de multipass
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cluster-docker-swarm">Cluster: Docker Swarm<a class="headerlink" href="#cluster-docker-swarm" title="Permanent link">&para;</a></h1>
+<h2 id="1-introduccion">1. Introducción<a class="headerlink" href="#1-introduccion" title="Permanent link">&para;</a></h2>
+<p>Se introduce este tema después de hacer las prácticas de Docker. Puede consultar esta referencia con una explicación de los conceptos de <em>stack</em>, <em>service</em>, <em>nodo</em>, etc: <a href="https://docs.docker.com/engine/swarm/key-concepts/">https://docs.docker.com/engine/swarm/key-concepts/</a></p>
+<p>En la práctica se creará un cluster de 3 nodos que deben estar en la misma red: uno será el <em>manager</em> (gestor) y el resto <em>workers</em>. Para el despliegue de lso tres nodos puede elegir :
+- Opción 1: crear tres máquinas virtuales con KVM (o VMware, Dropbox) e instalar docker en ellas.
+- Opción 2: crear tres instancias EC2 en AWS
+- Opción 3 específica de Ubuntu: usar la utilidad <em>multipass</em> para crear los tres nodos e instalar docker en ellos (ver anexo). </p>
+<p>En esta práctica se opta por la primera de ellas.</p>
+<h2 id="2-preparacion-del-swarm">2. Preparación del <em>swarm</em><a class="headerlink" href="#2-preparacion-del-swarm" title="Permanent link">&para;</a></h2>
+<h3 id="21-nodos">2.1. Nodos<a class="headerlink" href="#21-nodos" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Se utiliza una máquina virtual ya preparada con Debian sin interfaz gráfico. Lleva instalada <code>docker</code>, <code>sudo</code>, <code>curl</code> y un servidor ssh. </li>
+<li>Como se necesitan tres máquinas virtuales lo más sencillo es preparar una y clonar las otras dos (tiene instrucciones de cómo hacerlo en forma "diferencial" soft o linked en KVM en el anexo).</li>
+<li>Al iniciar las máquinas se modifica el <em>hostname</em> para que sea más sencillo identificarlas. </li>
+<li>Se accede mediante ssh desde el <em>host</em> a las máquinas virtuales: esto refleja una situación real de trabajo (y además permite copiar y pegar). </li>
+</ul>
+<h3 id="22-iniciar-el-enjambre-o-swarm">2.2. Iniciar el "enjambre" o swarm<a class="headerlink" href="#22-iniciar-el-enjambre-o-swarm" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Tenga en cuenta que:
+* Las IPs de las máquinas virtuales dependerán de la configuración de cada sistema.
+* Los usuarios en las máquinas virtuales pueden tener nombres distintos: <code>clases</code>, <code>alu</code>, <code>usuario</code>, etc.  </p>
+</blockquote>
+<p>El primer paso es conectarse al nodo manager usando ssh:
+<div class="highlight"><pre><span></span><code>clases@vm:~$ ssh alu@192.168.125.136
+alu@192.168.125.136&#39;s password: 
+Linux manager 6.1.0-13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.55-1 (2023-09-29) x86_64
+...
+alu@manager:~$
+</code></pre></div></p>
+<p>Rl cluster se inicia con el comando  <code>docker swarm init</code>. Al iniciarlo  muestra el <em>token</em> de invitación para los nodos tipo <em>worker</em>: </p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker swarm init 
+Swarm initialized: current node (szbzjfi2mbaiqif01al7u0qjg) is now a manager.
+
+To add a worker to this swarm, run the following command:
+    docker swarm join --token SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0 192.168.125.136:2377
+
+To add a manager to this swarm, run &#39;docker swarm join-token manager&#39; and follow the instructions.
+alu@manager:~$ 
+</code></pre></div>
+<p>Una vez iniciado puede comprobar con el comando <code>docker node ls</code> que el único nodo existente es el <em>manager</em>, que aparece como activo y con estado <code>Leader</code></p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker node ls
+ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER   
+szbzjfi2mbaiqif01al7u0qjg *   manager    Ready     Active         Leader           
+alu@manager:~$ 
+</code></pre></div>
+<h3 id="23-unir-nodos-worker-al-enjambre">2.3. Unir nodos <em>worker</em> al  "enjambre"<a class="headerlink" href="#23-unir-nodos-worker-al-enjambre" title="Permanent link">&para;</a></h3>
+<p>Para unir un nodo al cluster o enjambre es necesario usar un <em>token</em> de invitación. El <em>token</em> se muestra:
+* al iniciar el cluster en el manager 
+* o ejecutando en el manager el comando <code>docker swarm  join-token worker</code>. </p>
+<p>Por lo tanto para añadir un <em>worker</em> al cluster es necesario conectarse por shh al nuevo nodo y una vez conectado ejecutar el comando <code>docker swarm join</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@worker-01:~$ docker swarm join --token SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0 192.168.125.136:2377
+This node joined a swarm as a worker.
+alu@worker-01:~$
+</code></pre></div>
+<p>En el nodo <em>manager</em> puede  comprobar que el nodo se ha añadido con <code>docker node ls</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker node ls
+ID                            HOSTNAME    STATUS    AVAILABILITY   MANAGER 
+9nhxurspobgirwh5m1d5h0fvf *   manager     Ready     Active         Leader           
+zm7acf20ysqblhalyeicrse6w     worker-01   Ready     Active                          
+alu@manager:~$ 
+</code></pre></div>
+<h2 id="3-desplegar-servicio">3. Desplegar servicio<a class="headerlink" href="#3-desplegar-servicio" title="Permanent link">&para;</a></h2>
+<h3 id="31-despliegue-manual">3.1. Despliegue manual<a class="headerlink" href="#31-despliegue-manual" title="Permanent link">&para;</a></h3>
+<p>Para probar el cluster  <strong>se crea en el <em>manager</em></strong> un servicio  que llamaremos <em><code>helloworld</code></em> usando la imagen <code>repocurso/helloworld-node-microservice</code>. Esta imagen es una aplicación web que muestra el nombre (id del contenedor) del equipo. </p>
+<p>Observe cómo se crea el servicio (en este caso se hace con una única replica) con el comando <code>docker service create</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker service create --replicas 1 --name helloworld -p 8080:8080 repocurso/helloworld-node-microservice
+zzcmp70yivslrzdhqyxhjblyl
+overall progress: 0 out of 1 tasks 
+overall progress: 1 out of 1 tasks 
+1/1: running   
+verify: Service converged 
+alu@manager:~$    
+</code></pre></div>
+<p>Para probar el servicio use el comando <code>curl</code> (en vez de un navegador). Desde el <em>manager</em>:</p>
+<p><div class="highlight"><pre><span></span><code>alu@manager:~$ curl 127.0.0.1:8080
+Hello World from host &quot;8e088d6016c9&quot;.
+alu@manager:~$ 
+</code></pre></div>
+O desde el <em>worker</em></p>
+<div class="highlight"><pre><span></span><code>alu@worker-01:~$ curl 127.0.0.1:8080
+Hello World from host &quot;8e088d6016c9&quot;.
+alu@worker-01:~$ 
+</code></pre></div>
+<p>Puede acceder también desde cualquiera de los dos nodos con la IP de los nodos, y en todos los casos se accede correctamente al servicio aunque el contenedor esté sólo en uno de los nodos:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ curl 192.168.125.136:8080
+Hello World from host &quot;692f6380f27b&quot;.
+alu@manager:~$ curl 192.168.125.141:8080
+Hello World from host &quot;692f6380f27b&quot;.
+alu@manager:~$ 
+</code></pre></div>
+<p>Si añade otro nodo al enjambre (se conecta al nuevo nodo por ssh y ejecuta el comando <code>docker swarm join</code>):</p>
+<div class="highlight"><pre><span></span><code>alu@worker-02:~$ docker swarm join --token SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0 192.168.125.136:2377
+This node joined a swarm as a worker.
+alu@worker-02:~$ 
+</code></pre></div>
+<p>Puede comprobar en el <em>manager</em> cómo se ha añadido el nodo:
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker node ls
+ID                           HOSTNAME   STATUS  AVAILABILITY MANAGER STATUS   
+9nhxurspobgirwh5m1d5h0fvf *  manager    Ready   Active       Leader           
+zm7acf20ysqblhalyeicrse6w    worker-01  Ready   Active                          
+s53vme3dp6tr2jvjmfr88avpt    worker-02  Ready   Active                          
+alu@manager:~$ 
+</code></pre></div></p>
+<p>Ahora puede <strong>escalar</strong> a cuatro replicas el servicio usando el comando <code>docker service scale</code> e indicando el nombre del servicio y el número de réplicas:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$  docker service scale helloworld=4
+helloworld scaled to 4
+overall progress: 4 out of 4 tasks 
+1/4: running   [==================================================&gt;] 
+2/4: running   [==================================================&gt;] 
+3/4: running   [==================================================&gt;] 
+4/4: running   [==================================================&gt;] 
+verify: Service converged 
+alu@manager:~$ 
+</code></pre></div>
+<p>Se puede observar a continuación que las replicas se distribuyen en los tres nodos, y responden a las peticiones según un algoritmo <em>round-robin</em>. Haga varias peticiones y observe cómo va cambiando el identificador del contenedor:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ curl 127.0.0.1:8080
+Hello World from host &quot;eb5da9711349&quot;.
+alu@manager:~$ curl 127.0.0.1:8080
+Hello World from host &quot;acb9bc2b68ba&quot;.
+alu@manager:~$ curl 127.0.0.1:8080
+Hello World from host &quot;1f4f0b7c2822&quot;.
+alu@manager:~$ curl 127.0.0.1:8080
+Hello World from host &quot;8e088d6016c9&quot;.
+alu@manager:~$ curl 127.0.0.1:8080
+Hello World from host &quot;eb5da9711349&quot;.
+alu@manager:~$
+</code></pre></div>
+<p>Hasta ahora se han realizado las pruebas desde los nodos del cluster, pero puede acceder al servicio desde el host usando la IP de cualquiera de los nodos del cluster:</p>
+<div class="highlight"><pre><span></span><code>clases@vm:~$ curl 192.168.125.141:8080
+Hello World from host &quot;eb5da9711349&quot;.
+clases@vm:~$ curl 192.168.125.141:8080
+Hello World from host &quot;1f4f0b7c2822&quot;.
+clases@vm:~$ curl 192.168.125.141:8080
+Hello World from host &quot;acb9bc2b68ba&quot;.
+clases@vm:~$ curl 192.168.125.141:8080
+Hello World from host &quot;8e088d6016c9&quot;.
+clases@vm:~$ curl 192.168.125.141:8080
+Hello World from host &quot;eb5da9711349&quot;.
+clases@vm:~$ 
+</code></pre></div>
+<p>Puede comprobar la distribución del servicio entre los nodos con el comando  <code>docker service ps &lt;nombreServicio&gt;</code>. En este caso cada nodo "corre"" un contenedor y uno de ellos dos.</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker service ps helloworld
+ID             NAME           IMAGE                                          NODE        DESIRED STATE   CURRENT STATE                ERROR     PORTS
+z1phnld17fcz   helloworld.1   repocurso/helloworld-node-microservice:latest   manager     Running         Running 6 minutes ago                  
+pa5hp3zsudf3   helloworld.2   repocurso/helloworld-node-microservice:latest   worker-02   Running         Running about a minute ago             
+pppd9mdjj06c   helloworld.3   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running about a minute ago             
+or8ythvqgb8q   helloworld.4   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running about a minute ago             
+alu@manager:~$
+</code></pre></div>
+<h3 id="32-borrar-el-servicio">3.2. Borrar el servicio<a class="headerlink" href="#32-borrar-el-servicio" title="Permanent link">&para;</a></h3>
+<p>Para eliminar el servicio desplegado  se usa el comando <code>docker service rm &lt;nombreServicio&gt;</code></p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker service rm helloworld
+helloworld
+alu@manager:~$ docker service ls
+ID        NAME      MODE      REPLICAS   IMAGE     PORTS
+alu@manager:~$ 
+</code></pre></div>
+<h3 id="33-desplegar-usando-stack-y-fichero-compose">3.3. Desplegar usando stack y fichero compose<a class="headerlink" href="#33-desplegar-usando-stack-y-fichero-compose" title="Permanent link">&para;</a></h3>
+<p>Cuando la aplicación a desplegar incluye varios servicios, volúmenes, networks, etc.  es recomendable hacer el despliegue desde un fichero que tendrá un formato similar al <code>docker-compose</code> de temas anteriores. Este fichero además tendrá etiquetas específicas de un despliegue <code>swarm</code> como por ejemplo el número de replicas.</p>
+<p>Es este ejemplo se despliega el servicio anterior usando el  fichero <code>helloworld.yml</code>. Observe los campos <code>deploy</code> y <code>replicas</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.7&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">helloworld</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">repocurso/helloworld-node-microservice</span>
+<span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<span class="w">      </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">   </span>
+</code></pre></div>
+<p>Para copiar el fichero desde el host hasta el manager se usa el comando <code>scp fichero usuario@IP:destino</code>:</p>
+<div class="highlight"><pre><span></span><code>clases@vm:~$ scp helloworld.yml alu@192.168.125.136:
+alu@192.168.125.136&#39;s password: 
+helloworld.yml        100%  160   145.2KB/s   00:00    
+clases@vm:~$ 
+</code></pre></div>
+<p>Para desplegar el servicio desde el <em>manager</em> se utiliza el comando <code>docker stack deploy -c &lt;fichero.yml&gt;  &lt;nombreStack&gt;</code></p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker stack deploy -c helloworld.yml demo
+Creating network demo_default
+Creating service demo_helloworld
+alu@manager:~$ docker stack ps demo 
+ID             NAME                IMAGE                                          NODE        DESIRED STATE   CURRENT STATE            ERROR     PORTS
+v23bfy99i0yd   demo_helloworld.1   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running 25 seconds ago             
+vgz5h3b5gp6s   demo_helloworld.2   repocurso/helloworld-node-microservice:latest   worker-02   Running         Running 25 seconds ago             
+ucsa2fut5n3v   demo_helloworld.3   repocurso/helloworld-node-microservice:latest   manager     Running         Running 25 seconds ago             
+alu@manager:~$ 
+</code></pre></div>
+<p>Y para eliminar el despliegue se utiliza el comando  <code>docker stack rm &lt;servicio&gt;</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker stack rm demo
+Removing service demo_helloworld
+Removing network demo_default
+alu@manager:~$ 
+</code></pre></div>
+<h2 id="4-herramienta-grafica-portainer">4. Herramienta gráfica: portainer<a class="headerlink" href="#4-herramienta-grafica-portainer" title="Permanent link">&para;</a></h2>
+<p>Si desea visualizar y trabajar con el cluster de forma gráfica una posible opción es usar <code>portainer</code>: <a href="https://www.portainer.io/">https://www.portainer.io/</a>. Esta aplicación despliega agentes sobre los nodos del cluster. </p>
+<p>Para utilizarla descargamos el fichero yaml con una configuración ya preparada desde su página web con el comando <code>curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml</code> y lo copiamos con <code>scp</code> al manager (o lo puede descargar directamente en el manager)</p>
+<div class="highlight"><pre><span></span><code>clases@vm:~$ curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   791  100   791    0     0    715      0  0:00:01  0:00:01 --:--:--   726
+clases@vm:~$ ls
+alu@192.168.125.136  helloworld.yml  portainer-agent-stack.yml
+clases@vm:~$ scp portainer-agent-stack.yml alu@192.168.125.136:
+alu@192.168.125.136&#39;s password: 
+portainer-agent-stack.yml       100%  791     1.6MB/s   00:00    
+clases@vm:~$
+</code></pre></div>
+<p>Y se usa el fichero desde el <em>manager</em> para hacer el despliegue:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ ls
+helloworld.yml  portainer-agent-stack.yml
+alu@manager:~$ docker stack deploy -c portainer-agent-stack.yml portainer
+Creating network portainer_agent_network
+Creating service portainer_agent
+Creating service portainer_portainer
+alu@manager:~$
+</code></pre></div>
+<p>Y si observa el despliegue con <code>docker service ls</code> hay tantos agentes como nodos y un gestor:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker service ls
+ID             NAME                  MODE         REPLICAS   IMAGE                           PORTS
+d3ispnqyqm6s   portainer_agent       global       3/3        portainer/agent:2.11.1          
+dynd71w6qjxn   portainer_portainer   replicated   1/1        portainer/portainer-ce:2.11.1   *:8000-&gt;8000/tcp, *:9000-&gt;9000/tcp, *:9443-&gt;9443/tcp
+alu@manager:~$ 
+</code></pre></div>
+<p>Puede comprobar la distribución con <code>docker service ps</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@manager:~$ docker service ps portainer_portainer 
+ID             NAME                    IMAGE                           NODE      DESIRED STATE   CURRENT STATE           ERROR     PORTS
+ad94lkp4oqjg   portainer_portainer.1   portainer/portainer-ce:2.11.1   manager   Running         Running 3 minutes ago             
+alu@manager:~$ docker service ps portainer_agent 
+ID             NAME                                        IMAGE                    NODE        DESIRED STATE   CURRENT STATE           ERROR     PORTS
+d2wrk62bcgwj   portainer_agent.9nhxurspobgirwh5m1d5h0fvf   portainer/agent:2.11.1   manager     Running         Running 3 minutes ago             
+ur56o8xcj9ja   portainer_agent.s53vme3dp6tr2jvjmfr88avpt   portainer/agent:2.11.1   worker-02   Running         Running 3 minutes ago             
+ke16b2mwa9oy   portainer_agent.zm7acf20ysqblhalyeicrse6w   portainer/agent:2.11.1   worker-01   Running         Running 3 minutes ago             
+alu@manager:~$ 
+</code></pre></div>
+<p>Acceda ahora usando un navegador <strong>a la IP del manager</strong> (o cualquier otra IP del enjambre) <strong>usando el puerto 9000</strong> y se mostrará el tablero de gestión de portainer. En el primer acceso deberá crear un usuario y clave. </p>
+<p>A continuación puede desde el tablero hacer despliegues de. En este ejemplo se realiza el despliegue de <code>helloworld</code> desde <em>portainer</em> usando el fichero <code>helloworld.yml</code>. Para ello acceda al "Dashboard", busque "Stacks" , botón "Add Stack" y la opción "Upload from your computer".</p>
+<p>La siguiente captura se obtiene desde "<em>Dashboard</em>", enlace <em>"Cluster visualizer"</em>:</p>
+<p><img alt="portainer_cluster" src="../figuras/portainer_cluster.png" /></p>
+<h2 id="5-anexos">5. Anexos<a class="headerlink" href="#5-anexos" title="Permanent link">&para;</a></h2>
+<h3 id="51-despliegue-en-aws">5.1. Despliegue en AWS<a class="headerlink" href="#51-despliegue-en-aws" title="Permanent link">&para;</a></h3>
+<p>Se propone como ejercicio hacer el despliegue en tres instancias EC2 de AWS.</p>
+<h3 id="52-kvm-y-clonado-suave">5.2. KVM y clonado suave<a class="headerlink" href="#52-kvm-y-clonado-suave" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Partimos de una imagen de Debian 12 con servidor ssh y sin entorno de escritorio. Lleva ya configurado <code>sudo</code> e instalado <code>docker</code>. Está disponible en la Unidad Compartida.</p>
+</li>
+<li>
+<p>Vamos a hacer un clonado del disco de esa máquina, pero un clonado "suave" o diferencial. La idea es crear 3 máquinas que compartan como base el disco anterior:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>[clases@d12:~/Descargas/vms]
+$ qemu-img create -f qcow2 -b ./sd12-base-clone.qcow2 -o backing_fmt=qcow2 ./manager.qcow2
+Formatting &#39;./manager.qcow2&#39;, fmt=qcow2 cluster_size=65536 
+...
+[clases@d12:~/Descargas/vms]
+$ qemu-img create -f qcow2 -b ./sd12-base-clone.qcow2 -o backing_fmt=qcow2 ./worker-01.qcow2
+Formatting &#39;./worker-01.qcow2&#39;, fmt=qcow2 cluster_size=65536 
+...
+[clases@d12:~/Descargas/vms]
+$ qemu-img create -f qcow2 -b ./sd12-base-clone.qcow2 -o backing_fmt=qcow2 ./worker-02.qcow2
+Formatting &#39;./worker-02.qcow2&#39;, fmt=qcow2 cluster_size=65536 
+...
+[clases@d12:~/Descargas/vms]
+$ ls -lh worker-* manager.qcow2 sd12-base-clone.qcow2
+-rw-r--r-- 1 clases clases 193K oct 25 18:24 manager.qcow2
+-rw------- 1 clases clases 3,8G oct 25 18:12 sd12-base-clone.qcow2
+-rw-r--r-- 1 clases clases 193K oct 25 18:24 worker-01.qcow2
+-rw-r--r-- 1 clases clases 193K oct 25 18:24 worker-02.qcow2
+[clases@d12:~/Descargas/vms]
+$ 
+</code></pre></div>
+<ol>
+<li>
+<p>Creados los tres discos, creamos con <code>virtual manager</code> 3 máquinas usando los discos creados.</p>
+</li>
+<li>
+<p>Es recomendable al iniciar las máquinas modificar el <code>hostname</code> editando los ficheros <code>/etc/hosts</code> y <code>/etc/hostname</code>.</p>
+</li>
+<li>
+<p>Es preferible conectarse a las máquinas virtuales desde el host usando <code>ssh</code>. Anote las IPs de cada una de ellas (e incluso puede modificar el fichero <code>/etc/hosts</code> del host para asignarle nombres a las IPs de las máquinas virtuales).</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Aviso</strong>: es preferible no utilizar el disco base de la clonación. </p>
+</blockquote>
+<h3 id="53-uso-de-multipass">5.3. Uso de multipass<a class="headerlink" href="#53-uso-de-multipass" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Aviso: Este anexo no ha sido probado este curso.</p>
+</blockquote>
+<p>En el caso de hacerlo con la herramienta <code>multipass</code> de Ubuntu en vez de con máquinas virtuales</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>multipass<span class="w"> </span>launch<span class="w"> </span>-v<span class="w"> </span>-n<span class="w"> </span>nodo1<span class="w"> </span>-m<span class="w"> </span>512MGB<span class="w">  </span><span class="c1"># -m 1GB</span>
+$<span class="w"> </span>multipass<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nodo1<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
+$<span class="w"> </span>multipass<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nodo1<span class="w"> </span>--<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>get-docker.sh
+</code></pre></div>
+<blockquote>
+<p><strong>Nota: evitar la instalación de docker con snap, parece que da problema al desplegar un "stack"</strong></p>
+</blockquote>
+<p>Para ver los nodos creados:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>multipass<span class="w"> </span>list<span class="w"> </span>
+Name<span class="w">      </span>State<span class="w">    </span>IPv4<span class="w">             </span>Image
+manager<span class="w">   </span>Running<span class="w">  </span><span class="m">10</span>.174.210.86<span class="w">   </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
+nodo1<span class="w">     </span>Running<span class="w">  </span><span class="m">10</span>.174.210.224<span class="w">  </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
+nodo2<span class="w">     </span>Running<span class="w">  </span><span class="m">10</span>.174.210.4<span class="w">    </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
+$<span class="w"> </span>
+</code></pre></div>
+<p>Para iniciar una sesión en un nodo puede usar el comando <code>multipass shell</code></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>multipass<span class="w"> </span>shell<span class="w"> </span>manager
+Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04.2<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">5</span>.4.0-65-generic<span class="w"> </span>x86_64<span class="o">)</span>
+...
+ubuntu@manager:~$<span class="w"> </span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04_traefik/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Traefik">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Traefik
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../fuentes/" class="md-footer__link md-footer__link--next" aria-label="Next: Fuentes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Fuentes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tabs", "navigation.tracking", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
