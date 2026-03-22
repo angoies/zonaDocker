@@ -1,0 +1,2158 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../fuentes/">
+      
+      
+        <link rel="next" href="../../03-docker-depends/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Docker Seguro - Zona Docker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#seguridad-en-docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Zona Docker" class="md-header__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Docker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker Seguro
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../t01_tutorial/01-docker-tutorial/" class="md-tabs__link">
+          
+  
+  Tutorial Docker
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-servidores-web/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../03-docker-ejercicios/" class="md-tabs__link">
+        
+  
+    
+  
+  Ejercicios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../04_traefik/" class="md-tabs__link">
+        
+  
+    
+  
+  Traefik
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../05_docker_swarm/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Swarm
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../fuentes/" class="md-tabs__link">
+        
+  
+    
+  
+  Fuentes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Seguro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-docker-depends/" class="md-tabs__link">
+          
+  
+  Amplia Compose
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pdf/document.pdf" class="md-tabs__link">
+        
+  
+    
+  
+  Volcado PDF
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Zona Docker" class="md-nav__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Docker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t01_tutorial/01-docker-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iniciarlo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t01_tutorial/t01-docker-intro-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ayuda tuto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t01_tutorial/t01-docker-intro-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplia tuto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidores Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-bd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidor de Aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-amplia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ampliación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-docker-ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_traefik/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_docker_swarm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Swarm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fuentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Docker Seguro
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Docker Seguro
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-seguridad-en-el-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Seguridad en el host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-seguridad-en-el-demonio-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Seguridad en el demonio docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-seguridad-en-la-ejecucion-de-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Seguridad en la ejecución de contenedores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Seguridad en la ejecución de contenedores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-limitando-recursos-en-la-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Limitando recursos en la ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-limitando-el-usuario-y-los-privilegios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Limitando el usuario y los privilegios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Limitando el usuario y los privilegios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-user-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1. User root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-permisos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2. Permisos adicionales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-acceso-al-socket-de-docker-desde-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Acceso al socket de docker desde el contenedor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-seguridad-en-la-construccion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Seguridad en la construcción de imágenes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Seguridad en la construcción de imágenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fuentes-fiables" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Fuentes fiables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dct-docker-content-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. DCT: Docker Content Trust
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mejorando-el-fichero-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mejorando el fichero dockerfile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Mejorando el fichero dockerfile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-cmd-y-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. CMD y ENTRYPOINT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-copy-o-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. COPY o ADD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-multistage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. Multistage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-cuidado-con-el-uso-de-la-etiqueta-latest" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4. Cuidado con el uso de la etiqueta :latest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-combinar-comandos-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5. Combinar comandos RUN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6. Linting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-escaneo-de-seguridad-de-las-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Escaneo de seguridad de las imágenes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Escaneo de seguridad de las imágenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-docker-scan-scout" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. Docker scan =&gt; scout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1. Docker scan =&gt; scout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-instalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1. Instalar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-iniciar-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2. Iniciar sesión
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-comandos-principales-de-analisis" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3. Comandos principales de análisis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-ejemplo-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4. Ejemplo práctico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-hardened-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Hardened images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-varios-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Varios de ampliación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Varios de ampliación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-owasp-docker-security-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. OWASP Docker Security Cheat Sheet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ejemplo-practico-mejorar-dockerfile-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Ejemplo practico mejorar Dockerfile avanzado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-curso-en-la-plataforma-asegurando-contenedores-tema-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3. Curso en la plataforma: Asegurando contenedores (tema 8)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3. Curso en la plataforma: Asegurando contenedores (tema 8)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-seguridad-en-las-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.1. Seguridad en las imágenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-seguridad-en-el-proceso-de-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.2. Seguridad en el proceso de build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833-seguridad-al-arrancar-los-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.3. Seguridad al arrancar los contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#834-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.4. Vídeo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Amplia Compose
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Amplia Compose
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-docker-depends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Depends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-docker-ayudas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables Entorno
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pdf/document.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volcado PDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-seguridad-en-el-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Seguridad en el host
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-seguridad-en-el-demonio-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Seguridad en el demonio docker
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-seguridad-en-la-ejecucion-de-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Seguridad en la ejecución de contenedores
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Seguridad en la ejecución de contenedores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-limitando-recursos-en-la-ejecucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Limitando recursos en la ejecución
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-limitando-el-usuario-y-los-privilegios" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. Limitando el usuario y los privilegios
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Limitando el usuario y los privilegios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-user-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.1. User root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-permisos-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2.2. Permisos adicionales
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-acceso-al-socket-de-docker-desde-el-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Acceso al socket de docker desde el contenedor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-seguridad-en-la-construccion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Seguridad en la construcción de imágenes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Seguridad en la construcción de imágenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fuentes-fiables" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Fuentes fiables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-dct-docker-content-trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. DCT: Docker Content Trust
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-mejorando-el-fichero-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Mejorando el fichero dockerfile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Mejorando el fichero dockerfile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-cmd-y-entrypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. CMD y ENTRYPOINT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-copy-o-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. COPY o ADD
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-multistage" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. Multistage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-cuidado-con-el-uso-de-la-etiqueta-latest" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4. Cuidado con el uso de la etiqueta :latest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-combinar-comandos-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5. Combinar comandos RUN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6. Linting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-escaneo-de-seguridad-de-las-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Escaneo de seguridad de las imágenes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Escaneo de seguridad de las imágenes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-docker-scan-scout" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. Docker scan =&gt; scout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1. Docker scan =&gt; scout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-instalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1. Instalar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-iniciar-sesion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2. Iniciar sesión
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-comandos-principales-de-analisis" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3. Comandos principales de análisis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-ejemplo-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.4. Ejemplo práctico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-hardened-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Hardened images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-varios-de-ampliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Varios de ampliación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Varios de ampliación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-owasp-docker-security-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. OWASP Docker Security Cheat Sheet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ejemplo-practico-mejorar-dockerfile-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Ejemplo practico mejorar Dockerfile avanzado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-curso-en-la-plataforma-asegurando-contenedores-tema-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3. Curso en la plataforma: Asegurando contenedores (tema 8)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3. Curso en la plataforma: Asegurando contenedores (tema 8)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-seguridad-en-las-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.1. Seguridad en las imágenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-seguridad-en-el-proceso-de-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.2. Seguridad en el proceso de build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833-seguridad-al-arrancar-los-contenedores" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.3. Seguridad al arrancar los contenedores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#834-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.4. Vídeo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="seguridad-en-docker">Seguridad en Docker<a class="headerlink" href="#seguridad-en-docker" title="Permanent link">&para;</a></h1>
+<h2 id="1-seguridad-en-el-host">1. Seguridad en el host<a class="headerlink" href="#1-seguridad-en-el-host" title="Permanent link">&para;</a></h2>
+<p>Recomendaciones:</p>
+<ul>
+<li>El host debe estar actualizado: sistema operativo, versión de Docker, bibliotecas, etc.  </li>
+<li>Siempre tener en mente minimizar la superficie de ataque.</li>
+<li>Revisar permisos de usuario para acceder al cliente de Docker, evitar el uso de <code>root</code> o <code>sudo</code>.</li>
+</ul>
+<h2 id="2-seguridad-en-el-demonio-docker">2. Seguridad en el demonio docker<a class="headerlink" href="#2-seguridad-en-el-demonio-docker" title="Permanent link">&para;</a></h2>
+<p>El demonio Docker se ejecuta con privilegios de superusuario. Por ello es importante controlar el acceso a ficheros de configuración de Docker o al propio <code>socket</code>.</p>
+<p>La localización por defecto del fichero de configuración del demonio <code>dockerd</code> en Linux es  <code>/etc/docker/daemon.json</code> y en Windows <code>%programdata%\docker\config\daemon.json</code>. Si el fichero no existe se usan las opciones por defecto. Tiene más información en este enlace sobre este fichero:
+<a href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file">https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file</a></p>
+<p>Un ejemplo de fichero <code>daemon.json</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;default-ulimits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;nofile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Hard&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nofile&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Soft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;icc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Algunas opciones a controlar:</p>
+<ul>
+<li><code>debug</code>: para activar o desactivar el modo de depuración, debe estar a <code>false</code> en producción.</li>
+<li><code>default-ulimits</code>:  para limitar el número de descriptores de fichero (se puede establecer también en el momento de lanzar el contenedor).</li>
+<li><code>icc</code>: Controla que la intercomunicación entre contenedores esté limitada (por defecto a <code>false</code>).</li>
+</ul>
+<h2 id="3-seguridad-en-la-ejecucion-de-contenedores">3. Seguridad en la ejecución de contenedores<a class="headerlink" href="#3-seguridad-en-la-ejecucion-de-contenedores" title="Permanent link">&para;</a></h2>
+<h3 id="31-limitando-recursos-en-la-ejecucion">3.1. Limitando recursos en la ejecución<a class="headerlink" href="#31-limitando-recursos-en-la-ejecucion" title="Permanent link">&para;</a></h3>
+<p>Puede ser conveniente configurar límites de recursos al contenedor. De hecho al lanzar el contenedor se pueden aumentar o disminuir con respecto a los establecidos por defecto en el fichero de configuración.</p>
+<p>Por ejemplo, para modificar y limitar en ejecución  <code>ulimit</code> (el número de ficheros):</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--ulimit<span class="w"> </span><span class="nv">nofile</span><span class="o">=</span><span class="m">512</span>:512<span class="w"> </span>debian<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ulimit -n&quot;</span><span class="w">  </span>
+</code></pre></div>
+<p>Otros recursos que se pueden limitar en el contenedor son el uso de CPU, memoria, etc. Vea ejemplos de limitación de CPU o memoria</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--cpus<span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="w">  </span>debian<span class="w">  </span>/bin/bash
+docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-m<span class="w"> </span>2GB<span class="w"> </span>debian<span class="w">  </span>/bin/bash
+</code></pre></div>
+<p>Para ver el uso de memoria puede ejecutar el comando <code>docker stats</code></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>stats<span class="w"> </span>--no-stream<span class="w"> </span>
+CONTAINER<span class="w"> </span>ID<span class="w">   </span>NAME<span class="w">            </span>CPU<span class="w"> </span>%<span class="w">     </span>MEM<span class="w"> </span>USAGE<span class="w"> </span>/<span class="w"> </span>LIMIT<span class="w">   </span>MEM<span class="w"> </span>%<span class="w">    </span>....
+698494b1bb3f<span class="w">   </span>brave_jackson<span class="w">   </span><span class="m">0</span>.00%<span class="w">     </span><span class="m">2</span>.027MiB<span class="w"> </span>/<span class="w"> </span>512MiB<span class="w">   </span><span class="m">0</span>.40%<span class="w">    </span>
+$<span class="w"> </span>
+</code></pre></div>
+<p>Tiene más información sobre opciones de <code>docker run</code> en este enlace: <a href="https://docs.docker.com/engine/reference/commandline/run/">https://docs.docker.com/engine/reference/commandline/run/</a>. Entre ellas se puede establecer un reinicio en caso de fallo, y además fijar un límite máximo de reinicios ante fallos con la opción  <code>--restart=on-failure:5</code>.</p>
+<h3 id="32-limitando-el-usuario-y-los-privilegios">3.2. Limitando el usuario y los privilegios<a class="headerlink" href="#32-limitando-el-usuario-y-los-privilegios" title="Permanent link">&para;</a></h3>
+<h4 id="321-user-root">3.2.1. User root<a class="headerlink" href="#321-user-root" title="Permanent link">&para;</a></h4>
+<p>Hay que prestar atención a los privilegios del usuario dentro del contenedor: <em>por defecto los contenedores se ejecutan como <code>root</code></em>. Sería recomendable que las aplicaciones dentro del contenedor no se ejecuten como <code>root</code> utilizando la opción <code>-u</code> al lanzar el contenedor.  Vea la diferencia en la ejecución del comando <code>ls /root</code> en estos dos casos:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-u<span class="w"> </span><span class="m">4400</span><span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>/root<span class="w"> </span>-al
+ls:<span class="w"> </span>cant<span class="w"> </span>open<span class="w"> </span><span class="s1">&#39;/root&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+total<span class="w"> </span><span class="m">0</span>
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w">  </span>alpine<span class="w"> </span>ls<span class="w"> </span>/root<span class="w"> </span>-al
+total<span class="w"> </span><span class="m">8</span>
+drwx------<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">10</span>:25<span class="w"> </span>.
+drwxr-xr-x<span class="w">    </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">17</span>:14<span class="w"> </span>..
+$<span class="w"> </span>
+</code></pre></div>
+<p>El usuario <code>root</code> tiene restringidas muchas capacidades, pero evitar su uso minimiza los posibles riesgos. Si la aplicación en el contenedor no necesita privilegios de <code>root</code> puede usar la opción  <code>--user UID:GID</code> con <code>docker run</code>. Tiene un ejemplo de lo que es posible en <em>Docker containers with root privileges</em> <a href="https://neoteric.eu/blog/docker-containers-with-root-privileges/">https://neoteric.eu/blog/docker-containers-with-root-privileges/</a></p>
+<p>En un fichero <code>Dockerfile</code> esta limitación se consigue con <code>USER</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
+<span class="c">#Add a user with userid 8877 and name nonroot</span>
+<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>−u<span class="w"> </span><span class="m">8877</span><span class="w"> </span>nonroot
+<span class="c">#Run Container as nonroot</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">nonroot</span>
+....
+</code></pre></div>
+<h4 id="322-permisos-adicionales">3.2.2. Permisos adicionales<a class="headerlink" href="#322-permisos-adicionales" title="Permanent link">&para;</a></h4>
+<p>Debe evitar el uso del flag <code>–-privileged</code> ya que da permiso adicionales al contenedor sobre el host permitiendo todas las <em>capabilities</em> de Linux.</p>
+<p>En este caso es recomendable la lectura de la regla <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-3-limit-capabilities-grant-only-specific-capabilities-needed-by-a-container">RULE #3 - Limit capabilities</a> <em>de Docker Security Cheat Sheet de OWASP.</em></p>
+<h3 id="33-acceso-al-socket-de-docker-desde-el-contenedor">3.3. Acceso al socket de docker desde el contenedor<a class="headerlink" href="#33-acceso-al-socket-de-docker-desde-el-contenedor" title="Permanent link">&para;</a></h3>
+<p>A veces se usa en sistemas de integración continua (o al ejecutar Docker sobre Docker): <em>montar el socket de Docker dentro de un contenedor</em>.</p>
+<p>En este ejemplo vea como el contenedor monta como volumen el <code>socket</code> de Docker: <code>-v /var/run/docker.sock:/var/run/docker.sock</code>. Ya dentro del contenedor con el comando <code>docker ps</code> se ven los contenedores que se están ejecutando en el host (fuera del contenedor):</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>docker<span class="w"> </span>
+<span class="c1"># docker ps</span>
+CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">     </span>NAMES
+db22c6f04cef<span class="w">   </span>docker<span class="w">    </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w">   </span><span class="m">30</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">29</span><span class="w"> </span>seconds<span class="w">             </span>practical_fermat
+<span class="c1"># </span>
+</code></pre></div>
+<p>Observe que desde el host se obtiene la misma salida:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps
+CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">     </span>NAMES
+db22c6f04cef<span class="w">   </span>docker<span class="w">    </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w">   </span><span class="m">58</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">57</span><span class="w"> </span>seconds<span class="w">             </span>practical_fermat
+ango@tos:/etc/docker$
+</code></pre></div>
+<p>A no ser que sea necesario (hay herramientas que necesitan de esta opción) no lo haga, y si lo hace sólo en entornos controlados con imágenes verificadas como seguras, etc.</p>
+<blockquote>
+<p>Docker socket /var/run/docker.sock is the UNIX socket that Docker is listening to. This is the primary entry point for the Docker API. The owner of this socket is root. Giving someone access to it is equivalent to giving unrestricted root access to your host.
+Do not expose /var/run/docker.sock to other containers. If you are running your docker image with -v /var/run/docker.sock://var/run/docker.sock or similar, you should change it. Remember that mounting the socket read-only is not a solution but only makes it harder to exploit.
+Mounting the Docker daemon socket gives the control of the daemon to the container. However, this process should only be used with trusted containers when necessary.</p>
+</blockquote>
+<h2 id="4-seguridad-en-la-construccion-de-imagenes">4. Seguridad en la construcción de imágenes<a class="headerlink" href="#4-seguridad-en-la-construccion-de-imagenes" title="Permanent link">&para;</a></h2>
+<h3 id="41-fuentes-fiables">4.1. Fuentes fiables<a class="headerlink" href="#41-fuentes-fiables" title="Permanent link">&para;</a></h3>
+<p>En general solo debemos ejecutar contenedores que provengan de fuentes fiables. Y si es posible construirlo partir de un fichero <code>Dockerfile</code> lo que permite auditar la imagen.</p>
+<p>Por ejemplo, si accede a <a href="http://hub.docker.com">http://hub.docker.com</a> y busca contenedores WordPress  salen varias opciones. Puede filtrarlas por valoraciones, descargas, última modificación, etc. ysSiempre que sea posible debe optar por imágenes <strong>Verified Publisher</strong>  y <strong>Official Image</strong> .</p>
+<p>En esta figura tiene dos imágenes, una oficial de Docker y otra de una fuente verificada (Microsoft).</p>
+<p><img alt="dockerhub-wordpress.png" src="../figuras/dockerhub-wordpress.png" /></p>
+<h3 id="42-dct-docker-content-trust">4.2. DCT: Docker Content Trust<a class="headerlink" href="#42-dct-docker-content-trust" title="Permanent link">&para;</a></h3>
+<p>Se puede asociar un <em>hash</em> a cada imagen Docker para verificar que es correcta y no se ha modificado. <em>Esta verificación está desactivada por defecto</em>. Para activarla se configura una variable de entorno, <code>DOCKER_CONTENT_TRUST</code> con el valor <code>1</code>. Una vez activada cualquier descarga de una imagen implicará la comprobación del <em>hash</em>.</p>
+<p>Observe en la siguiente ejecución como la descarga <strong>de una imagen sin firma</strong> no es posible si previamente ha activado <code>DCT</code>. Si posteriormente la desactiva será posible la descarga:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># se activa DCT</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
+<span class="c1"># Se intenta descargar una imagen sin firmar</span>
+$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>raghudok/dct-test:unsigned
+No<span class="w"> </span>valid<span class="w"> </span>trust<span class="w"> </span>data<span class="w"> </span><span class="k">for</span><span class="w"> </span>unsigned
+<span class="c1"># ahora se desactiva</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">0</span>
+<span class="c1"># Se intenta descargar una imagen sin firmar de nuevo</span>
+$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>raghudok/dct-test:unsigned
+unsigned:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>raghudok/dct-test
+0669b0daf1fb:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+Digest:<span class="w"> </span>sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>raghudok/dct-test:unsigned
+docker.io/raghudok/dct-test:unsigned
+$
+</code></pre></div>
+<p>Prueba ahora la misma secuencia con una imagen firmada:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># se activa DCT</span>
+$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
+<span class="c1"># Se intenta descargar una imagen sin firmar</span>
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>raghudok/dct-test:unsigned
+docker:<span class="w"> </span>No<span class="w"> </span>valid<span class="w"> </span>trust<span class="w"> </span>data<span class="w"> </span><span class="k">for</span><span class="w"> </span>unsigned.
+See<span class="w"> </span><span class="s1">&#39;docker run --help&#39;</span>.
+<span class="c1"># Se intenta descargar ahora una imagen con firma</span>
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>raghudok/dct-test:signed
+Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;raghudok/dct-test:signed&#39;</span><span class="w"> </span>locally
+docker.io/raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>raghudok/dct-test
+0669b0daf1fb:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+Digest:<span class="w"> </span>sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
+Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
+Tagging<span class="w"> </span>raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373<span class="w"> </span>as<span class="w"> </span>raghudok/dct-test:signed
+Hello<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>busybox!
+$<span class="w"> </span>
+</code></pre></div>
+<p>Tiene una explicación completa del proceso de firma y verificación en el enlace <a href="https://techblost.com/docker-content-trust-101/">Docker content trust 101</a>. También tiene el proceso disponible en uno de los videos del curso de Docker disponible en la plataforma.</p>
+<h2 id="5-mejorando-el-fichero-dockerfile">5. Mejorando el fichero dockerfile<a class="headerlink" href="#5-mejorando-el-fichero-dockerfile" title="Permanent link">&para;</a></h2>
+<h3 id="51-cmd-y-entrypoint">5.1. CMD y ENTRYPOINT<a class="headerlink" href="#51-cmd-y-entrypoint" title="Permanent link">&para;</a></h3>
+<p>Lo primero sería aclararse con el uso de <code>CMD</code> y <code>ENTRYPOINT</code>, y como se aplican al lanzar un contenedor. Para ello lo más recomendable es seguir este artículo donde lo explica paso a paso con un ejemplo: <a href="https://phoenixnap.com/kb/docker-cmd-vs-entrypoint">Docker CMD vs. Entrypoint Commands</a> o este en castellano: Docker: <a href="https://programacionymas.com/blog/docker-diferencia-entrypoint-cmd">Diferencia entre ENTRYPOINT y CMD</a>.</p>
+<h3 id="52-copy-o-add">5.2. COPY o ADD<a class="headerlink" href="#52-copy-o-add" title="Permanent link">&para;</a></h3>
+<p>Otro aspecto a revisar es el uso de  <code>COPY</code> o <code>ADD</code>. Otro articulo con un paso a paso explicando su uso y sus diferencias: <a href="https://phoenixnap.com/kb/docker-add-vs-copy">Docker ADD vs. COPY: What are the Differences?</a></p>
+<p><strong>Resumen</strong> : usar <code>COPY</code> siempre que sea posible.</p>
+<blockquote>
+<p>Docker’s official documentation notes that COPY should always be the go-to instruction as it is more transparent than ADD.</p>
+<p>The Docker team also strongly discourages using <strong><code>ADD</code></strong> to download and copy a package from a URL. Instead, it’s safer and more efficient to use <strong>wget</strong> or <strong>curl</strong> within a <strong><code>RUN</code></strong> command. By doing so, you avoid creating an additional image layer and save space.</p>
+<p><strong>Conclusion</strong>: To sum up – <strong>use</strong> <strong>COPY</strong>. As Docker itself suggests, avoid the ADD command unless you need to extract a local tar file.</p>
+</blockquote>
+<h3 id="53-multistage">5.3. Multistage<a class="headerlink" href="#53-multistage" title="Permanent link">&para;</a></h3>
+<p>El objetivo es reducir el tamaño de la imagen final realizando todos los pasos previos de compilación, dependencias, etc. en una imagen intermedia. En la imagen final sólo se incorpora el resultado de la fase previa. Para demostrarlo en este ejemplo se usa un pequeño programa en <code>Go</code> y un par de ficheros <code>Dockerfile</code>. Los detalles están en este artículo: <a href="https://onthedock.github.io/post/200926-multistage-builds-con-docker/">Multi-stage builds con Docker</a>.</p>
+<p>Este sería el programa en Go:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello world from Go!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Y esta la versión incial del <code>Dockerfile</code> (sin <em>multistage</em>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.14.2-alpine</span><span class="w"> </span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
+<span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>/out/helloworld<span class="w"> </span>.
+<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/out/helloworld&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Si construye la imagen <code>helloworld:inicial</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
+REPOSITORY<span class="w">  </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">  </span>SIZE<span class="w"> </span>
+$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>helloworld:inicial<span class="w"> </span>.<span class="w"> </span>
+Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">5</span>.632kB<span class="w"> </span>
+Step<span class="w"> </span><span class="m">1</span>/4<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>golang:1.14.2-alpine<span class="w"> </span>
+...<span class="w">  </span>
+Successfully<span class="w"> </span>built<span class="w"> </span>c640743c9c29<span class="w"> </span>
+Successfully<span class="w"> </span>tagged<span class="w"> </span>helloworld:inicial<span class="w"> </span>
+$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
+REPOSITORY<span class="w">  </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">    </span>CREATED<span class="w">     </span>SIZE<span class="w"> </span>
+helloworld<span class="w">  </span>inicial<span class="w">     </span>c640743c9c29<span class="w">  </span><span class="m">3</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">  </span>372MB<span class="w"> </span>
+golang<span class="w">    </span><span class="m">1</span>.14.2-alpine<span class="w">  </span>dda4232b2bd5<span class="w">  </span><span class="m">12</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">  </span>370MB<span class="w"> </span>
+$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>helloworld:inicial<span class="w"> </span>
+Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>Go!
+$
+</code></pre></div>
+<p>puede observar que la imagen <code>helloword:inicial</code> ocupa 372M,  2M más de la imagen usada para construirla <code>golang</code>.</p>
+<p>En la siguiente versión del <code>Dockerfile</code> se compila la aplicación en una imagen intermedia etiquetada como builder (<code>AS builder</code>) y a continuación se copia el resultado de la compilación desde la imagen intermedia (<code>COPY --from=builder</code> ) en una imagen alpine que ocupa mucho menos:</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.14.2-alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
+<span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>/out/helloworld<span class="w"> </span>.
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">alpine:3.12</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">bin</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/out/helloworld<span class="w"> </span>/
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/helloworld&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Si a partir de este nuevo Dockerfile se construye una imagen  con etiqueta <code>helloworld:final</code>:  </p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>helloworld:final<span class="w"> </span>.<span class="w">  </span>
+Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">5</span>.632kB<span class="w"> </span>
+Step<span class="w"> </span><span class="m">1</span>/7<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>golang:1.14.2-alpine<span class="w"> </span>AS<span class="w"> </span>builder<span class="w"> </span>
+...
+Step<span class="w"> </span><span class="m">6</span>/7<span class="w"> </span>:<span class="w"> </span>COPY<span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/out/helloworld<span class="w"> </span>/<span class="w"> </span>
+<span class="w"> </span>---&gt;<span class="w"> </span>33bca22b3635<span class="w"> </span>
+Step<span class="w"> </span><span class="m">7</span>/7<span class="w"> </span>:<span class="w"> </span>ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;/helloworld&quot;</span><span class="o">]</span><span class="w"> </span>
+<span class="w"> </span>---&gt;<span class="w"> </span>Running<span class="w"> </span><span class="k">in</span><span class="w"> </span>450fea70f761<span class="w"> </span>
+Removing<span class="w"> </span>intermediate<span class="w"> </span>container<span class="w"> </span>450fea70f761<span class="w"> </span>
+<span class="w"> </span>---&gt;<span class="w"> </span>52eef99e40f2<span class="w"> </span>
+Successfully<span class="w"> </span>built<span class="w"> </span>52eef99e40f2<span class="w"> </span>
+Successfully<span class="w"> </span>tagged<span class="w"> </span>helloworld:final<span class="w"> </span>
+$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
+REPOSITORY<span class="w">  </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">    </span>CREATED<span class="w">      </span>SIZE<span class="w"> </span>
+helloworld<span class="w">  </span>final<span class="w">      </span>52eef99e40f2<span class="w">  </span><span class="m">15</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">  </span><span class="m">2</span>.07MB<span class="w"> </span>
+helloworld<span class="w">  </span>inicial<span class="w">     </span>c640743c9c29<span class="w">  </span><span class="m">6</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>372MB<span class="w"> </span>
+golang<span class="w">    </span><span class="m">1</span>.14.2-alpine<span class="w">  </span>dda4232b2bd5<span class="w">  </span><span class="m">12</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">   </span>370MB<span class="w"> </span>
+$<span class="w"> </span>
+</code></pre></div>
+<p>Se puede comprobar que la imagen <code>helloworld:final</code> apenas ocupa 2M, y  además de la reducción de tamaño <strong>tiene una menor superficie de ataque</strong>.</p>
+<h3 id="54-cuidado-con-el-uso-de-la-etiqueta-latest">5.4. Cuidado con el uso de la etiqueta <em>:latest</em><a class="headerlink" href="#54-cuidado-con-el-uso-de-la-etiqueta-latest" title="Permanent link">&para;</a></h3>
+<p>Existe cierta confusión sobre el uso de la etiqueta <code>latest</code>:  no se debe suponer que corresponde a la última versión de una imagen.  De hecho  se asocia al último <em>build</em> de una imagen <strong>en el que no se especifique una etiqueta</strong>. Tiene una explicación detallada en el enlace <a href="https://medium.com/@mccode/the-misunderstood-docker-tag-latest-af3babfd6375">The misunderstood Docker tag: latest</a>.</p>
+<p>Por lo tanto, la <strong>recomendación es indicar siempre una imagen específica,</strong> por ejemplo <code>FROM ubuntu:20.04</code></p>
+<h3 id="55-combinar-comandos-run">5.5. Combinar comandos RUN<a class="headerlink" href="#55-combinar-comandos-run" title="Permanent link">&para;</a></h3>
+<p>Es recomendable reducir las capas de <code>docker</code> combinando comandos <code>RUN</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update
+<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+</code></pre></div>
+<p>Mejor:</p>
+<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+</code></pre></div>
+<h3 id="56-linting">5.6. Linting<a class="headerlink" href="#56-linting" title="Permanent link">&para;</a></h3>
+<p>Existen herramientas para detectar fallos o posibles mejoras en un fichero <code>Dockerfile</code>. Una de ellas es <strong>hadolint</strong>:  <a href="https://github.com/hadolint/hadolint">https://github.com/hadolint/hadolint</a></p>
+<p>Puede instalarla y ejecutarla en su equipo, probarla online  o usar un contenedor que incluya <code>hadolint</code> para verificar sus ficheros. Observe esta última opción para comprobar el fichero  <code>dockerfile-test-hadolint</code>:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-i<span class="w"> </span>hadolint/hadolint<span class="w"> </span>&lt;<span class="w"> </span>dockerfile-test-hadolint
+-:1<span class="w"> </span>DL3006<span class="w"> </span>warning:<span class="w"> </span>Always<span class="w"> </span>tag<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>an<span class="w"> </span>image<span class="w"> </span>explicitly
+-:2<span class="w"> </span>DL3015<span class="w"> </span>info:<span class="w"> </span>Avoid<span class="w"> </span>additional<span class="w"> </span>packages<span class="w"> </span>by<span class="w"> </span>specifying<span class="w"> </span><span class="sb">`</span>--no-install-recommends<span class="sb">`</span>
+-:2<span class="w"> </span>DL3009<span class="w"> </span>info:<span class="w"> </span>Delete<span class="w"> </span>the<span class="w"> </span>apt-get<span class="w"> </span>lists<span class="w"> </span>after<span class="w"> </span>installing<span class="w"> </span>something
+-:2<span class="w"> </span>SC2154<span class="w"> </span>warning:<span class="w"> </span>node_verion<span class="w"> </span>is<span class="w"> </span>referenced<span class="w"> </span>but<span class="w"> </span>not<span class="w"> </span>assigned<span class="w"> </span><span class="o">(</span>did<span class="w"> </span>you<span class="w"> </span>mean<span class="w"> </span><span class="s1">&#39;node_version&#39;</span>?<span class="o">)</span>.
+-:4<span class="w"> </span>DL3045<span class="w"> </span>warning:<span class="w"> </span><span class="sb">`</span>COPY<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>relative<span class="w"> </span>destination<span class="w"> </span>without<span class="w"> </span><span class="sb">`</span>WORKDIR<span class="sb">`</span><span class="w"> </span>set.
+-:5<span class="w"> </span>DL3003<span class="w"> </span>warning:<span class="w"> </span>Use<span class="w"> </span>WORKDIR<span class="w"> </span>to<span class="w"> </span>switch<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>directory
+-:5<span class="w"> </span>DL3016<span class="w"> </span>warning:<span class="w"> </span>Pin<span class="w"> </span>versions<span class="w"> </span><span class="k">in</span><span class="w"> </span>npm.<span class="w"> </span>Instead<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>npm<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;<span class="sb">`</span><span class="w"> </span>use<span class="w"> </span><span class="sb">`</span>npm<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;@&lt;version&gt;<span class="sb">`</span>
+-:8<span class="w"> </span>DL3011<span class="w"> </span>error:<span class="w"> </span>Valid<span class="w"> </span>UNIX<span class="w"> </span>ports<span class="w"> </span>range<span class="w"> </span>from<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">65535</span>
+$<span class="w"> </span>
+</code></pre></div>
+<p>También puede probarla online: <a href="https://hadolint.github.io/hadolint/">https://hadolint.github.io/hadolint/</a>. En la figura puede observar el resultado de hacer un lint a un fichero <code>Dockerfile</code> en la web. Cada uno de los mensajes del linter (en amarillo) es un enlace a una descripción mas detallada:</p>
+<p><img alt="figuras/hadolint.png" src="../figuras/hadolint.png" /></p>
+<h2 id="6-escaneo-de-seguridad-de-las-imagenes">6. Escaneo de seguridad de las imágenes<a class="headerlink" href="#6-escaneo-de-seguridad-de-las-imagenes" title="Permanent link">&para;</a></h2>
+<p>Se deben comprobar las posibles vulnerabilidades de una imagen al construirla, <strong>y también al ejecutarla</strong>: entre ambos momentos pueden aparecer nuevas vulnerabilidades.</p>
+<p>DockerHub incluye un servicio de escaneos de imágenes (<code>docker scout</code>) pero es una opción de pago. Usa los servicios de Snyk. Hay otras posibilidades:  Anchore, Aqua Security (Trivy), JFfog Xray, etc. Puede encontrar más información en este enlace: <a href="https://geekflare.com/container-security-scanners/">Container Security Scanners to find Vulnerabilities</a></p>
+<p>En este caso se prueba Trivy  <a href="https://github.com/aquasecurity/trivy">https://github.com/aquasecurity/trivy</a> de la empresa Aqua Security. Puede detectar vulnerabilidades en los paquetes del Sistema Operativo o en las dependencias de las aplicaciones. Puede escanear contenedores, pero también repositorios git o sistemas de ficheros. Lo podemos instalar en nuestro sistema operativo, o ejecutarlo desde un contenedor Docker. Muestra las vulnerabilidades encontradas, dónde esta localizada, su CVE, versión del paquete que la corrige y enlaces a más información sobre la vulnerabilidad.</p>
+<p>Para instalarlo debe acceder a las <em>releases</em> de trivy en <a href="https://github.com/aquasecurity/trivy/releases">https://github.com/aquasecurity/trivy/releases</a> y seleccionar la que corresponda a su sistema (en debian la más actual en este momento es <code>trivy_0.60.0_Linux-64bit.deb</code>).</p>
+<p>Al ejecutarse comprueba si tiene que actualizar su base de datos interna y luego comienza la exploración. Vea un ejemplo analizando la imagen <code>alpine</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">usuario@d12-base-01:~/Descargas$ </span>trivy<span class="w"> </span>-q<span class="w"> </span>i<span class="w"> </span>alpine
+
+<span class="go">Report Summary</span>
+
+<span class="go">┌────────────────────────┬────────┬─────────────────┬─────────┐</span>
+<span class="go">│         Target         │  Type  │ Vulnerabilities │ Secrets │</span>
+<span class="go">├────────────────────────┼────────┼─────────────────┼─────────┤</span>
+<span class="go">│ alpine (alpine 3.21.3) │ alpine │        0        │    -    │</span>
+<span class="go">└────────────────────────┴────────┴─────────────────┴─────────┘</span>
+<span class="go">Legend:</span>
+<span class="go">- &#39;-&#39;: Not scanned</span>
+<span class="go">- &#39;0&#39;: Clean (no security findings detected)</span>
+
+<span class="gp">usuario@d12-base-01:~/Descargas$ </span>
+</code></pre></div>
+<p>En cambio con otras imágenes con muchas vulenrabilidades la salida se hace complicada de gestionar y es mejor redirigir a un fichero:</p>
+<div class="highlight"><pre><span></span><code>usuario@d12-base-01:~/Descargas$<span class="w"> </span>trivy<span class="w"> </span>-q<span class="w"> </span>i<span class="w"> </span>debian<span class="w"> </span>-o<span class="w"> </span>rest.txt
+usuario@d12-base-01:~/Descargas$<span class="w"> </span>more<span class="w"> </span>rest.txt<span class="w"> </span>
+
+Report<span class="w"> </span>Summary
+
+┌──────────────────────┬────────┬─────────────────┬─────────┐
+│<span class="w">        </span>Target<span class="w">        </span>│<span class="w">  </span>Type<span class="w">  </span>│<span class="w"> </span>Vulnerabilities<span class="w"> </span>│<span class="w"> </span>Secrets<span class="w"> </span>│
+├──────────────────────┼────────┼─────────────────┼─────────┤
+│<span class="w"> </span>debian<span class="w"> </span><span class="o">(</span>debian<span class="w"> </span><span class="m">12</span>.9<span class="o">)</span><span class="w"> </span>│<span class="w"> </span>debian<span class="w"> </span>│<span class="w">       </span><span class="m">76</span><span class="w">        </span>│<span class="w">    </span>-<span class="w">    </span>│
+└──────────────────────┴────────┴─────────────────┴─────────┘
+Legend:
+-<span class="w"> </span><span class="s1">&#39;-&#39;</span>:<span class="w"> </span>Not<span class="w"> </span>scanned
+-<span class="w"> </span><span class="s1">&#39;0&#39;</span>:<span class="w"> </span>Clean<span class="w"> </span><span class="o">(</span>no<span class="w"> </span>security<span class="w"> </span>findings<span class="w"> </span>detected<span class="o">)</span>
+
+
+debian<span class="w"> </span><span class="o">(</span>debian<span class="w"> </span><span class="m">12</span>.9<span class="o">)</span>
+<span class="o">====================</span>
+Total:<span class="w"> </span><span class="m">76</span><span class="w"> </span><span class="o">(</span>UNKNOWN:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>LOW:<span class="w"> </span><span class="m">57</span>,<span class="w"> </span>MEDIUM:<span class="w"> </span><span class="m">17</span>,<span class="w"> </span>HIGH:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>CRITICAL:<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+
+┌────────────────────┬─────────────────────┬──────────┬──────────────┬───────────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+│<span class="w">      </span>Library<span class="w">       </span>│<span class="w">    </span>Vulnerability<span class="w">    </span>│<span class="w"> </span>Severity<span class="w"> </span>│<span class="w">    </span>Status<span class="w">    </span>│<span class="w">   </span>Installed<span class="w"> </span>Version<span class="w">   </span>│<span class="w"> </span>Fixed<span class="w"> </span>Version<span class="w"> </span>│<span class="w">                            </span>Title<span class="w">                             </span>│
+├────────────────────┼─────────────────────┼──────────┼──────────────┼───────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│<span class="w"> </span>apt<span class="w">                </span>│<span class="w"> </span>CVE-2011-3374<span class="w">       </span>│<span class="w"> </span>LOW<span class="w">      </span>│<span class="w"> </span>affected<span class="w">     </span>│<span class="w"> </span><span class="m">2</span>.6.1<span class="w">                 </span>│<span class="w">               </span>│<span class="w"> </span>It<span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>that<span class="w"> </span>apt-key<span class="w"> </span><span class="k">in</span><span class="w"> </span>apt,<span class="w"> </span>all<span class="w"> </span>versions,<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w">       </span>│
+│<span class="w">                    </span>│<span class="w">                     </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w">                       </span>│<span class="w">               </span>│<span class="w"> </span>correctly...<span class="w">                                                 </span>│
+│<span class="w">                    </span>│<span class="w">                     </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w">                       </span>│<span class="w">               </span>│<span class="w"> </span>https://avd.aquasec.com/nvd/cve-2011-3374<span class="w">                    </span>│
+├────────────────────┼─────────────────────┤<span class="w">          </span>│<span class="w">              </span>├───────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+│<span class="w"> </span>bash<span class="w">               </span>│<span class="w"> </span>TEMP-0841856-B18BAF<span class="w"> </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w"> </span><span class="m">5</span>.2.15-2+b7<span class="w">           </span>│<span class="w">               </span>│<span class="w"> </span><span class="o">[</span>Privilege<span class="w"> </span>escalation<span class="w"> </span>possible<span class="w"> </span>to<span class="w"> </span>other<span class="w"> </span>user<span class="w"> </span>than<span class="w"> </span>root<span class="o">]</span><span class="w">      </span>
+...
+</code></pre></div>
+<h3 id="61-docker-scan-scout">6.1. Docker scan =&gt; scout<a class="headerlink" href="#61-docker-scan-scout" title="Permanent link">&para;</a></h3>
+<p>En el tutorial de docker se mostraba la herramienta <code>docker scan</code> qeu ha sido sustituida por Docker Scout</p>
+<p>Docker Scout es una herramienta de análisis de seguridad que te permite examinar tus imágenes de contenedor en busca de vulnerabilidades (CVEs). A diferencia de los escaneos tradicionales, Scout ofrece recomendaciones en tiempo real sobre cómo corregir esas vulnerabilidades, sugiriendo, por ejemplo, versiones más seguras de la imagen base.</p>
+<ul>
+<li><strong>Vulnerabilidades (CVE)</strong>: El sistema identifica "Common Vulnerabilities and Exposures". Scout las clasifica en <em>Critical</em>, <em>High</em>, <em>Medium</em> y <em>Low</em>.</li>
+<li><strong>Análisis de capas</strong>: Scout analiza cada capa de tu <code>Dockerfile</code>. Si una vulnerabilidad viene de la imagen base (ej. <code>node:14</code>), Scout te dirá: "Si actualizas a <code>node:20-bookworm</code>, eliminarás 50 vulnerabilidades".</li>
+</ul>
+<p>Para usar Docker Scout:</p>
+<ol>
+<li>Instalación del plugin: Docker Scout funciona como una extensión de la CLI de Docker.</li>
+<li>Autenticación: Iniciar sesión en Docker Hub.</li>
+<li>Análisis de imagen: Utilizar comandos para ver un resumen rápido y un desglose detallado de vulnerabilidades.</li>
+<li>Interpretación de recomendaciones: Ver cómo Docker Scout nos sugiere mejorar el Dockerfile.</li>
+</ol>
+<h4 id="611-instalar">6.1.1. Instalar<a class="headerlink" href="#611-instalar" title="Permanent link">&para;</a></h4>
+<p><a href="https://docs.docker.com/scout/install/">https://docs.docker.com/scout/install/</a></p>
+<p>Descargar e instalar el plugin de Docker Scout</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/docker/scout-cli/main/install.sh<span class="w"> </span>-o<span class="w"> </span>install-scout.sh
+sh<span class="w"> </span>install-scout.sh
+</code></pre></div>
+<h4 id="612-iniciar-sesion">6.1.2. Iniciar sesión<a class="headerlink" href="#612-iniciar-sesion" title="Permanent link">&para;</a></h4>
+<p>Docker Scout necesita consultar una base de datos de vulnerabilidades actualizada. Para ello, debes estar autenticado:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>login
+</code></pre></div>
+<h4 id="613-comandos-principales-de-analisis">6.1.3. Comandos principales de análisis<a class="headerlink" href="#613-comandos-principales-de-analisis" title="Permanent link">&para;</a></h4>
+<p>Una vez instalado, aquí tienes los comandos fundamentales :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Comando</th>
+<th style="text-align: left;">Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>docker scout quickview [IMAGEN]</code></td>
+<td style="text-align: left;">Da un resumen rápido de las vulnerabilidades y la calidad de la imagen base.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>docker scout cves [IMAGEN]</code></td>
+<td style="text-align: left;">Muestra un listado detallado de todas las vulnerabilidades encontradas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>docker scout recommendations [IMAGEN]</code></td>
+<td style="text-align: left;">Sugiere cambios en la imagen base para reducir el número de vulnerabilidades.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="614-ejemplo-practico">6.1.4. Ejemplo práctico<a class="headerlink" href="#614-ejemplo-practico" title="Permanent link">&para;</a></h4>
+<p>Suponga que tiene una imagen llamada <code>mi-app-debian:latest</code>. Para ver qué problemas tiene, ejecutar:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ver el estado general de seguridad</span>
+$<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </span>quickview<span class="w"> </span>mi-app-debian:latest
+
+<span class="c1"># Ver detalles específicos de cada fallo de seguridad</span>
+$<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </span>cves<span class="w"> </span>mi-app-debian:latest
+</code></pre></div>
+<h2 id="7-hardened-images">7. Hardened images<a class="headerlink" href="#7-hardened-images" title="Permanent link">&para;</a></h2>
+<p><a href="https://docs.docker.com/dhi/">https://docs.docker.com/dhi/</a></p>
+<p>El servicio de <strong>Docker Hardened Images (DHI)</strong> es una iniciativa de Docker Inc. para proporcionar imágenes de contenedor extremadamente seguras, optimizadas y listas para producción.</p>
+<p>El objetivo principal de estas imágenes es reducir la <strong>superficie de ataque</strong> de las aplicaciones (hasta en un 95% según Docker). Estas son sus características clave:</p>
+<ul>
+<li><strong>Casi cero vulnerabilidades (CVEs):</strong> Están diseñadas para tener el mínimo posible de vulnerabilidades conocidas. Docker las parchea continuamente de forma automatizada.</li>
+<li><strong>Minimalismo extremo:</strong> Se basan en un enfoque "distroless" o muy reducido (usando bases como Alpine o Debian), eliminando herramientas innecesarias como gestores de paquetes o shells que un atacante podría explotar.</li>
+<li><strong>Transparencia Total (SBOM):</strong> Cada imagen incluye un <strong>Software Bill of Materials (SBOM)</strong> detallado, que es como una lista de ingredientes que permite saber exactamente qué librerías y versiones contiene la imagen.</li>
+<li><strong>Cumplimiento y Procedencia:</strong> Cuentan con niveles de <strong>SLSA (Supply-chain Levels for Software Artifacts) Nivel 3</strong>, lo que garantiza que la imagen no ha sido alterada desde su creación hasta que llega a ti.</li>
+<li><strong>Sustitución directa (Drop-in):</strong> Están diseñadas para reemplazar las imágenes base estándar (como <code>python</code>, <code>node</code>, <code>go</code>) sin necesidad de cambiar drásticamente tu <code>Dockerfile</code>.</li>
+</ul>
+<p>Docker ha hecho que el catálogo principal de <strong>Hardened Images sea gratuito y de código abierto (Apache 2.0)</strong> para todos los desarrolladores. Puede usarla en proyectos personales o profesionales sin pagar una suscripción, siempre que no necesite características empresariales avanzadas.</p>
+<p>Un ejemplo de cómo cambiaría el código sería:</p>
+<p>Versión original</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Antes (Imagen estándar)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:20-alpine</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Versión "DHI"</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Usando la versión endurecida y verificada</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">dhi.io/docker/node:20</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
+</code></pre></div>
+<blockquote>
+<p>Para empezar a usarlas generalmente debes autenticarte en el registro específico de Docker para estas imágenes (<code>dhi.io</code>).</p>
+<p><a href="https://docs.docker.com/dhi/get-started/">https://docs.docker.com/dhi/get-started/</a></p>
+</blockquote>
+<p>Existen versiones comerciales para organizaciones con necesidades críticas:</p>
+<ul>
+<li>Ofrecen SLAs de parcheo (parches para vulnerabilidades críticas en menos de 7 días o incluso 24 horas).</li>
+<li>Permiten añadir certificados internos o paquetes específicos manteniendo la certificación de "hardened".</li>
+<li>Acceso a variantes con certificaciones <strong>FIPS</strong> (estándar federal de procesamiento de información) o <strong>STIG</strong>, necesarias en entornos gubernamentales o financieros muy regulados.</li>
+<li>Soporte de seguridad para imágenes incluso después de que la versión original (upstream) haya llegado a su fin de vida.</li>
+</ul>
+<h2 id="8-varios-de-ampliacion">8. Varios de ampliación<a class="headerlink" href="#8-varios-de-ampliacion" title="Permanent link">&para;</a></h2>
+<h3 id="81-owasp-docker-security-cheat-sheet">8.1. OWASP Docker Security Cheat Sheet<a class="headerlink" href="#81-owasp-docker-security-cheat-sheet" title="Permanent link">&para;</a></h3>
+<p>La verdad es que debería haber empezado aquí. Algunas se han comentado, otras se escapan un poco del alcance del curso.</p>
+<p>Enlace e índice:
+<a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html">Docker Security Cheat Sheet</a></p>
+<div class="highlight"><pre><span></span><code>Table of contents
+Introduction
+Rules
+RULE #0 - Keep Host and Docker up to date
+RULE #1 - Do not expose the Docker daemon socket (even to the containers)
+RULE #2 - Set a user
+RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)
+RULE #4 - Prevent in-container privilege escalation
+RULE #5 - Be mindful of Inter-Container Connectivity
+RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)
+RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)
+RULE #8 - Set filesystem and volumes to read-only
+RULE #9 - Integrate container scanning tools into your CI/CD pipeline
+RULE #10 - Keep the Docker daemon logging level at info
+Rule #11 - Run Docker in rootless mode
+RULE #12 - Utilize Docker Secrets for Sensitive Data Management
+RULE #13 - Enhance Supply Chain Security
+Podman as an alternative to Docker
+References and Further Reading
+</code></pre></div>
+<h3 id="82-ejemplo-practico-mejorar-dockerfile-avanzado">8.2. Ejemplo practico mejorar Dockerfile avanzado<a class="headerlink" href="#82-ejemplo-practico-mejorar-dockerfile-avanzado" title="Permanent link">&para;</a></h3>
+<p>Un tutorial con una aplicación Node.js dónde se va mejorando el  fichero <code>Dockerfile</code> paso a paso, comentando los posibles fallos, mejoras ,etc. El repositorio con la aplicación está en <a href="https://github.com/juan131/dockerfile-best-practices">Best Practices writing a Dockerfile</a></p>
+<h3 id="83-curso-en-la-plataforma-asegurando-contenedores-tema-8">8.3. Curso en la plataforma: Asegurando contenedores (tema 8)<a class="headerlink" href="#83-curso-en-la-plataforma-asegurando-contenedores-tema-8" title="Permanent link">&para;</a></h3>
+<p>Este apartado está extraído del curso disponible en la plataforma:</p>
+<blockquote>
+<p>Autor: <strong>Juan Diego Pérez Jiménez</strong> para la Consejería de Educación y Deporte
+Licencia: creative commons: attribution - non commercial - share alike 4.0</p>
+</blockquote>
+<p>Y se organiza en estos apartados:</p>
+<h4 id="831-seguridad-en-las-imagenes">8.3.1. Seguridad en las imágenes<a class="headerlink" href="#831-seguridad-en-las-imagenes" title="Permanent link">&para;</a></h4>
+<p>En este apartado incide en algunas cuestiones ya vistas, puede aprovechar la explicación:</p>
+<ul>
+<li>Usar imágenes oficiales o de usuarios verificados.</li>
+<li>Usar DCT, <em>Docker's Content Trust.</em></li>
+<li>Usar imágenes mínimas: añade el uso del fichero <code>.dockerignore</code></li>
+<li>Restricción de privilegios con usuario distinto de root</li>
+<li>Escaneo de imágenes en DockerHub (servicio de pago)</li>
+</ul>
+<h4 id="832-seguridad-en-el-proceso-de-build">8.3.2. Seguridad en el proceso de build<a class="headerlink" href="#832-seguridad-en-el-proceso-de-build" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>ADD</code> vs <code>COPY</code>.  </li>
+<li><code>CMD</code> &amp; <code>ENTRYPOINT</code></li>
+<li><strong>Principio de mínimo privilegio</strong></li>
+<li>ejecutar primero los comandos que necesitan root</li>
+<li>
+<p>crear el usuario y conmuto a el con USER</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Imágen que va a usar</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">XXXXX</span>
+....
+<span class="c"># Creación del usuario para arrancar el servicio</span>
+<span class="k">RUN</span><span class="w"> </span>addgroup<span class="w"> </span>-S<span class="w"> </span>usuario<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>adduser<span class="w"> </span>-S<span class="w"> </span>usuario<span class="w"> </span>-G<span class="w"> </span>usuario.
+.........
+<span class="c"># Lista de órdenes que de ROOT</span>
+.........
+<span class="c"># Establece test que ejecutará siguientes órdenes</span>
+<span class="k">USER</span><span class="w"> </span><span class="s">test</span>
+<span class="c"># Define  ENTRYPOINT que se ejecutará como test.</span>
+<span class="k">ENTRYPOINT</span><span class="w"> </span>.....
+</code></pre></div>
+</li>
+</ul>
+<h4 id="833-seguridad-al-arrancar-los-contenedores">8.3.3. Seguridad al arrancar los contenedores<a class="headerlink" href="#833-seguridad-al-arrancar-los-contenedores" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Limitar recursos: memoria, CPU, etc.</li>
+<li>Deshabilitar las capacidades: añade explicación sobre los flags <code>--cap-drop</code> y  <code>--cap-add</code>.</li>
+</ul>
+<h4 id="834-video">8.3.4. Vídeo<a class="headerlink" href="#834-video" title="Permanent link">&para;</a></h4>
+<p>En ese apartado se muestra un vídeo donde se hacen prácticas de DCT y firma de imágenes. Le mostramos a continuación algunos de los comandos utilizados</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>system<span class="w"> </span>info
+$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>inspect<span class="w"> </span>hadolint/hadolint
+$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>key<span class="w"> </span>generate<span class="w"> </span>helloworld
+$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>~/.docker/trust/private/
+total<span class="w"> </span><span class="m">4</span>
+-rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">422</span><span class="w"> </span>may<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">20</span>:42<span class="w"> </span>g271e939289fc366096c538c58ff5e513bfc11bbca5ea891f756d30a809834c8.key
+$<span class="w"> </span>ls<span class="w"> </span>-l
+...
+-rwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">196</span><span class="w"> </span>may<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">20</span>:42<span class="w"> </span>helloworld.pub
+drwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">   </span><span class="m">0</span><span class="w"> </span>abr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">22</span>:04<span class="w"> </span>src
+$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>signer<span class="w"> </span>add<span class="w"> </span>--key<span class="w"> </span>hellowordl.pub<span class="w"> </span>usuariotest<span class="w"> </span>userdocker/helloworld
+$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>userdocker/helloworld:2.0<span class="w"> </span>.
+$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>sign<span class="w"> </span>userdocker/helloworld:2.0
+$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>--disable-content-trust<span class="w"> </span>....
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../fuentes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fuentes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Fuentes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../03-docker-depends/" class="md-footer__link md-footer__link--next" aria-label="Next: Depends">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Depends
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tracking", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2031 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../01-docker-tutorial/">
+      
+      
+        <link rel="next" href="../t01-docker-intro-02/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Ayuda tuto - Zona Docker</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker-tutorial-101" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Zona Docker" class="md-header__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zona Docker
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ayuda tuto
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01-docker-tutorial/" class="md-tabs__link">
+          
+  
+  Tutorial Docker
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-servidores-web/" class="md-tabs__link">
+          
+  
+  Servidores
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../03-docker-ejercicios/" class="md-tabs__link">
+        
+  
+    
+  
+  Ejercicios
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../04_traefik/" class="md-tabs__link">
+        
+  
+    
+  
+  Traefik
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../05_docker_swarm/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Swarm
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../fuentes/" class="md-tabs__link">
+        
+  
+    
+  
+  Fuentes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../t03-docker-seguro/t03-docker-seguro/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Seguro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-docker-depends/" class="md-tabs__link">
+          
+  
+  Amplia Compose
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../pdf/document.pdf" class="md-tabs__link">
+        
+  
+    
+  
+  Volcado PDF
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Zona Docker" class="md-nav__button md-logo" aria-label="Zona Docker" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zona Docker
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Tutorial Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-docker-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iniciarlo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ayuda tuto
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Ayuda tuto
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instalación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Instalación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-post-installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. post-installation steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. La aplicación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-actualizar-la-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Actualizar la app
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-compartir-en-dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Compartir en Dockerhub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-persistencia-de-los-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Persistencia de los datos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Persistencia de los datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-volumen-con-nombre" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. Volumen con nombre
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-bind-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2. Bind mount
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-multicontenedor-modo-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Multicontenedor modo "manual"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-multi-contenedor-con-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Multi contenedor con docker-compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Multi contenedor con docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-fichero-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Fichero docker-compose.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-comandos-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Comandos docker compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-image-building-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Image Building Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Image Building Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-escanear-la-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1. Escanear la imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-optimizar-build-de-la-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2. Optimizar build de la imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-el-fichero-dockerignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3. El fichero .dockerignore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-build-multistage" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4. Build multistage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-anexos" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Anexos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Anexos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-obsoleto-docker-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1. Obsoleto: docker scan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t01-docker-intro-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplia tuto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Servidores
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Servidores
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidores Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-bd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bases de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-aplicaciones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servidor de Aplicaciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-servidores-amplia/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ampliación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-docker-ejercicios/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_traefik/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_docker_swarm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Swarm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fuentes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fuentes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../t03-docker-seguro/t03-docker-seguro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Seguro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Amplia Compose
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Amplia Compose
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-docker-depends/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Depends
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-docker-ayudas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables Entorno
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pdf/document.pdf" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Volcado PDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instalación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Instalación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-post-installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. post-installation steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-aplicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. La aplicación
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-actualizar-la-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Actualizar la app
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-compartir-en-dockerhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Compartir en Dockerhub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-persistencia-de-los-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Persistencia de los datos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Persistencia de los datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-volumen-con-nombre" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. Volumen con nombre
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-bind-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2. Bind mount
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-multicontenedor-modo-manual" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Multicontenedor modo "manual"
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-multi-contenedor-con-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Multi contenedor con docker-compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Multi contenedor con docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-fichero-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Fichero docker-compose.yml
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-comandos-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Comandos docker compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-image-building-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Image Building Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Image Building Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-escanear-la-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1. Escanear la imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-optimizar-build-de-la-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2. Optimizar build de la imagen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-el-fichero-dockerignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.3. El fichero .dockerignore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-build-multistage" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.4. Build multistage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-anexos" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Anexos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Anexos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-obsoleto-docker-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1. Obsoleto: docker scan
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="docker-tutorial-101">Docker: tutorial 101<a class="headerlink" href="#docker-tutorial-101" title="Permanent link">&para;</a></h1>
+<h2 id="1-instalacion">1. Instalación<a class="headerlink" href="#1-instalacion" title="Permanent link">&para;</a></h2>
+<p>Puede instalar Docker directamente en su equipo o en una máquina virtual con Linux. Puede acceder a <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a> para obtener instrucciones según su distribución. En los ejemplos se supone una instalación en Debian.</p>
+<p>En las prácticas y por comodidad se usa el <em>script</em> que proporciona Docker para una instalación de desarrollo:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
+<span class="gp">$ </span>sudo<span class="w"> </span>sh<span class="w"> </span>get-docker.sh
+<span class="go">  Executing docker install script, commit: </span>
+<span class="go">  7cae5f8b0decc17d657fbc13b2737</span>
+<span class="go">  &lt;...&gt;</span>
+</code></pre></div>
+<h3 id="11-post-installation-steps">1.1. post-installation steps<a class="headerlink" href="#11-post-installation-steps" title="Permanent link">&para;</a></h3>
+<p>Si quiere que el usuario ejecute los comandos <code>docker</code> sin usar <code>sudo</code></p>
+<blockquote>
+<p>If you would like to use Docker as a non-root user, you should now consider adding your user to the “docker” group with something like:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$sudo</span><span class="w"> </span>groupadd<span class="w"> </span>docker
+<span class="nv">$sudo</span><span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span>&lt;your-user&gt;
+</code></pre></div>
+<p>Remember to log out and back in for this to take effect!. &gt;You can also run the following command to activate the changes to groups:</p>
+<div class="highlight"><pre><span></span><code><span class="go">newgrp docker</span>
+</code></pre></div>
+</blockquote>
+<p>No olvide comprobar que la instalación es correcta lanzando la imagen  <code>hello-world</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$docker</span><span class="w"> </span>run<span class="w"> </span>hello-world
+</code></pre></div>
+<h2 id="2-introduccion">2. Introducción<a class="headerlink" href="#2-introduccion" title="Permanent link">&para;</a></h2>
+<p>Docker proporciona un tutorial guiado para entender como es el despliegue de una aplicación en un entorno de contenedores (en ese tutorial se utilizará una aplicación Node):</p>
+<p><a href="https://www.docker.com/101-tutorial/">https://www.docker.com/101-tutorial/</a></p>
+<p>El tutorial se ofrece en una imagen Docker que debe iniciar con el comando <code>docker run -d -p 80:80 docker/getting-started</code></p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>docker/getting-started
+<span class="go">Unable to find image &#39;docker/getting-started:latest&#39; locally</span>
+<span class="go">latest: Pulling from docker/getting-started</span>
+<span class="go">c158987b0551: Pull complete </span>
+<span class="go">...</span>
+<span class="go">4f7e34c2de10: Pull complete </span>
+<span class="go">Digest: sha256:d79336f4812b65.....71b414fbd9297609ffb989abc1</span>
+<span class="go">Status: Downloaded newer image for docker/getting-started:latest</span>
+<span class="go">670fe226d2779c2c96e6417aabf34.....6d7ca4d050e0161e296325c3b7</span>
+<span class="gp">alu@xdebian11:~$ </span>
+</code></pre></div>
+<p>Y puede acceder al tutorial en la URL <a href="http://localhost">http://localhost</a></p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~$ </span>firefox<span class="w"> </span>localhost:80
+<span class="gp">alu@xdebian11:~$ </span>
+</code></pre></div>
+<p><img alt="docker-tutorial-index" src="../figuras/docker-tutorial-index.png" /></p>
+<p>Ya sólo queda seguir los pasos que propone el tutorial.</p>
+<h2 id="3-la-aplicacion">3. La aplicación<a class="headerlink" href="#3-la-aplicacion" title="Permanent link">&para;</a></h2>
+<p>El tutorial trabaja con una aplicación  en node. Los pasos a dar para construir una imagen Docker que incluya esa aplicación están en el tutorial y son:</p>
+<ul>
+<li>
+<p>Descargar la aplicación (en formato ZIP) desde el navegador. Descomprimirla  en el  directorio de inicio de sesión. Se obtiene un directorio <code>app</code>, y dentro los directorios <code>spec</code> y <code>src</code>.</p>
+</li>
+<li>
+<p>Abrir el directorio <code>app</code> con el editor vscode.</p>
+</li>
+<li>
+<p>Crear dentro de <code>app</code> un fichero de nombre <code>Dockerfile</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:18-alpine</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/index.js&quot;</span><span class="p">]</span>
+</code></pre></div>
+</li>
+<li>
+<p>Acceder a un terminal en el directorio <code>app</code> y construir la imagen (nombre <code>getting-started</code>) que incluye la aplicación con <code>docker build</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>ls
+<span class="go">Dockerfile  package.json  spec  src  yarn.lock</span>
+<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>getting-started<span class="w"> </span>.
+<span class="go">[+] Building 15.1s (7/8)  </span>
+<span class="go">...</span>
+</code></pre></div>
+</li>
+<li>
+<p>Como resultado final tenemos una imagen Docker que incluye la aplicación. Esta accede a una base de datos en la propia imagen usando SQLite.  </p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>images
+REPOSITORY<span class="w">             </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">       </span>SIZE
+getting-started<span class="w">        </span>latest<span class="w"> </span>47e87..92<span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>262MB
+docker/getting-started<span class="w"> </span>latest<span class="w"> </span>3e439..2f<span class="w"> </span><span class="m">6</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">   </span>47MB
+hello-world<span class="w">            </span>latest<span class="w"> </span>feb5d..a5<span class="w"> </span><span class="m">16</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">13</span>.3kB
+alu@xdebian11:~/app$<span class="w"> </span>
+</code></pre></div>
+<ul>
+<li>
+<p>Iniciar el contenedor con  <code>docker run</code></p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>miapp<span class="w"> </span>getting-started
+<span class="go">f412f7de1737bce2c43490196d0.....afa03d1dffaa7cec</span>
+<span class="gp">alu@xdebian11:~/app$</span>
+</code></pre></div>
+</li>
+<li>
+<p>Y probar la aplicación que es accesible en el puerto 3000: <a href="http://localhost:3000">http://localhost:3000</a> añadiendo datos:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>firefox<span class="w"> </span>http://localhost:3000
+</code></pre></div>
+</li>
+</ul>
+<p>Puede ahora parar el contenedor y ver como la aplicación deja de estar disponible:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>stop<span class="w"> </span>miapp<span class="w"> </span>
+<span class="go">miapp</span>
+<span class="gp">alu@xdebian11:~/app$</span>
+</code></pre></div>
+<p>Y volver a arrancar el contenedor y ver que la aplicación y los datos están disponibles:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>start<span class="w"> </span>miapp<span class="w"> </span>
+<span class="go">miapp</span>
+<span class="gp">alu@xdebian11:~/app$</span>
+</code></pre></div>
+<h2 id="4-actualizar-la-app">4. Actualizar la app<a class="headerlink" href="#4-actualizar-la-app" title="Permanent link">&para;</a></h2>
+<p>Se propone ahora modificar la aplicación. Tras modificarla habrá que construir una nueva imagen, lanzarla, probarla, etc. Pasos a dar:</p>
+<ul>
+<li>Hacer un cambio en la aplicación: modificar en  el fichero <code>app/src/static/js/app.js</code> el mensaje que se le indica en la línea 56.</li>
+<li>
+<p>Construir una nueva imagen con la aplicación actualizada (si no se usan etiquetas se pierde el tag (<code>latest</code>) de la imagen inicial y pasa a ser "<code>none</code>"):</p>
+<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>getting-started<span class="w"> </span>.<span class="w"> </span>
+<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">11</span>.3s<span class="w"> </span><span class="o">(</span><span class="m">9</span>/9<span class="o">)</span><span class="w"> </span>FINISHED<span class="w">                                                  </span>
+...<span class="w"> </span>
+<span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>writing<span class="w"> </span>image<span class="w"> </span>sha256:d85186b3b7dc7a088d49318bc4f2a177a4bcd2f677a34271<span class="w">  </span><span class="m">0</span>.0s<span class="w"> </span>
+<span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>naming<span class="w"> </span>to<span class="w"> </span>docker.io/library/getting-started<span class="w">        </span><span class="m">0</span>.0s<span class="w"> </span>
+alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>images
+REPOSITORY<span class="w">             </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w"> </span>CREATED<span class="w">         </span>SIZE<span class="w"> </span>
+getting-started<span class="w">        </span>latest<span class="w"> </span>d85...dc<span class="w"> </span><span class="m">10</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w"> </span>262MB
+&lt;none&gt;<span class="w">                 </span>&lt;none&gt;<span class="w"> </span>47e...92<span class="w"> </span><span class="m">55</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>262MB
+docker/getting-started<span class="w"> </span>latest<span class="w"> </span>3e4...2f<span class="w"> </span><span class="m">6</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>47MB
+hello-world<span class="w">            </span>latest<span class="w"> </span>feb...a5<span class="w"> </span><span class="m">16</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">13</span>.3kB
+alu@xdebian11:~/app$<span class="w"> </span>
+</code></pre></div>
+</li>
+<li>
+<p>Si intenta lanzar la nueva imagen es posible que tenga un errorya que si no hemos parado el contenedor previo el nuevo intenta usar el mismo puerto</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>nuevaapp<span class="w"> </span>getting-started
+<span class="go">f94faea80f45306db4f387......6ffba3753541419cebc316a3179cb26</span>
+<span class="go">docker: Error response from daemon: driver failed programming external connectivity on endpoint nuevaapp (312d6bfa399ecc15947d3......c21506867769b01cdc2c2ebc68071c): </span>
+<span class="go">Bind for 0.0.0.0:3000 failed: port is already allocated.</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+</li>
+<li>
+<p>Puede comprobar los contenedores en ejecución con <code>docker ps</code>, detenerlo con <code>docker stop</code> y borrarlo con <code>docker rm</code> para terminar lanzando el nuevo contenedor:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>ps
+<span class="go">CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                       NAMES</span>
+<span class="go">c75ba15aa019   47e872a9bc92             &quot;docker-entrypoint.s…&quot;   15 minutes ago   Up 11 minutes   0.0.0.0:3000-&gt;3000/tcp, :::3000-&gt;3000/tcp   miapp</span>
+<span class="go">292ffb5d2de8   docker/getting-started   &quot;/docker-entrypoint.…&quot;   24 minutes ago   Up 24 minutes   0.0.0.0:80-&gt;80/tcp, :::80-&gt;80/tcp           tutorial</span>
+<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>stop<span class="w"> </span>miapp<span class="w"> </span>
+<span class="go">miapp</span>
+<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>rm<span class="w"> </span>miapp<span class="w"> </span>
+<span class="go">miapp</span>
+<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>nuevaapp<span class="w"> </span>getting-started
+<span class="go">f48e6b71bdafb4fd84c02e4a9ab.....74c518545599847cb66cc7cbd</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+<blockquote>
+<p>Nota: puede generar una imagen especificando una etiqueta completa  con el formato <code>&lt;repo:tag&gt;</code>: <code>docker build -t getting-started:v1.0</code>.</p>
+</blockquote>
+<h2 id="5-compartir-en-dockerhub">5. Compartir en Dockerhub<a class="headerlink" href="#5-compartir-en-dockerhub" title="Permanent link">&para;</a></h2>
+<p>En este apartado "registrará"  su imagen en DockerHub. Para ello es necesario tener una cuenta en DockerHub. La creación previa del repositorio es opcional, si no lo hace se creará al subir la imagen un repositorio público (y sin descripción).</p>
+<p>Pasos a dar:</p>
+<ul>
+<li>Crear cuenta en DockerHub si no la tuviera.</li>
+<li>Iniciar sesión en DockerHub desde línea de comandos con  <code>docker login -u &lt;dockerhub_username&gt;</code></li>
+<li>Etiquetar correctamente la imagen con su usuario en Dockerhub <code>docker tag repo user/repo</code>.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="go">docker tag getting-started user/getting-started</span>
+</code></pre></div>
+<ul>
+<li>Subir la imagen a DockerHub con <code>docker push</code>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="go">docker push user/getting-started</span>
+</code></pre></div>
+<p>Para poder utilizar dicha imagen basta indicar el repositorio de la imagen al ejecutarla (incluyendo el usuario). Si no está en local se descarga de DockerHub.</p>
+<div class="highlight"><pre><span></span><code><span class="go">docker run -dp 3000:3000 usuario/getting-started</span>
+</code></pre></div>
+<h2 id="6-persistencia-de-los-datos">6. Persistencia de los datos<a class="headerlink" href="#6-persistencia-de-los-datos" title="Permanent link">&para;</a></h2>
+<p>Ahora mismo los datos del contenedor se pierden al terminar el mismo:</p>
+<blockquote>
+<p>When a container runs, it uses the various layers from an image for its filesystem. Each container also gets its own "scratch space" to create/update/remove files. Any changes won't be seen in another container, even if they are using the same image.</p>
+</blockquote>
+<p>En el caso de nuestra aplicación al terminar la ejecución del contenedor se pierde el fichero con la base de datos SQLite</p>
+<blockquote>
+<p>the todo app stores its data in a SQLite Database at /etc/todos/todo.db. If you're not familiar with SQLite, no worries! It's simply a relational database in which all of the data is  stored in a single file.</p>
+</blockquote>
+<p>Con los volúmenes va a conectar el sistema de ficheros del contenedor con el sistema de ficheros de la maquina host. De esta forma, si monta el mismo directorio del host al relanzar el contenedor accederá siempre a los mismos ficheros. Hay dos formas de usar volúmenes:</p>
+<ul>
+<li>volúmenes con nombre (gestionados por Docker)</li>
+<li><em>bind mounts</em> o volúmenes en directorios</li>
+</ul>
+<h3 id="61-volumen-con-nombre">6.1. Volumen con nombre<a class="headerlink" href="#61-volumen-con-nombre" title="Permanent link">&para;</a></h3>
+<p>Al crear volúmenes con nombre Docker se encarga de reservar el espacio necesario en el sistema de ficheros del host y hacer el volumen accesible al contenedor.  </p>
+<p>Pasos a dar:</p>
+<ol>
+<li>
+<p>Crear un volumen con el nombre <code>todo-db</code></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>todo-db
+</code></pre></div>
+</li>
+<li>
+<p>Lanzar el contenedor con un nuevo parámetro, la opción  <code>-v</code>.  A esta se le indican dos valores, el volumen con nombre creado <code>todo-db</code>  y  el directorio <code>/etc/todos</code> del contenedor donde se montará el volumen (la aplicación del ejemplo almacena en <code>/etc/todos</code> la base de datos)</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span>getting-started
+</code></pre></div>
+</li>
+<li>
+<p>Acceda a la aplicación desde el navegador y añada varios elementos.</p>
+</li>
+<li>
+<p>Detenga y borre el contenedor:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>getting-started
+</code></pre></div>
+</li>
+<li>
+<p>Inicie de nuevo otro contenedor y compruebe que se conservan los datos de la ejecución anterior.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span>getting-started
+</code></pre></div>
+</li>
+<li>
+<p>Para ver la localización del volumen use el comando  <code>docker volume inspect</code></p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>todo-db
+</code></pre></div>
+</li>
+<li>
+<p>Por último, puede borrar el volumen con <code>docker volume rm</code> (genera error si el volumen está en uso)</p>
+<p><code>console
+alu@xdebian11:~/app$ docker volume rm todo-db 
+Error response from daemon: remove todo-db: volume is in use - [c89f805e963720..........d1c00ba2a88696fc59f9b8c525e]
+alu@xdebian11:~/app$ docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED              STATUS              PORTS                                       NAMES
+c89f805e9637   getting-started          "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:3000-&gt;3000/tcp, :::3000-&gt;3000/tcp   ecstatic_johnson
+292ffb5d2de8   docker/getting-started   "/docker-entrypoint.…"   About an hour ago    Up About an hour    0.0.0.0:80-&gt;80/tcp, :::80-&gt;80/tcp           tutorial
+alu@xdebian11:~/app$ docker rm -f ecstatic_johnson 
+ecstatic_johnson
+alu@xdebian11:~/app$ docker volume rm todo-db 
+todo-db
+alu@xdebian11:~/app$</code></p>
+</li>
+</ol>
+<h3 id="62-bind-mount">6.2. Bind mount<a class="headerlink" href="#62-bind-mount" title="Permanent link">&para;</a></h3>
+<p>Los volúmenes con nombre son suficientes si queremos almacenar datos y no le preocupa dónde ni cómo se almacenan. Pero puede ser que busque un control mayor de esos datos, e interese que un directorio determinado del host se monte como un directorio del contenedor. Esto es útil en entornos de desarrollo.</p>
+<p>La idea de este apartado es hacer cambios en la aplicación (directorio <code>app</code>) y que estos se reflejen en el contenedor en ejecución sin tener que crear una nueva imagen, ejecutarla, etc.</p>
+<blockquote>
+<p>Nota: en este apartado la aplicación Node usa el módulo  <code>nodemon</code>. Este detecta cambios en los ficheros de la aplicación Node y si es necesario la reinicia. Puede comprobar su uso en el fichero <code>package.json</code>.</p>
+</blockquote>
+<p>Para probar estos volúmenes se  lanza el contenedor mapeando (opción <code>-v</code>) el directorio de trabajo (debe ser <code>app</code>) al directorio <code>/app</code> del contenedor. En este caso no se usa la imagen creada en apartados previos sino una imagen con Node (<code>node:18-alpine</code>)</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+</code></pre></div>
+<p>La opción <code>-w</code> nos indica el directorio de trabajo en el contenedor (similar a <code>WORKDIR /app</code> en el fichero Dockerfile). Si ahora modifica por ejemplo el texto del botón <em>"Add item"</em> en el fichero <code>src/static/js/app.js</code> puede  observar como se "refresca" la aplicación con ese cambio.</p>
+<p>Incluso puede combinar los dos tipos de volúmenes:</p>
+<ul>
+<li>un <em>bind mount</em> para la aplicación</li>
+<li>un volumen con nombre para dar  persistencia a la BD:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+</code></pre></div>
+<p>Puede ver el fichero de log con <code>docker logs -f &lt;container_id&gt;</code></p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>nervous_heisenberg<span class="w"> </span>
+<span class="go">yarn install v1.22.19</span>
+<span class="go">[1/4] Resolving packages...</span>
+<span class="go">...</span>
+<span class="go">[4/4] Building fresh packages...</span>
+<span class="go">Done in 11.71s.</span>
+<span class="go">yarn run v1.22.19</span>
+<span class="gp">$ </span>nodemon<span class="w"> </span>src/index.js
+<span class="go">[nodemon] 2.0.20</span>
+<span class="go">...</span>
+<span class="go">[nodemon] watching extensions: js,mjs,json</span>
+<span class="go">[nodemon] starting `node src/index.js`</span>
+<span class="go">Using sqlite database at /etc/todos/todo.db</span>
+<span class="go">Listening on port 3000</span>
+<span class="go">[nodemon] restarting due to changes...</span>
+<span class="go">[nodemon] starting `node src/index.js`</span>
+<span class="go">Using sqlite database at /etc/todos/todo.db</span>
+<span class="go">Listening on port 3000</span>
+</code></pre></div>
+<h2 id="7-multicontenedor-modo-manual">7. Multicontenedor modo "manual"<a class="headerlink" href="#7-multicontenedor-modo-manual" title="Permanent link">&para;</a></h2>
+<p>En este apartado se introducen varios cambios:</p>
+<ol>
+<li>Pasar la aplicación de un único contenedor a dos:</li>
+<li>un contenedor con la base de datos, que pasa deser SQLite a MySQL.</li>
+<li>otro contenedor con la aplicación</li>
+<li>Usar la herramienta <code>docker compose</code> para describir nuestra aplicación.</li>
+</ol>
+<p>La aplicación es capaz de diferenciar el paso de uno a dos contenedores en base a la existencia de la variable de entorno <code>MYSQL_HOST=mysql</code> que  comprueba en el fichero <code>src/persistence/index.js</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// file src/persistence/index.js</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_HOST</span><span class="p">)</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./mysql&#39;</span><span class="p">);</span>
+<span class="k">else</span><span class="w"> </span>
+<span class="w">  </span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./sqlite&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Realice el cambio a dos contenedores paso a paso ejecutando cada uno de ellos de forma manual.</p>
+<ol>
+<li>
+<p>Crear una red (<code>docker network create</code>) donde se comunicará los dos contenedores:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>todo-app
+<span class="go">b5d1c5cccc26f02861411b845....0fb64ccbc3067a99d9e6cb9cadfc17</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+</li>
+<li>
+<p>Arrancar un contenedor con un servidor MySQL.  Al mismo se le pasan dos variables de entorno, la clave de MySQL y el nombre de la base de datos. Tiene los detalles de cómo lanzar una imagen MySQL en este enlace: (<a href="https://hub.docker.com/_/mysql/">https://hub.docker.com/_/mysql/</a>). Observe que también se usa un volumen <code>todo-mysql-data</code> para darle persistencia a la base de datos:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--network<span class="w"> </span>todo-app<span class="w"> </span>--network-alias<span class="w"> </span>mysql<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-v<span class="w"> </span>todo-mysql-data:/var/lib/mysql<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>-e<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>todos<span class="w"> </span><span class="se">\</span>
+<span class="w">     </span>--name<span class="w"> </span>mysqlcontainer
+<span class="w">     </span>mysql:8.0
+<span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;mysql:8.0&#39;</span><span class="w"> </span>locally
+<span class="w"> </span><span class="m">8</span>.0:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/mysql
+<span class="w"> </span>39fbafb6c7ef:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+<span class="w"> </span>...
+<span class="w"> </span>Digest:<span class="w">  </span>sha256:03b0af....9e0dcaebe411a1ec75e6adc9fea051aa2
+<span class="w"> </span>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>mysql:8.0
+<span class="w"> </span>04e7b5d6bc89883ba9f1c....79367b4cfaa19ba1bf2e68160b389b2346
+<span class="w"> </span>alu@xdebian11:~/app$<span class="w"> </span>
+</code></pre></div>
+<ol>
+<li>
+<p>Probar la creación de la base de dato accediendo al contenedor con <code>docker exec -it</code> y ejecutamos el comando <code>mysql -p</code></p>
+<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysqlserver<span class="w">  </span>mysql<span class="w"> </span>-p
+Enter<span class="w"> </span>password:<span class="w"> </span>
+Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>MySQL<span class="w"> </span>monitor.<span class="w">  </span>Commands<span class="w"> </span>end<span class="w"> </span>with<span class="w"> </span><span class="p">;</span><span class="w"> </span>or<span class="w"> </span><span class="se">\g</span>.
+Your<span class="w"> </span>MySQL<span class="w"> </span>connection<span class="w"> </span>id<span class="w"> </span>is<span class="w"> </span><span class="m">8</span>
+Server<span class="w"> </span>version:<span class="w"> </span><span class="m">8</span>.0.32<span class="w"> </span>MySQL<span class="w"> </span>Community<span class="w"> </span>Server<span class="w"> </span>-<span class="w"> </span>GPL
+
+...
+
+Type<span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
+
+mysql&gt;<span class="w"> </span>SHOW<span class="w"> </span>databases<span class="p">;</span>
++--------------------+
+<span class="p">|</span><span class="w"> </span>Database<span class="w">           </span><span class="p">|</span>
++--------------------+
+<span class="p">|</span><span class="w"> </span>information_schema<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>mysql<span class="w">              </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>performance_schema<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>sys<span class="w">                </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>todos<span class="w">              </span><span class="p">|</span>
++--------------------+
+<span class="m">5</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+
+mysql&gt;<span class="w"> </span>use<span class="w"> </span>todos<span class="p">;</span>
+Database<span class="w"> </span>changed
+mysql&gt;<span class="w"> </span>show<span class="w"> </span>tables<span class="p">;</span>
+Empty<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+
+mysql&gt;<span class="w"> </span><span class="nb">exit</span>
+Bye
+alu@xdebian11:~/app$<span class="w"> </span>
+</code></pre></div>
+</li>
+<li>
+<p>En el tutorial se muestra el uso de la imagen <code>nicolaka/netshoot</code> para obtener la IP del servidor MySQL y comprobar que la opción <code>--netwok-alias mysql</code> permite usar <code>mysql</code> como nombre de host del contenedor.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>mysqlserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>IPAddress
+<span class="go">            &quot;SecondaryIPAddresses&quot;: null,</span>
+<span class="go">            &quot;IPAddress&quot;: &quot;&quot;,</span>
+<span class="go">                    &quot;IPAddress&quot;: &quot;172.19.0.3&quot;,</span>
+<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>todo-app<span class="w"> </span>nicolaka/netshoot
+<span class="go">                    dP            dP                           dP   </span>
+<span class="go">                    88            88                           88   </span>
+<span class="go">88d888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. .d8888b. d8888P </span>
+<span class="go">88&#39;  `88 88ooood8   88   Y8ooooo. 88&#39;  `88 88&#39;  `88 88&#39;  `88   88   </span>
+<span class="go">88    88 88.  ...   88         88 88    88 88.  .88 88.  .88   88   </span>
+<span class="go">dP    dP `88888P&#39;   dP   `88888P&#39; dP    dP `88888P&#39; `88888P&#39;   dP   </span>
+
+<span class="go">Welcome to Netshoot! (github.com/nicolaka/netshoot)                                                         </span>
+<span class="go">5a5c709c3917  ~  dig mysql</span>
+
+<span class="go">; &lt;&lt;&gt;&gt; DiG 9.18.8 &lt;&lt;&gt;&gt; mysql</span>
+<span class="go">;; global options: +cmd</span>
+<span class="go">;; Got answer:</span>
+<span class="go">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 51505</span>
+<span class="go">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span>
+
+<span class="go">;; QUESTION SECTION:</span>
+<span class="go">;mysql.    IN A</span>
+
+<span class="go">;; ANSWER SECTION:</span>
+<span class="go">mysql.   600 IN A 172.19.0.3</span>
+
+<span class="go">;; Query time: 0 msec</span>
+<span class="go">;; SERVER: 127.0.0.11#53(127.0.0.11) (UDP)</span>
+<span class="go">;; WHEN: Sun Feb 05 14:06:32 UTC 2023</span>
+<span class="go">;; MSG SIZE  rcvd: 44</span>
+
+<span class="go">5a5c709c3917  ~  ping mysql</span>
+<span class="go">PING mysql (172.19.0.3) 56(84) bytes of data.</span>
+<span class="go">64 bytes from mysqlserver.todo-app (172.19.0.3): icmp_seq=1 ttl=64 time=0.131 ms</span>
+<span class="go">64 bytes from mysqlserver.todo-app (172.19.0.3): icmp_seq=2 ttl=64 time=0.096 ms</span>
+<span class="go">^C</span>
+<span class="go">--- mysql ping statistics ---</span>
+<span class="go">2 packets transmitted, 2 received, 0% packet loss, time 1013ms</span>
+<span class="go">rtt min/avg/max/mdev = 0.096/0.113/0.131/0.017 ms</span>
+
+<span class="go">5a5c709c3917  ~   exit</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+</li>
+<li>
+<p>Lanzar un segundo contenedor con la aplicación y especificar las variables de entorno que permiten conectarla con la base de datos <code>mysql</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-w<span class="w"> </span>/app<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--network<span class="w"> </span>todo-app<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_HOST</span><span class="o">=</span>mysql<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>root<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_DB</span><span class="o">=</span>todos<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>--name<span class="w"> </span>miapp<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+<span class="go">5ab724f02d8b3aba8d40e....24bc8581a8a1730fb8d089e0441</span>
+<span class="gp">alu@xdebian11:~/app$</span>
+</code></pre></div>
+</li>
+<li>
+<p>Comprobar que se ha conectado con <code>mysql</code></p>
+<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$ docker logs  miapp 
+yarn install v1.22.19
+[1/4] Resolving packages...
+success Already up-to-date.
+Done in 0.38s.
+yarn run v1.22.19
+$ nodemon src/index.js
+[nodemon] 2.0.20
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node src/index.js`
+Waiting for mysql:3306.
+Connected!
+Connected to mysql db at host mysql
+Listening on port 3000
+alu@xdebian11:~/app$
+</code></pre></div>
+</li>
+<li>
+<p>Probar la aplicación añadiendo datos.</p>
+</li>
+<li>
+<p>Conectar a la base de datos para comprobar los datos en la tabla <code>todo_items</code>:</p>
+<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysqlserver<span class="w"> </span>mysql<span class="w"> </span>-p<span class="w"> </span>todos
+Enter<span class="w"> </span>password:<span class="w"> </span>
+....
+Type<span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
+
+mysql&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>todo_items<span class="p">;</span>
++-----------------+------------------------+-----------+
+<span class="p">|</span><span class="w"> </span>id<span class="w">              </span><span class="p">|</span><span class="w"> </span>name<span class="w">                   </span><span class="p">|</span><span class="w"> </span>completed<span class="w"> </span><span class="p">|</span>
++-----------------+------------------------+-----------+
+<span class="p">|</span><span class="w"> </span>e1b61a.....891d<span class="w"> </span><span class="p">|</span><span class="w"> </span>Revisar<span class="w"> </span>Apuntes<span class="w"> </span>Docker<span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">867350</span>.....6769<span class="w"> </span><span class="p">|</span><span class="w"> </span>Rehacer<span class="w"> </span>deply<span class="w"> </span>Heroku<span class="w">   </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>ee1523.....d230<span class="w"> </span><span class="p">|</span><span class="w"> </span>Probar<span class="w"> </span>deploy<span class="w"> </span>en<span class="w"> </span>AWS<span class="w">   </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
++-----------------+------------------------+-----------+
+<span class="m">3</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+
+mysql&gt;<span class="w"> </span><span class="nb">exit</span>
+Bye
+alu@xdebian11:~/app$
+</code></pre></div>
+</li>
+</ol>
+<blockquote>
+<p>Nota: El uso de variables de entorno para información sensible no es adecuado. Verá como resolver esta situación en un apartado posterior.</p>
+</blockquote>
+<h2 id="8-multi-contenedor-con-docker-compose">8. Multi contenedor con docker-compose<a class="headerlink" href="#8-multi-contenedor-con-docker-compose" title="Permanent link">&para;</a></h2>
+<p>En vez de realizar el despliegue de forma manual paso a paso lo habitual es utilizar un fichero descriptivo que es interpretado por el comando <code>docker compose</code>.</p>
+<h3 id="81-fichero-docker-composeyml">8.1. Fichero docker-compose.yml<a class="headerlink" href="#81-fichero-docker-composeyml" title="Permanent link">&para;</a></h3>
+<p>El fichero sería similar a este (en el tutorial se explica paso a paso su creación):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:18-alpine</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sh -c &quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000:3000</span>
+<span class="w">    </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./:/app</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">MYSQL_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+<span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+<span class="w">      </span><span class="nt">MYSQL_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todos</span>
+
+<span class="w">  </span><span class="nt">mysql</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:8.0</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todo-mysql-data:/var/lib/mysql</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span>
+<span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+<span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todos</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">todo-mysql-data</span><span class="p">:</span>
+</code></pre></div>
+<h3 id="82-comandos-docker-compose">8.2. Comandos docker compose<a class="headerlink" href="#82-comandos-docker-compose" title="Permanent link">&para;</a></h3>
+<p>La herramienta <code>docker compose</code> debe estar instalada. Para verificarlo:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>version
+<span class="go">Docker Compose version v2.15.1</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+<p>Ahora para lanzar la aplicación basta  ejecutar el comando <code>docker-compose up -d</code> (crea la red, los volúmenes necesarios y lanza los contenedores), Si no se especifica fichero se utiliza el <code>docker-compose.yml</code> del directorio:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<span class="go">[+] Running 4/4</span>
+<span class="go"> ⠿ Network app_default           Created 0.1s</span>
+<span class="go"> ⠿ Volume &quot;app_todo-mysql-data&quot;  Created 0.0s</span>
+<span class="go"> ⠿ Container app-app-1           Started 0.7s</span>
+<span class="go"> ⠿ Container app-mysql-1         Started 0.6s</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+<p>Para ver los logs de los dos servicios en "vivo" basta ejecutar  <code>docker-compose logs -f</code>. Si desea ver solo el log de uno de los servicios en este caso <code>docker-compose logs app|mysql</code></p>
+<p>Para detener los servicios basta <code>docker-compose down</code>. Tenga en cuenta que por defecto este comando no borra los volúmenes (tendría que usar el flag <code>--volumes</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>
+<span class="go">[+] Running 3/3</span>
+<span class="go">⠿ Container app-mysql-1  Removed    3.4s</span>
+<span class="go">⠿ Container app-app-1    Removed    0.2s</span>
+<span class="go">⠿ Network app_default    Removed    0.1s</span>
+<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>volume<span class="w"> </span>ls
+<span class="go">DRIVER    VOLUME NAME</span>
+<span class="go">local     app_todo-mysql-data</span>
+<span class="gp">alu@xdebian11:~/app$ </span>
+</code></pre></div>
+<h2 id="9-image-building-best-practices">9. Image Building Best Practices<a class="headerlink" href="#9-image-building-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="91-escanear-la-imagen">9.1. Escanear la imagen<a class="headerlink" href="#91-escanear-la-imagen" title="Permanent link">&para;</a></h3>
+<p>En el tutorial de docker habla de <code>docker scan</code>, que ha sido sustituida por  <code>docker scout</code>. Para instalarlo: <a href="https://docs.docker.com/scout/install/">https://docs.docker.com/scout/install/</a></p>
+<p>Y para utilizarlo <a href="https://docs.docker.com/scout/explore/analysis/#cli">en línea de comandos</a>. Algunos ejemplos de uso:</p>
+<ul>
+<li><code>docker scout quickview</code>: summary of the specified image, see Quickview</li>
+<li><code>docker scout cves</code>: local analysis of the specified image, see CVEs</li>
+<li><code>docker scout compare</code>: analyzes and compares two images</li>
+</ul>
+<p>También es posible (opción de pago, free sólo una) activar el escaneo de imágenes al registrarlas en DockerHub. <a href="https://docs.docker.com/docker-hub/repos/manage/vulnerability-scanning/#docker-scout-image-analysis">Docker Scout image analysis</a></p>
+<h3 id="92-optimizar-build-de-la-imagen">9.2. Optimizar <em>build</em> de la imagen<a class="headerlink" href="#92-optimizar-build-de-la-imagen" title="Permanent link">&para;</a></h3>
+<p>Las imágenes de Docker se organizan en capas. Si un nivel o capa cambia provoca que todas las capas posteriores se tengan que reconstruir. Por ello es preferible situar primero las capas que con menos frecuencia cambian, y dejar para las últimas las que se modifican con más frecuencia.</p>
+<p>A continuación se modifica el Dockerfile del tutorial: dejamos como penúltima capa la copia del directorio de la aplicación y se crean antes la copia de los paquetes de dependencias. Se supone que habrá mas cambios en el código que en las dependecias.</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:18-alpine</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>package.json<span class="w"> </span>yarn.lock<span class="w"> </span>./
+<span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/index.js&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="93-el-fichero-dockerignore">9.3. El fichero .dockerignore<a class="headerlink" href="#93-el-fichero-dockerignore" title="Permanent link">&para;</a></h3>
+<p>Este fichero permite indicar  directorios (y ficheros) que no se deben copiar del host a la imagen durante la creación de la imagen. El formato es similar al fichero <code>.gitignore</code>  utilizado con <code>git</code>. En el tutorial se crea este fichero y se incluye el directorio <code>node_modules</code> que se genera durante las pruebas en local de la aplicación.</p>
+<h3 id="94-build-multistage">9.4. Build multistage<a class="headerlink" href="#94-build-multistage" title="Permanent link">&para;</a></h3>
+<p>Esta facilidad se usa para separar las dependencias de construcción de la aplicación de las dependencias de ejecución de la misma. Esto reduce el tamaño de la imagen ya que sólo se incluye lo necesario para su ejecución.</p>
+<p>Ejemplo típico son las aplicaciones Java, donde JDK es necesario para generar la aplicación en bytecode, pero no para ejecutarla. O utilizar herramientas adicionales para construir la aplicación que tampoco serían necesarias para su ejecución.</p>
+<p>Vea este fichero Dockerfile</p>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">maven</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>package
+
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">tomcat</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/file.war<span class="w"> </span>/usr/local/tomcat/webapps<span class="w"> </span>
+</code></pre></div>
+<p>La primer parte construye el fichero WAR en una imagen <code>maven</code>. La segunda parte usa una imagen <code>tomcat</code>  y simplemente copia el fichero WAR generado en la primera parte en el directorio de aplicaciones de <code>tomcat</code>. Observe que el fichero se copia <code>--from=build</code>, alias que se genera en la primera línea (<code>FROM maven AS build</code>). En este caso la imagen <code>tomcat</code> puede ser un 10%  menor que <code>maven</code>.</p>
+<h2 id="10-anexos">10. Anexos<a class="headerlink" href="#10-anexos" title="Permanent link">&para;</a></h2>
+<h3 id="101-obsoleto-docker-scan">10.1. Obsoleto: docker scan<a class="headerlink" href="#101-obsoleto-docker-scan" title="Permanent link">&para;</a></h3>
+<p>Existen herramientas para comprobar posibles vulnerabilidades en imágenes. Una de ellas es Snyk.</p>
+<blockquote>
+<p>Docker has partnered with Snyk to provide the vulnerability scanning service.
+<a href="https://snyk.io/product/container-vulnerability-management/">https://snyk.io/product/container-vulnerability-management/</a></p>
+</blockquote>
+<p>Para escanear la imagen desde CLI:</p>
+<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>scan<span class="w"> </span>docker/getting-started
+
+Testing<span class="w"> </span>docker/getting-started...
+
+✗<span class="w"> </span>Low<span class="w"> </span>severity<span class="w"> </span>vulnerability<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>libxpm/libxpm
+<span class="w">  </span>Description:<span class="w"> </span>CVE-2022-4883
+<span class="w">  </span>Info:<span class="w"> </span>https://security.snyk.io/vuln/SNYK-ALPINE317-LIBXPM-3232761
+<span class="w">  </span>Introduced<span class="w"> </span>through:<span class="w"> </span>libxpm/libxpm@3.5.14-r0,<span class="w"> </span>gd/libgd@2.3.3-r3
+<span class="w">  </span>From:<span class="w"> </span>libxpm/libxpm@3.5.14-r0
+<span class="w">  </span>From:<span class="w"> </span>gd/libgd@2.3.3-r3<span class="w"> </span>&gt;<span class="w"> </span>libxpm/libxpm@3.5.14-r0
+<span class="w">  </span>Fixed<span class="w"> </span><span class="k">in</span>:<span class="w"> </span><span class="m">3</span>.5.15-r0
+
+....
+
+✗<span class="w"> </span>High<span class="w"> </span>severity<span class="w"> </span>vulnerability<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>curl/libcurl
+<span class="w">  </span>Description:<span class="w"> </span>Cleartext<span class="w"> </span>Transmission<span class="w"> </span>of<span class="w"> </span>Sensitive<span class="w"> </span>Information
+<span class="w">  </span>Info:<span class="w"> </span>https://security.snyk.io/vuln/SNYK-ALPINE317-CURL-3179543
+<span class="w">  </span>Introduced<span class="w"> </span>through:<span class="w"> </span>curl/libcurl@7.86.0-r1,<span class="w"> </span>curl/curl@7.86.0-r1
+<span class="w">  </span>From:<span class="w"> </span>curl/libcurl@7.86.0-r1
+<span class="w">  </span>From:<span class="w"> </span>curl/curl@7.86.0-r1<span class="w"> </span>&gt;<span class="w"> </span>curl/libcurl@7.86.0-r1
+<span class="w">  </span>From:<span class="w"> </span>curl/curl@7.86.0-r1
+<span class="w">  </span>Fixed<span class="w"> </span><span class="k">in</span>:<span class="w"> </span><span class="m">7</span>.87.0-r0
+
+
+
+Organization:<span class="w">      </span>angoies-98m
+Package<span class="w"> </span>manager:<span class="w">   </span>apk
+Project<span class="w"> </span>name:<span class="w">      </span>docker-image<span class="p">|</span>docker/getting-started
+Docker<span class="w"> </span>image:<span class="w">      </span>docker/getting-started
+Platform:<span class="w">          </span>linux/amd64
+Base<span class="w"> </span>image:<span class="w">        </span>nginx:1.23.3-alpine
+Licenses:<span class="w">          </span>enabled
+
+Tested<span class="w"> </span><span class="m">63</span><span class="w"> </span>dependencies<span class="w"> </span><span class="k">for</span><span class="w"> </span>known<span class="w"> </span>issues,<span class="w"> </span>found<span class="w"> </span><span class="m">6</span><span class="w"> </span>issues.
+
+Your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span>date
+<span class="m">1</span><span class="o">)</span><span class="w"> </span>Pull<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span>by<span class="w"> </span>running<span class="w"> </span><span class="s1">&#39;docker pull nginx:1.23.3-alpine&#39;</span>
+<span class="m">2</span><span class="o">)</span><span class="w"> </span>Rebuild<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>image
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-docker-tutorial/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Iniciarlo">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Iniciarlo
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../t01-docker-intro-02/" class="md-footer__link md-footer__link--next" aria-label="Next: Amplia tuto">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Amplia tuto
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs", "navigation.tracking", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

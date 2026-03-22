@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../fuentes/">
+        <link rel="prev" href="../t03-docker-seguro/t03-docker-seguro/">
       
       
         <link rel="next" href="../06-docker-ayudas/">
@@ -144,16 +144,17 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../01-docker-tutorial/" class="md-tabs__link">
-        
-  
     
+    
+      <li class="md-tabs__item">
+        <a href="../t01_tutorial/01-docker-tutorial/" class="md-tabs__link">
+          
   
   Tutorial Docker
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -246,6 +247,23 @@
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../t03-docker-seguro/t03-docker-seguro/" class="md-tabs__link">
+        
+  
+    
+  
+  Docker Seguro
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
     
   
   
@@ -255,7 +273,7 @@
         <a href="./" class="md-tabs__link">
           
   
-  Otros
+  Amplia Compose
 
         </a>
       </li>
@@ -340,9 +358,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../01-docker-tutorial/" class="md-nav__link">
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Tutorial Docker
@@ -350,7 +381,85 @@
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorial Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t01_tutorial/01-docker-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Iniciarlo
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t01_tutorial/t01-docker-intro-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ayuda tuto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../t01_tutorial/t01-docker-intro-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amplia tuto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -577,6 +686,27 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../t03-docker-seguro/t03-docker-seguro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker Seguro
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -595,14 +725,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
             
   
   <span class="md-ellipsis">
-    Otros
+    Amplia Compose
     
   </span>
   
@@ -610,10 +740,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            Otros
+            Amplia Compose
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -751,7 +881,7 @@
         
   
   <span class="md-ellipsis">
-    Ampliaciones
+    Variables Entorno
     
   </span>
   
@@ -908,7 +1038,7 @@
 </code></pre></div>
 <p>El problema es que hay que distinguir:</p>
 <ul>
-<li>"Container Started" </li>
+<li>"Container Started"</li>
 <li>"Service Ready"</li>
 </ul>
 <p>Aquí es donde muchos desarrolladores tropiezan.  <code>depends_on</code> (en su forma básica) solo espera a que el contenedor esté en ejecución (running). No espera a que la aplicación dentro del contenedor esté lista (ready).</p>
@@ -1007,7 +1137,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../fuentes/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Fuentes">
+          <a href="../t03-docker-seguro/t03-docker-seguro/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Seguro">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1017,20 +1147,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Fuentes
+                Docker Seguro
               </div>
             </div>
           </a>
         
         
           
-          <a href="../06-docker-ayudas/" class="md-footer__link md-footer__link--next" aria-label="Next: Ampliaciones">
+          <a href="../06-docker-ayudas/" class="md-footer__link md-footer__link--next" aria-label="Next: Variables Entorno">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Ampliaciones
+                Variables Entorno
               </div>
             </div>
             <div class="md-footer__button md-icon">

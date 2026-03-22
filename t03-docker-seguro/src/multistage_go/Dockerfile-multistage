@@ -1,0 +1,8 @@
+FROM golang:1.14.2-alpine AS builder
+WORKDIR /src
+COPY src .
+RUN go build -o /out/helloworld .
+
+FROM alpine:3.12 AS bin
+COPY --from=builder /out/helloworld /
+CMD ["/helloworld"]
