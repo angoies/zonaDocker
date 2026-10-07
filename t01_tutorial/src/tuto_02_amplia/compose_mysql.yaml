@@ -1,0 +1,22 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secretpassword
+    # (this is just an example, not intended to be a production configuration)
+    # https://hub.docker.com/_/mysql
+      MYSQL_USER: pps
+      MYSQL_PASSWORD: ppspassword
+      MYSQL_DATABASE: ppsDB
+    
+  # o usar docker exec -it src_todo-db-1 mysql -u pps -p
+  adminer:
+    image: adminer
+    ports:
+     - 8080:8080
+

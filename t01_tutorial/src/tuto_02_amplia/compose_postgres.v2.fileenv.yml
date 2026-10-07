@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  db:
+    # https://hub.docker.com/_/postgres
+    image: postgres
+    container_name: postgres-container
+    restart: always
+    env_file: "variables_postgres.env"
+    # environment:
+    #   POSTGRES_PASSWORD: ppspassword
+    #   POSTGRES_USER: pps
+    #   POSTGRES_DB: ppsDB
+
+
+  adminer:
+    image: adminer
+    restart: always    
+    ports:
+     - 8080:8080
+    #  docker exec -i t postgres-container psql -h db -U pps -d ppsDB
+    # \l 
+    # \c DATABASE
+    # \dt
+    # \d  nombreTabla
+    # \q  (o Ctrl-D)
+    # CREATE TABLE users (id INTEGER PRIMARY KEY, name VARCHAR);

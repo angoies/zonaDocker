@@ -110,6 +110,43 @@
     
     
     
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
     
   </nav>
   
@@ -298,7 +335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-servidores-web/" class="md-nav__link">
+      <a href="../02-1_servidores-web/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -320,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-servidores-bd/" class="md-nav__link">
+      <a href="../02-2_servidores-bd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -342,33 +379,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-servidores-aplicaciones/" class="md-nav__link">
+      <a href="../02-3_servidores-aplicaciones/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Servidor de Aplicaciones
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02-servidores-amplia/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Ampliación
     
   </span>
   
@@ -390,27 +405,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../03-docker-ejercicios/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Ejercicios
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -423,14 +417,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Amplia Compose
+    Compose
     
   </span>
   
@@ -438,10 +432,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Amplia Compose
+            Compose
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -522,13 +516,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-docker-compose-y-variables-de-entorno-env" class="md-nav__link">
+  <a href="#1-compose-y-variables-de-entorno" class="md-nav__link">
     <span class="md-ellipsis">
-      1. docker compose y variables de entorno .env
+      1. compose y variables de entorno
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. docker compose y variables de entorno .env">
+    <nav class="md-nav" aria-label="1. compose y variables de entorno">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -555,27 +549,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-docker-compose-con-build-de-una-imagen" class="md-nav__link">
+  <a href="#3-compose-con-build-de-imagen" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Docker compose con build de una imagen
+      3. compose con build de imagen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-mejorando-compose-de-postgres-iniciar-la-bd" class="md-nav__link">
+  <a href="#4-compose-con-bd-iniciar-la-bd" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Mejorando compose de postgres: iniciar la BD
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-anexo-crear-un-registro-docker-en-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Anexo - Crear un registro docker en local
+      4. compose con BD: iniciar la BD
     </span>
   </a>
   
@@ -625,11 +610,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_docker_swarm/" class="md-nav__link">
+      <a href="../03-docker-ejercicios/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Docker Swarm
+    Ejercicios
     
   </span>
   
@@ -646,11 +631,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../fuentes/" class="md-nav__link">
+      <a href="../05_docker_swarm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Fuentes
+    Docker Swarm
     
   </span>
   
@@ -674,14 +659,14 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Docker Seguro
+    Otros
     
   </span>
   
@@ -689,10 +674,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Docker Seguro
+            Otros
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -703,11 +688,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../t03-docker-seguro/t03-docker-seguro_01/" class="md-nav__link">
+      <a href="../02-4_servidores-apache-amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DS 01
+    Configuración Apache
     
   </span>
   
@@ -725,11 +710,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../t03-docker-seguro/t03-docker-seguro_02/" class="md-nav__link">
+      <a href="../03-docker-repo-local/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DS 02
+    Repo local
     
   </span>
   
@@ -754,11 +739,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../pdf/document.pdf" class="md-nav__link">
+      <a href="../fuentes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Volcado PDF
+    Fuentes
     
   </span>
   
@@ -795,13 +780,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-docker-compose-y-variables-de-entorno-env" class="md-nav__link">
+  <a href="#1-compose-y-variables-de-entorno" class="md-nav__link">
     <span class="md-ellipsis">
-      1. docker compose y variables de entorno .env
+      1. compose y variables de entorno
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. docker compose y variables de entorno .env">
+    <nav class="md-nav" aria-label="1. compose y variables de entorno">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -828,27 +813,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-docker-compose-con-build-de-una-imagen" class="md-nav__link">
+  <a href="#3-compose-con-build-de-imagen" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Docker compose con build de una imagen
+      3. compose con build de imagen
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-mejorando-compose-de-postgres-iniciar-la-bd" class="md-nav__link">
+  <a href="#4-compose-con-bd-iniciar-la-bd" class="md-nav__link">
     <span class="md-ellipsis">
-      4. Mejorando compose de postgres: iniciar la BD
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-anexo-crear-un-registro-docker-en-local" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Anexo - Crear un registro docker en local
+      4. compose con BD: iniciar la BD
     </span>
   </a>
   
@@ -871,13 +847,13 @@
 
 
 <h1 id="complementos-y-ayudas">Complementos y ayudas<a class="headerlink" href="#complementos-y-ayudas" title="Permanent link">&para;</a></h1>
-<h2 id="1-docker-compose-y-variables-de-entorno-env">1. docker compose y variables de entorno <code>.env</code><a class="headerlink" href="#1-docker-compose-y-variables-de-entorno-env" title="Permanent link">&para;</a></h2>
+<h2 id="1-compose-y-variables-de-entorno">1. compose y variables de entorno<a class="headerlink" href="#1-compose-y-variables-de-entorno" title="Permanent link">&para;</a></h2>
 <h3 id="11-usando-variables-del-fichero-env">1.1. Usando variables del fichero <code>.env</code><a class="headerlink" href="#11-usando-variables-del-fichero-env" title="Permanent link">&para;</a></h3>
 <p>Puede utilizar variables de entorno en un fichero docker compose. Para ello debe tener  en su proyecto un fichero de nombre <code>.env</code> con una lista de pares clave-valor similar a este ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># fichero .env</span>
-<span class="nv">PG_USERNAME</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span>
-<span class="nv">PG_PASSWORD</span><span class="o">=</span><span class="s2">&quot;superadmin&quot;</span>
-<span class="nv">PG_DATABASE</span><span class="o">=</span><span class="s2">&quot;shop&quot;</span>
+<span class="nv">PG_USERNAME</span><span class="o">=</span><span class="nb">test</span>
+<span class="nv">PG_PASSWORD</span><span class="o">=</span>test1234
+<span class="nv">PG_DATABASE</span><span class="o">=</span>shop
 </code></pre></div>
 <p>Puede usar estas variables de entorno en su fichero docker compose usando la sintaxis <code>${VAR_de_ENTORNO}</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># compose.yaml</span>
@@ -892,8 +868,12 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/var/lib/postgresql/data</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
-<h3 id="12-incluyendo-todo-el-fichero-env_file">1.2. Incluyendo todo el fichero: env_file<a class="headerlink" href="#12-incluyendo-todo-el-fichero-env_file" title="Permanent link">&para;</a></h3>
-<p>En el ejemplo anterior incluye las variables  que necesite del fichero y se las asigna a las variables de entorno del servicio.</p>
+<div class="admonition note">
+<p class="admonition-title">mapeo de variables</p>
+<p>Observe que en este caso las variables de entorno del fichero <code>.env</code> se mapean a variables del fichero compose con nombres diferentes. </p>
+</div>
+<h3 id="12-incluyendo-todo-el-fichero-env_file">1.2. Incluyendo todo el fichero: <code>env_file</code><a class="headerlink" href="#12-incluyendo-todo-el-fichero-env_file" title="Permanent link">&para;</a></h3>
+<p>En el ejemplo anterior se incluyen las variables que necesite del fichero y se las asigna a las variables de entorno del servicio.</p>
 <p>Otra posibilidad es pasar el fichero completo de variables a un servicio  del docker compose:</p>
 <p>Ejemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># compose.yaml</span>
@@ -909,14 +889,18 @@
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/mysql</span>
 </code></pre></div>
-<p>+info:</p>
+<div class="admonition note">
+<p class="admonition-title">mapeo de variables</p>
+<p>Observe que en este caso las variables de entorno del fichero <code>.env.db</code> deben tener el mismo nombre  que las variables que esepra la imagen del fichero compose. </p>
+</div>
+<p>Más información:</p>
 <ul>
 <li><a href="https://www.warp.dev/terminus/docker-compose-env-file">https://www.warp.dev/terminus/docker-compose-env-file</a></li>
 <li><a href="https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/">https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/</a></li>
 </ul>
-<h2 id="3-docker-compose-con-build-de-una-imagen">3. Docker compose con build de una imagen<a class="headerlink" href="#3-docker-compose-con-build-de-una-imagen" title="Permanent link">&para;</a></h2>
+<h2 id="3-compose-con-build-de-imagen">3. compose con build de imagen<a class="headerlink" href="#3-compose-con-build-de-imagen" title="Permanent link">&para;</a></h2>
 <p>En este <a href="https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file">enlace</a> se muestra un ejemplo de un fichero  docker-compose <strong>que además realiza un build de la imagen que va a desplegar</strong>.</p>
-<p>Para ello es necesario tener previamente definido el fichero Dockerfile que define la construcción de esa imagen. En el ejemplo tiene disponible el código de la aplicación, el fichero <code>Dockerfile</code> y el fichero <code>docker-compose.yml.</code></p>
+<p>Para ello es necesario tener previamente definido el fichero <code>Dockerfile</code> que define la construcción de esa imagen. En el ejemplo tiene disponible el código de la aplicación, el fichero <code>Dockerfile</code> y el fichero <code>docker-compose.yml.</code></p>
 <p>La parte que nos interesa es como indicarle que tiene que usar la imagen que genera el Dockerfile. Y eso se indica con la clave <code>build: .</code> dentro de la definición del servicio <code>web</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">web</span><span class="p">:</span>
@@ -925,17 +909,16 @@
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:5000&quot;</span><span class="w">    </span>
 <span class="nn">...</span>
 </code></pre></div>
-<p>En este caso sólo se le indica a build el contexto y busca el fichero <code>Dockerfile</code>. Existen más opciones para indicar el nombre del fichero <code>Dockerfile</code>, darle nombre a la imagen, etc.</p>
+<p>En este caso sólo se le indica a build el contexto y busca el fichero <code>Dockerfile</code>. Existen más opciones: para indicar el nombre del fichero <code>Dockerfile</code>, darle nombre a la imagen, etc.</p>
 <p>Puede crear la imagen con el comando <code>docker compose build</code> que recorre los servicios buscando que imágenes debe construir. Tambien puede invocar <code>docker compose</code> como habitualmente y si no existe la imagen la crea en ese momento.</p>
-<h2 id="4-mejorando-compose-de-postgres-iniciar-la-bd">4. Mejorando compose de postgres: iniciar la BD<a class="headerlink" href="#4-mejorando-compose-de-postgres-iniciar-la-bd" title="Permanent link">&para;</a></h2>
+<h2 id="4-compose-con-bd-iniciar-la-bd">4. compose con BD: iniciar la BD<a class="headerlink" href="#4-compose-con-bd-iniciar-la-bd" title="Permanent link">&para;</a></h2>
 <p>A los ficheros compose que usan bases de datos se les puede añadir:</p>
 <ul>
 <li>Persistencia a los datos con el uso de un volumen con nombre para la base de datos. Esto ya se ha incluido en el ejemplo de wordpres con un volumen para la base de datos y otro para wordpress.</li>
 <li>Incluir scripts SQL <strong>que cuando se crea el volumen asociado a la base de datos puede crear e iniciar tablas</strong>. Para eso es necesario montar el fichero (o un directorio si hay varios scripts) en el directorio <code>/docker-entrypoint-initdb.d/</code> del contenedor.</li>
 </ul>
 <p>El fichero <code>compose_postgres.v3.yml</code> quedaría:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.1&#39;</span>
-<span class="nt">sservices</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">db</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
@@ -969,69 +952,6 @@
 <span class="w">    </span><span class="p">(</span><span class="s1">&#39;Raquel&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;raquel@local.com&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Al invocar el compose y crear el volumen se ejecuta el script en la base de datos <code>ppsDB</code>. La próxima vez que levante el servicio si el volumen existe no se ejecuta el script sql.</p>
-<h2 id="5-anexo-crear-un-registro-docker-en-local">5. Anexo - Crear un registro docker en local<a class="headerlink" href="#5-anexo-crear-un-registro-docker-en-local" title="Permanent link">&para;</a></h2>
-<p>En vez de usar DockerHub puede mantener un registro propio para distribuir sus imágenes en local,</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>service<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>registry<span class="w"> </span>--publish<span class="w"> </span><span class="nv">published</span><span class="o">=</span><span class="m">5000</span>,target<span class="o">=</span><span class="m">5000</span><span class="w"> </span>registry:2
-$<span class="w"> </span>docker<span class="w"> </span>service<span class="w"> </span>ls
-wbgfqi6e93vgatef1pbklmggm
-overall<span class="w"> </span>progress:<span class="w"> </span><span class="m">1</span><span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span><span class="m">1</span><span class="w"> </span>tasks<span class="w"> </span>
-<span class="m">1</span>/1:<span class="w"> </span>running<span class="w">   </span><span class="o">[==================================================</span>&gt;<span class="o">]</span><span class="w"> </span>
-verify:<span class="w"> </span>Service<span class="w"> </span>converged<span class="w"> </span>
-$<span class="w"> </span>docker<span class="w"> </span>images
-REPOSITORY<span class="w">       </span>TAG<span class="w">     </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">        </span>SIZE
-getting-started<span class="w">  </span>latest<span class="w">  </span><span class="m">81</span>....6c<span class="w">  </span><span class="m">45</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">  </span>223MB
-registry<span class="w">         </span>&lt;none&gt;<span class="w">  </span><span class="m">67</span>....fa<span class="w">    </span><span class="m">2</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">26</span>.2MB
-$
-</code></pre></div>
-<p>Usaremos una de las imágenes ya descargadas para añadirla al registro local.  Primero debe etiquetar la imagen con el nombre de la máquina (o IP) y puerto del servicio (<em>when the first part of the tag is a hostname and port, Docker interprets this as the location of a registry, when pushing)</em>.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>tag<span class="w"> </span>getting-started:latest<span class="w"> </span>localhost:5000/getting-started
-$<span class="w"> </span>docker<span class="w"> </span>images
-REPOSITORY<span class="w">                     </span>TAG<span class="w">        </span>ID<span class="w"> </span>CREATED<span class="w">        </span>SIZE
-getting-started<span class="w">                </span>latest<span class="w">  </span><span class="m">81</span>..c<span class="w"> </span><span class="m">51</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>223MB
-localhost:5000/getting-started<span class="w"> </span>latest<span class="w">  </span><span class="m">81</span>..c<span class="w"> </span><span class="m">51</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>223MB
-registry<span class="w">                       </span>&lt;none&gt;<span class="w">  </span><span class="m">67</span>..a<span class="w">  </span><span class="m">2</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">  </span><span class="m">26</span>.2MB
-$<span class="w"> </span>
-</code></pre></div>
-<p>Hacemos <em>push</em> a nuestro servicio de registro:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>push<span class="w"> </span>localhost:5000/getting-started<span class="w">            </span>
-Using<span class="w"> </span>default<span class="w"> </span>tag:<span class="w"> </span>latest<span class="w"> </span>
-The<span class="w"> </span>push<span class="w"> </span>refers<span class="w"> </span>to<span class="w"> </span>repository<span class="w"> </span><span class="o">[</span>localhost:5000/getting-started<span class="o">]</span><span class="w"> </span>
-ed3bd20764dc:<span class="w"> </span>Pushed<span class="w">  </span>
-...<span class="w"> </span>
-0fcbbeeeb0d7:<span class="w"> </span>Pushed<span class="w">  </span>
-latest:<span class="w"> </span>digest:<span class="w"> </span>sha256:9d0cd8fbbe...aae70b59dee30da4<span class="w"> </span>size:<span class="w"> </span><span class="m">1789</span><span class="w"> </span>
-$<span class="w"> </span>
-</code></pre></div>
-<p>Borramos la imagen local:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images
-REPOSITORY<span class="w"> </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">     </span>CREATED<span class="w">       </span>SIZE
-registry<span class="w">   </span>&lt;none&gt;<span class="w"> </span>678dfa38fcfa<span class="w"> </span><span class="m">2</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">  </span><span class="m">26</span>.2MB
-$<span class="w"> </span>
-</code></pre></div>
-<p>Y hacemos una prueba de descarga desde el registro creado indicando el nombre y puerto del servicio:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>localhost:5000/getting-started
-Using<span class="w"> </span>default<span class="w"> </span>tag:<span class="w"> </span>latest
-latest:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>getting-started
-...
-Digest:<span class="w"> </span>sha256:9d0cd8fbbe871...40ba5545a16924aae70b59dee30da4
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>localhost:5000/getting-started:latest
-localhost:5000/getting-started:latest
-$<span class="w"> </span>
-</code></pre></div>
-<p>Para eliminar el servicio de registro usamos  <code>docker service rm</code></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>service<span class="w"> </span>ls
-ID<span class="w">             </span>NAME<span class="w">       </span>MODE<span class="w">         </span>REPLICAS<span class="w">   </span>IMAGE<span class="w">        </span>PORTS
-wbgfqi6e93vg<span class="w">   </span>registry<span class="w">   </span>replicated<span class="w">   </span><span class="m">1</span>/1<span class="w">        </span>registry:2<span class="w">   </span>*:5000-&gt;5000/tcp
-$<span class="w"> </span>docker<span class="w"> </span>service<span class="w"> </span>rm<span class="w"> </span>registry<span class="w"> </span>
-registry
-$<span class="w"> </span>docker<span class="w"> </span>service<span class="w"> </span>ls
-ID<span class="w">        </span>NAME<span class="w">      </span>MODE<span class="w">      </span>REPLICAS<span class="w">   </span>IMAGE<span class="w">     </span>PORTS
-$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>localhost:5000/getting-started
-Using<span class="w"> </span>default<span class="w"> </span>tag:<span class="w"> </span>latest
-Error<span class="w"> </span>response<span class="w"> </span>from<span class="w"> </span>daemon:<span class="w"> </span>Get<span class="w"> </span>http://localhost:5000/v2/:<span class="w"> </span>dial<span class="w"> </span>tcp<span class="w"> </span><span class="m">127</span>.0.0.1:5000:<span class="w"> </span>connect:<span class="w"> </span>connection<span class="w"> </span>refused
-$<span class="w"> </span>
-</code></pre></div>
-<p>Más información: <a href="https://docs.docker.com/registry/deploying/">https://docs.docker.com/registry/deploying/</a></p>
 
 
 

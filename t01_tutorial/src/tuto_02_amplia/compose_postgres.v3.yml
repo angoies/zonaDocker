@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: ppspassword
+      POSTGRES_USER: pps
+      POSTGRES_DB: ppsDB
+    volumes: # Mejoras al fichero
+      - ./sql/:/docker-entrypoint-initdb.d/
+      - db_data:/var/lib/postgresql/data      
+
+
+  adminer:
+    image: adminer  
+    ports:
+     - 8080:8080
+ 
+volumes:
+  db_data:
