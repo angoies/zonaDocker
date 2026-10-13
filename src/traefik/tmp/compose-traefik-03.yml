@@ -1,0 +1,29 @@
+# compose.yml
+services:
+
+  traefik:
+    image: traefik:v3.7
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  whoami:
+    # A container that exposes an API to show its IP address
+    image: traefik/whoami
+    labels:
+      - "traefik.enable=true" # es necesario si  la opción de traefik --providers.docker.exposedbydefault=false
+      - "traefik.http.routers.whoami.entrypoints=web" # valor por defecto, se podróa obviar
+      - "traefik.http.routers.whoami.rule=Host(`whoami.md.localhost`)"     
+
+  nginx:
+    image: nginx
+    labels:
+      - "traefik.enable=true" 
+      - "traefik.http.routers.nginx.entrypoints=web"  
+      - "traefik.http.routers.nginx.rule=Host(`web.md.localhost`)"        

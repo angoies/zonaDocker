@@ -719,11 +719,98 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-docker-ayudas/" class="md-nav__link">
+      <a href="../../03-docker-compose_amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Varios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dns/06-1_dns-practicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    en local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dns/06-2_dns-en-AWS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    con AWS
     
   </span>
   
@@ -818,10 +905,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -833,8 +920,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Otros
           </label>
@@ -1165,48 +1252,52 @@
 
 
 <h1 id="docker-tutorial-101">Docker: tutorial 101<a class="headerlink" href="#docker-tutorial-101" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">el idioma y el tutorial</p>
+<p>Este apartado sólo tiene sentido si no es capaz de seguir el tutorial de docker "por culpa" del inglés.</p>
+</div>
 <h2 id="1-instalacion">1. Instalación<a class="headerlink" href="#1-instalacion" title="Permanent link">&para;</a></h2>
 <p>Puede instalar Docker directamente en su equipo o en una máquina virtual con Linux. Puede acceder a <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a> para obtener instrucciones según su distribución. En los ejemplos se supone una instalación en Debian.</p>
 <p>En las prácticas y por comodidad se usa el <em>script</em> que proporciona Docker para una instalación de desarrollo:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
-<span class="gp">$ </span>sudo<span class="w"> </span>sh<span class="w"> </span>get-docker.sh
-<span class="go">  Executing docker install script, commit: </span>
-<span class="go">  7cae5f8b0decc17d657fbc13b2737</span>
-<span class="go">  &lt;...&gt;</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="gp">$ </span>sudo<span class="w"> </span>sh<span class="w"> </span>get-docker.sh
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="go">  Executing docker install script, commit: </span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="go">  7cae5f8b0decc17d657fbc13b2737</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="go">  &lt;...&gt;</span>
+</span></code></pre></div>
 <h3 id="11-post-installation-steps">1.1. post-installation steps<a class="headerlink" href="#11-post-installation-steps" title="Permanent link">&para;</a></h3>
 <p>Si quiere que el usuario ejecute los comandos <code>docker</code> sin usar <code>sudo</code></p>
 <blockquote>
 <p>If you would like to use Docker as a non-root user, you should now consider adding your user to the “docker” group with something like:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$sudo</span><span class="w"> </span>groupadd<span class="w"> </span>docker
-<span class="nv">$sudo</span><span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span>&lt;your-user&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$sudo</span><span class="w"> </span>groupadd<span class="w"> </span>docker
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">$sudo</span><span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span>&lt;your-user&gt;
+</span></code></pre></div>
 <p>Remember to log out and back in for this to take effect!. &gt;You can also run the following command to activate the changes to groups:</p>
-<div class="highlight"><pre><span></span><code><span class="go">newgrp docker</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="go">newgrp docker</span>
+</span></code></pre></div>
 </blockquote>
 <p>No olvide comprobar que la instalación es correcta lanzando la imagen  <code>hello-world</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$docker</span><span class="w"> </span>run<span class="w"> </span>hello-world
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">$docker</span><span class="w"> </span>run<span class="w"> </span>hello-world
+</span></code></pre></div>
 <h2 id="2-introduccion">2. Introducción<a class="headerlink" href="#2-introduccion" title="Permanent link">&para;</a></h2>
 <p>Docker proporciona un tutorial guiado para entender como es el despliegue de una aplicación en un entorno de contenedores (en ese tutorial se utilizará una aplicación Node):</p>
 <p><a href="https://www.docker.com/101-tutorial/">https://www.docker.com/101-tutorial/</a></p>
 <p>El tutorial se ofrece en una imagen Docker que debe iniciar con el comando <code>docker run -d -p 80:80 docker/getting-started</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>docker/getting-started
-<span class="go">Unable to find image &#39;docker/getting-started:latest&#39; locally</span>
-<span class="go">latest: Pulling from docker/getting-started</span>
-<span class="go">c158987b0551: Pull complete </span>
-<span class="go">...</span>
-<span class="go">4f7e34c2de10: Pull complete </span>
-<span class="go">Digest: sha256:d79336f4812b65.....71b414fbd9297609ffb989abc1</span>
-<span class="go">Status: Downloaded newer image for docker/getting-started:latest</span>
-<span class="go">670fe226d2779c2c96e6417aabf34.....6d7ca4d050e0161e296325c3b7</span>
-<span class="gp">alu@xdebian11:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">alu@xdebian11:~$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>docker/getting-started
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">Unable to find image &#39;docker/getting-started:latest&#39; locally</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">latest: Pulling from docker/getting-started</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">c158987b0551: Pull complete </span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="go">...</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="go">4f7e34c2de10: Pull complete </span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="go">Digest: sha256:d79336f4812b65.....71b414fbd9297609ffb989abc1</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="go">Status: Downloaded newer image for docker/getting-started:latest</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="go">670fe226d2779c2c96e6417aabf34.....6d7ca4d050e0161e296325c3b7</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="gp">alu@xdebian11:~$ </span>
+</span></code></pre></div>
 <p>Y puede acceder al tutorial en la URL <a href="http://localhost">http://localhost</a></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~$ </span>firefox<span class="w"> </span>localhost:80
-<span class="gp">alu@xdebian11:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">alu@xdebian11:~$ </span>firefox<span class="w"> </span>localhost:80
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="gp">alu@xdebian11:~$ </span>
+</span></code></pre></div>
 <p><img alt="docker-tutorial-index" src="../figuras/docker-tutorial-index.png" /></p>
 <p>Ya sólo queda seguir los pasos que propone el tutorial.</p>
 <h2 id="3-la-aplicacion">3. La aplicación<a class="headerlink" href="#3-la-aplicacion" title="Permanent link">&para;</a></h2>
@@ -1220,102 +1311,102 @@
 </li>
 <li>
 <p>Crear dentro de <code>app</code> un fichero de nombre <code>Dockerfile</code></p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:18-alpine</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/index.js&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">node:18-alpine</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/index.js&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Acceder a un terminal en el directorio <code>app</code> y construir la imagen (nombre <code>getting-started</code>) que incluye la aplicación con <code>docker build</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>ls
-<span class="go">Dockerfile  package.json  spec  src  yarn.lock</span>
-<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>getting-started<span class="w"> </span>.
-<span class="go">[+] Building 15.1s (7/8)  </span>
-<span class="go">...</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">alu@xdebian11:~/app$ </span>ls
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">Dockerfile  package.json  spec  src  yarn.lock</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>getting-started<span class="w"> </span>.
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="go">[+] Building 15.1s (7/8)  </span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="go">...</span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Como resultado final tenemos una imagen Docker que incluye la aplicación. Esta accede a una base de datos en la propia imagen usando SQLite.  </p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>images
-REPOSITORY<span class="w">             </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">       </span>SIZE
-getting-started<span class="w">        </span>latest<span class="w"> </span>47e87..92<span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>262MB
-docker/getting-started<span class="w"> </span>latest<span class="w"> </span>3e439..2f<span class="w"> </span><span class="m">6</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">   </span>47MB
-hello-world<span class="w">            </span>latest<span class="w"> </span>feb5d..a5<span class="w"> </span><span class="m">16</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">13</span>.3kB
-alu@xdebian11:~/app$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>images
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>REPOSITORY<span class="w">             </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">       </span>SIZE
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>getting-started<span class="w">        </span>latest<span class="w"> </span>47e87..92<span class="w"> </span><span class="m">2</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>262MB
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>docker/getting-started<span class="w"> </span>latest<span class="w"> </span>3e439..2f<span class="w"> </span><span class="m">6</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">   </span>47MB
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>hello-world<span class="w">            </span>latest<span class="w"> </span>feb5d..a5<span class="w"> </span><span class="m">16</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">13</span>.3kB
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>alu@xdebian11:~/app$<span class="w"> </span>
+</span></code></pre></div>
 <ul>
 <li>
 <p>Iniciar el contenedor con  <code>docker run</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>miapp<span class="w"> </span>getting-started
-<span class="go">f412f7de1737bce2c43490196d0.....afa03d1dffaa7cec</span>
-<span class="gp">alu@xdebian11:~/app$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>miapp<span class="w"> </span>getting-started
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">f412f7de1737bce2c43490196d0.....afa03d1dffaa7cec</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="gp">alu@xdebian11:~/app$</span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Y probar la aplicación que es accesible en el puerto 3000: <a href="http://localhost:3000">http://localhost:3000</a> añadiendo datos:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>firefox<span class="w"> </span>http://localhost:3000
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">alu@xdebian11:~/app$ </span>firefox<span class="w"> </span>http://localhost:3000
+</span></code></pre></div>
 </li>
 </ul>
 <p>Puede ahora parar el contenedor y ver como la aplicación deja de estar disponible:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>stop<span class="w"> </span>miapp<span class="w"> </span>
-<span class="go">miapp</span>
-<span class="gp">alu@xdebian11:~/app$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>stop<span class="w"> </span>miapp<span class="w"> </span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">miapp</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="gp">alu@xdebian11:~/app$</span>
+</span></code></pre></div>
 <p>Y volver a arrancar el contenedor y ver que la aplicación y los datos están disponibles:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>start<span class="w"> </span>miapp<span class="w"> </span>
-<span class="go">miapp</span>
-<span class="gp">alu@xdebian11:~/app$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>start<span class="w"> </span>miapp<span class="w"> </span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">miapp</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="gp">alu@xdebian11:~/app$</span>
+</span></code></pre></div>
 <h2 id="4-actualizar-la-app">4. Actualizar la app<a class="headerlink" href="#4-actualizar-la-app" title="Permanent link">&para;</a></h2>
 <p>Se propone ahora modificar la aplicación. Tras modificarla habrá que construir una nueva imagen, lanzarla, probarla, etc. Pasos a dar:</p>
 <ul>
 <li>Hacer un cambio en la aplicación: modificar en  el fichero <code>app/src/static/js/app.js</code> el mensaje que se le indica en la línea 56.</li>
 <li>
 <p>Construir una nueva imagen con la aplicación actualizada (si no se usan etiquetas se pierde el tag (<code>latest</code>) de la imagen inicial y pasa a ser "<code>none</code>"):</p>
-<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>getting-started<span class="w"> </span>.<span class="w"> </span>
-<span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">11</span>.3s<span class="w"> </span><span class="o">(</span><span class="m">9</span>/9<span class="o">)</span><span class="w"> </span>FINISHED<span class="w">                                                  </span>
-...<span class="w"> </span>
-<span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>writing<span class="w"> </span>image<span class="w"> </span>sha256:d85186b3b7dc7a088d49318bc4f2a177a4bcd2f677a34271<span class="w">  </span><span class="m">0</span>.0s<span class="w"> </span>
-<span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>naming<span class="w"> </span>to<span class="w"> </span>docker.io/library/getting-started<span class="w">        </span><span class="m">0</span>.0s<span class="w"> </span>
-alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>images
-REPOSITORY<span class="w">             </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w"> </span>CREATED<span class="w">         </span>SIZE<span class="w"> </span>
-getting-started<span class="w">        </span>latest<span class="w"> </span>d85...dc<span class="w"> </span><span class="m">10</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w"> </span>262MB
-&lt;none&gt;<span class="w">                 </span>&lt;none&gt;<span class="w"> </span>47e...92<span class="w"> </span><span class="m">55</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>262MB
-docker/getting-started<span class="w"> </span>latest<span class="w"> </span>3e4...2f<span class="w"> </span><span class="m">6</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>47MB
-hello-world<span class="w">            </span>latest<span class="w"> </span>feb...a5<span class="w"> </span><span class="m">16</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">13</span>.3kB
-alu@xdebian11:~/app$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>getting-started<span class="w"> </span>.<span class="w"> </span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>Building<span class="w"> </span><span class="m">11</span>.3s<span class="w"> </span><span class="o">(</span><span class="m">9</span>/9<span class="o">)</span><span class="w"> </span>FINISHED<span class="w">                                                  </span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>...<span class="w"> </span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>writing<span class="w"> </span>image<span class="w"> </span>sha256:d85186b3b7dc7a088d49318bc4f2a177a4bcd2f677a34271<span class="w">  </span><span class="m">0</span>.0s<span class="w"> </span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="o">=</span>&gt;<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>naming<span class="w"> </span>to<span class="w"> </span>docker.io/library/getting-started<span class="w">        </span><span class="m">0</span>.0s<span class="w"> </span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>images
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>REPOSITORY<span class="w">             </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w"> </span>CREATED<span class="w">         </span>SIZE<span class="w"> </span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>getting-started<span class="w">        </span>latest<span class="w"> </span>d85...dc<span class="w"> </span><span class="m">10</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w"> </span>262MB
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>&lt;none&gt;<span class="w">                 </span>&lt;none&gt;<span class="w"> </span>47e...92<span class="w"> </span><span class="m">55</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w"> </span>262MB
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>docker/getting-started<span class="w"> </span>latest<span class="w"> </span>3e4...2f<span class="w"> </span><span class="m">6</span><span class="w"> </span>weeks<span class="w"> </span>ago<span class="w">     </span>47MB
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>hello-world<span class="w">            </span>latest<span class="w"> </span>feb...a5<span class="w"> </span><span class="m">16</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w"> </span><span class="m">13</span>.3kB
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>alu@xdebian11:~/app$<span class="w"> </span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Si intenta lanzar la nueva imagen es posible que tenga un errorya que si no hemos parado el contenedor previo el nuevo intenta usar el mismo puerto</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>nuevaapp<span class="w"> </span>getting-started
-<span class="go">f94faea80f45306db4f387......6ffba3753541419cebc316a3179cb26</span>
-<span class="go">docker: Error response from daemon: driver failed programming external connectivity on endpoint nuevaapp (312d6bfa399ecc15947d3......c21506867769b01cdc2c2ebc68071c): </span>
-<span class="go">Bind for 0.0.0.0:3000 failed: port is already allocated.</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>nuevaapp<span class="w"> </span>getting-started
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">f94faea80f45306db4f387......6ffba3753541419cebc316a3179cb26</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">docker: Error response from daemon: driver failed programming external connectivity on endpoint nuevaapp (312d6bfa399ecc15947d3......c21506867769b01cdc2c2ebc68071c): </span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">Bind for 0.0.0.0:3000 failed: port is already allocated.</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Puede comprobar los contenedores en ejecución con <code>docker ps</code>, detenerlo con <code>docker stop</code> y borrarlo con <code>docker rm</code> para terminar lanzando el nuevo contenedor:</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>ps
-<span class="go">CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                       NAMES</span>
-<span class="go">c75ba15aa019   47e872a9bc92             &quot;docker-entrypoint.s…&quot;   15 minutes ago   Up 11 minutes   0.0.0.0:3000-&gt;3000/tcp, :::3000-&gt;3000/tcp   miapp</span>
-<span class="go">292ffb5d2de8   docker/getting-started   &quot;/docker-entrypoint.…&quot;   24 minutes ago   Up 24 minutes   0.0.0.0:80-&gt;80/tcp, :::80-&gt;80/tcp           tutorial</span>
-<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>stop<span class="w"> </span>miapp<span class="w"> </span>
-<span class="go">miapp</span>
-<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>rm<span class="w"> </span>miapp<span class="w"> </span>
-<span class="go">miapp</span>
-<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>nuevaapp<span class="w"> </span>getting-started
-<span class="go">f48e6b71bdafb4fd84c02e4a9ab.....74c518545599847cb66cc7cbd</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>ps
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                       NAMES</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="go">c75ba15aa019   47e872a9bc92             &quot;docker-entrypoint.s…&quot;   15 minutes ago   Up 11 minutes   0.0.0.0:3000-&gt;3000/tcp, :::3000-&gt;3000/tcp   miapp</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="go">292ffb5d2de8   docker/getting-started   &quot;/docker-entrypoint.…&quot;   24 minutes ago   Up 24 minutes   0.0.0.0:80-&gt;80/tcp, :::80-&gt;80/tcp           tutorial</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>stop<span class="w"> </span>miapp<span class="w"> </span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="go">miapp</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>rm<span class="w"> </span>miapp<span class="w"> </span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="go">miapp</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>--name<span class="w"> </span>nuevaapp<span class="w"> </span>getting-started
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="go">f48e6b71bdafb4fd84c02e4a9ab.....74c518545599847cb66cc7cbd</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 <blockquote>
 <p>Nota: puede generar una imagen especificando una etiqueta completa  con el formato <code>&lt;repo:tag&gt;</code>: <code>docker build -t getting-started:v1.0</code>.</p>
 </blockquote>
@@ -1327,16 +1418,16 @@ alu@xdebian11:~/app$<span class="w"> </span>
 <li>Iniciar sesión en DockerHub desde línea de comandos con  <code>docker login -u &lt;dockerhub_username&gt;</code></li>
 <li>Etiquetar correctamente la imagen con su usuario en Dockerhub <code>docker tag repo user/repo</code>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="go">docker tag getting-started user/getting-started</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="go">docker tag getting-started user/getting-started</span>
+</span></code></pre></div>
 <ul>
 <li>Subir la imagen a DockerHub con <code>docker push</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="go">docker push user/getting-started</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="go">docker push user/getting-started</span>
+</span></code></pre></div>
 <p>Para poder utilizar dicha imagen basta indicar el repositorio de la imagen al ejecutarla (incluyendo el usuario). Si no está en local se descarga de DockerHub.</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker run -dp 3000:3000 usuario/getting-started</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="go">docker run -dp 3000:3000 usuario/getting-started</span>
+</span></code></pre></div>
 <h2 id="6-persistencia-de-los-datos">6. Persistencia de los datos<a class="headerlink" href="#6-persistencia-de-los-datos" title="Permanent link">&para;</a></h2>
 <p>Ahora mismo los datos del contenedor se pierden al terminar el mismo:</p>
 <blockquote>
@@ -1357,31 +1448,31 @@ alu@xdebian11:~/app$<span class="w"> </span>
 <ol>
 <li>
 <p>Crear un volumen con el nombre <code>todo-db</code></p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>todo-db
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>create<span class="w"> </span>todo-db
+</span></code></pre></div>
 </li>
 <li>
 <p>Lanzar el contenedor con un nuevo parámetro, la opción  <code>-v</code>.  A esta se le indican dos valores, el volumen con nombre creado <code>todo-db</code>  y  el directorio <code>/etc/todos</code> del contenedor donde se montará el volumen (la aplicación del ejemplo almacena en <code>/etc/todos</code> la base de datos)</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span>getting-started
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span>getting-started
+</span></code></pre></div>
 </li>
 <li>
 <p>Acceda a la aplicación desde el navegador y añada varios elementos.</p>
 </li>
 <li>
 <p>Detenga y borre el contenedor:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>getting-started
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>getting-started
+</span></code></pre></div>
 </li>
 <li>
 <p>Inicie de nuevo otro contenedor y compruebe que se conservan los datos de la ejecución anterior.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span>getting-started
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span>getting-started
+</span></code></pre></div>
 </li>
 <li>
 <p>Para ver la localización del volumen use el comando  <code>docker volume inspect</code></p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>todo-db
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>docker<span class="w"> </span>volume<span class="w"> </span>inspect<span class="w"> </span>todo-db
+</span></code></pre></div>
 </li>
 <li>
 <p>Por último, puede borrar el volumen con <code>docker volume rm</code> (genera error si el volumen está en uso)</p>
@@ -1406,45 +1497,45 @@ alu@xdebian11:~/app$</code></p>
 <p>Nota: en este apartado la aplicación Node usa el módulo  <code>nodemon</code>. Este detecta cambios en los ficheros de la aplicación Node y si es necesario la reinicia. Puede comprobar su uso en el fichero <code>package.json</code>.</p>
 </blockquote>
 <p>Para probar estos volúmenes se  lanza el contenedor mapeando (opción <code>-v</code>) el directorio de trabajo (debe ser <code>app</code>) al directorio <code>/app</code> del contenedor. En este caso no se usa la imagen creada en apartados previos sino una imagen con Node (<code>node:18-alpine</code>)</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">    </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">    </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+</span></code></pre></div>
 <p>La opción <code>-w</code> nos indica el directorio de trabajo en el contenedor (similar a <code>WORKDIR /app</code> en el fichero Dockerfile). Si ahora modifica por ejemplo el texto del botón <em>"Add item"</em> en el fichero <code>src/static/js/app.js</code> puede  observar como se "refresca" la aplicación con ese cambio.</p>
 <p>Incluso puede combinar los dos tipos de volúmenes:</p>
 <ul>
 <li>un <em>bind mount</em> para la aplicación</li>
 <li>un volumen con nombre para dar  persistencia a la BD:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span>-w<span class="w"> </span>/app<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">    </span>-v<span class="w"> </span>todo-db:/etc/todos<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+</span></code></pre></div>
 <p>Puede ver el fichero de log con <code>docker logs -f &lt;container_id&gt;</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>nervous_heisenberg<span class="w"> </span>
-<span class="go">yarn install v1.22.19</span>
-<span class="go">[1/4] Resolving packages...</span>
-<span class="go">...</span>
-<span class="go">[4/4] Building fresh packages...</span>
-<span class="go">Done in 11.71s.</span>
-<span class="go">yarn run v1.22.19</span>
-<span class="gp">$ </span>nodemon<span class="w"> </span>src/index.js
-<span class="go">[nodemon] 2.0.20</span>
-<span class="go">...</span>
-<span class="go">[nodemon] watching extensions: js,mjs,json</span>
-<span class="go">[nodemon] starting `node src/index.js`</span>
-<span class="go">Using sqlite database at /etc/todos/todo.db</span>
-<span class="go">Listening on port 3000</span>
-<span class="go">[nodemon] restarting due to changes...</span>
-<span class="go">[nodemon] starting `node src/index.js`</span>
-<span class="go">Using sqlite database at /etc/todos/todo.db</span>
-<span class="go">Listening on port 3000</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>nervous_heisenberg<span class="w"> </span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="go">yarn install v1.22.19</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="go">[1/4] Resolving packages...</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="go">...</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="go">[4/4] Building fresh packages...</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="go">Done in 11.71s.</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="go">yarn run v1.22.19</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="gp">$ </span>nodemon<span class="w"> </span>src/index.js
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="go">[nodemon] 2.0.20</span>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="go">...</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="go">[nodemon] watching extensions: js,mjs,json</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="go">[nodemon] starting `node src/index.js`</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="go">Using sqlite database at /etc/todos/todo.db</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="go">Listening on port 3000</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="go">[nodemon] restarting due to changes...</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="go">[nodemon] starting `node src/index.js`</span>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="go">Using sqlite database at /etc/todos/todo.db</span>
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="go">Listening on port 3000</span>
+</span></code></pre></div>
 <h2 id="7-multicontenedor-modo-manual">7. Multicontenedor modo "manual"<a class="headerlink" href="#7-multicontenedor-modo-manual" title="Permanent link">&para;</a></h2>
 <p>En este apartado se introducen varios cambios:</p>
 <ol>
@@ -1454,184 +1545,184 @@ alu@xdebian11:~/app$</code></p>
 <li>Usar la herramienta <code>docker compose</code> para describir nuestra aplicación.</li>
 </ol>
 <p>La aplicación es capaz de diferenciar el paso de uno a dos contenedores en base a la existencia de la variable de entorno <code>MYSQL_HOST=mysql</code> que  comprueba en el fichero <code>src/persistence/index.js</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">// file src/persistence/index.js</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_HOST</span><span class="p">)</span><span class="w"> </span>
-<span class="w">  </span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./mysql&#39;</span><span class="p">);</span>
-<span class="k">else</span><span class="w"> </span>
-<span class="w">  </span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./sqlite&#39;</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1">// file src/persistence/index.js</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYSQL_HOST</span><span class="p">)</span><span class="w"> </span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./mysql&#39;</span><span class="p">);</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="k">else</span><span class="w"> </span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">  </span><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./sqlite&#39;</span><span class="p">);</span>
+</span></code></pre></div>
 <p>Realice el cambio a dos contenedores paso a paso ejecutando cada uno de ellos de forma manual.</p>
 <ol>
 <li>
 <p>Crear una red (<code>docker network create</code>) donde se comunicará los dos contenedores:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>todo-app
-<span class="go">b5d1c5cccc26f02861411b845....0fb64ccbc3067a99d9e6cb9cadfc17</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>todo-app
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="go">b5d1c5cccc26f02861411b845....0fb64ccbc3067a99d9e6cb9cadfc17</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Arrancar un contenedor con un servidor MySQL.  Al mismo se le pasan dos variables de entorno, la clave de MySQL y el nombre de la base de datos. Tiene los detalles de cómo lanzar una imagen MySQL en este enlace: (<a href="https://hub.docker.com/_/mysql/">https://hub.docker.com/_/mysql/</a>). Observe que también se usa un volumen <code>todo-mysql-data</code> para darle persistencia a la base de datos:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>--network<span class="w"> </span>todo-app<span class="w"> </span>--network-alias<span class="w"> </span>mysql<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>-v<span class="w"> </span>todo-mysql-data:/var/lib/mysql<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>-e<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>todos<span class="w"> </span><span class="se">\</span>
-<span class="w">     </span>--name<span class="w"> </span>mysqlcontainer
-<span class="w">     </span>mysql:8.0
-<span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;mysql:8.0&#39;</span><span class="w"> </span>locally
-<span class="w"> </span><span class="m">8</span>.0:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/mysql
-<span class="w"> </span>39fbafb6c7ef:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
-<span class="w"> </span>...
-<span class="w"> </span>Digest:<span class="w">  </span>sha256:03b0af....9e0dcaebe411a1ec75e6adc9fea051aa2
-<span class="w"> </span>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>mysql:8.0
-<span class="w"> </span>04e7b5d6bc89883ba9f1c....79367b4cfaa19ba1bf2e68160b389b2346
-<span class="w"> </span>alu@xdebian11:~/app$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="w"> </span>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">     </span>--network<span class="w"> </span>todo-app<span class="w"> </span>--network-alias<span class="w"> </span>mysql<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">     </span>-v<span class="w"> </span>todo-mysql-data:/var/lib/mysql<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">     </span>-e<span class="w"> </span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">     </span>-e<span class="w"> </span><span class="nv">MYSQL_DATABASE</span><span class="o">=</span>todos<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">     </span>--name<span class="w"> </span>mysqlcontainer
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">     </span>mysql:8.0
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w"> </span>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;mysql:8.0&#39;</span><span class="w"> </span>locally
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w"> </span><span class="m">8</span>.0:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>library/mysql
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w"> </span>39fbafb6c7ef:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="w"> </span>...
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="w"> </span>Digest:<span class="w">  </span>sha256:03b0af....9e0dcaebe411a1ec75e6adc9fea051aa2
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="w"> </span>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>mysql:8.0
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a><span class="w"> </span>04e7b5d6bc89883ba9f1c....79367b4cfaa19ba1bf2e68160b389b2346
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a><span class="w"> </span>alu@xdebian11:~/app$<span class="w"> </span>
+</span></code></pre></div>
 <ol>
 <li>
 <p>Probar la creación de la base de dato accediendo al contenedor con <code>docker exec -it</code> y ejecutamos el comando <code>mysql -p</code></p>
-<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysqlserver<span class="w">  </span>mysql<span class="w"> </span>-p
-Enter<span class="w"> </span>password:<span class="w"> </span>
-Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>MySQL<span class="w"> </span>monitor.<span class="w">  </span>Commands<span class="w"> </span>end<span class="w"> </span>with<span class="w"> </span><span class="p">;</span><span class="w"> </span>or<span class="w"> </span><span class="se">\g</span>.
-Your<span class="w"> </span>MySQL<span class="w"> </span>connection<span class="w"> </span>id<span class="w"> </span>is<span class="w"> </span><span class="m">8</span>
-Server<span class="w"> </span>version:<span class="w"> </span><span class="m">8</span>.0.32<span class="w"> </span>MySQL<span class="w"> </span>Community<span class="w"> </span>Server<span class="w"> </span>-<span class="w"> </span>GPL
-
-...
-
-Type<span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
-
-mysql&gt;<span class="w"> </span>SHOW<span class="w"> </span>databases<span class="p">;</span>
-+--------------------+
-<span class="p">|</span><span class="w"> </span>Database<span class="w">           </span><span class="p">|</span>
-+--------------------+
-<span class="p">|</span><span class="w"> </span>information_schema<span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>mysql<span class="w">              </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>performance_schema<span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>sys<span class="w">                </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>todos<span class="w">              </span><span class="p">|</span>
-+--------------------+
-<span class="m">5</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
-
-mysql&gt;<span class="w"> </span>use<span class="w"> </span>todos<span class="p">;</span>
-Database<span class="w"> </span>changed
-mysql&gt;<span class="w"> </span>show<span class="w"> </span>tables<span class="p">;</span>
-Empty<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
-
-mysql&gt;<span class="w"> </span><span class="nb">exit</span>
-Bye
-alu@xdebian11:~/app$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysqlserver<span class="w">  </span>mysql<span class="w"> </span>-p
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>Enter<span class="w"> </span>password:<span class="w"> </span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Welcome<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>MySQL<span class="w"> </span>monitor.<span class="w">  </span>Commands<span class="w"> </span>end<span class="w"> </span>with<span class="w"> </span><span class="p">;</span><span class="w"> </span>or<span class="w"> </span><span class="se">\g</span>.
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>Your<span class="w"> </span>MySQL<span class="w"> </span>connection<span class="w"> </span>id<span class="w"> </span>is<span class="w"> </span><span class="m">8</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>Server<span class="w"> </span>version:<span class="w"> </span><span class="m">8</span>.0.32<span class="w"> </span>MySQL<span class="w"> </span>Community<span class="w"> </span>Server<span class="w"> </span>-<span class="w"> </span>GPL
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>...
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a>Type<span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>mysql&gt;<span class="w"> </span>SHOW<span class="w"> </span>databases<span class="p">;</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a>+--------------------+
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="p">|</span><span class="w"> </span>Database<span class="w">           </span><span class="p">|</span>
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a>+--------------------+
+</span><span id="__span-30-15"><a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a><span class="p">|</span><span class="w"> </span>information_schema<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-30-16"><a id="__codelineno-30-16" name="__codelineno-30-16" href="#__codelineno-30-16"></a><span class="p">|</span><span class="w"> </span>mysql<span class="w">              </span><span class="p">|</span>
+</span><span id="__span-30-17"><a id="__codelineno-30-17" name="__codelineno-30-17" href="#__codelineno-30-17"></a><span class="p">|</span><span class="w"> </span>performance_schema<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-30-18"><a id="__codelineno-30-18" name="__codelineno-30-18" href="#__codelineno-30-18"></a><span class="p">|</span><span class="w"> </span>sys<span class="w">                </span><span class="p">|</span>
+</span><span id="__span-30-19"><a id="__codelineno-30-19" name="__codelineno-30-19" href="#__codelineno-30-19"></a><span class="p">|</span><span class="w"> </span>todos<span class="w">              </span><span class="p">|</span>
+</span><span id="__span-30-20"><a id="__codelineno-30-20" name="__codelineno-30-20" href="#__codelineno-30-20"></a>+--------------------+
+</span><span id="__span-30-21"><a id="__codelineno-30-21" name="__codelineno-30-21" href="#__codelineno-30-21"></a><span class="m">5</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+</span><span id="__span-30-22"><a id="__codelineno-30-22" name="__codelineno-30-22" href="#__codelineno-30-22"></a>
+</span><span id="__span-30-23"><a id="__codelineno-30-23" name="__codelineno-30-23" href="#__codelineno-30-23"></a>mysql&gt;<span class="w"> </span>use<span class="w"> </span>todos<span class="p">;</span>
+</span><span id="__span-30-24"><a id="__codelineno-30-24" name="__codelineno-30-24" href="#__codelineno-30-24"></a>Database<span class="w"> </span>changed
+</span><span id="__span-30-25"><a id="__codelineno-30-25" name="__codelineno-30-25" href="#__codelineno-30-25"></a>mysql&gt;<span class="w"> </span>show<span class="w"> </span>tables<span class="p">;</span>
+</span><span id="__span-30-26"><a id="__codelineno-30-26" name="__codelineno-30-26" href="#__codelineno-30-26"></a>Empty<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+</span><span id="__span-30-27"><a id="__codelineno-30-27" name="__codelineno-30-27" href="#__codelineno-30-27"></a>
+</span><span id="__span-30-28"><a id="__codelineno-30-28" name="__codelineno-30-28" href="#__codelineno-30-28"></a>mysql&gt;<span class="w"> </span><span class="nb">exit</span>
+</span><span id="__span-30-29"><a id="__codelineno-30-29" name="__codelineno-30-29" href="#__codelineno-30-29"></a>Bye
+</span><span id="__span-30-30"><a id="__codelineno-30-30" name="__codelineno-30-30" href="#__codelineno-30-30"></a>alu@xdebian11:~/app$<span class="w"> </span>
+</span></code></pre></div>
 </li>
 <li>
 <p>En el tutorial se muestra el uso de la imagen <code>nicolaka/netshoot</code> para obtener la IP del servidor MySQL y comprobar que la opción <code>--netwok-alias mysql</code> permite usar <code>mysql</code> como nombre de host del contenedor.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>mysqlserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>IPAddress
-<span class="go">            &quot;SecondaryIPAddresses&quot;: null,</span>
-<span class="go">            &quot;IPAddress&quot;: &quot;&quot;,</span>
-<span class="go">                    &quot;IPAddress&quot;: &quot;172.19.0.3&quot;,</span>
-<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>todo-app<span class="w"> </span>nicolaka/netshoot
-<span class="go">                    dP            dP                           dP   </span>
-<span class="go">                    88            88                           88   </span>
-<span class="go">88d888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. .d8888b. d8888P </span>
-<span class="go">88&#39;  `88 88ooood8   88   Y8ooooo. 88&#39;  `88 88&#39;  `88 88&#39;  `88   88   </span>
-<span class="go">88    88 88.  ...   88         88 88    88 88.  .88 88.  .88   88   </span>
-<span class="go">dP    dP `88888P&#39;   dP   `88888P&#39; dP    dP `88888P&#39; `88888P&#39;   dP   </span>
-
-<span class="go">Welcome to Netshoot! (github.com/nicolaka/netshoot)                                                         </span>
-<span class="go">5a5c709c3917  ~  dig mysql</span>
-
-<span class="go">; &lt;&lt;&gt;&gt; DiG 9.18.8 &lt;&lt;&gt;&gt; mysql</span>
-<span class="go">;; global options: +cmd</span>
-<span class="go">;; Got answer:</span>
-<span class="go">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 51505</span>
-<span class="go">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span>
-
-<span class="go">;; QUESTION SECTION:</span>
-<span class="go">;mysql.    IN A</span>
-
-<span class="go">;; ANSWER SECTION:</span>
-<span class="go">mysql.   600 IN A 172.19.0.3</span>
-
-<span class="go">;; Query time: 0 msec</span>
-<span class="go">;; SERVER: 127.0.0.11#53(127.0.0.11) (UDP)</span>
-<span class="go">;; WHEN: Sun Feb 05 14:06:32 UTC 2023</span>
-<span class="go">;; MSG SIZE  rcvd: 44</span>
-
-<span class="go">5a5c709c3917  ~  ping mysql</span>
-<span class="go">PING mysql (172.19.0.3) 56(84) bytes of data.</span>
-<span class="go">64 bytes from mysqlserver.todo-app (172.19.0.3): icmp_seq=1 ttl=64 time=0.131 ms</span>
-<span class="go">64 bytes from mysqlserver.todo-app (172.19.0.3): icmp_seq=2 ttl=64 time=0.096 ms</span>
-<span class="go">^C</span>
-<span class="go">--- mysql ping statistics ---</span>
-<span class="go">2 packets transmitted, 2 received, 0% packet loss, time 1013ms</span>
-<span class="go">rtt min/avg/max/mdev = 0.096/0.113/0.131/0.017 ms</span>
-
-<span class="go">5a5c709c3917  ~   exit</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>inspect<span class="w"> </span>mysqlserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>IPAddress
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="go">            &quot;SecondaryIPAddresses&quot;: null,</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="go">            &quot;IPAddress&quot;: &quot;&quot;,</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="go">                    &quot;IPAddress&quot;: &quot;172.19.0.3&quot;,</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--network<span class="w"> </span>todo-app<span class="w"> </span>nicolaka/netshoot
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="go">                    dP            dP                           dP   </span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="go">                    88            88                           88   </span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="go">88d888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. .d8888b. d8888P </span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="go">88&#39;  `88 88ooood8   88   Y8ooooo. 88&#39;  `88 88&#39;  `88 88&#39;  `88   88   </span>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="go">88    88 88.  ...   88         88 88    88 88.  .88 88.  .88   88   </span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="go">dP    dP `88888P&#39;   dP   `88888P&#39; dP    dP `88888P&#39; `88888P&#39;   dP   </span>
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="go">Welcome to Netshoot! (github.com/nicolaka/netshoot)                                                         </span>
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="go">5a5c709c3917  ~  dig mysql</span>
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="go">; &lt;&lt;&gt;&gt; DiG 9.18.8 &lt;&lt;&gt;&gt; mysql</span>
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a><span class="go">;; global options: +cmd</span>
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a><span class="go">;; Got answer:</span>
+</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a><span class="go">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 51505</span>
+</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a><span class="go">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span>
+</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>
+</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a><span class="go">;; QUESTION SECTION:</span>
+</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a><span class="go">;mysql.    IN A</span>
+</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>
+</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a><span class="go">;; ANSWER SECTION:</span>
+</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a><span class="go">mysql.   600 IN A 172.19.0.3</span>
+</span><span id="__span-31-27"><a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>
+</span><span id="__span-31-28"><a id="__codelineno-31-28" name="__codelineno-31-28" href="#__codelineno-31-28"></a><span class="go">;; Query time: 0 msec</span>
+</span><span id="__span-31-29"><a id="__codelineno-31-29" name="__codelineno-31-29" href="#__codelineno-31-29"></a><span class="go">;; SERVER: 127.0.0.11#53(127.0.0.11) (UDP)</span>
+</span><span id="__span-31-30"><a id="__codelineno-31-30" name="__codelineno-31-30" href="#__codelineno-31-30"></a><span class="go">;; WHEN: Sun Feb 05 14:06:32 UTC 2023</span>
+</span><span id="__span-31-31"><a id="__codelineno-31-31" name="__codelineno-31-31" href="#__codelineno-31-31"></a><span class="go">;; MSG SIZE  rcvd: 44</span>
+</span><span id="__span-31-32"><a id="__codelineno-31-32" name="__codelineno-31-32" href="#__codelineno-31-32"></a>
+</span><span id="__span-31-33"><a id="__codelineno-31-33" name="__codelineno-31-33" href="#__codelineno-31-33"></a><span class="go">5a5c709c3917  ~  ping mysql</span>
+</span><span id="__span-31-34"><a id="__codelineno-31-34" name="__codelineno-31-34" href="#__codelineno-31-34"></a><span class="go">PING mysql (172.19.0.3) 56(84) bytes of data.</span>
+</span><span id="__span-31-35"><a id="__codelineno-31-35" name="__codelineno-31-35" href="#__codelineno-31-35"></a><span class="go">64 bytes from mysqlserver.todo-app (172.19.0.3): icmp_seq=1 ttl=64 time=0.131 ms</span>
+</span><span id="__span-31-36"><a id="__codelineno-31-36" name="__codelineno-31-36" href="#__codelineno-31-36"></a><span class="go">64 bytes from mysqlserver.todo-app (172.19.0.3): icmp_seq=2 ttl=64 time=0.096 ms</span>
+</span><span id="__span-31-37"><a id="__codelineno-31-37" name="__codelineno-31-37" href="#__codelineno-31-37"></a><span class="go">^C</span>
+</span><span id="__span-31-38"><a id="__codelineno-31-38" name="__codelineno-31-38" href="#__codelineno-31-38"></a><span class="go">--- mysql ping statistics ---</span>
+</span><span id="__span-31-39"><a id="__codelineno-31-39" name="__codelineno-31-39" href="#__codelineno-31-39"></a><span class="go">2 packets transmitted, 2 received, 0% packet loss, time 1013ms</span>
+</span><span id="__span-31-40"><a id="__codelineno-31-40" name="__codelineno-31-40" href="#__codelineno-31-40"></a><span class="go">rtt min/avg/max/mdev = 0.096/0.113/0.131/0.017 ms</span>
+</span><span id="__span-31-41"><a id="__codelineno-31-41" name="__codelineno-31-41" href="#__codelineno-31-41"></a>
+</span><span id="__span-31-42"><a id="__codelineno-31-42" name="__codelineno-31-42" href="#__codelineno-31-42"></a><span class="go">5a5c709c3917  ~   exit</span>
+</span><span id="__span-31-43"><a id="__codelineno-31-43" name="__codelineno-31-43" href="#__codelineno-31-43"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Lanzar un segundo contenedor con la aplicación y especificar las variables de entorno que permiten conectarla con la base de datos <code>mysql</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>-w<span class="w"> </span>/app<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>--network<span class="w"> </span>todo-app<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_HOST</span><span class="o">=</span>mysql<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>root<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_DB</span><span class="o">=</span>todos<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>--name<span class="w"> </span>miapp<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
-<span class="go">5ab724f02d8b3aba8d40e....24bc8581a8a1730fb8d089e0441</span>
-<span class="gp">alu@xdebian11:~/app$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>run<span class="w"> </span>-dp<span class="w"> </span><span class="m">3000</span>:3000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">      </span>-w<span class="w"> </span>/app<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">:/app&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">      </span>--network<span class="w"> </span>todo-app<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_HOST</span><span class="o">=</span>mysql<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_USER</span><span class="o">=</span>root<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>secret<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">      </span>-e<span class="w"> </span><span class="nv">MYSQL_DB</span><span class="o">=</span>todos<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="w">      </span>--name<span class="w"> </span>miapp<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a><span class="w">      </span>node:18-alpine<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a><span class="w">      </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a><span class="go">5ab724f02d8b3aba8d40e....24bc8581a8a1730fb8d089e0441</span>
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a><span class="gp">alu@xdebian11:~/app$</span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Comprobar que se ha conectado con <code>mysql</code></p>
-<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$ docker logs  miapp 
-yarn install v1.22.19
-[1/4] Resolving packages...
-success Already up-to-date.
-Done in 0.38s.
-yarn run v1.22.19
-$ nodemon src/index.js
-[nodemon] 2.0.20
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching path(s): *.*
-[nodemon] watching extensions: js,mjs,json
-[nodemon] starting `node src/index.js`
-Waiting for mysql:3306.
-Connected!
-Connected to mysql db at host mysql
-Listening on port 3000
-alu@xdebian11:~/app$
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>alu@xdebian11:~/app$ docker logs  miapp 
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>yarn install v1.22.19
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>[1/4] Resolving packages...
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>success Already up-to-date.
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>Done in 0.38s.
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>yarn run v1.22.19
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>$ nodemon src/index.js
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>[nodemon] 2.0.20
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>[nodemon] to restart at any time, enter `rs`
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>[nodemon] watching path(s): *.*
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>[nodemon] watching extensions: js,mjs,json
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>[nodemon] starting `node src/index.js`
+</span><span id="__span-33-13"><a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>Waiting for mysql:3306.
+</span><span id="__span-33-14"><a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a>Connected!
+</span><span id="__span-33-15"><a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a>Connected to mysql db at host mysql
+</span><span id="__span-33-16"><a id="__codelineno-33-16" name="__codelineno-33-16" href="#__codelineno-33-16"></a>Listening on port 3000
+</span><span id="__span-33-17"><a id="__codelineno-33-17" name="__codelineno-33-17" href="#__codelineno-33-17"></a>alu@xdebian11:~/app$
+</span></code></pre></div>
 </li>
 <li>
 <p>Probar la aplicación añadiendo datos.</p>
 </li>
 <li>
 <p>Conectar a la base de datos para comprobar los datos en la tabla <code>todo_items</code>:</p>
-<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysqlserver<span class="w"> </span>mysql<span class="w"> </span>-p<span class="w"> </span>todos
-Enter<span class="w"> </span>password:<span class="w"> </span>
-....
-Type<span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
-
-mysql&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>todo_items<span class="p">;</span>
-+-----------------+------------------------+-----------+
-<span class="p">|</span><span class="w"> </span>id<span class="w">              </span><span class="p">|</span><span class="w"> </span>name<span class="w">                   </span><span class="p">|</span><span class="w"> </span>completed<span class="w"> </span><span class="p">|</span>
-+-----------------+------------------------+-----------+
-<span class="p">|</span><span class="w"> </span>e1b61a.....891d<span class="w"> </span><span class="p">|</span><span class="w"> </span>Revisar<span class="w"> </span>Apuntes<span class="w"> </span>Docker<span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span><span class="m">867350</span>.....6769<span class="w"> </span><span class="p">|</span><span class="w"> </span>Rehacer<span class="w"> </span>deply<span class="w"> </span>Heroku<span class="w">   </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span>ee1523.....d230<span class="w"> </span><span class="p">|</span><span class="w"> </span>Probar<span class="w"> </span>deploy<span class="w"> </span>en<span class="w"> </span>AWS<span class="w">   </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
-+-----------------+------------------------+-----------+
-<span class="m">3</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
-
-mysql&gt;<span class="w"> </span><span class="nb">exit</span>
-Bye
-alu@xdebian11:~/app$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>mysqlserver<span class="w"> </span>mysql<span class="w"> </span>-p<span class="w"> </span>todos
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>Enter<span class="w"> </span>password:<span class="w"> </span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>....
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>Type<span class="w"> </span><span class="s1">&#39;help;&#39;</span><span class="w"> </span>or<span class="w"> </span><span class="s1">&#39;\h&#39;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>help.<span class="w"> </span>Type<span class="w"> </span><span class="s1">&#39;\c&#39;</span><span class="w"> </span>to<span class="w"> </span>clear<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>input<span class="w"> </span>statement.
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>mysql&gt;<span class="w"> </span><span class="k">select</span><span class="w"> </span>*<span class="w"> </span>from<span class="w"> </span>todo_items<span class="p">;</span>
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>+-----------------+------------------------+-----------+
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="p">|</span><span class="w"> </span>id<span class="w">              </span><span class="p">|</span><span class="w"> </span>name<span class="w">                   </span><span class="p">|</span><span class="w"> </span>completed<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>+-----------------+------------------------+-----------+
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="p">|</span><span class="w"> </span>e1b61a.....891d<span class="w"> </span><span class="p">|</span><span class="w"> </span>Revisar<span class="w"> </span>Apuntes<span class="w"> </span>Docker<span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a><span class="p">|</span><span class="w"> </span><span class="m">867350</span>.....6769<span class="w"> </span><span class="p">|</span><span class="w"> </span>Rehacer<span class="w"> </span>deply<span class="w"> </span>Heroku<span class="w">   </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a><span class="p">|</span><span class="w"> </span>ee1523.....d230<span class="w"> </span><span class="p">|</span><span class="w"> </span>Probar<span class="w"> </span>deploy<span class="w"> </span>en<span class="w"> </span>AWS<span class="w">   </span><span class="p">|</span><span class="w">         </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a>+-----------------+------------------------+-----------+
+</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a><span class="m">3</span><span class="w"> </span>rows<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="o">(</span><span class="m">0</span>.00<span class="w"> </span>sec<span class="o">)</span>
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a>mysql&gt;<span class="w"> </span><span class="nb">exit</span>
+</span><span id="__span-34-17"><a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>Bye
+</span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>alu@xdebian11:~/app$
+</span></code></pre></div>
 </li>
 </ol>
 <blockquote>
@@ -1641,59 +1732,59 @@ alu@xdebian11:~/app$
 <p>En vez de realizar el despliegue de forma manual paso a paso lo habitual es utilizar un fichero descriptivo que es interpretado por el comando <code>docker compose</code>.</p>
 <h3 id="81-fichero-docker-composeyml">8.1. Fichero docker-compose.yml<a class="headerlink" href="#81-fichero-docker-composeyml" title="Permanent link">&para;</a></h3>
 <p>El fichero sería similar a este (en el tutorial se explica paso a paso su creación):</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">app</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:18-alpine</span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sh -c &quot;yarn install &amp;&amp; yarn run dev&quot;</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000:3000</span>
-<span class="w">    </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./:/app</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">MYSQL_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
-<span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
-<span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
-<span class="w">      </span><span class="nt">MYSQL_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todos</span>
-
-<span class="w">  </span><span class="nt">mysql</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:8.0</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todo-mysql-data:/var/lib/mysql</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span>
-<span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
-<span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todos</span>
-
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">todo-mysql-data</span><span class="p">:</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node:18-alpine</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sh -c &quot;yarn install &amp;&amp; yarn run dev&quot;</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000:3000</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app</span>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./:/app</span>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">      </span><span class="nt">MYSQL_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="w">      </span><span class="nt">MYSQL_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todos</span>
+</span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>
+</span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="w">  </span><span class="nt">mysql</span><span class="p">:</span>
+</span><span id="__span-35-17"><a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:8.0</span>
+</span><span id="__span-35-18"><a id="__codelineno-35-18" name="__codelineno-35-18" href="#__codelineno-35-18"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-35-19"><a id="__codelineno-35-19" name="__codelineno-35-19" href="#__codelineno-35-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todo-mysql-data:/var/lib/mysql</span>
+</span><span id="__span-35-20"><a id="__codelineno-35-20" name="__codelineno-35-20" href="#__codelineno-35-20"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-35-21"><a id="__codelineno-35-21" name="__codelineno-35-21" href="#__codelineno-35-21"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret</span>
+</span><span id="__span-35-22"><a id="__codelineno-35-22" name="__codelineno-35-22" href="#__codelineno-35-22"></a><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">todos</span>
+</span><span id="__span-35-23"><a id="__codelineno-35-23" name="__codelineno-35-23" href="#__codelineno-35-23"></a>
+</span><span id="__span-35-24"><a id="__codelineno-35-24" name="__codelineno-35-24" href="#__codelineno-35-24"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-35-25"><a id="__codelineno-35-25" name="__codelineno-35-25" href="#__codelineno-35-25"></a><span class="w">  </span><span class="nt">todo-mysql-data</span><span class="p">:</span>
+</span></code></pre></div>
 <h3 id="82-comandos-docker-compose">8.2. Comandos docker compose<a class="headerlink" href="#82-comandos-docker-compose" title="Permanent link">&para;</a></h3>
 <p>La herramienta <code>docker compose</code> debe estar instalada. Para verificarlo:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>version
-<span class="go">Docker Compose version v2.15.1</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>version
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="go">Docker Compose version v2.15.1</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 <p>Ahora para lanzar la aplicación basta  ejecutar el comando <code>docker-compose up -d</code> (crea la red, los volúmenes necesarios y lanza los contenedores), Si no se especifica fichero se utiliza el <code>docker-compose.yml</code> del directorio:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
-<span class="go">[+] Running 4/4</span>
-<span class="go"> ⠿ Network app_default           Created 0.1s</span>
-<span class="go"> ⠿ Volume &quot;app_todo-mysql-data&quot;  Created 0.0s</span>
-<span class="go"> ⠿ Container app-app-1           Started 0.7s</span>
-<span class="go"> ⠿ Container app-mysql-1         Started 0.6s</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="go">[+] Running 4/4</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="go"> ⠿ Network app_default           Created 0.1s</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="go"> ⠿ Volume &quot;app_todo-mysql-data&quot;  Created 0.0s</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="go"> ⠿ Container app-app-1           Started 0.7s</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="go"> ⠿ Container app-mysql-1         Started 0.6s</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 <p>Para ver los logs de los dos servicios en "vivo" basta ejecutar  <code>docker-compose logs -f</code>. Si desea ver solo el log de uno de los servicios en este caso <code>docker-compose logs app|mysql</code></p>
 <p>Para detener los servicios basta <code>docker-compose down</code>. Tenga en cuenta que por defecto este comando no borra los volúmenes (tendría que usar el flag <code>--volumes</code>).</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>
-<span class="go">[+] Running 3/3</span>
-<span class="go">⠿ Container app-mysql-1  Removed    3.4s</span>
-<span class="go">⠿ Container app-app-1    Removed    0.2s</span>
-<span class="go">⠿ Network app_default    Removed    0.1s</span>
-<span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>volume<span class="w"> </span>ls
-<span class="go">DRIVER    VOLUME NAME</span>
-<span class="go">local     app_todo-mysql-data</span>
-<span class="gp">alu@xdebian11:~/app$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="go">[+] Running 3/3</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="go">⠿ Container app-mysql-1  Removed    3.4s</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="go">⠿ Container app-app-1    Removed    0.2s</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="go">⠿ Network app_default    Removed    0.1s</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="gp">alu@xdebian11:~/app$ </span>docker<span class="w"> </span>volume<span class="w"> </span>ls
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="go">DRIVER    VOLUME NAME</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="go">local     app_todo-mysql-data</span>
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="gp">alu@xdebian11:~/app$ </span>
+</span></code></pre></div>
 <h2 id="9-image-building-best-practices">9. Image Building Best Practices<a class="headerlink" href="#9-image-building-best-practices" title="Permanent link">&para;</a></h2>
 <h3 id="91-escanear-la-imagen">9.1. Escanear la imagen<a class="headerlink" href="#91-escanear-la-imagen" title="Permanent link">&para;</a></h3>
 <p>En el tutorial de docker habla de <code>docker scan</code>, que ha sido sustituida por  <code>docker scout</code>. Para instalarlo: <a href="https://docs.docker.com/scout/install/">https://docs.docker.com/scout/install/</a></p>
@@ -1707,28 +1798,28 @@ alu@xdebian11:~/app$
 <h3 id="92-optimizar-build-de-la-imagen">9.2. Optimizar <em>build</em> de la imagen<a class="headerlink" href="#92-optimizar-build-de-la-imagen" title="Permanent link">&para;</a></h3>
 <p>Las imágenes de Docker se organizan en capas. Si un nivel o capa cambia provoca que todas las capas posteriores se tengan que reconstruir. Por ello es preferible situar primero las capas que con menos frecuencia cambian, y dejar para las últimas las que se modifican con más frecuencia.</p>
 <p>A continuación se modifica el Dockerfile del tutorial: dejamos como penúltima capa la copia del directorio de la aplicación y se crean antes la copia de los paquetes de dependencias. Se supone que habrá mas cambios en el código que en las dependecias.</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:18-alpine</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>package.json<span class="w"> </span>yarn.lock<span class="w"> </span>./
-<span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production
-<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/index.js&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">node:18-alpine</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="k">COPY</span><span class="w"> </span>package.json<span class="w"> </span>yarn.lock<span class="w"> </span>./
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="k">RUN</span><span class="w"> </span>yarn<span class="w"> </span>install<span class="w"> </span>--production
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;src/index.js&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <h3 id="93-el-fichero-dockerignore">9.3. El fichero .dockerignore<a class="headerlink" href="#93-el-fichero-dockerignore" title="Permanent link">&para;</a></h3>
 <p>Este fichero permite indicar  directorios (y ficheros) que no se deben copiar del host a la imagen durante la creación de la imagen. El formato es similar al fichero <code>.gitignore</code>  utilizado con <code>git</code>. En el tutorial se crea este fichero y se incluye el directorio <code>node_modules</code> que se genera durante las pruebas en local de la aplicación.</p>
 <h3 id="94-build-multistage">9.4. Build multistage<a class="headerlink" href="#94-build-multistage" title="Permanent link">&para;</a></h3>
 <p>Esta facilidad se usa para separar las dependencias de construcción de la aplicación de las dependencias de ejecución de la misma. Esto reduce el tamaño de la imagen ya que sólo se incluye lo necesario para su ejecución.</p>
 <p>Ejemplo típico son las aplicaciones Java, donde JDK es necesario para generar la aplicación en bytecode, pero no para ejecutarla. O utilizar herramientas adicionales para construir la aplicación que tampoco serían necesarias para su ejecución.</p>
 <p>Vea este fichero Dockerfile</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">maven</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>package
-
-
-<span class="k">FROM</span><span class="w"> </span><span class="s">tomcat</span>
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/file.war<span class="w"> </span>/usr/local/tomcat/webapps<span class="w"> </span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">maven</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>package
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="k">FROM</span><span class="w"> </span><span class="s">tomcat</span>
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/file.war<span class="w"> </span>/usr/local/tomcat/webapps<span class="w"> </span>
+</span></code></pre></div>
 <p>La primer parte construye el fichero WAR en una imagen <code>maven</code>. La segunda parte usa una imagen <code>tomcat</code>  y simplemente copia el fichero WAR generado en la primera parte en el directorio de aplicaciones de <code>tomcat</code>. Observe que el fichero se copia <code>--from=build</code>, alias que se genera en la primera línea (<code>FROM maven AS build</code>). En este caso la imagen <code>tomcat</code> puede ser un 10%  menor que <code>maven</code>.</p>
 <h2 id="10-anexos">10. Anexos<a class="headerlink" href="#10-anexos" title="Permanent link">&para;</a></h2>
 <h3 id="101-obsoleto-docker-scan">10.1. Obsoleto: docker scan<a class="headerlink" href="#101-obsoleto-docker-scan" title="Permanent link">&para;</a></h3>
@@ -1738,45 +1829,45 @@ alu@xdebian11:~/app$
 <a href="https://snyk.io/product/container-vulnerability-management/">https://snyk.io/product/container-vulnerability-management/</a></p>
 </blockquote>
 <p>Para escanear la imagen desde CLI:</p>
-<div class="highlight"><pre><span></span><code>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>scan<span class="w"> </span>docker/getting-started
-
-Testing<span class="w"> </span>docker/getting-started...
-
-✗<span class="w"> </span>Low<span class="w"> </span>severity<span class="w"> </span>vulnerability<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>libxpm/libxpm
-<span class="w">  </span>Description:<span class="w"> </span>CVE-2022-4883
-<span class="w">  </span>Info:<span class="w"> </span>https://security.snyk.io/vuln/SNYK-ALPINE317-LIBXPM-3232761
-<span class="w">  </span>Introduced<span class="w"> </span>through:<span class="w"> </span>libxpm/libxpm@3.5.14-r0,<span class="w"> </span>gd/libgd@2.3.3-r3
-<span class="w">  </span>From:<span class="w"> </span>libxpm/libxpm@3.5.14-r0
-<span class="w">  </span>From:<span class="w"> </span>gd/libgd@2.3.3-r3<span class="w"> </span>&gt;<span class="w"> </span>libxpm/libxpm@3.5.14-r0
-<span class="w">  </span>Fixed<span class="w"> </span><span class="k">in</span>:<span class="w"> </span><span class="m">3</span>.5.15-r0
-
-....
-
-✗<span class="w"> </span>High<span class="w"> </span>severity<span class="w"> </span>vulnerability<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>curl/libcurl
-<span class="w">  </span>Description:<span class="w"> </span>Cleartext<span class="w"> </span>Transmission<span class="w"> </span>of<span class="w"> </span>Sensitive<span class="w"> </span>Information
-<span class="w">  </span>Info:<span class="w"> </span>https://security.snyk.io/vuln/SNYK-ALPINE317-CURL-3179543
-<span class="w">  </span>Introduced<span class="w"> </span>through:<span class="w"> </span>curl/libcurl@7.86.0-r1,<span class="w"> </span>curl/curl@7.86.0-r1
-<span class="w">  </span>From:<span class="w"> </span>curl/libcurl@7.86.0-r1
-<span class="w">  </span>From:<span class="w"> </span>curl/curl@7.86.0-r1<span class="w"> </span>&gt;<span class="w"> </span>curl/libcurl@7.86.0-r1
-<span class="w">  </span>From:<span class="w"> </span>curl/curl@7.86.0-r1
-<span class="w">  </span>Fixed<span class="w"> </span><span class="k">in</span>:<span class="w"> </span><span class="m">7</span>.87.0-r0
-
-
-
-Organization:<span class="w">      </span>angoies-98m
-Package<span class="w"> </span>manager:<span class="w">   </span>apk
-Project<span class="w"> </span>name:<span class="w">      </span>docker-image<span class="p">|</span>docker/getting-started
-Docker<span class="w"> </span>image:<span class="w">      </span>docker/getting-started
-Platform:<span class="w">          </span>linux/amd64
-Base<span class="w"> </span>image:<span class="w">        </span>nginx:1.23.3-alpine
-Licenses:<span class="w">          </span>enabled
-
-Tested<span class="w"> </span><span class="m">63</span><span class="w"> </span>dependencies<span class="w"> </span><span class="k">for</span><span class="w"> </span>known<span class="w"> </span>issues,<span class="w"> </span>found<span class="w"> </span><span class="m">6</span><span class="w"> </span>issues.
-
-Your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span>date
-<span class="m">1</span><span class="o">)</span><span class="w"> </span>Pull<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span>by<span class="w"> </span>running<span class="w"> </span><span class="s1">&#39;docker pull nginx:1.23.3-alpine&#39;</span>
-<span class="m">2</span><span class="o">)</span><span class="w"> </span>Rebuild<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>image
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>alu@xdebian11:~/app$<span class="w"> </span>docker<span class="w"> </span>scan<span class="w"> </span>docker/getting-started
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>Testing<span class="w"> </span>docker/getting-started...
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>✗<span class="w"> </span>Low<span class="w"> </span>severity<span class="w"> </span>vulnerability<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>libxpm/libxpm
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">  </span>Description:<span class="w"> </span>CVE-2022-4883
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">  </span>Info:<span class="w"> </span>https://security.snyk.io/vuln/SNYK-ALPINE317-LIBXPM-3232761
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">  </span>Introduced<span class="w"> </span>through:<span class="w"> </span>libxpm/libxpm@3.5.14-r0,<span class="w"> </span>gd/libgd@2.3.3-r3
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">  </span>From:<span class="w"> </span>libxpm/libxpm@3.5.14-r0
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">  </span>From:<span class="w"> </span>gd/libgd@2.3.3-r3<span class="w"> </span>&gt;<span class="w"> </span>libxpm/libxpm@3.5.14-r0
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="w">  </span>Fixed<span class="w"> </span><span class="k">in</span>:<span class="w"> </span><span class="m">3</span>.5.15-r0
+</span><span id="__span-41-12"><a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a>
+</span><span id="__span-41-13"><a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>....
+</span><span id="__span-41-14"><a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a>
+</span><span id="__span-41-15"><a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a>✗<span class="w"> </span>High<span class="w"> </span>severity<span class="w"> </span>vulnerability<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>curl/libcurl
+</span><span id="__span-41-16"><a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a><span class="w">  </span>Description:<span class="w"> </span>Cleartext<span class="w"> </span>Transmission<span class="w"> </span>of<span class="w"> </span>Sensitive<span class="w"> </span>Information
+</span><span id="__span-41-17"><a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a><span class="w">  </span>Info:<span class="w"> </span>https://security.snyk.io/vuln/SNYK-ALPINE317-CURL-3179543
+</span><span id="__span-41-18"><a id="__codelineno-41-18" name="__codelineno-41-18" href="#__codelineno-41-18"></a><span class="w">  </span>Introduced<span class="w"> </span>through:<span class="w"> </span>curl/libcurl@7.86.0-r1,<span class="w"> </span>curl/curl@7.86.0-r1
+</span><span id="__span-41-19"><a id="__codelineno-41-19" name="__codelineno-41-19" href="#__codelineno-41-19"></a><span class="w">  </span>From:<span class="w"> </span>curl/libcurl@7.86.0-r1
+</span><span id="__span-41-20"><a id="__codelineno-41-20" name="__codelineno-41-20" href="#__codelineno-41-20"></a><span class="w">  </span>From:<span class="w"> </span>curl/curl@7.86.0-r1<span class="w"> </span>&gt;<span class="w"> </span>curl/libcurl@7.86.0-r1
+</span><span id="__span-41-21"><a id="__codelineno-41-21" name="__codelineno-41-21" href="#__codelineno-41-21"></a><span class="w">  </span>From:<span class="w"> </span>curl/curl@7.86.0-r1
+</span><span id="__span-41-22"><a id="__codelineno-41-22" name="__codelineno-41-22" href="#__codelineno-41-22"></a><span class="w">  </span>Fixed<span class="w"> </span><span class="k">in</span>:<span class="w"> </span><span class="m">7</span>.87.0-r0
+</span><span id="__span-41-23"><a id="__codelineno-41-23" name="__codelineno-41-23" href="#__codelineno-41-23"></a>
+</span><span id="__span-41-24"><a id="__codelineno-41-24" name="__codelineno-41-24" href="#__codelineno-41-24"></a>
+</span><span id="__span-41-25"><a id="__codelineno-41-25" name="__codelineno-41-25" href="#__codelineno-41-25"></a>
+</span><span id="__span-41-26"><a id="__codelineno-41-26" name="__codelineno-41-26" href="#__codelineno-41-26"></a>Organization:<span class="w">      </span>angoies-98m
+</span><span id="__span-41-27"><a id="__codelineno-41-27" name="__codelineno-41-27" href="#__codelineno-41-27"></a>Package<span class="w"> </span>manager:<span class="w">   </span>apk
+</span><span id="__span-41-28"><a id="__codelineno-41-28" name="__codelineno-41-28" href="#__codelineno-41-28"></a>Project<span class="w"> </span>name:<span class="w">      </span>docker-image<span class="p">|</span>docker/getting-started
+</span><span id="__span-41-29"><a id="__codelineno-41-29" name="__codelineno-41-29" href="#__codelineno-41-29"></a>Docker<span class="w"> </span>image:<span class="w">      </span>docker/getting-started
+</span><span id="__span-41-30"><a id="__codelineno-41-30" name="__codelineno-41-30" href="#__codelineno-41-30"></a>Platform:<span class="w">          </span>linux/amd64
+</span><span id="__span-41-31"><a id="__codelineno-41-31" name="__codelineno-41-31" href="#__codelineno-41-31"></a>Base<span class="w"> </span>image:<span class="w">        </span>nginx:1.23.3-alpine
+</span><span id="__span-41-32"><a id="__codelineno-41-32" name="__codelineno-41-32" href="#__codelineno-41-32"></a>Licenses:<span class="w">          </span>enabled
+</span><span id="__span-41-33"><a id="__codelineno-41-33" name="__codelineno-41-33" href="#__codelineno-41-33"></a>
+</span><span id="__span-41-34"><a id="__codelineno-41-34" name="__codelineno-41-34" href="#__codelineno-41-34"></a>Tested<span class="w"> </span><span class="m">63</span><span class="w"> </span>dependencies<span class="w"> </span><span class="k">for</span><span class="w"> </span>known<span class="w"> </span>issues,<span class="w"> </span>found<span class="w"> </span><span class="m">6</span><span class="w"> </span>issues.
+</span><span id="__span-41-35"><a id="__codelineno-41-35" name="__codelineno-41-35" href="#__codelineno-41-35"></a>
+</span><span id="__span-41-36"><a id="__codelineno-41-36" name="__codelineno-41-36" href="#__codelineno-41-36"></a>Your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span>is<span class="w"> </span>out<span class="w"> </span>of<span class="w"> </span>date
+</span><span id="__span-41-37"><a id="__codelineno-41-37" name="__codelineno-41-37" href="#__codelineno-41-37"></a><span class="m">1</span><span class="o">)</span><span class="w"> </span>Pull<span class="w"> </span>the<span class="w"> </span>latest<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </span>by<span class="w"> </span>running<span class="w"> </span><span class="s1">&#39;docker pull nginx:1.23.3-alpine&#39;</span>
+</span><span id="__span-41-38"><a id="__codelineno-41-38" name="__codelineno-41-38" href="#__codelineno-41-38"></a><span class="m">2</span><span class="o">)</span><span class="w"> </span>Rebuild<span class="w"> </span>your<span class="w"> </span><span class="nb">local</span><span class="w"> </span>image
+</span></code></pre></div>
 
 
 
@@ -1863,7 +1954,7 @@ Your<span class="w"> </span>base<span class="w"> </span>image<span class="w"> </
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer", "navigation.path"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

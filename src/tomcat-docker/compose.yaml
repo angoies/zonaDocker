@@ -1,0 +1,14 @@
+
+services:
+  tomcat:
+    image: tomcat
+    container_name: mitomcat
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./guess-number/guess-number.war:/usr/local/tomcat/webapps/ROOT.war
+    restart: unless-stopped
+
+
+# sudo apt install openjdk-21-jdk -y
+# jar cvf guess-number.war *

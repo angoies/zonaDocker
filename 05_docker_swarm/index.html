@@ -466,11 +466,98 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-docker-ayudas/" class="md-nav__link">
+      <a href="../03-docker-compose_amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Varios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/06-1_dns-practicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    en local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/06-2_dns-en-AWS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    con AWS
     
   </span>
   
@@ -741,10 +828,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -756,8 +843,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Otros
           </label>
@@ -1039,28 +1126,28 @@
 </ul>
 </blockquote>
 <p>El primer paso es conectarse al nodo manager usando ssh:</p>
-<div class="highlight"><pre><span></span><code>clases@vm:~$ ssh alu@192.168.125.136
-alu@192.168.125.136&#39;s password: 
-Linux manager 6.1.0-13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.55-1 (2023-09-29) x86_64
-...
-alu@manager:~$
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>clases@vm:~$ ssh alu@192.168.125.136
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>alu@192.168.125.136&#39;s password: 
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Linux manager 6.1.0-13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.55-1 (2023-09-29) x86_64
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>...
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>alu@manager:~$
+</span></code></pre></div>
 <p>Rl cluster se inicia con el comando  <code>docker swarm init</code>. Al iniciarlo  muestra el <em>token</em> de invitación para los nodos tipo <em>worker</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>init<span class="w"> </span>
-<span class="go">Swarm initialized: current node (szbzjfi2mbaiqif01al7u0qjg) is now a manager.</span>
-
-<span class="go">To add a worker to this swarm, run the following command:</span>
-<span class="go">    docker swarm join --token SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0 192.168.125.136:2377</span>
-
-<span class="go">To add a manager to this swarm, run &#39;docker swarm join-token manager&#39; and follow the instructions.</span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>init<span class="w"> </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="go">Swarm initialized: current node (szbzjfi2mbaiqif01al7u0qjg) is now a manager.</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="go">To add a worker to this swarm, run the following command:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="go">    docker swarm join --token SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0 192.168.125.136:2377</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="go">To add a manager to this swarm, run &#39;docker swarm join-token manager&#39; and follow the instructions.</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Una vez iniciado puede comprobar con el comando <code>docker node ls</code> que el único nodo existente es el <em>manager</em>, que aparece como activo y con estado <code>Leader</code></p>
-<div class="highlight"><pre><span></span><code>alu@manager:~$ docker node ls
-ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER   
-szbzjfi2mbaiqif01al7u0qjg *   manager    Ready     Active         Leader           
-alu@manager:~$ 
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>alu@manager:~$ docker node ls
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ID                            HOSTNAME   STATUS    AVAILABILITY   MANAGER   
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>szbzjfi2mbaiqif01al7u0qjg *   manager    Ready     Active         Leader           
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>alu@manager:~$ 
+</span></code></pre></div>
 <h3 id="23-unir-nodos-worker-al-enjambre">2.3. Unir nodos <em>worker</em> al  "enjambre"<a class="headerlink" href="#23-unir-nodos-worker-al-enjambre" title="Permanent link">&para;</a></h3>
 <p>Para unir un nodo al cluster o enjambre es necesario usar un <em>token</em> de invitación. El <em>token</em> se muestra:</p>
 <ul>
@@ -1068,190 +1155,190 @@ alu@manager:~$
 <li>o ejecutando en el manager el comando <code>docker swarm  join-token worker</code>.</li>
 </ul>
 <p>Por lo tanto para añadir un <em>worker</em> al cluster es necesario conectarse por shh al nuevo nodo y una vez conectado ejecutar el comando <code>docker swarm join</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@worker-01:~$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>join<span class="w"> </span>--token<span class="w"> </span>SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0<span class="w"> </span><span class="m">192</span>.168.125.136:2377
-<span class="go">This node joined a swarm as a worker.</span>
-<span class="gp">alu@worker-01:~$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gp">alu@worker-01:~$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>join<span class="w"> </span>--token<span class="w"> </span>SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0<span class="w"> </span><span class="m">192</span>.168.125.136:2377
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="go">This node joined a swarm as a worker.</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="gp">alu@worker-01:~$</span>
+</span></code></pre></div>
 <p>En el nodo <em>manager</em> puede  comprobar que el nodo se ha añadido con <code>docker node ls</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>node<span class="w"> </span>ls
-<span class="go">ID                            HOSTNAME    STATUS    AVAILABILITY   MANAGER </span>
-<span class="go">9nhxurspobgirwh5m1d5h0fvf *   manager     Ready     Active         Leader           </span>
-<span class="go">zm7acf20ysqblhalyeicrse6w     worker-01   Ready     Active                          </span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>node<span class="w"> </span>ls
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="go">ID                            HOSTNAME    STATUS    AVAILABILITY   MANAGER </span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="go">9nhxurspobgirwh5m1d5h0fvf *   manager     Ready     Active         Leader           </span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="go">zm7acf20ysqblhalyeicrse6w     worker-01   Ready     Active                          </span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <h2 id="3-desplegar-servicio">3. Desplegar servicio<a class="headerlink" href="#3-desplegar-servicio" title="Permanent link">&para;</a></h2>
 <h3 id="31-despliegue-manual">3.1. Despliegue manual<a class="headerlink" href="#31-despliegue-manual" title="Permanent link">&para;</a></h3>
 <p>Para probar el cluster  <strong>se crea en el <em>manager</em></strong> un servicio  que llamaremos <em><code>helloworld</code></em> usando la imagen <code>repocurso/helloworld-node-microservice</code>. Esta imagen es una aplicación web que muestra el nombre (id del contenedor) del equipo.</p>
 <p>Observe cómo se crea el servicio (en este caso se hace con una única replica) con el comando <code>docker service create</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>create<span class="w"> </span>--replicas<span class="w"> </span><span class="m">1</span><span class="w"> </span>--name<span class="w"> </span>helloworld<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>repocurso/helloworld-node-microservice
-<span class="go">zzcmp70yivslrzdhqyxhjblyl</span>
-<span class="go">overall progress: 0 out of 1 tasks </span>
-<span class="go">overall progress: 1 out of 1 tasks </span>
-<span class="go">1/1: running   </span>
-<span class="go">verify: Service converged </span>
-<span class="gp">alu@manager:~$    </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>create<span class="w"> </span>--replicas<span class="w"> </span><span class="m">1</span><span class="w"> </span>--name<span class="w"> </span>helloworld<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>repocurso/helloworld-node-microservice
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="go">zzcmp70yivslrzdhqyxhjblyl</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="go">overall progress: 0 out of 1 tasks </span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="go">overall progress: 1 out of 1 tasks </span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="go">1/1: running   </span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="go">verify: Service converged </span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="gp">alu@manager:~$    </span>
+</span></code></pre></div>
 <p>Para probar el servicio use el comando <code>curl</code> (en vez de un navegador). Desde el <em>manager</em>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>O desde el <em>worker</em></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@worker-01:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
-<span class="gp">alu@worker-01:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gp">alu@worker-01:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="gp">alu@worker-01:~$ </span>
+</span></code></pre></div>
 <p>Puede acceder también desde cualquiera de los dos nodos con la IP de los nodos, y en todos los casos se accede correctamente al servicio aunque el contenedor esté sólo en uno de los nodos:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.136:8080
-<span class="go">Hello World from host &quot;692f6380f27b&quot;.</span>
-<span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
-<span class="go">Hello World from host &quot;692f6380f27b&quot;.</span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.136:8080
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="go">Hello World from host &quot;692f6380f27b&quot;.</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="go">Hello World from host &quot;692f6380f27b&quot;.</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Si añade otro nodo al enjambre (se conecta al nuevo nodo por ssh y ejecuta el comando <code>docker swarm join</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@worker-02:~$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>join<span class="w"> </span>--token<span class="w"> </span>SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0<span class="w"> </span><span class="m">192</span>.168.125.136:2377
-<span class="go">This node joined a swarm as a worker.</span>
-<span class="gp">alu@worker-02:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="gp">alu@worker-02:~$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>join<span class="w"> </span>--token<span class="w"> </span>SWMTKN-1-0fuvq18xzr6we68t2n584wernrf1nm0n0e3gz90cvaj4qm1a4z-8lefbc8r8qxwa7zhm2ulytpv0<span class="w"> </span><span class="m">192</span>.168.125.136:2377
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="go">This node joined a swarm as a worker.</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="gp">alu@worker-02:~$ </span>
+</span></code></pre></div>
 <p>Puede comprobar en el <em>manager</em> cómo se ha añadido el nodo:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>node<span class="w"> </span>ls
-<span class="go">ID                           HOSTNAME   STATUS  AVAILABILITY MANAGER STATUS   </span>
-<span class="go">9nhxurspobgirwh5m1d5h0fvf *  manager    Ready   Active       Leader           </span>
-<span class="go">zm7acf20ysqblhalyeicrse6w    worker-01  Ready   Active                          </span>
-<span class="go">s53vme3dp6tr2jvjmfr88avpt    worker-02  Ready   Active                          </span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>node<span class="w"> </span>ls
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="go">ID                           HOSTNAME   STATUS  AVAILABILITY MANAGER STATUS   </span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="go">9nhxurspobgirwh5m1d5h0fvf *  manager    Ready   Active       Leader           </span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="go">zm7acf20ysqblhalyeicrse6w    worker-01  Ready   Active                          </span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="go">s53vme3dp6tr2jvjmfr88avpt    worker-02  Ready   Active                          </span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Ahora puede <strong>escalar</strong> a cuatro replicas el servicio usando el comando <code>docker service scale</code> e indicando el nombre del servicio y el número de réplicas:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$  </span>docker<span class="w"> </span>service<span class="w"> </span>scale<span class="w"> </span><span class="nv">helloworld</span><span class="o">=</span><span class="m">4</span>
-<span class="go">helloworld scaled to 4</span>
-<span class="go">overall progress: 4 out of 4 tasks </span>
-<span class="go">1/4: running   [==================================================&gt;] </span>
-<span class="go">2/4: running   [==================================================&gt;] </span>
-<span class="go">3/4: running   [==================================================&gt;] </span>
-<span class="go">4/4: running   [==================================================&gt;] </span>
-<span class="go">verify: Service converged </span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">alu@manager:~$  </span>docker<span class="w"> </span>service<span class="w"> </span>scale<span class="w"> </span><span class="nv">helloworld</span><span class="o">=</span><span class="m">4</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">helloworld scaled to 4</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">overall progress: 4 out of 4 tasks </span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="go">1/4: running   [==================================================&gt;] </span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="go">2/4: running   [==================================================&gt;] </span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="go">3/4: running   [==================================================&gt;] </span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="go">4/4: running   [==================================================&gt;] </span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="go">verify: Service converged </span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Se puede observar a continuación que las replicas se distribuyen en los tres nodos, y responden a las peticiones según un algoritmo <em>round-robin</em>. Haga varias peticiones y observe cómo va cambiando el identificador del contenedor:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
-<span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;acb9bc2b68ba&quot;.</span>
-<span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;1f4f0b7c2822&quot;.</span>
-<span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
-<span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
-<span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
-<span class="gp">alu@manager:~$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="go">Hello World from host &quot;acb9bc2b68ba&quot;.</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="go">Hello World from host &quot;1f4f0b7c2822&quot;.</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="gp">alu@manager:~$ </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:8080
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="gp">alu@manager:~$</span>
+</span></code></pre></div>
 <p>Hasta ahora se han realizado las pruebas desde los nodos del cluster, pero puede acceder al servicio desde el host usando la IP de cualquiera de los nodos del cluster:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
-<span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
-<span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
-<span class="go">Hello World from host &quot;1f4f0b7c2822&quot;.</span>
-<span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
-<span class="go">Hello World from host &quot;acb9bc2b68ba&quot;.</span>
-<span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
-<span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
-<span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
-<span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
-<span class="gp">clases@vm:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="go">Hello World from host &quot;1f4f0b7c2822&quot;.</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="go">Hello World from host &quot;acb9bc2b68ba&quot;.</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="go">Hello World from host &quot;8e088d6016c9&quot;.</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span><span class="m">192</span>.168.125.141:8080
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="go">Hello World from host &quot;eb5da9711349&quot;.</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="gp">clases@vm:~$ </span>
+</span></code></pre></div>
 <p>Puede comprobar la distribución del servicio entre los nodos con el comando  <code>docker service ps &lt;nombreServicio&gt;</code>. En este caso cada nodo "corre"" un contenedor y uno de ellos dos.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ps<span class="w"> </span>helloworld
-<span class="go">ID             NAME           IMAGE                                          NODE        DESIRED STATE   CURRENT STATE                ERROR     PORTS</span>
-<span class="go">z1phnld17fcz   helloworld.1   repocurso/helloworld-node-microservice:latest   manager     Running         Running 6 minutes ago                  </span>
-<span class="go">pa5hp3zsudf3   helloworld.2   repocurso/helloworld-node-microservice:latest   worker-02   Running         Running about a minute ago             </span>
-<span class="go">pppd9mdjj06c   helloworld.3   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running about a minute ago             </span>
-<span class="go">or8ythvqgb8q   helloworld.4   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running about a minute ago             </span>
-<span class="gp">alu@manager:~$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ps<span class="w"> </span>helloworld
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="go">ID             NAME           IMAGE                                          NODE        DESIRED STATE   CURRENT STATE                ERROR     PORTS</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="go">z1phnld17fcz   helloworld.1   repocurso/helloworld-node-microservice:latest   manager     Running         Running 6 minutes ago                  </span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="go">pa5hp3zsudf3   helloworld.2   repocurso/helloworld-node-microservice:latest   worker-02   Running         Running about a minute ago             </span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="go">pppd9mdjj06c   helloworld.3   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running about a minute ago             </span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="go">or8ythvqgb8q   helloworld.4   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running about a minute ago             </span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="gp">alu@manager:~$</span>
+</span></code></pre></div>
 <h3 id="32-borrar-el-servicio">3.2. Borrar el servicio<a class="headerlink" href="#32-borrar-el-servicio" title="Permanent link">&para;</a></h3>
 <p>Para eliminar el servicio desplegado  se usa el comando <code>docker service rm &lt;nombreServicio&gt;</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>rm<span class="w"> </span>helloworld
-<span class="go">helloworld</span>
-<span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ls
-<span class="go">ID        NAME      MODE      REPLICAS   IMAGE     PORTS</span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>rm<span class="w"> </span>helloworld
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="go">helloworld</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ls
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="go">ID        NAME      MODE      REPLICAS   IMAGE     PORTS</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <h3 id="33-desplegar-usando-stack-y-fichero-compose">3.3. Desplegar usando stack y fichero compose<a class="headerlink" href="#33-desplegar-usando-stack-y-fichero-compose" title="Permanent link">&para;</a></h3>
 <p>Cuando la aplicación a desplegar incluye varios servicios, volúmenes, networks, etc.  es recomendable hacer el despliegue desde un fichero que tendrá un formato similar al <code>docker-compose</code> de temas anteriores. Este fichero además tendrá etiquetas específicas de un despliegue <code>swarm</code> como por ejemplo el número de replicas.</p>
 <p>Es este ejemplo se despliega el servicio anterior usando el  fichero <code>helloworld.yml</code>. Observe los campos <code>deploy</code> y <code>replicas</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.7&#39;</span>
-
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">helloworld</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">repocurso/helloworld-node-microservice</span>
-<span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
-<span class="w">      </span><span class="nt">deploy</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">   </span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.7&#39;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">helloworld</span><span class="p">:</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">repocurso/helloworld-node-microservice</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">      </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">      </span><span class="nt">deploy</span><span class="p">:</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">   </span>
+</span></code></pre></div>
 <p>Para copiar el fichero desde el host hasta el manager se usa el comando <code>scp fichero usuario@IP:destino</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~$ </span>scp<span class="w"> </span>helloworld.yml<span class="w"> </span>alu@192.168.125.136:
-<span class="go">alu@192.168.125.136&#39;s password: </span>
-<span class="go">helloworld.yml        100%  160   145.2KB/s   00:00    </span>
-<span class="gp">clases@vm:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="gp">clases@vm:~$ </span>scp<span class="w"> </span>helloworld.yml<span class="w"> </span>alu@192.168.125.136:
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="go">alu@192.168.125.136&#39;s password: </span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="go">helloworld.yml        100%  160   145.2KB/s   00:00    </span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="gp">clases@vm:~$ </span>
+</span></code></pre></div>
 <p>Para desplegar el servicio desde el <em>manager</em> se utiliza el comando <code>docker stack deploy -c &lt;fichero.yml&gt;  &lt;nombreStack&gt;</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>helloworld.yml<span class="w"> </span>demo
-<span class="go">Creating network demo_default</span>
-<span class="go">Creating service demo_helloworld</span>
-<span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>ps<span class="w"> </span>demo<span class="w"> </span>
-<span class="go">ID             NAME                IMAGE                                          NODE        DESIRED STATE   CURRENT STATE            ERROR     PORTS</span>
-<span class="go">v23bfy99i0yd   demo_helloworld.1   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running 25 seconds ago             </span>
-<span class="go">vgz5h3b5gp6s   demo_helloworld.2   repocurso/helloworld-node-microservice:latest   worker-02   Running         Running 25 seconds ago             </span>
-<span class="go">ucsa2fut5n3v   demo_helloworld.3   repocurso/helloworld-node-microservice:latest   manager     Running         Running 25 seconds ago             </span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>helloworld.yml<span class="w"> </span>demo
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="go">Creating network demo_default</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="go">Creating service demo_helloworld</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>ps<span class="w"> </span>demo<span class="w"> </span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="go">ID             NAME                IMAGE                                          NODE        DESIRED STATE   CURRENT STATE            ERROR     PORTS</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="go">v23bfy99i0yd   demo_helloworld.1   repocurso/helloworld-node-microservice:latest   worker-01   Running         Running 25 seconds ago             </span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="go">vgz5h3b5gp6s   demo_helloworld.2   repocurso/helloworld-node-microservice:latest   worker-02   Running         Running 25 seconds ago             </span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="go">ucsa2fut5n3v   demo_helloworld.3   repocurso/helloworld-node-microservice:latest   manager     Running         Running 25 seconds ago             </span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Y para eliminar el despliegue se utiliza el comando  <code>docker stack rm &lt;servicio&gt;</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>rm<span class="w"> </span>demo
-<span class="go">Removing service demo_helloworld</span>
-<span class="go">Removing network demo_default</span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>rm<span class="w"> </span>demo
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="go">Removing service demo_helloworld</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="go">Removing network demo_default</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <h2 id="4-herramienta-grafica-portainer">4. Herramienta gráfica: portainer<a class="headerlink" href="#4-herramienta-grafica-portainer" title="Permanent link">&para;</a></h2>
 <p>Si desea visualizar y trabajar con el cluster de forma gráfica una posible opción es usar <code>portainer</code>: <a href="https://www.portainer.io/">https://www.portainer.io/</a>. Esta aplicación despliega agentes sobre los nodos del cluster.</p>
 <p>Para utilizarla descargamos el fichero yaml con una configuración ya preparada desde su página web con el comando <code>curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml</code> y lo copiamos con <code>scp</code> al manager (o lo puede descargar directamente en el manager)</p>
-<div class="highlight"><pre><span></span><code><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span>-L<span class="w"> </span>https://downloads.portainer.io/portainer-agent-stack.yml<span class="w"> </span>-o<span class="w"> </span>portainer-agent-stack.yml
-<span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
-<span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
-<span class="go">100   791  100   791    0     0    715      0  0:00:01  0:00:01 --:--:--   726</span>
-<span class="gp">clases@vm:~$ </span>ls
-<span class="go">alu@192.168.125.136  helloworld.yml  portainer-agent-stack.yml</span>
-<span class="gp">clases@vm:~$ </span>scp<span class="w"> </span>portainer-agent-stack.yml<span class="w"> </span>alu@192.168.125.136:
-<span class="go">alu@192.168.125.136&#39;s password: </span>
-<span class="go">portainer-agent-stack.yml       100%  791     1.6MB/s   00:00    </span>
-<span class="gp">clases@vm:~$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="gp">clases@vm:~$ </span>curl<span class="w"> </span>-L<span class="w"> </span>https://downloads.portainer.io/portainer-agent-stack.yml<span class="w"> </span>-o<span class="w"> </span>portainer-agent-stack.yml
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="gp">  % </span>Total<span class="w">    </span>%<span class="w"> </span>Received<span class="w"> </span>%<span class="w"> </span>Xferd<span class="w">  </span>Average<span class="w"> </span>Speed<span class="w">   </span>Time<span class="w">    </span>Time<span class="w">     </span>Time<span class="w">  </span>Current
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="go">                                 Dload  Upload   Total   Spent    Left  Speed</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="go">100   791  100   791    0     0    715      0  0:00:01  0:00:01 --:--:--   726</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="gp">clases@vm:~$ </span>ls
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="go">alu@192.168.125.136  helloworld.yml  portainer-agent-stack.yml</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="gp">clases@vm:~$ </span>scp<span class="w"> </span>portainer-agent-stack.yml<span class="w"> </span>alu@192.168.125.136:
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="go">alu@192.168.125.136&#39;s password: </span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="go">portainer-agent-stack.yml       100%  791     1.6MB/s   00:00    </span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="gp">clases@vm:~$</span>
+</span></code></pre></div>
 <p>Y se usa el fichero desde el <em>manager</em> para hacer el despliegue:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>ls
-<span class="go">helloworld.yml  portainer-agent-stack.yml</span>
-<span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>portainer-agent-stack.yml<span class="w"> </span>portainer
-<span class="go">Creating network portainer_agent_network</span>
-<span class="go">Creating service portainer_agent</span>
-<span class="go">Creating service portainer_portainer</span>
-<span class="gp">alu@manager:~$</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gp">alu@manager:~$ </span>ls
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="go">helloworld.yml  portainer-agent-stack.yml</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>portainer-agent-stack.yml<span class="w"> </span>portainer
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="go">Creating network portainer_agent_network</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="go">Creating service portainer_agent</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="go">Creating service portainer_portainer</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="gp">alu@manager:~$</span>
+</span></code></pre></div>
 <p>Y si observa el despliegue con <code>docker service ls</code> hay tantos agentes como nodos y un gestor:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ls
-<span class="go">ID             NAME                  MODE         REPLICAS   IMAGE                           PORTS</span>
-<span class="go">d3ispnqyqm6s   portainer_agent       global       3/3        portainer/agent:2.11.1          </span>
-<span class="go">dynd71w6qjxn   portainer_portainer   replicated   1/1        portainer/portainer-ce:2.11.1   *:8000-&gt;8000/tcp, *:9000-&gt;9000/tcp, *:9443-&gt;9443/tcp</span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ls
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="go">ID             NAME                  MODE         REPLICAS   IMAGE                           PORTS</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="go">d3ispnqyqm6s   portainer_agent       global       3/3        portainer/agent:2.11.1          </span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="go">dynd71w6qjxn   portainer_portainer   replicated   1/1        portainer/portainer-ce:2.11.1   *:8000-&gt;8000/tcp, *:9000-&gt;9000/tcp, *:9443-&gt;9443/tcp</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Puede comprobar la distribución con <code>docker service ps</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ps<span class="w"> </span>portainer_portainer<span class="w"> </span>
-<span class="go">ID             NAME                    IMAGE                           NODE      DESIRED STATE   CURRENT STATE           ERROR     PORTS</span>
-<span class="go">ad94lkp4oqjg   portainer_portainer.1   portainer/portainer-ce:2.11.1   manager   Running         Running 3 minutes ago             </span>
-<span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ps<span class="w"> </span>portainer_agent<span class="w"> </span>
-<span class="go">ID             NAME                                        IMAGE                    NODE        DESIRED STATE   CURRENT STATE           ERROR     PORTS</span>
-<span class="go">d2wrk62bcgwj   portainer_agent.9nhxurspobgirwh5m1d5h0fvf   portainer/agent:2.11.1   manager     Running         Running 3 minutes ago             </span>
-<span class="go">ur56o8xcj9ja   portainer_agent.s53vme3dp6tr2jvjmfr88avpt   portainer/agent:2.11.1   worker-02   Running         Running 3 minutes ago             </span>
-<span class="go">ke16b2mwa9oy   portainer_agent.zm7acf20ysqblhalyeicrse6w   portainer/agent:2.11.1   worker-01   Running         Running 3 minutes ago             </span>
-<span class="gp">alu@manager:~$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ps<span class="w"> </span>portainer_portainer<span class="w"> </span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="go">ID             NAME                    IMAGE                           NODE      DESIRED STATE   CURRENT STATE           ERROR     PORTS</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="go">ad94lkp4oqjg   portainer_portainer.1   portainer/portainer-ce:2.11.1   manager   Running         Running 3 minutes ago             </span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="gp">alu@manager:~$ </span>docker<span class="w"> </span>service<span class="w"> </span>ps<span class="w"> </span>portainer_agent<span class="w"> </span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="go">ID             NAME                                        IMAGE                    NODE        DESIRED STATE   CURRENT STATE           ERROR     PORTS</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="go">d2wrk62bcgwj   portainer_agent.9nhxurspobgirwh5m1d5h0fvf   portainer/agent:2.11.1   manager     Running         Running 3 minutes ago             </span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="go">ur56o8xcj9ja   portainer_agent.s53vme3dp6tr2jvjmfr88avpt   portainer/agent:2.11.1   worker-02   Running         Running 3 minutes ago             </span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="go">ke16b2mwa9oy   portainer_agent.zm7acf20ysqblhalyeicrse6w   portainer/agent:2.11.1   worker-01   Running         Running 3 minutes ago             </span>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="gp">alu@manager:~$ </span>
+</span></code></pre></div>
 <p>Acceda ahora usando un navegador <strong>a la IP del manager</strong> (o cualquier otra IP del enjambre) <strong>usando el puerto 9000</strong> y se mostrará el tablero de gestión de portainer. En el primer acceso deberá crear un usuario y clave.</p>
 <p>A continuación puede desde el tablero hacer despliegues de. En este ejemplo se realiza el despliegue de <code>helloworld</code> desde <em>portainer</em> usando el fichero <code>helloworld.yml</code>. Para ello acceda al "Dashboard", busque "Stacks" , botón "Add Stack" y la opción "Upload from your computer".</p>
 <p>La siguiente captura se obtiene desde "<em>Dashboard</em>", enlace <em>"Cluster visualizer"</em>:</p>
@@ -1266,27 +1353,27 @@ alu@manager:~$
 <p>Vamos a hacer un clonado del disco de esa máquina, pero un clonado "suave" o diferencial. La idea es crear 3 máquinas que compartan como base el disco anterior:</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="go">[clases@d12:~/Descargas/vms]</span>
-<span class="gp">$ </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>-b<span class="w"> </span>./sd12-base-clone.qcow2<span class="w"> </span>-o<span class="w"> </span><span class="nv">backing_fmt</span><span class="o">=</span>qcow2<span class="w"> </span>./manager.qcow2
-<span class="go">Formatting &#39;./manager.qcow2&#39;, fmt=qcow2 cluster_size=65536 </span>
-<span class="go">...</span>
-<span class="go">[clases@d12:~/Descargas/vms]</span>
-<span class="gp">$ </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>-b<span class="w"> </span>./sd12-base-clone.qcow2<span class="w"> </span>-o<span class="w"> </span><span class="nv">backing_fmt</span><span class="o">=</span>qcow2<span class="w"> </span>./worker-01.qcow2
-<span class="go">Formatting &#39;./worker-01.qcow2&#39;, fmt=qcow2 cluster_size=65536 </span>
-<span class="go">...</span>
-<span class="go">[clases@d12:~/Descargas/vms]</span>
-<span class="gp">$ </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>-b<span class="w"> </span>./sd12-base-clone.qcow2<span class="w"> </span>-o<span class="w"> </span><span class="nv">backing_fmt</span><span class="o">=</span>qcow2<span class="w"> </span>./worker-02.qcow2
-<span class="go">Formatting &#39;./worker-02.qcow2&#39;, fmt=qcow2 cluster_size=65536 </span>
-<span class="go">...</span>
-<span class="go">[clases@d12:~/Descargas/vms]</span>
-<span class="gp">$ </span>ls<span class="w"> </span>-lh<span class="w"> </span>worker-*<span class="w"> </span>manager.qcow2<span class="w"> </span>sd12-base-clone.qcow2
-<span class="go">-rw-r--r-- 1 clases clases 193K oct 25 18:24 manager.qcow2</span>
-<span class="go">-rw------- 1 clases clases 3,8G oct 25 18:12 sd12-base-clone.qcow2</span>
-<span class="go">-rw-r--r-- 1 clases clases 193K oct 25 18:24 worker-01.qcow2</span>
-<span class="go">-rw-r--r-- 1 clases clases 193K oct 25 18:24 worker-02.qcow2</span>
-<span class="go">[clases@d12:~/Descargas/vms]</span>
-<span class="gp">$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="go">[clases@d12:~/Descargas/vms]</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="gp">$ </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>-b<span class="w"> </span>./sd12-base-clone.qcow2<span class="w"> </span>-o<span class="w"> </span><span class="nv">backing_fmt</span><span class="o">=</span>qcow2<span class="w"> </span>./manager.qcow2
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="go">Formatting &#39;./manager.qcow2&#39;, fmt=qcow2 cluster_size=65536 </span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="go">...</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="go">[clases@d12:~/Descargas/vms]</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="gp">$ </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>-b<span class="w"> </span>./sd12-base-clone.qcow2<span class="w"> </span>-o<span class="w"> </span><span class="nv">backing_fmt</span><span class="o">=</span>qcow2<span class="w"> </span>./worker-01.qcow2
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="go">Formatting &#39;./worker-01.qcow2&#39;, fmt=qcow2 cluster_size=65536 </span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="go">...</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="go">[clases@d12:~/Descargas/vms]</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="gp">$ </span>qemu-img<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>qcow2<span class="w"> </span>-b<span class="w"> </span>./sd12-base-clone.qcow2<span class="w"> </span>-o<span class="w"> </span><span class="nv">backing_fmt</span><span class="o">=</span>qcow2<span class="w"> </span>./worker-02.qcow2
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="go">Formatting &#39;./worker-02.qcow2&#39;, fmt=qcow2 cluster_size=65536 </span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="go">...</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="go">[clases@d12:~/Descargas/vms]</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="gp">$ </span>ls<span class="w"> </span>-lh<span class="w"> </span>worker-*<span class="w"> </span>manager.qcow2<span class="w"> </span>sd12-base-clone.qcow2
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="go">-rw-r--r-- 1 clases clases 193K oct 25 18:24 manager.qcow2</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="go">-rw------- 1 clases clases 3,8G oct 25 18:12 sd12-base-clone.qcow2</span>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="go">-rw-r--r-- 1 clases clases 193K oct 25 18:24 worker-01.qcow2</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="go">-rw-r--r-- 1 clases clases 193K oct 25 18:24 worker-02.qcow2</span>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="go">[clases@d12:~/Descargas/vms]</span>
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="gp">$ </span>
+</span></code></pre></div>
 <ol>
 <li>
 <p>Creados los tres discos, creamos con <code>virtual manager</code> 3 máquinas usando los discos creados.</p>
@@ -1306,27 +1393,27 @@ alu@manager:~$
 <p>Aviso: Este anexo no ha sido probado este curso.</p>
 </blockquote>
 <p>En el caso de hacerlo con la herramienta <code>multipass</code> de Ubuntu en vez de con máquinas virtuales</p>
-<div class="highlight"><pre><span></span><code>multipass<span class="w"> </span>launch<span class="w"> </span>-v<span class="w"> </span>-n<span class="w"> </span>nodo1<span class="w"> </span>-m<span class="w"> </span>512MGB<span class="w">  </span><span class="c1"># -m 1GB</span>
-multipass<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nodo1<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
-multipass<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nodo1<span class="w"> </span>--<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>get-docker.sh
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>multipass<span class="w"> </span>launch<span class="w"> </span>-v<span class="w"> </span>-n<span class="w"> </span>nodo1<span class="w"> </span>-m<span class="w"> </span>512MGB<span class="w">  </span><span class="c1"># -m 1GB</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>multipass<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nodo1<span class="w"> </span>--<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://get.docker.com<span class="w"> </span>-o<span class="w"> </span>get-docker.sh
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>multipass<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>nodo1<span class="w"> </span>--<span class="w"> </span>sudo<span class="w"> </span>sh<span class="w"> </span>get-docker.sh
+</span></code></pre></div>
 <blockquote>
 <p><strong>Nota: evitar la instalación de docker con snap, parece que da problema al desplegar un "stack"</strong></p>
 </blockquote>
 <p>Para ver los nodos creados:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>multipass<span class="w"> </span>list<span class="w"> </span>
-Name<span class="w">      </span>State<span class="w">    </span>IPv4<span class="w">             </span>Image
-manager<span class="w">   </span>Running<span class="w">  </span><span class="m">10</span>.174.210.86<span class="w">   </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
-nodo1<span class="w">     </span>Running<span class="w">  </span><span class="m">10</span>.174.210.224<span class="w">  </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
-nodo2<span class="w">     </span>Running<span class="w">  </span><span class="m">10</span>.174.210.4<span class="w">    </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>$<span class="w"> </span>multipass<span class="w"> </span>list<span class="w"> </span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Name<span class="w">      </span>State<span class="w">    </span>IPv4<span class="w">             </span>Image
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>manager<span class="w">   </span>Running<span class="w">  </span><span class="m">10</span>.174.210.86<span class="w">   </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>nodo1<span class="w">     </span>Running<span class="w">  </span><span class="m">10</span>.174.210.224<span class="w">  </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>nodo2<span class="w">     </span>Running<span class="w">  </span><span class="m">10</span>.174.210.4<span class="w">    </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04<span class="w"> </span>LTS<span class="w">  </span><span class="m">172</span>.17.0.1
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>Para iniciar una sesión en un nodo puede usar el comando <code>multipass shell</code></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>multipass<span class="w"> </span>shell<span class="w"> </span>manager
-Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04.2<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">5</span>.4.0-65-generic<span class="w"> </span>x86_64<span class="o">)</span>
-...
-ubuntu@manager:~$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span>multipass<span class="w"> </span>shell<span class="w"> </span>manager
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">20</span>.04.2<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">5</span>.4.0-65-generic<span class="w"> </span>x86_64<span class="o">)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>...
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>ubuntu@manager:~$<span class="w"> </span>
+</span></code></pre></div>
 
 
 
@@ -1413,7 +1500,7 @@ ubuntu@manager:~$<span class="w"> </span>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer", "navigation.path"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>

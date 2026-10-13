@@ -12,7 +12,7 @@
         <link rel="prev" href="../03-docker-depends/">
       
       
-        <link rel="next" href="../04_traefik/">
+        <link rel="next" href="../dns/06-1_dns-practicas/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -549,18 +549,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-compose-con-build-de-imagen" class="md-nav__link">
+  <a href="#2-compose-con-build" class="md-nav__link">
     <span class="md-ellipsis">
-      3. compose con build de imagen
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-compose-con-bd-iniciar-la-bd" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. compose con BD: iniciar la BD
+      2. compose con build
     </span>
   </a>
   
@@ -570,6 +561,93 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/06-1_dns-practicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    en local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dns/06-2_dns-en-AWS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    con AWS
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -659,10 +737,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -674,8 +752,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Otros
           </label>
@@ -813,18 +891,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-compose-con-build-de-imagen" class="md-nav__link">
+  <a href="#2-compose-con-build" class="md-nav__link">
     <span class="md-ellipsis">
-      3. compose con build de imagen
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-compose-con-bd-iniciar-la-bd" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. compose con BD: iniciar la BD
+      2. compose con build
     </span>
   </a>
   
@@ -850,24 +919,24 @@
 <h2 id="1-compose-y-variables-de-entorno">1. compose y variables de entorno<a class="headerlink" href="#1-compose-y-variables-de-entorno" title="Permanent link">&para;</a></h2>
 <h3 id="11-usando-variables-del-fichero-env">1.1. Usando variables del fichero <code>.env</code><a class="headerlink" href="#11-usando-variables-del-fichero-env" title="Permanent link">&para;</a></h3>
 <p>Puede utilizar variables de entorno en un fichero docker compose. Para ello debe tener  en su proyecto un fichero de nombre <code>.env</code> con una lista de pares clave-valor similar a este ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># fichero .env</span>
-<span class="nv">PG_USERNAME</span><span class="o">=</span><span class="nb">test</span>
-<span class="nv">PG_PASSWORD</span><span class="o">=</span>test1234
-<span class="nv">PG_DATABASE</span><span class="o">=</span>shop
-</code></pre></div>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># fichero .env</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">PG_USERNAME</span><span class="o">=</span><span class="nb">test</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nv">PG_PASSWORD</span><span class="o">=</span>test1234
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nv">PG_DATABASE</span><span class="o">=</span>shop
+</span></code></pre></div>
 <p>Puede usar estas variables de entorno en su fichero docker compose usando la sintaxis <code>${VAR_de_ENTORNO}</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># compose.yaml</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_USERNAME}</span>
-<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_PASSWORD}</span>
-<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_DATABASE}</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/var/lib/postgresql/data</span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># compose.yaml</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_USERNAME}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_PASSWORD}</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${PG_DATABASE}</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/var/lib/postgresql/data</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">mapeo de variables</p>
 <p>Observe que en este caso las variables de entorno del fichero <code>.env</code> se mapean a variables del fichero compose con nombres diferentes. </p>
@@ -876,19 +945,19 @@
 <p>En el ejemplo anterior se incluyen las variables que necesite del fichero y se las asigna a las variables de entorno del servicio.</p>
 <p>Otra posibilidad es pasar el fichero completo de variables a un servicio  del docker compose:</p>
 <p>Ejemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># compose.yaml</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
-<span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="p p-Indicator">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
-<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env.db</span><span class="w">   </span><span class="c1"># Fichero con las variables de entorno que necesita el servicio </span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3306:3306&quot;</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/mysql</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># compose.yaml</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="p p-Indicator">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env.db</span><span class="w">   </span><span class="c1"># Fichero con las variables de entorno que necesita el servicio </span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;3306:3306&quot;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/mysql</span>
+</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">mapeo de variables</p>
 <p>Observe que en este caso las variables de entorno del fichero <code>.env.db</code> deben tener el mismo nombre  que las variables que esepra la imagen del fichero compose. </p>
@@ -898,60 +967,22 @@
 <li><a href="https://www.warp.dev/terminus/docker-compose-env-file">https://www.warp.dev/terminus/docker-compose-env-file</a></li>
 <li><a href="https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/">https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/</a></li>
 </ul>
-<h2 id="3-compose-con-build-de-imagen">3. compose con build de imagen<a class="headerlink" href="#3-compose-con-build-de-imagen" title="Permanent link">&para;</a></h2>
-<p>En este <a href="https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file">enlace</a> se muestra un ejemplo de un fichero  docker-compose <strong>que además realiza un build de la imagen que va a desplegar</strong>.</p>
-<p>Para ello es necesario tener previamente definido el fichero <code>Dockerfile</code> que define la construcción de esa imagen. En el ejemplo tiene disponible el código de la aplicación, el fichero <code>Dockerfile</code> y el fichero <code>docker-compose.yml.</code></p>
-<p>La parte que nos interesa es como indicarle que tiene que usar la imagen que genera el Dockerfile. Y eso se indica con la clave <code>build: .</code> dentro de la definición del servicio <code>web</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">web</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:5000&quot;</span><span class="w">    </span>
-<span class="nn">...</span>
-</code></pre></div>
-<p>En este caso sólo se le indica a build el contexto y busca el fichero <code>Dockerfile</code>. Existen más opciones: para indicar el nombre del fichero <code>Dockerfile</code>, darle nombre a la imagen, etc.</p>
-<p>Puede crear la imagen con el comando <code>docker compose build</code> que recorre los servicios buscando que imágenes debe construir. Tambien puede invocar <code>docker compose</code> como habitualmente y si no existe la imagen la crea en ese momento.</p>
-<h2 id="4-compose-con-bd-iniciar-la-bd">4. compose con BD: iniciar la BD<a class="headerlink" href="#4-compose-con-bd-iniciar-la-bd" title="Permanent link">&para;</a></h2>
-<p>A los ficheros compose que usan bases de datos se les puede añadir:</p>
+<h2 id="2-compose-con-build">2. compose con build<a class="headerlink" href="#2-compose-con-build" title="Permanent link">&para;</a></h2>
+<p>En este <a href="https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file">enlace</a> se muestra un ejemplo de un fichero  docker-compose <strong>que además realiza un build de la imagen que va a desplegar</strong>. Para ello es necesario tener previamente definido el fichero <code>Dockerfile</code> que define la construcción de esa imagen. En el ejemplo tiene disponible el código de la aplicación, el fichero <code>Dockerfile</code> y el fichero <code>docker-compose.yml.</code></p>
+<p>Para indicarle que tiene que construir la iamgen  usando el Dockerfil se utiliza la clave <code>build: .</code> dentro de la definición del servicio <code>web</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:5000&quot;</span><span class="w">    </span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nn">...</span>
+</span></code></pre></div>
+<p>En este caso sólo se le indica a build el contexto y en el directorio actual busca el fichero <code>Dockerfile</code>. Existen más opciones para indicar el nombre del fichero <code>Dockerfile</code>, darle nombre a la imagen, etc.</p>
+<p>Puede crear la imagen:</p>
 <ul>
-<li>Persistencia a los datos con el uso de un volumen con nombre para la base de datos. Esto ya se ha incluido en el ejemplo de wordpres con un volumen para la base de datos y otro para wordpress.</li>
-<li>Incluir scripts SQL <strong>que cuando se crea el volumen asociado a la base de datos puede crear e iniciar tablas</strong>. Para eso es necesario montar el fichero (o un directorio si hay varios scripts) en el directorio <code>/docker-entrypoint-initdb.d/</code> del contenedor.</li>
+<li>puede usar con el comando <code>docker compose build</code> que recorre los servicios buscando que imágenes debe construir. </li>
+<li>Tambien puede invocar <code>docker compose</code> como habitualmente y si no existe la imagen la crea en ese momento.</li>
 </ul>
-<p>El fichero <code>compose_postgres.v3.yml</code> quedaría:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppspassword</span>
-<span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
-<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"> </span><span class="c1"># Mejoras al fichero</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./inicia.sql:/docker-entrypoint-initdb.d/inicia.sql</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/postgresql/data</span><span class="w">      </span>
-
-<span class="w">  </span><span class="nt">adminer</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adminer</span><span class="w">  </span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
-
-<span class="nt">volumes</span><span class="p">:</span><span class="w">  </span><span class="c1"># necesario al añadir volumen</span>
-<span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
-</code></pre></div>
-<p>Y un fichero <code>inicia.sql</code> podría ser:</p>
-<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="ss">&quot;test&quot;</span><span class="w"> </span><span class="p">(</span>
-<span class="w">  </span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="nb">serial</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;id&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="ss">&quot;nombre&quot;</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
-<span class="w">  </span><span class="ss">&quot;email&quot;</span><span class="w"> </span><span class="nb">character</span><span class="w"> </span><span class="nb">varying</span><span class="p">(</span><span class="mi">254</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
-<span class="p">);</span>
-
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="ss">&quot;test&quot;</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;nombre&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;email&quot;</span><span class="p">)</span>
-<span class="k">VALUES</span>
-<span class="w">    </span><span class="p">(</span><span class="s1">&#39;Ana&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ana@local.com&#39;</span><span class="p">),</span>
-<span class="w">    </span><span class="p">(</span><span class="s1">&#39;Raul&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;raula@local.com&#39;</span><span class="p">),</span>
-<span class="w">    </span><span class="p">(</span><span class="s1">&#39;Raquel&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;raquel@local.com&#39;</span><span class="p">);</span>
-</code></pre></div>
-<p>Al invocar el compose y crear el volumen se ejecuta el script en la base de datos <code>ppsDB</code>. La próxima vez que levante el servicio si el volumen existe no se ejecuta el script sql.</p>
 
 
 
@@ -998,13 +1029,13 @@
         
         
           
-          <a href="../04_traefik/" class="md-footer__link md-footer__link--next" aria-label="Next: Traefik">
+          <a href="../dns/06-1_dns-practicas/" class="md-footer__link md-footer__link--next" aria-label="Next: en local">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Traefik
+                en local
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1038,7 +1069,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer", "navigation.path"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>

@@ -462,11 +462,98 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-docker-ayudas/" class="md-nav__link">
+      <a href="../../03-docker-compose_amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Varios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dns/06-1_dns-practicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    en local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dns/06-2_dns-en-AWS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    con AWS
     
   </span>
   
@@ -561,10 +648,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -576,8 +663,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Otros
           </label>
@@ -878,19 +965,19 @@
 <p>La localización por defecto del fichero de configuración del demonio <code>dockerd</code> en Linux es  <code>/etc/docker/daemon.json</code> y en Windows <code>%programdata%\docker\config\daemon.json</code>. Si el fichero no existe se usan las opciones por defecto. Tiene más información en este enlace sobre este fichero:
 <a href="https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file">https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file</a></p>
 <p>Un ejemplo de fichero <code>daemon.json</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;default-ulimits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;nofile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;Hard&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nofile&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;Soft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;icc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="err">...</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">&quot;default-ulimits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;nofile&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&quot;Hard&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nofile&quot;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">&quot;Soft&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">64000</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">&quot;icc&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="err">...</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Algunas opciones a controlar:</p>
 <ul>
 <li><code>debug</code>: para activar o desactivar el modo de depuración, debe estar a <code>false</code> en producción.</li>
@@ -901,58 +988,58 @@
 <h3 id="31-limitando-recursos-en-la-ejecucion">3.1. Limitando recursos en la ejecución<a class="headerlink" href="#31-limitando-recursos-en-la-ejecucion" title="Permanent link">&para;</a></h3>
 <p>Puede ser conveniente configurar límites de recursos al contenedor. De hecho al lanzar el contenedor se pueden aumentar o disminuir con respecto a los establecidos por defecto en el fichero de configuración.</p>
 <p>Por ejemplo, para modificar y limitar en ejecución  <code>ulimit</code> (el número de ficheros):</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--ulimit<span class="w"> </span><span class="nv">nofile</span><span class="o">=</span><span class="m">512</span>:512<span class="w"> </span>debian<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ulimit -n&quot;</span><span class="w">  </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--ulimit<span class="w"> </span><span class="nv">nofile</span><span class="o">=</span><span class="m">512</span>:512<span class="w"> </span>debian<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;ulimit -n&quot;</span><span class="w">  </span>
+</span></code></pre></div>
 <p>Otros recursos que se pueden limitar en el contenedor son el uso de CPU, memoria, etc. Vea ejemplos de limitación de CPU o memoria</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--cpus<span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="w">  </span>debian<span class="w">  </span>/bin/bash
-docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-m<span class="w"> </span>2GB<span class="w"> </span>debian<span class="w">  </span>/bin/bash
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--cpus<span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="w">  </span>debian<span class="w">  </span>/bin/bash
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>-m<span class="w"> </span>2GB<span class="w"> </span>debian<span class="w">  </span>/bin/bash
+</span></code></pre></div>
 <p>Para ver el uso de memoria puede ejecutar el comando <code>docker stats</code></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>stats<span class="w"> </span>--no-stream<span class="w"> </span>
-CONTAINER<span class="w"> </span>ID<span class="w">   </span>NAME<span class="w">            </span>CPU<span class="w"> </span>%<span class="w">     </span>MEM<span class="w"> </span>USAGE<span class="w"> </span>/<span class="w"> </span>LIMIT<span class="w">   </span>MEM<span class="w"> </span>%<span class="w">    </span>....
-698494b1bb3f<span class="w">   </span>brave_jackson<span class="w">   </span><span class="m">0</span>.00%<span class="w">     </span><span class="m">2</span>.027MiB<span class="w"> </span>/<span class="w"> </span>512MiB<span class="w">   </span><span class="m">0</span>.40%<span class="w">    </span>
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>docker<span class="w"> </span>stats<span class="w"> </span>--no-stream<span class="w"> </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>NAME<span class="w">            </span>CPU<span class="w"> </span>%<span class="w">     </span>MEM<span class="w"> </span>USAGE<span class="w"> </span>/<span class="w"> </span>LIMIT<span class="w">   </span>MEM<span class="w"> </span>%<span class="w">    </span>....
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>698494b1bb3f<span class="w">   </span>brave_jackson<span class="w">   </span><span class="m">0</span>.00%<span class="w">     </span><span class="m">2</span>.027MiB<span class="w"> </span>/<span class="w"> </span>512MiB<span class="w">   </span><span class="m">0</span>.40%<span class="w">    </span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>Tiene más información sobre opciones de <code>docker run</code> en este enlace: <a href="https://docs.docker.com/engine/reference/commandline/run/">https://docs.docker.com/engine/reference/commandline/run/</a>. Entre ellas se puede establecer un reinicio en caso de fallo, y además fijar un límite máximo de reinicios ante fallos con la opción  <code>--restart=on-failure:5</code>.</p>
 <h3 id="32-limitando-el-usuario-y-los-privilegios">3.2. Limitando el usuario y los privilegios<a class="headerlink" href="#32-limitando-el-usuario-y-los-privilegios" title="Permanent link">&para;</a></h3>
 <h4 id="321-user-root">3.2.1. User root<a class="headerlink" href="#321-user-root" title="Permanent link">&para;</a></h4>
 <p>Hay que prestar atención a los privilegios del usuario dentro del contenedor: <em>por defecto los contenedores se ejecutan como <code>root</code></em>. Sería recomendable que las aplicaciones dentro del contenedor no se ejecuten como <code>root</code> utilizando la opción <code>-u</code> al lanzar el contenedor.  Vea la diferencia en la ejecución del comando <code>ls /root</code> en estos dos casos:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-u<span class="w"> </span><span class="m">4400</span><span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>/root<span class="w"> </span>-al
-ls:<span class="w"> </span>cant<span class="w"> </span>open<span class="w"> </span><span class="s1">&#39;/root&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
-total<span class="w"> </span><span class="m">0</span>
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w">  </span>alpine<span class="w"> </span>ls<span class="w"> </span>/root<span class="w"> </span>-al
-total<span class="w"> </span><span class="m">8</span>
-drwx------<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">10</span>:25<span class="w"> </span>.
-drwxr-xr-x<span class="w">    </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">17</span>:14<span class="w"> </span>..
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-u<span class="w"> </span><span class="m">4400</span><span class="w"> </span>alpine<span class="w"> </span>ls<span class="w"> </span>/root<span class="w"> </span>-al
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ls:<span class="w"> </span>cant<span class="w"> </span>open<span class="w"> </span><span class="s1">&#39;/root&#39;</span>:<span class="w"> </span>Permission<span class="w"> </span>denied
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>total<span class="w"> </span><span class="m">0</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w">  </span>alpine<span class="w"> </span>ls<span class="w"> </span>/root<span class="w"> </span>-al
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>total<span class="w"> </span><span class="m">8</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>drwx------<span class="w">    </span><span class="m">2</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">10</span>:25<span class="w"> </span>.
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>drwxr-xr-x<span class="w">    </span><span class="m">1</span><span class="w"> </span>root<span class="w">     </span>root<span class="w">          </span><span class="m">4096</span><span class="w"> </span>Apr<span class="w"> </span><span class="m">27</span><span class="w"> </span><span class="m">17</span>:14<span class="w"> </span>..
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>El usuario <code>root</code> tiene restringidas muchas capacidades, pero evitar su uso minimiza los posibles riesgos. Si la aplicación en el contenedor no necesita privilegios de <code>root</code> puede usar la opción  <code>--user UID:GID</code> con <code>docker run</code>. Tiene un ejemplo de lo que es posible en <em>Docker containers with root privileges</em> <a href="https://neoteric.eu/blog/docker-containers-with-root-privileges/">https://neoteric.eu/blog/docker-containers-with-root-privileges/</a></p>
 <p>En un fichero <code>Dockerfile</code> esta limitación se consigue con <code>USER</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
-<span class="c">#Add a user with userid 8877 and name nonroot</span>
-<span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>−u<span class="w"> </span><span class="m">8877</span><span class="w"> </span>nonroot
-<span class="c">#Run Container as nonroot</span>
-<span class="k">USER</span><span class="w"> </span><span class="s">nonroot</span>
-....
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ubuntu:latest</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c">#Add a user with userid 8877 and name nonroot</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">RUN</span><span class="w"> </span>useradd<span class="w"> </span>−u<span class="w"> </span><span class="m">8877</span><span class="w"> </span>nonroot
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c">#Run Container as nonroot</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">USER</span><span class="w"> </span><span class="s">nonroot</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>....
+</span></code></pre></div>
 <h4 id="322-permisos-adicionales">3.2.2. Permisos adicionales<a class="headerlink" href="#322-permisos-adicionales" title="Permanent link">&para;</a></h4>
 <p>Debe evitar el uso del flag <code>–-privileged</code> ya que da permiso adicionales al contenedor sobre el host permitiendo todas las <em>capabilities</em> de Linux.</p>
 <p>En este caso es recomendable la lectura de la regla <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html#rule-3-limit-capabilities-grant-only-specific-capabilities-needed-by-a-container">RULE #3 - Limit capabilities</a> <em>de Docker Security Cheat Sheet de OWASP.</em></p>
 <h3 id="33-acceso-al-socket-de-docker-desde-el-contenedor">3.3. Acceso al socket de docker desde el contenedor<a class="headerlink" href="#33-acceso-al-socket-de-docker-desde-el-contenedor" title="Permanent link">&para;</a></h3>
 <p>A veces se usa en sistemas de integración continua (o al ejecutar Docker sobre Docker): <em>montar el socket de Docker dentro de un contenedor</em>.</p>
 <p>En este ejemplo vea como el contenedor monta como volumen el <code>socket</code> de Docker: <code>-v /var/run/docker.sock:/var/run/docker.sock</code>. Ya dentro del contenedor con el comando <code>docker ps</code> se ven los contenedores que se están ejecutando en el host (fuera del contenedor):</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>docker<span class="w"> </span>
-<span class="c1"># docker ps</span>
-CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">     </span>NAMES
-db22c6f04cef<span class="w">   </span>docker<span class="w">    </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w">   </span><span class="m">30</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">29</span><span class="w"> </span>seconds<span class="w">             </span>practical_fermat
-<span class="c1"># </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>docker<span class="w"> </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># docker ps</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>db22c6f04cef<span class="w">   </span>docker<span class="w">    </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w">   </span><span class="m">30</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">29</span><span class="w"> </span>seconds<span class="w">             </span>practical_fermat
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># </span>
+</span></code></pre></div>
 <p>Observe que desde el host se obtiene la misma salida:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>ps
-CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">     </span>NAMES
-db22c6f04cef<span class="w">   </span>docker<span class="w">    </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w">   </span><span class="m">58</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">57</span><span class="w"> </span>seconds<span class="w">             </span>practical_fermat
-ango@tos:/etc/docker$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>docker<span class="w"> </span>ps
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">     </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">          </span>PORTS<span class="w">     </span>NAMES
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>db22c6f04cef<span class="w">   </span>docker<span class="w">    </span><span class="s2">&quot;docker-entrypoint.s…&quot;</span><span class="w">   </span><span class="m">58</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">57</span><span class="w"> </span>seconds<span class="w">             </span>practical_fermat
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>ango@tos:/etc/docker$
+</span></code></pre></div>
 <p>A no ser que sea necesario (hay herramientas que necesitan de esta opción) no lo haga, y si lo hace sólo en entornos controlados con imágenes verificadas como seguras, etc.</p>
 <blockquote>
 <p>Docker socket /var/run/docker.sock is the UNIX socket that Docker is listening to. This is the primary entry point for the Docker API. The owner of this socket is root. Giving someone access to it is equivalent to giving unrestricted root access to your host.
@@ -964,26 +1051,26 @@ Mounting the Docker daemon socket gives the control of the daemon to the contain
 <p>La verdad es que debería haber empezado aquí. Algunas se han comentado, otras se escapan un poco del alcance del curso.</p>
 <p>Enlace e índice:
 <a href="https://cheatsheetseries.owasp.org/cheatsheets/Docker_Security_Cheat_Sheet.html">Docker Security Cheat Sheet</a></p>
-<div class="highlight"><pre><span></span><code>Table of contents
-Introduction
-Rules
-RULE #0 - Keep Host and Docker up to date
-RULE #1 - Do not expose the Docker daemon socket (even to the containers)
-RULE #2 - Set a user
-RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)
-RULE #4 - Prevent in-container privilege escalation
-RULE #5 - Be mindful of Inter-Container Connectivity
-RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)
-RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)
-RULE #8 - Set filesystem and volumes to read-only
-RULE #9 - Integrate container scanning tools into your CI/CD pipeline
-RULE #10 - Keep the Docker daemon logging level at info
-Rule #11 - Run Docker in rootless mode
-RULE #12 - Utilize Docker Secrets for Sensitive Data Management
-RULE #13 - Enhance Supply Chain Security
-Podman as an alternative to Docker
-References and Further Reading
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Table of contents
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Introduction
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Rules
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>RULE #0 - Keep Host and Docker up to date
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>RULE #1 - Do not expose the Docker daemon socket (even to the containers)
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>RULE #2 - Set a user
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>RULE #3 - Limit capabilities (Grant only specific capabilities, needed by a container)
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>RULE #4 - Prevent in-container privilege escalation
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>RULE #5 - Be mindful of Inter-Container Connectivity
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>RULE #6 - Use Linux Security Module (seccomp, AppArmor, or SELinux)
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>RULE #7 - Limit resources (memory, CPU, file descriptors, processes, restarts)
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>RULE #8 - Set filesystem and volumes to read-only
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>RULE #9 - Integrate container scanning tools into your CI/CD pipeline
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>RULE #10 - Keep the Docker daemon logging level at info
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>Rule #11 - Run Docker in rootless mode
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>RULE #12 - Utilize Docker Secrets for Sensitive Data Management
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>RULE #13 - Enhance Supply Chain Security
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>Podman as an alternative to Docker
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>References and Further Reading
+</span></code></pre></div>
 <h3 id="42-ejemplo-practico-mejorar-dockerfile-avanzado">4.2. Ejemplo practico mejorar Dockerfile avanzado<a class="headerlink" href="#42-ejemplo-practico-mejorar-dockerfile-avanzado" title="Permanent link">&para;</a></h3>
 <p>Un tutorial con una aplicación Node.js dónde se va mejorando el  fichero <code>Dockerfile</code> paso a paso, comentando los posibles fallos, mejoras ,etc. El repositorio con la aplicación está en <a href="https://github.com/juan131/dockerfile-best-practices">Best Practices writing a Dockerfile</a></p>
 <h3 id="43-curso-en-la-plataforma-asegurando-contenedores-tema-8">4.3. Curso en la plataforma: Asegurando contenedores (tema 8)<a class="headerlink" href="#43-curso-en-la-plataforma-asegurando-contenedores-tema-8" title="Permanent link">&para;</a></h3>
@@ -1010,19 +1097,19 @@ Licencia: creative commons: attribution - non commercial - share alike 4.0</p>
 <li>ejecutar primero los comandos que necesitan root</li>
 <li>
 <p>crear el usuario y conmuto a el con USER</p>
-<div class="highlight"><pre><span></span><code><span class="c"># Imágen que va a usar</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">XXXXX</span>
-....
-<span class="c"># Creación del usuario para arrancar el servicio</span>
-<span class="k">RUN</span><span class="w"> </span>addgroup<span class="w"> </span>-S<span class="w"> </span>usuario<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>adduser<span class="w"> </span>-S<span class="w"> </span>usuario<span class="w"> </span>-G<span class="w"> </span>usuario.
-.........
-<span class="c"># Lista de órdenes que de ROOT</span>
-.........
-<span class="c"># Establece test que ejecutará siguientes órdenes</span>
-<span class="k">USER</span><span class="w"> </span><span class="s">test</span>
-<span class="c"># Define  ENTRYPOINT que se ejecutará como test.</span>
-<span class="k">ENTRYPOINT</span><span class="w"> </span>.....
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c"># Imágen que va a usar</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">XXXXX</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>....
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c"># Creación del usuario para arrancar el servicio</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">RUN</span><span class="w"> </span>addgroup<span class="w"> </span>-S<span class="w"> </span>usuario<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>adduser<span class="w"> </span>-S<span class="w"> </span>usuario<span class="w"> </span>-G<span class="w"> </span>usuario.
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>.........
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c"># Lista de órdenes que de ROOT</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>.........
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c"># Establece test que ejecutará siguientes órdenes</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">USER</span><span class="w"> </span><span class="s">test</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c"># Define  ENTRYPOINT que se ejecutará como test.</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="k">ENTRYPOINT</span><span class="w"> </span>.....
+</span></code></pre></div>
 </li>
 </ul>
 <h4 id="433-seguridad-al-arrancar-los-contenedores">4.3.3. Seguridad al arrancar los contenedores<a class="headerlink" href="#433-seguridad-al-arrancar-los-contenedores" title="Permanent link">&para;</a></h4>
@@ -1032,21 +1119,21 @@ Licencia: creative commons: attribution - non commercial - share alike 4.0</p>
 </ul>
 <h4 id="434-video">4.3.4. Vídeo<a class="headerlink" href="#434-video" title="Permanent link">&para;</a></h4>
 <p>En ese apartado se muestra un vídeo donde se hacen prácticas de DCT y firma de imágenes. Le mostramos a continuación algunos de los comandos utilizados</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>system<span class="w"> </span>info
-$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>inspect<span class="w"> </span>hadolint/hadolint
-$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>key<span class="w"> </span>generate<span class="w"> </span>helloworld
-$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>~/.docker/trust/private/
-total<span class="w"> </span><span class="m">4</span>
--rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">422</span><span class="w"> </span>may<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">20</span>:42<span class="w"> </span>g271e939289fc366096c538c58ff5e513bfc11bbca5ea891f756d30a809834c8.key
-$<span class="w"> </span>ls<span class="w"> </span>-l
-...
--rwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">196</span><span class="w"> </span>may<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">20</span>:42<span class="w"> </span>helloworld.pub
-drwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">   </span><span class="m">0</span><span class="w"> </span>abr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">22</span>:04<span class="w"> </span>src
-$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>signer<span class="w"> </span>add<span class="w"> </span>--key<span class="w"> </span>hellowordl.pub<span class="w"> </span>usuariotest<span class="w"> </span>userdocker/helloworld
-$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>userdocker/helloworld:2.0<span class="w"> </span>.
-$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>sign<span class="w"> </span>userdocker/helloworld:2.0
-$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>--disable-content-trust<span class="w"> </span>....
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>docker<span class="w"> </span>system<span class="w"> </span>info
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>inspect<span class="w"> </span>hadolint/hadolint
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>key<span class="w"> </span>generate<span class="w"> </span>helloworld
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>$<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>~/.docker/trust/private/
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>total<span class="w"> </span><span class="m">4</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>-rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">422</span><span class="w"> </span>may<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">20</span>:42<span class="w"> </span>g271e939289fc366096c538c58ff5e513bfc11bbca5ea891f756d30a809834c8.key
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>$<span class="w"> </span>ls<span class="w"> </span>-l
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>...
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>-rwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w"> </span><span class="m">196</span><span class="w"> </span>may<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="m">20</span>:42<span class="w"> </span>helloworld.pub
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>drwxrwxrwx<span class="w"> </span><span class="m">1</span><span class="w"> </span>user<span class="w"> </span>user<span class="w">   </span><span class="m">0</span><span class="w"> </span>abr<span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">22</span>:04<span class="w"> </span>src
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>signer<span class="w"> </span>add<span class="w"> </span>--key<span class="w"> </span>hellowordl.pub<span class="w"> </span>usuariotest<span class="w"> </span>userdocker/helloworld
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>userdocker/helloworld:2.0<span class="w"> </span>.
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>$<span class="w"> </span>docker<span class="w"> </span>trust<span class="w"> </span>sign<span class="w"> </span>userdocker/helloworld:2.0
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>--disable-content-trust<span class="w"> </span>....
+</span></code></pre></div>
 
 
 
@@ -1095,7 +1182,7 @@ $<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </sp
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer", "navigation.path"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

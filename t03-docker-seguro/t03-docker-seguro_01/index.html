@@ -462,11 +462,98 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-docker-ayudas/" class="md-nav__link">
+      <a href="../../03-docker-compose_amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Varios
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DNS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            DNS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dns/06-1_dns-practicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    en local
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dns/06-2_dns-en-AWS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    con AWS
     
   </span>
   
@@ -561,10 +648,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -576,8 +663,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             Otros
           </label>
@@ -928,21 +1015,21 @@
 <h1 id="seguridad-en-docker-01">Seguridad en Docker 01<a class="headerlink" href="#seguridad-en-docker-01" title="Permanent link">&para;</a></h1>
 <h2 id="1-docker-secret">1. Docker Secret<a class="headerlink" href="#1-docker-secret" title="Permanent link">&para;</a></h2>
 <p>Imagine  un despliegue con una base de datos  <code>postgres</code> y <code>adminer</code> (herramienta de gestión de bases de datos de código abierto, gratuita y basada en PHP). Necesita indicar el usuario, clave y base de datos al servidor <code>postgres</code>. La primera solución (no recomendable en un entorno de producción) es introducir esos valores en el fichero  <code>compose-postgres.v0.yml</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.1&#39;</span>
-<span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-container</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
-<span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppspassword</span>
-<span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span>
-
-<span class="w">  </span><span class="nt">adminer</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adminer</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.1&#39;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres-container</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppspassword</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nt">adminer</span><span class="p">:</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adminer</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
+</span></code></pre></div>
 <p>Hacerlo de esta forma tiene el inconveniente de hacer visible esa información sensible. Para gestionar este tipo de información en el despliegue se puede usar <code>docker secret</code>.</p>
 <blockquote>
 <p><a href="https://docs.docker.com/engine/swarm/secrets">https://docs.docker.com/engine/swarm/secrets</a>
@@ -954,163 +1041,163 @@ a secret is a blob of data, such as a password, SSH private key, SSL certificate
 <li>A partir de un secreto almacenado en fichero y crear de forma automática el secreto en el momento del despliegue.</li>
 </ol>
 <p>Debe tener en cuenta un detalle: <code>docker secret</code> es un servicio que se debe ejecutar en un cluster, luego debe iniciar primero un cluster (en este caso de un nodo) con <code>docker swarm init</code>. El uso de <code>docker swarm</code> se incluye en otra práctica.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>swarm<span class="w"> </span>init
-....
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$<span class="w"> </span>docker<span class="w"> </span>swarm<span class="w"> </span>init
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>....
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <h3 id="11-primer-ejemplo-secretos-generado-por-comando">1.1. Primer ejemplo: secretos generado por comando<a class="headerlink" href="#11-primer-ejemplo-secretos-generado-por-comando" title="Permanent link">&para;</a></h3>
 <p>En el despliegue de <code>postgres</code> y <code>adminer</code>  primero se crean con el comando <code>docker secret create</code> tres secretos de nombres <code>pg_user</code>, <code>pg_password</code> y <code>pg_database</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;pps&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>pg_user<span class="w"> </span>-<span class="w"> </span>
-nqfkihla5j5n4z1d72via08rq
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ppspassword&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>pg_password<span class="w"> </span>-<span class="w"> </span>
-p02zpc0uqjm01b1lyfb76gvdv
-$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ppsDB&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>pg_database<span class="w"> </span>-<span class="w"> </span>
-o6o15f0e6vo4da0er7wq7j9j1
-$
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;pps&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>pg_user<span class="w"> </span>-<span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>nqfkihla5j5n4z1d72via08rq
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ppspassword&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>pg_password<span class="w"> </span>-<span class="w"> </span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>p02zpc0uqjm01b1lyfb76gvdv
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;ppsDB&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>create<span class="w"> </span>pg_database<span class="w"> </span>-<span class="w"> </span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>o6o15f0e6vo4da0er7wq7j9j1
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>$
+</span></code></pre></div>
 <p>Puede listar los secretos creado con el comando <code>docker secret ls</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>ls
-ID<span class="w">      </span>NAME<span class="w">       </span>DRIVER<span class="w"> </span>CREATED<span class="w">    </span>UPDATED
-o6...j1<span class="w"> </span>pg_database<span class="w">       </span><span class="m">28</span><span class="w"> </span>s<span class="w"> </span>ago<span class="w">   </span><span class="m">28</span><span class="w"> </span>s<span class="w"> </span>ago
-p0...dv<span class="w"> </span>pg_password<span class="w">       </span><span class="m">39</span><span class="w"> </span>s<span class="w"> </span>ago<span class="w">   </span><span class="m">39</span><span class="w"> </span>s<span class="w"> </span>ago
-nq...rq<span class="w"> </span>pg_user<span class="w">            </span><span class="m">9</span><span class="w"> </span>s<span class="w"> </span>ago<span class="w">   </span><span class="m">49</span><span class="w"> </span>s<span class="w"> </span>ago
-d$<span class="w"> </span>
-</code></pre></div>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>ls
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ID<span class="w">      </span>NAME<span class="w">       </span>DRIVER<span class="w"> </span>CREATED<span class="w">    </span>UPDATED
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>o6...j1<span class="w"> </span>pg_database<span class="w">       </span><span class="m">28</span><span class="w"> </span>s<span class="w"> </span>ago<span class="w">   </span><span class="m">28</span><span class="w"> </span>s<span class="w"> </span>ago
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>p0...dv<span class="w"> </span>pg_password<span class="w">       </span><span class="m">39</span><span class="w"> </span>s<span class="w"> </span>ago<span class="w">   </span><span class="m">39</span><span class="w"> </span>s<span class="w"> </span>ago
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>nq...rq<span class="w"> </span>pg_user<span class="w">            </span><span class="m">9</span><span class="w"> </span>s<span class="w"> </span>ago<span class="w">   </span><span class="m">49</span><span class="w"> </span>s<span class="w"> </span>ago
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>d$<span class="w"> </span>
+</span></code></pre></div>
 <p>Una vez creados los secretos se modifica el fichero compose que los utilice. Los secretos por defecto se montan en el directorio <code>/run/secrets</code> del contenedor. Por eso las variables de entorno del servicio <code>db</code> en el siguiente fichero compose se asocian a los ficheros <code>/run/secrets/pg_user</code>, etc. En el bloque de <code>secrets</code> del fichero compose se indica su procedencia <em>externa</em>.</p>
 <p>En este caso el fichero <code>compose-postgres.v1.yml</code> será similar a este:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">POSTGRES_USER_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/pg_user</span>
-<span class="w">      </span><span class="nt">POSTGRES_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/pg_password</span>
-<span class="w">      </span><span class="nt">POSTGRES_DB_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/pg_database</span>
-<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_password</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_user</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_database</span>
-<span class="l l-Scalar l-Scalar-Plain">....</span>
-
-<span class="c1"># tienen que estar creados previamente</span>
-<span class="nt">secrets</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">pg_user</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">pg_password</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="nt">pg_database</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">      </span><span class="nt">POSTGRES_USER_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/pg_user</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/pg_password</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">POSTGRES_DB_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/pg_database</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_password</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_user</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pg_database</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="l l-Scalar l-Scalar-Plain">....</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># tienen que estar creados previamente</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="nt">secrets</span><span class="p">:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="nt">pg_user</span><span class="p">:</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">  </span><span class="nt">pg_password</span><span class="p">:</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">  </span><span class="nt">pg_database</span><span class="p">:</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div>
 <p>En un cluster la forma de desplegar es con el comando <code>docker stack deploy</code>, indicando el nombre del fichero con la opción <code>-c file</code> y el nombre del stack en este caso <code>demo</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>compose_postgres.v1.yml<span class="w"> </span>-d<span class="w"> </span>demo
-Creating<span class="w"> </span>network<span class="w"> </span>demo_default
-Creating<span class="w"> </span>service<span class="w"> </span>demo_db
-Creating<span class="w"> </span>service<span class="w"> </span>demo_adminer
-$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>compose_postgres.v1.yml<span class="w"> </span>-d<span class="w"> </span>demo
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Creating<span class="w"> </span>network<span class="w"> </span>demo_default
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Creating<span class="w"> </span>service<span class="w"> </span>demo_db
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Creating<span class="w"> </span>service<span class="w"> </span>demo_adminer
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>$
+</span></code></pre></div>
 <p>Y ahora puede acceder al gestor <code>adminer</code>:</p>
 <p><img alt="adminer-index_manager.png" src="../figuras/adminer-index_manager.png" /></p>
 <p><img alt="(figuras/adminer-index.png" src="../figuras/adminer-index.png" /></p>
 <p>Para terminar hay que eliminar el despliegue del stack (<code>docker stack rm &lt;stack&gt;</code>) y desactivar el cluster (<code>docker swarm leave</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>stack<span class="w"> </span>rm<span class="w"> </span>demo
-<span class="go">Removing service demo_adminer</span>
-<span class="go">Removing service demo_db</span>
-<span class="go">Removing network demo_default</span>
-<span class="gp">$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>leave<span class="w"> </span>--force<span class="w"> </span>
-<span class="go">Node left the swarm.</span>
-<span class="gp">$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gp">$ </span>docker<span class="w"> </span>stack<span class="w"> </span>rm<span class="w"> </span>demo
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="go">Removing service demo_adminer</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="go">Removing service demo_db</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="go">Removing network demo_default</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="gp">$ </span>docker<span class="w"> </span>swarm<span class="w"> </span>leave<span class="w"> </span>--force<span class="w"> </span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="go">Node left the swarm.</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="gp">$ </span>
+</span></code></pre></div>
 <h3 id="12-segundo-ejemplo-secretos-en-fichero">1.2. Segundo ejemplo: secretos en fichero<a class="headerlink" href="#12-segundo-ejemplo-secretos-en-fichero" title="Permanent link">&para;</a></h3>
 <p>En este ejemplo se  despliega el CMS <code>wordpress</code> que utiliza una base de datos <code>mysql</code>. En este caso los secretos se utilizan en los dos servicios del despliegue, y <strong>se van a almacenar en ficheros externos al contenedor</strong>. A estos ficheros docker accede en el momento del despliegue para leer su contenido y crear de forma automática los secretos.</p>
 <p>Primero se crean los ficheros con la información sensible. Se usa <code>openssl</code> para crear las claves (si desea modificar la longitud de la clave modifique el último valor de <code>openssl</code>) y se redirige la salida a un fichero. El usuario y la base de datos no se han considerado información sensible en este ejemplo.</p>
 <p>Se crean dos ficheros:uno para la clave de root mysql y otro para la clave del usuario en mysql/wordpress.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">30</span><span class="w"> </span>&gt;<span class="w"> </span>db_root_password.txt
-$<span class="w"> </span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">30</span><span class="w"> </span>&gt;<span class="w"> </span>db_user_password.txt
-$<span class="w"> </span>cat<span class="w"> </span>dd_*.txt
-i8Z+9B78TV4j12IeeCVfIWi7j+JLvGIi1aq/fLsp
-/J9+qoBVHtFvvKi85LA+EcAAVu5NoVFf1b2Uyp5c
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>$<span class="w"> </span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">30</span><span class="w"> </span>&gt;<span class="w"> </span>db_root_password.txt
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>$<span class="w"> </span>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">30</span><span class="w"> </span>&gt;<span class="w"> </span>db_user_password.txt
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>$<span class="w"> </span>cat<span class="w"> </span>dd_*.txt
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>i8Z+9B78TV4j12IeeCVfIWi7j+JLvGIi1aq/fLsp
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>/J9+qoBVHtFvvKi85LA+EcAAVu5NoVFf1b2Uyp5c
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>Ya se ha comentado que los secretos están disponibles para los servicios en el directorio <code>/run/secrets</code> del contenedor. Lo que cambia en este segundo ejemplo es el apartado final donde se indica para cada secreto el fichero que le corresponde. Tenga en cuenta que los valores del usuario (<code>pps</code>) y su clave (<code>/run/secrets/db_password</code>) deben coincidir en los dos servicios. El fichero <code>compose_wordpress.yml</code> queda:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">services</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:latest</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/mysql</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_root_password</span>
-<span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span><span class="w">  </span>
-<span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
-<span class="w">      </span><span class="nt">MYSQL_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_user_password</span>
-<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_root_password</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_user_password</span>
-
-<span class="w">  </span><span class="nt">wordpress</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress:latest</span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress_data:/var/www/html</span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:80&quot;</span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">WORDPRESS_DB_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
-<span class="w">      </span><span class="nt">WORDPRESS_DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span><span class="w">  </span><span class="c1"># si no se define creo toma el valor wordpress</span>
-<span class="w">      </span><span class="nt">WORDPRESS_DB_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
-<span class="w">      </span><span class="nt">WORDPRESS_DB_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_user_password</span>
-<span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_user_password</span>
-
-<span class="nt">secrets</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db_user_password</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_user_password.txt</span>
-<span class="w">  </span><span class="nt">db_root_password</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_root_password.txt</span>
-
-<span class="nt">volumes</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">wordpress_data</span><span class="p">:</span>
-</code></pre></div>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:latest</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_data:/var/lib/mysql</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_root_password</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span><span class="w">  </span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="nt">MYSQL_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_user_password</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_root_password</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_user_password</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">  </span><span class="nt">wordpress</span><span class="p">:</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress:latest</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress_data:/var/www/html</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8000:80&quot;</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">      </span><span class="nt">WORDPRESS_DB_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">      </span><span class="nt">WORDPRESS_DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ppsDB</span><span class="w">  </span><span class="c1"># si no se define creo toma el valor wordpress</span>
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">      </span><span class="nt">WORDPRESS_DB_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pps</span>
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">      </span><span class="nt">WORDPRESS_DB_PASSWORD_FILE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/run/secrets/db_user_password</span>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="w">    </span><span class="nt">secrets</span><span class="p">:</span>
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_user_password</span>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="nt">secrets</span><span class="p">:</span>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="w">  </span><span class="nt">db_user_password</span><span class="p">:</span>
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_user_password.txt</span>
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="w">  </span><span class="nt">db_root_password</span><span class="p">:</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db_root_password.txt</span>
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a>
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="w">  </span><span class="nt">db_data</span><span class="p">:</span>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="w">  </span><span class="nt">wordpress_data</span><span class="p">:</span>
+</span></code></pre></div>
 <p>Recuerde que en este caso no se crean los secretos antes del despliegue (no se usa <code>docker secret create</code>), sino que se generan de forma automática en  el momento del despliegue. Esto se puede observar en la salida del comando <code>docker stack deploy</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>compose_wordpress.yml<span class="w"> </span>-d<span class="w"> </span>demo
-Creating<span class="w"> </span>network<span class="w"> </span>demo_default
-Creating<span class="w"> </span>secret<span class="w"> </span>demo_db_root_password
-Creating<span class="w"> </span>secret<span class="w"> </span>demo_db_user_password
-Creating<span class="w"> </span>service<span class="w"> </span>demo_db
-Creating<span class="w"> </span>service<span class="w"> </span>demo_wordpress
-$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>docker<span class="w"> </span>stack<span class="w"> </span>deploy<span class="w"> </span>-c<span class="w"> </span>compose_wordpress.yml<span class="w"> </span>-d<span class="w"> </span>demo
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Creating<span class="w"> </span>network<span class="w"> </span>demo_default
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Creating<span class="w"> </span>secret<span class="w"> </span>demo_db_root_password
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Creating<span class="w"> </span>secret<span class="w"> </span>demo_db_user_password
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Creating<span class="w"> </span>service<span class="w"> </span>demo_db
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>Creating<span class="w"> </span>service<span class="w"> </span>demo_wordpress
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>$
+</span></code></pre></div>
 <p>Puede comprobar los secretos creados:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>ls
-ID<span class="w">      </span>NAME<span class="w">                  </span>DRIVER<span class="w"> </span>CREATED<span class="w">   </span>UPDATED
-<span class="m">39</span>...l7<span class="w"> </span>demo_db_root_password<span class="w">        </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago<span class="w">  </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago
-kk...zz<span class="w"> </span>demo_db_user_password<span class="w">        </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago<span class="w">  </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>docker<span class="w"> </span>secret<span class="w"> </span>ls
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>ID<span class="w">      </span>NAME<span class="w">                  </span>DRIVER<span class="w"> </span>CREATED<span class="w">   </span>UPDATED
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="m">39</span>...l7<span class="w"> </span>demo_db_root_password<span class="w">        </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago<span class="w">  </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>kk...zz<span class="w"> </span>demo_db_user_password<span class="w">        </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago<span class="w">  </span><span class="m">9</span><span class="w"> </span>m.<span class="w"> </span>ago
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>O el estado de los servicios del stack:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>stack<span class="w"> </span>ls
-<span class="go">NAME      SERVICES</span>
-<span class="go">demo      2</span>
-<span class="gp">$ </span>docker<span class="w"> </span>stack<span class="w"> </span>services<span class="w"> </span>demo
-<span class="go">ID             NAME             MODE         REPLICAS   IMAGE              PORTS</span>
-<span class="go">24hyojjstv53   demo_db          replicated   1/1        mysql:latest       </span>
-<span class="go">x10j8zw84xkw   demo_wordpress   replicated   1/1        wordpress:latest   *:8000-&gt;80/tcp</span>
-<span class="go">usuario@d12-base-01:~/CIBER-PPS/bloque_05_docker/t01-docker-tutorial-101/src_TODO</span>
-<span class="gp">$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="gp">$ </span>docker<span class="w"> </span>stack<span class="w"> </span>ls
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="go">NAME      SERVICES</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="go">demo      2</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="gp">$ </span>docker<span class="w"> </span>stack<span class="w"> </span>services<span class="w"> </span>demo
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="go">ID             NAME             MODE         REPLICAS   IMAGE              PORTS</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="go">24hyojjstv53   demo_db          replicated   1/1        mysql:latest       </span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="go">x10j8zw84xkw   demo_wordpress   replicated   1/1        wordpress:latest   *:8000-&gt;80/tcp</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="go">usuario@d12-base-01:~/CIBER-PPS/bloque_05_docker/t01-docker-tutorial-101/src_TODO</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="gp">$ </span>
+</span></code></pre></div>
 <p>Y ahora compruebe si <code>wordpress</code> está funcionando de forma conjunta con el servidor <code>mysql</code>. Para ello acceda al puerto 8000 de localhost (o a la IP de su equipo) y se debe mostrar la página inicial de configuración del CMS <code>wordpress</code>:</p>
 <p><img alt="figuras/wordpress-install.png" src="../figuras/wordpress-install.png" /></p>
 <p>Puede hacer pruebas, añadir páginas o artículos, etc.</p>
 <p>Para borrar el despliegue  <code>docker stack rm &lt;nombre_deploy&gt;</code></p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>stack<span class="w"> </span>rm<span class="w"> </span>demo<span class="w"> </span>
-Removing<span class="w"> </span>service<span class="w"> </span>demo_db
-Removing<span class="w"> </span>service<span class="w"> </span>demo_wordpress
-Removing<span class="w"> </span>secret<span class="w"> </span>demo_db_root_password
-Removing<span class="w"> </span>secret<span class="w"> </span>demo_db_user_password
-Removing<span class="w"> </span>network<span class="w"> </span>demo_default
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>$<span class="w"> </span>docker<span class="w"> </span>stack<span class="w"> </span>rm<span class="w"> </span>demo<span class="w"> </span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Removing<span class="w"> </span>service<span class="w"> </span>demo_db
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Removing<span class="w"> </span>service<span class="w"> </span>demo_wordpress
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>Removing<span class="w"> </span>secret<span class="w"> </span>demo_db_root_password
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>Removing<span class="w"> </span>secret<span class="w"> </span>demo_db_user_password
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>Removing<span class="w"> </span>network<span class="w"> </span>demo_default
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>Y para borrar el cluster <code>docker swarm leave</code>. Tenga en cuenta que en ese caso se eliminan los secretos.</p>
 <blockquote>
 <h2 id="docker-config">docker config<a class="headerlink" href="#docker-config" title="Permanent link">&para;</a></h2>
@@ -1139,19 +1226,19 @@ $<span class="w"> </span>
 <p>Docker ha hecho que el catálogo principal de <strong>Hardened Images sea gratuito y de código abierto</strong>. Puede usarla en proyectos personales o profesionales sin pagar una suscripción, siempre que no necesite características empresariales avanzadas.</p>
 <p>Un ejemplo de cómo cambiaría el código sería:</p>
 <p>Versión original</p>
-<div class="highlight"><pre><span></span><code><span class="c"># Antes (Imagen estándar)</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">node:20</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c"># Antes (Imagen estándar)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">node:20</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <p>Versión "DHI"</p>
-<div class="highlight"><pre><span></span><code><span class="c"># Usando la versión endurecida y verificada</span>
-<span class="k">FROM</span><span class="w"> </span><span class="s">dhi.io/docker/node:20</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c"># Usando la versión endurecida y verificada</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">dhi.io/docker/node:20</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <blockquote>
 <p>Para empezar a usarlas generalmente debes autenticarte** en el registro específico de Docker para estas imágenes** (<code>docker login dhi.io</code>).</p>
 <p><a href="https://docs.docker.com/dhi/get-started/">https://docs.docker.com/dhi/get-started/</a></p>
@@ -1167,39 +1254,39 @@ $<span class="w"> </span>
 <p>Se puede asociar un <em>hash</em> a cada imagen Docker creada para verificar que es correcta y no se ha modificado. <strong>Esta verificación está desactivada por defecto</strong>.</p>
 <p>Para activarla se configura una variable de entorno, <code>DOCKER_CONTENT_TRUST</code> con el valor <code>1</code>. Una vez activada cualquier descarga de una imagen implicará la comprobación del <em>hash</em>.</p>
 <p>Observe en la siguiente ejecución como la descarga <strong>de una imagen sin firma</strong> (<code>raghudok/dct-test:unsigned</code>) no es posible si previamente ha activado <code>DCT</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># se activa DCT</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
-<span class="c1"># Se intenta descargar una imagen sin firmar</span>
-$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>raghudok/dct-test:unsigned
-No<span class="w"> </span>valid<span class="w"> </span>trust<span class="w"> </span>data<span class="w"> </span><span class="k">for</span><span class="w"> </span>unsigned
-$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># se activa DCT</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># Se intenta descargar una imagen sin firmar</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>raghudok/dct-test:unsigned
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>No<span class="w"> </span>valid<span class="w"> </span>trust<span class="w"> </span>data<span class="w"> </span><span class="k">for</span><span class="w"> </span>unsigned
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>$
+</span></code></pre></div>
 <p>Si posteriormente la desactiva si es posible la descarga:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># ahora se desactiva</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">0</span>
-<span class="c1"># Se intenta descargar imagen sin firmar</span>
-$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>raghudok/dct-test:unsigned
-unsigned:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>raghudok/dct-test
-0669b0daf1fb:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
-Digest:<span class="w"> </span>sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>raghudok/dct-test:unsigned
-docker.io/raghudok/dct-test:unsigned
-$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># ahora se desactiva</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">0</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Se intenta descargar imagen sin firmar</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>$<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>raghudok/dct-test:unsigned
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>unsigned:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>raghudok/dct-test
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>0669b0daf1fb:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>Digest:<span class="w"> </span>sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>raghudok/dct-test:unsigned
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>docker.io/raghudok/dct-test:unsigned
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>$
+</span></code></pre></div>
 <p>Pruebe ahora la misma secuencia con una imagen firmada (<code>raghudok/dct-test:signed</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># se activa DCT</span>
-$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
-<span class="c1"># Se intenta descargar ahora una imagen con firma</span>
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>raghudok/dct-test:signed
-Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;raghudok/dct-test:signed&#39;</span><span class="w"> </span>locally
-docker.io/raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>raghudok/dct-test
-0669b0daf1fb:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
-Digest:<span class="w"> </span>sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
-Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
-Tagging<span class="w"> </span>raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373<span class="w"> </span>as<span class="w"> </span>raghudok/dct-test:signed
-Hello<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>busybox!
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># se activa DCT</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">DOCKER_CONTENT_TRUST</span><span class="o">=</span><span class="m">1</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Se intenta descargar ahora una imagen con firma</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>raghudok/dct-test:signed
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>Unable<span class="w"> </span>to<span class="w"> </span>find<span class="w"> </span>image<span class="w"> </span><span class="s1">&#39;raghudok/dct-test:signed&#39;</span><span class="w"> </span>locally
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>docker.io/raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373:<span class="w"> </span>Pulling<span class="w"> </span>from<span class="w"> </span>raghudok/dct-test
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>0669b0daf1fb:<span class="w"> </span>Pull<span class="w"> </span><span class="nb">complete</span><span class="w"> </span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>Digest:<span class="w"> </span>sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>Status:<span class="w"> </span>Downloaded<span class="w"> </span>newer<span class="w"> </span>image<span class="w"> </span><span class="k">for</span><span class="w"> </span>raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>Tagging<span class="w"> </span>raghudok/dct-test@sha256:e8d2db0f9cc124273e5f3bbbd2006bf2f3629953983df859e3aa8092134fa373<span class="w"> </span>as<span class="w"> </span>raghudok/dct-test:signed
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>Hello<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>busybox!
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>Tiene una explicación completa del proceso de firma y verificación en el enlace <a href="https://techblost.com/docker-content-trust-101/">Docker content trust 101</a>. También tiene el proceso disponible en uno de los videos del curso de Docker disponible en la plataforma.</p>
 <h2 id="3-dockerfile">3. Dockerfile<a class="headerlink" href="#3-dockerfile" title="Permanent link">&para;</a></h2>
 <h3 id="31-cmd-y-entrypoint">3.1. CMD y ENTRYPOINT<a class="headerlink" href="#31-cmd-y-entrypoint" title="Permanent link">&para;</a></h3>
@@ -1215,98 +1302,98 @@ $<span class="w"> </span>
 <h3 id="33-multistage">3.3. Multistage<a class="headerlink" href="#33-multistage" title="Permanent link">&para;</a></h3>
 <p>El objetivo es reducir el tamaño de la imagen final realizando todos los pasos previos de compilación, dependencias, etc. en una imagen intermedia. En la imagen final sólo se incorpora el resultado de la fase previa. Para demostrarlo en este ejemplo se usa un pequeño programa en <code>Go</code> y un par de ficheros <code>Dockerfile</code>. Los detalles están en este artículo: <a href="https://onthedock.github.io/post/200926-multistage-builds-con-docker/">Multi-stage builds con Docker</a>.</p>
 <p>Este sería el programa en Go:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
-<span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
-<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello world from Go!&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-go highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">package</span><span class="w"> </span><span class="nx">main</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">   </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello world from Go!&quot;</span><span class="p">)</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>Y esta la versión incial del <code>Dockerfile</code> (sin <em>multistage</em>):</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.14.2-alpine</span><span class="w"> </span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
-<span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
-<span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>/out/helloworld<span class="w"> </span>.
-<span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/out/helloworld&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.14.2-alpine</span><span class="w"> </span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>/out/helloworld<span class="w"> </span>.
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/out/helloworld&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <p>Si construye la imagen <code>helloworld:inicial</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
-REPOSITORY<span class="w">  </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">  </span>SIZE<span class="w"> </span>
-$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>helloworld:inicial<span class="w"> </span>.<span class="w"> </span>
-Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">5</span>.632kB<span class="w"> </span>
-Step<span class="w"> </span><span class="m">1</span>/4<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>golang:1.14.2-alpine<span class="w"> </span>
-...<span class="w">  </span>
-Successfully<span class="w"> </span>built<span class="w"> </span>c640743c9c29<span class="w"> </span>
-Successfully<span class="w"> </span>tagged<span class="w"> </span>helloworld:inicial<span class="w"> </span>
-$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
-REPOSITORY<span class="w">  </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">    </span>CREATED<span class="w">     </span>SIZE<span class="w"> </span>
-helloworld<span class="w">  </span>inicial<span class="w">     </span>c640743c9c29<span class="w">  </span><span class="m">3</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">  </span>372MB<span class="w"> </span>
-golang<span class="w">    </span><span class="m">1</span>.14.2-alpine<span class="w">  </span>dda4232b2bd5<span class="w">  </span><span class="m">12</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">  </span>370MB<span class="w"> </span>
-$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>helloworld:inicial<span class="w"> </span>
-Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>Go!
-$
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>REPOSITORY<span class="w">  </span>TAG<span class="w">    </span>IMAGE<span class="w"> </span>ID<span class="w">  </span>CREATED<span class="w">  </span>SIZE<span class="w"> </span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>helloworld:inicial<span class="w"> </span>.<span class="w"> </span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">5</span>.632kB<span class="w"> </span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Step<span class="w"> </span><span class="m">1</span>/4<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>golang:1.14.2-alpine<span class="w"> </span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>...<span class="w">  </span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>Successfully<span class="w"> </span>built<span class="w"> </span>c640743c9c29<span class="w"> </span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>Successfully<span class="w"> </span>tagged<span class="w"> </span>helloworld:inicial<span class="w"> </span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>$<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>REPOSITORY<span class="w">  </span>TAG<span class="w">       </span>IMAGE<span class="w"> </span>ID<span class="w">    </span>CREATED<span class="w">     </span>SIZE<span class="w"> </span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>helloworld<span class="w">  </span>inicial<span class="w">     </span>c640743c9c29<span class="w">  </span><span class="m">3</span><span class="w"> </span>seconds<span class="w"> </span>ago<span class="w">  </span>372MB<span class="w"> </span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>golang<span class="w">    </span><span class="m">1</span>.14.2-alpine<span class="w">  </span>dda4232b2bd5<span class="w">  </span><span class="m">12</span><span class="w"> </span>months<span class="w"> </span>ago<span class="w">  </span>370MB<span class="w"> </span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>helloworld:inicial<span class="w"> </span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>Hello<span class="w"> </span>world<span class="w"> </span>from<span class="w"> </span>Go!
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>$
+</span></code></pre></div>
 <p>puede observar que la imagen <code>helloword:inicial</code> ocupa 372M,  2M más de la imagen usada para construirla <code>golang</code>.</p>
 <p>En la siguiente versión del <code>Dockerfile</code> se compila la aplicación en una imagen intermedia etiquetada como builder (<code>AS builder</code>) y a continuación se copia el resultado de la compilación desde la imagen intermedia (<code>COPY --from=builder</code> ) en una imagen alpine que ocupa mucho menos:</p>
-<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.14.2-alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
-<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
-<span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
-<span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>/out/helloworld<span class="w"> </span>.
-
-<span class="k">FROM</span><span class="w"> </span><span class="s">alpine:3.12</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">bin</span>
-<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/out/helloworld<span class="w"> </span>/
-<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/helloworld&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-Dockerfile highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.14.2-alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/src</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>.
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">RUN</span><span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-o<span class="w"> </span>/out/helloworld<span class="w"> </span>.
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="k">FROM</span><span class="w"> </span><span class="s">alpine:3.12</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">bin</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/out/helloworld<span class="w"> </span>/
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/helloworld&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <p>Si a partir de este nuevo Dockerfile se construye una imagen  con etiqueta <code>helloworld:final</code>:  </p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>helloworld:final<span class="w"> </span>.<span class="w">  </span>
-Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">5</span>.632kB<span class="w"> </span>
-Step<span class="w"> </span><span class="m">1</span>/7<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>golang:1.14.2-alpine<span class="w"> </span>AS<span class="w"> </span>builder<span class="w"> </span>
-...
-Step<span class="w"> </span><span class="m">6</span>/7<span class="w"> </span>:<span class="w"> </span>COPY<span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/out/helloworld<span class="w"> </span>/<span class="w"> </span>
-<span class="w"> </span>---&gt;<span class="w"> </span>33bca22b3635<span class="w"> </span>
-Step<span class="w"> </span><span class="m">7</span>/7<span class="w"> </span>:<span class="w"> </span>ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;/helloworld&quot;</span><span class="o">]</span><span class="w"> </span>
-<span class="w"> </span>---&gt;<span class="w"> </span>Running<span class="w"> </span><span class="k">in</span><span class="w"> </span>450fea70f761<span class="w"> </span>
-Removing<span class="w"> </span>intermediate<span class="w"> </span>container<span class="w"> </span>450fea70f761<span class="w"> </span>
-<span class="w"> </span>---&gt;<span class="w"> </span>52eef99e40f2<span class="w"> </span>
-Successfully<span class="w"> </span>built<span class="w"> </span>52eef99e40f2<span class="w"> </span>
-Successfully<span class="w"> </span>tagged<span class="w"> </span>helloworld:final<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>helloworld:final<span class="w"> </span>.<span class="w">  </span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>Sending<span class="w"> </span>build<span class="w"> </span>context<span class="w"> </span>to<span class="w"> </span>Docker<span class="w"> </span>daemon<span class="w">  </span><span class="m">5</span>.632kB<span class="w"> </span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Step<span class="w"> </span><span class="m">1</span>/7<span class="w"> </span>:<span class="w"> </span>FROM<span class="w"> </span>golang:1.14.2-alpine<span class="w"> </span>AS<span class="w"> </span>builder<span class="w"> </span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>...
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Step<span class="w"> </span><span class="m">6</span>/7<span class="w"> </span>:<span class="w"> </span>COPY<span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/out/helloworld<span class="w"> </span>/<span class="w"> </span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w"> </span>---&gt;<span class="w"> </span>33bca22b3635<span class="w"> </span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Step<span class="w"> </span><span class="m">7</span>/7<span class="w"> </span>:<span class="w"> </span>ENTRYPOINT<span class="w"> </span><span class="o">[</span><span class="s2">&quot;/helloworld&quot;</span><span class="o">]</span><span class="w"> </span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="w"> </span>---&gt;<span class="w"> </span>Running<span class="w"> </span><span class="k">in</span><span class="w"> </span>450fea70f761<span class="w"> </span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>Removing<span class="w"> </span>intermediate<span class="w"> </span>container<span class="w"> </span>450fea70f761<span class="w"> </span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="w"> </span>---&gt;<span class="w"> </span>52eef99e40f2<span class="w"> </span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>Successfully<span class="w"> </span>built<span class="w"> </span>52eef99e40f2<span class="w"> </span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>Successfully<span class="w"> </span>tagged<span class="w"> </span>helloworld:final<span class="w"> </span>
+</span></code></pre></div>
 <p>Se puede comprobar que la imagen <code>helloworld:final</code> apenas ocupa menos espacio, y  además <strong>tiene una menor superficie de ataque</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>docker<span class="w"> </span>images<span class="w"> </span>
-<span class="go">REPOSITORY  TAG       IMAGE ID    CREATED      SIZE </span>
-<span class="go">helloworld  final      52eef99e40f2  15 seconds ago  2.07MB </span>
-<span class="go">helloworld  inicial     c640743c9c29  6 minutes ago   372MB </span>
-<span class="go">golang    1.14.2-alpine  dda4232b2bd5  12 months ago   370MB </span>
-<span class="gp">$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="gp">$ </span>docker<span class="w"> </span>images<span class="w"> </span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="go">REPOSITORY  TAG       IMAGE ID    CREATED      SIZE </span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="go">helloworld  final      52eef99e40f2  15 seconds ago  2.07MB </span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="go">helloworld  inicial     c640743c9c29  6 minutes ago   372MB </span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="go">golang    1.14.2-alpine  dda4232b2bd5  12 months ago   370MB </span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="gp">$ </span>
+</span></code></pre></div>
 <p>Puede comprobar que el nuevo contenedor tiene la misma uncionalidad:</p>
-<div class="highlight"><pre><span></span><code><span class="go">docker run helloworld:final</span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="go">docker run helloworld:final</span>
+</span></code></pre></div>
 <h3 id="34-cuidado-con-el-uso-de-la-etiqueta-latest">3.4. Cuidado con el uso de la etiqueta <em>:latest</em><a class="headerlink" href="#34-cuidado-con-el-uso-de-la-etiqueta-latest" title="Permanent link">&para;</a></h3>
 <p>Existe cierta confusión sobre el uso de la etiqueta <code>latest</code>:  no se debe suponer que corresponde a la última versión de una imagen.  De hecho  se asocia al último <em>build</em> de una imagen <strong>en el que no se especifique una etiqueta</strong>. Tiene una explicación detallada en el enlace <a href="https://medium.com/@mccode/the-misunderstood-docker-tag-latest-af3babfd6375">The misunderstood Docker tag: latest</a>.</p>
 <p>Por lo tanto, la <strong>recomendación es indicar siempre una imagen específica,</strong> por ejemplo <code>FROM ubuntu:20.04</code></p>
 <h3 id="35-combinar-comandos-run">3.5. Combinar comandos RUN<a class="headerlink" href="#35-combinar-comandos-run" title="Permanent link">&para;</a></h3>
 <p>Es recomendable reducir las capas de <code>docker</code> combinando comandos <code>RUN</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update
-<span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+</span></code></pre></div>
 <p>Mejor:</p>
-<div class="highlight"><pre><span></span><code><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
-</code></pre></div>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+</span></code></pre></div>
 <h3 id="36-linting">3.6. Linting<a class="headerlink" href="#36-linting" title="Permanent link">&para;</a></h3>
 <p>Existen herramientas para detectar fallos o posibles mejoras en un fichero <code>Dockerfile</code>. Una de ellas es <strong>hadolint</strong>:  <a href="https://github.com/hadolint/hadolint">https://github.com/hadolint/hadolint</a></p>
 <p>Puede instalarla y ejecutarla en su equipo, probarla online  o usar un contenedor que incluya <code>hadolint</code> para verificar sus ficheros. Observe esta última opción para comprobar el fichero  <code>dockerfile-test-hadolint</code>:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-i<span class="w"> </span>hadolint/hadolint<span class="w"> </span>&lt;<span class="w"> </span>dockerfile-test-hadolint
--:1<span class="w"> </span>DL3006<span class="w"> </span>warning:<span class="w"> </span>Always<span class="w"> </span>tag<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>an<span class="w"> </span>image<span class="w"> </span>explicitly
--:2<span class="w"> </span>DL3015<span class="w"> </span>info:<span class="w"> </span>Avoid<span class="w"> </span>additional<span class="w"> </span>packages<span class="w"> </span>by<span class="w"> </span>specifying<span class="w"> </span><span class="sb">`</span>--no-install-recommends<span class="sb">`</span>
--:2<span class="w"> </span>DL3009<span class="w"> </span>info:<span class="w"> </span>Delete<span class="w"> </span>the<span class="w"> </span>apt-get<span class="w"> </span>lists<span class="w"> </span>after<span class="w"> </span>installing<span class="w"> </span>something
--:2<span class="w"> </span>SC2154<span class="w"> </span>warning:<span class="w"> </span>node_verion<span class="w"> </span>is<span class="w"> </span>referenced<span class="w"> </span>but<span class="w"> </span>not<span class="w"> </span>assigned<span class="w"> </span><span class="o">(</span>did<span class="w"> </span>you<span class="w"> </span>mean<span class="w"> </span><span class="s1">&#39;node_version&#39;</span>?<span class="o">)</span>.
--:4<span class="w"> </span>DL3045<span class="w"> </span>warning:<span class="w"> </span><span class="sb">`</span>COPY<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>relative<span class="w"> </span>destination<span class="w"> </span>without<span class="w"> </span><span class="sb">`</span>WORKDIR<span class="sb">`</span><span class="w"> </span>set.
--:5<span class="w"> </span>DL3003<span class="w"> </span>warning:<span class="w"> </span>Use<span class="w"> </span>WORKDIR<span class="w"> </span>to<span class="w"> </span>switch<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>directory
--:5<span class="w"> </span>DL3016<span class="w"> </span>warning:<span class="w"> </span>Pin<span class="w"> </span>versions<span class="w"> </span><span class="k">in</span><span class="w"> </span>npm.<span class="w"> </span>Instead<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>npm<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;<span class="sb">`</span><span class="w"> </span>use<span class="w"> </span><span class="sb">`</span>npm<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;@&lt;version&gt;<span class="sb">`</span>
--:8<span class="w"> </span>DL3011<span class="w"> </span>error:<span class="w"> </span>Valid<span class="w"> </span>UNIX<span class="w"> </span>ports<span class="w"> </span>range<span class="w"> </span>from<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">65535</span>
-$<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-i<span class="w"> </span>hadolint/hadolint<span class="w"> </span>&lt;<span class="w"> </span>dockerfile-test-hadolint
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>-:1<span class="w"> </span>DL3006<span class="w"> </span>warning:<span class="w"> </span>Always<span class="w"> </span>tag<span class="w"> </span>the<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span>an<span class="w"> </span>image<span class="w"> </span>explicitly
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>-:2<span class="w"> </span>DL3015<span class="w"> </span>info:<span class="w"> </span>Avoid<span class="w"> </span>additional<span class="w"> </span>packages<span class="w"> </span>by<span class="w"> </span>specifying<span class="w"> </span><span class="sb">`</span>--no-install-recommends<span class="sb">`</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>-:2<span class="w"> </span>DL3009<span class="w"> </span>info:<span class="w"> </span>Delete<span class="w"> </span>the<span class="w"> </span>apt-get<span class="w"> </span>lists<span class="w"> </span>after<span class="w"> </span>installing<span class="w"> </span>something
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>-:2<span class="w"> </span>SC2154<span class="w"> </span>warning:<span class="w"> </span>node_verion<span class="w"> </span>is<span class="w"> </span>referenced<span class="w"> </span>but<span class="w"> </span>not<span class="w"> </span>assigned<span class="w"> </span><span class="o">(</span>did<span class="w"> </span>you<span class="w"> </span>mean<span class="w"> </span><span class="s1">&#39;node_version&#39;</span>?<span class="o">)</span>.
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>-:4<span class="w"> </span>DL3045<span class="w"> </span>warning:<span class="w"> </span><span class="sb">`</span>COPY<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>relative<span class="w"> </span>destination<span class="w"> </span>without<span class="w"> </span><span class="sb">`</span>WORKDIR<span class="sb">`</span><span class="w"> </span>set.
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>-:5<span class="w"> </span>DL3003<span class="w"> </span>warning:<span class="w"> </span>Use<span class="w"> </span>WORKDIR<span class="w"> </span>to<span class="w"> </span>switch<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>directory
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>-:5<span class="w"> </span>DL3016<span class="w"> </span>warning:<span class="w"> </span>Pin<span class="w"> </span>versions<span class="w"> </span><span class="k">in</span><span class="w"> </span>npm.<span class="w"> </span>Instead<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>npm<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;<span class="sb">`</span><span class="w"> </span>use<span class="w"> </span><span class="sb">`</span>npm<span class="w"> </span>install<span class="w"> </span>&lt;package&gt;@&lt;version&gt;<span class="sb">`</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>-:8<span class="w"> </span>DL3011<span class="w"> </span>error:<span class="w"> </span>Valid<span class="w"> </span>UNIX<span class="w"> </span>ports<span class="w"> </span>range<span class="w"> </span>from<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span><span class="m">65535</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>$<span class="w"> </span>
+</span></code></pre></div>
 <p>También puede probarla online: <a href="https://hadolint.github.io/hadolint/">https://hadolint.github.io/hadolint/</a>. En la figura puede observar el resultado de hacer un lint a un fichero <code>Dockerfile</code> en la web. Cada uno de los mensajes del linter (en amarillo) es un enlace a una descripción mas detallada:</p>
 <p><img alt="figuras/hadolint.png" src="../figuras/hadolint.png" /></p>
 <h2 id="4-escaneo-de-seguridad-de-las-imagenes">4. Escaneo de seguridad de las imágenes<a class="headerlink" href="#4-escaneo-de-seguridad-de-las-imagenes" title="Permanent link">&para;</a></h2>
@@ -1316,51 +1403,51 @@ $<span class="w"> </span>
 <p>En este caso se prueba Trivy  <a href="https://github.com/aquasecurity/trivy">https://github.com/aquasecurity/trivy</a> de la empresa Aqua Security. Puede detectar vulnerabilidades en los paquetes del Sistema Operativo o en las dependencias de las aplicaciones. Puede escanear contenedores, pero también repositorios git o sistemas de ficheros. Lo podemos instalar en nuestro sistema operativo, o ejecutarlo desde un contenedor Docker. Muestra las vulnerabilidades encontradas, dónde esta localizada, su CVE, versión del paquete que la corrige y enlaces a más información sobre la vulnerabilidad.</p>
 <p>Para instalarlo debe acceder a las <em>releases</em> de trivy en <a href="https://github.com/aquasecurity/trivy/releases">https://github.com/aquasecurity/trivy/releases</a> y seleccionar la que corresponda a su sistema (en debian la más actual en este momento es <code>trivy_0.60.0_Linux-64bit.deb</code>).</p>
 <p>Al ejecutarse comprueba si tiene que actualizar su base de datos interna y luego comienza la exploración. Vea un ejemplo analizando la imagen <code>alpine</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">usuario@d12-base-01:~/Descargas$ </span>trivy<span class="w"> </span>-q<span class="w"> </span>i<span class="w"> </span>alpine
-
-<span class="go">Report Summary</span>
-
-<span class="go">┌────────────────────────┬────────┬─────────────────┬─────────┐</span>
-<span class="go">│         Target         │  Type  │ Vulnerabilities │ Secrets │</span>
-<span class="go">├────────────────────────┼────────┼─────────────────┼─────────┤</span>
-<span class="go">│ alpine (alpine 3.21.3) │ alpine │        0        │    -    │</span>
-<span class="go">└────────────────────────┴────────┴─────────────────┴─────────┘</span>
-<span class="go">Legend:</span>
-<span class="go">- &#39;-&#39;: Not scanned</span>
-<span class="go">- &#39;0&#39;: Clean (no security findings detected)</span>
-
-<span class="gp">usuario@d12-base-01:~/Descargas$ </span>
-</code></pre></div>
+<div class="language-console highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="gp">usuario@d12-base-01:~/Descargas$ </span>trivy<span class="w"> </span>-q<span class="w"> </span>i<span class="w"> </span>alpine
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="go">Report Summary</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="go">┌────────────────────────┬────────┬─────────────────┬─────────┐</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="go">│         Target         │  Type  │ Vulnerabilities │ Secrets │</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="go">├────────────────────────┼────────┼─────────────────┼─────────┤</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="go">│ alpine (alpine 3.21.3) │ alpine │        0        │    -    │</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="go">└────────────────────────┴────────┴─────────────────┴─────────┘</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="go">Legend:</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="go">- &#39;-&#39;: Not scanned</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="go">- &#39;0&#39;: Clean (no security findings detected)</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="gp">usuario@d12-base-01:~/Descargas$ </span>
+</span></code></pre></div>
 <p>En cambio con otras imágenes con muchas vulnerabilidades la salida se hace complicada de gestionar y es mejor redirigir a un fichero:</p>
-<div class="highlight"><pre><span></span><code>usuario@d12-base-01:~/Descargas$<span class="w"> </span>trivy<span class="w"> </span>-q<span class="w"> </span>i<span class="w"> </span>debian<span class="w"> </span>-o<span class="w"> </span>rest.txt
-usuario@d12-base-01:~/Descargas$<span class="w"> </span>more<span class="w"> </span>rest.txt<span class="w"> </span>
-
-Report<span class="w"> </span>Summary
-
-┌──────────────────────┬────────┬─────────────────┬─────────┐
-│<span class="w">        </span>Target<span class="w">        </span>│<span class="w">  </span>Type<span class="w">  </span>│<span class="w"> </span>Vulnerabilities<span class="w"> </span>│<span class="w"> </span>Secrets<span class="w"> </span>│
-├──────────────────────┼────────┼─────────────────┼─────────┤
-│<span class="w"> </span>debian<span class="w"> </span><span class="o">(</span>debian<span class="w"> </span><span class="m">12</span>.9<span class="o">)</span><span class="w"> </span>│<span class="w"> </span>debian<span class="w"> </span>│<span class="w">       </span><span class="m">76</span><span class="w">        </span>│<span class="w">    </span>-<span class="w">    </span>│
-└──────────────────────┴────────┴─────────────────┴─────────┘
-Legend:
--<span class="w"> </span><span class="s1">&#39;-&#39;</span>:<span class="w"> </span>Not<span class="w"> </span>scanned
--<span class="w"> </span><span class="s1">&#39;0&#39;</span>:<span class="w"> </span>Clean<span class="w"> </span><span class="o">(</span>no<span class="w"> </span>security<span class="w"> </span>findings<span class="w"> </span>detected<span class="o">)</span>
-
-
-debian<span class="w"> </span><span class="o">(</span>debian<span class="w"> </span><span class="m">12</span>.9<span class="o">)</span>
-<span class="o">====================</span>
-Total:<span class="w"> </span><span class="m">76</span><span class="w"> </span><span class="o">(</span>UNKNOWN:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>LOW:<span class="w"> </span><span class="m">57</span>,<span class="w"> </span>MEDIUM:<span class="w"> </span><span class="m">17</span>,<span class="w"> </span>HIGH:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>CRITICAL:<span class="w"> </span><span class="m">1</span><span class="o">)</span>
-
-┌────────────────────┬─────────────────────┬──────────┬──────────────┬───────────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
-│<span class="w">      </span>Library<span class="w">       </span>│<span class="w">    </span>Vulnerability<span class="w">    </span>│<span class="w"> </span>Severity<span class="w"> </span>│<span class="w">    </span>Status<span class="w">    </span>│<span class="w">   </span>Installed<span class="w"> </span>Version<span class="w">   </span>│<span class="w"> </span>Fixed<span class="w"> </span>Version<span class="w"> </span>│<span class="w">                            </span>Title<span class="w">                             </span>│
-├────────────────────┼─────────────────────┼──────────┼──────────────┼───────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
-│<span class="w"> </span>apt<span class="w">                </span>│<span class="w"> </span>CVE-2011-3374<span class="w">       </span>│<span class="w"> </span>LOW<span class="w">      </span>│<span class="w"> </span>affected<span class="w">     </span>│<span class="w"> </span><span class="m">2</span>.6.1<span class="w">                 </span>│<span class="w">               </span>│<span class="w"> </span>It<span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>that<span class="w"> </span>apt-key<span class="w"> </span><span class="k">in</span><span class="w"> </span>apt,<span class="w"> </span>all<span class="w"> </span>versions,<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w">       </span>│
-│<span class="w">                    </span>│<span class="w">                     </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w">                       </span>│<span class="w">               </span>│<span class="w"> </span>correctly...<span class="w">                                                 </span>│
-│<span class="w">                    </span>│<span class="w">                     </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w">                       </span>│<span class="w">               </span>│<span class="w"> </span>https://avd.aquasec.com/nvd/cve-2011-3374<span class="w">                    </span>│
-├────────────────────┼─────────────────────┤<span class="w">          </span>│<span class="w">              </span>├───────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
-│<span class="w"> </span>bash<span class="w">               </span>│<span class="w"> </span>TEMP-0841856-B18BAF<span class="w"> </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w"> </span><span class="m">5</span>.2.15-2+b7<span class="w">           </span>│<span class="w">               </span>│<span class="w"> </span><span class="o">[</span>Privilege<span class="w"> </span>escalation<span class="w"> </span>possible<span class="w"> </span>to<span class="w"> </span>other<span class="w"> </span>user<span class="w"> </span>than<span class="w"> </span>root<span class="o">]</span><span class="w">      </span>
-...
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>usuario@d12-base-01:~/Descargas$<span class="w"> </span>trivy<span class="w"> </span>-q<span class="w"> </span>i<span class="w"> </span>debian<span class="w"> </span>-o<span class="w"> </span>rest.txt
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>usuario@d12-base-01:~/Descargas$<span class="w"> </span>more<span class="w"> </span>rest.txt<span class="w"> </span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>Report<span class="w"> </span>Summary
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>┌──────────────────────┬────────┬─────────────────┬─────────┐
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>│<span class="w">        </span>Target<span class="w">        </span>│<span class="w">  </span>Type<span class="w">  </span>│<span class="w"> </span>Vulnerabilities<span class="w"> </span>│<span class="w"> </span>Secrets<span class="w"> </span>│
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>├──────────────────────┼────────┼─────────────────┼─────────┤
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>│<span class="w"> </span>debian<span class="w"> </span><span class="o">(</span>debian<span class="w"> </span><span class="m">12</span>.9<span class="o">)</span><span class="w"> </span>│<span class="w"> </span>debian<span class="w"> </span>│<span class="w">       </span><span class="m">76</span><span class="w">        </span>│<span class="w">    </span>-<span class="w">    </span>│
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>└──────────────────────┴────────┴─────────────────┴─────────┘
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>Legend:
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>-<span class="w"> </span><span class="s1">&#39;-&#39;</span>:<span class="w"> </span>Not<span class="w"> </span>scanned
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>-<span class="w"> </span><span class="s1">&#39;0&#39;</span>:<span class="w"> </span>Clean<span class="w"> </span><span class="o">(</span>no<span class="w"> </span>security<span class="w"> </span>findings<span class="w"> </span>detected<span class="o">)</span>
+</span><span id="__span-29-14"><a id="__codelineno-29-14" name="__codelineno-29-14" href="#__codelineno-29-14"></a>
+</span><span id="__span-29-15"><a id="__codelineno-29-15" name="__codelineno-29-15" href="#__codelineno-29-15"></a>
+</span><span id="__span-29-16"><a id="__codelineno-29-16" name="__codelineno-29-16" href="#__codelineno-29-16"></a>debian<span class="w"> </span><span class="o">(</span>debian<span class="w"> </span><span class="m">12</span>.9<span class="o">)</span>
+</span><span id="__span-29-17"><a id="__codelineno-29-17" name="__codelineno-29-17" href="#__codelineno-29-17"></a><span class="o">====================</span>
+</span><span id="__span-29-18"><a id="__codelineno-29-18" name="__codelineno-29-18" href="#__codelineno-29-18"></a>Total:<span class="w"> </span><span class="m">76</span><span class="w"> </span><span class="o">(</span>UNKNOWN:<span class="w"> </span><span class="m">0</span>,<span class="w"> </span>LOW:<span class="w"> </span><span class="m">57</span>,<span class="w"> </span>MEDIUM:<span class="w"> </span><span class="m">17</span>,<span class="w"> </span>HIGH:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>CRITICAL:<span class="w"> </span><span class="m">1</span><span class="o">)</span>
+</span><span id="__span-29-19"><a id="__codelineno-29-19" name="__codelineno-29-19" href="#__codelineno-29-19"></a>
+</span><span id="__span-29-20"><a id="__codelineno-29-20" name="__codelineno-29-20" href="#__codelineno-29-20"></a>┌────────────────────┬─────────────────────┬──────────┬──────────────┬───────────────────────┬───────────────┬──────────────────────────────────────────────────────────────┐
+</span><span id="__span-29-21"><a id="__codelineno-29-21" name="__codelineno-29-21" href="#__codelineno-29-21"></a>│<span class="w">      </span>Library<span class="w">       </span>│<span class="w">    </span>Vulnerability<span class="w">    </span>│<span class="w"> </span>Severity<span class="w"> </span>│<span class="w">    </span>Status<span class="w">    </span>│<span class="w">   </span>Installed<span class="w"> </span>Version<span class="w">   </span>│<span class="w"> </span>Fixed<span class="w"> </span>Version<span class="w"> </span>│<span class="w">                            </span>Title<span class="w">                             </span>│
+</span><span id="__span-29-22"><a id="__codelineno-29-22" name="__codelineno-29-22" href="#__codelineno-29-22"></a>├────────────────────┼─────────────────────┼──────────┼──────────────┼───────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+</span><span id="__span-29-23"><a id="__codelineno-29-23" name="__codelineno-29-23" href="#__codelineno-29-23"></a>│<span class="w"> </span>apt<span class="w">                </span>│<span class="w"> </span>CVE-2011-3374<span class="w">       </span>│<span class="w"> </span>LOW<span class="w">      </span>│<span class="w"> </span>affected<span class="w">     </span>│<span class="w"> </span><span class="m">2</span>.6.1<span class="w">                 </span>│<span class="w">               </span>│<span class="w"> </span>It<span class="w"> </span>was<span class="w"> </span>found<span class="w"> </span>that<span class="w"> </span>apt-key<span class="w"> </span><span class="k">in</span><span class="w"> </span>apt,<span class="w"> </span>all<span class="w"> </span>versions,<span class="w"> </span><span class="k">do</span><span class="w"> </span>not<span class="w">       </span>│
+</span><span id="__span-29-24"><a id="__codelineno-29-24" name="__codelineno-29-24" href="#__codelineno-29-24"></a>│<span class="w">                    </span>│<span class="w">                     </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w">                       </span>│<span class="w">               </span>│<span class="w"> </span>correctly...<span class="w">                                                 </span>│
+</span><span id="__span-29-25"><a id="__codelineno-29-25" name="__codelineno-29-25" href="#__codelineno-29-25"></a>│<span class="w">                    </span>│<span class="w">                     </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w">                       </span>│<span class="w">               </span>│<span class="w"> </span>https://avd.aquasec.com/nvd/cve-2011-3374<span class="w">                    </span>│
+</span><span id="__span-29-26"><a id="__codelineno-29-26" name="__codelineno-29-26" href="#__codelineno-29-26"></a>├────────────────────┼─────────────────────┤<span class="w">          </span>│<span class="w">              </span>├───────────────────────┼───────────────┼──────────────────────────────────────────────────────────────┤
+</span><span id="__span-29-27"><a id="__codelineno-29-27" name="__codelineno-29-27" href="#__codelineno-29-27"></a>│<span class="w"> </span>bash<span class="w">               </span>│<span class="w"> </span>TEMP-0841856-B18BAF<span class="w"> </span>│<span class="w">          </span>│<span class="w">              </span>│<span class="w"> </span><span class="m">5</span>.2.15-2+b7<span class="w">           </span>│<span class="w">               </span>│<span class="w"> </span><span class="o">[</span>Privilege<span class="w"> </span>escalation<span class="w"> </span>possible<span class="w"> </span>to<span class="w"> </span>other<span class="w"> </span>user<span class="w"> </span>than<span class="w"> </span>root<span class="o">]</span><span class="w">      </span>
+</span><span id="__span-29-28"><a id="__codelineno-29-28" name="__codelineno-29-28" href="#__codelineno-29-28"></a>...
+</span></code></pre></div>
 <h3 id="42-docker-scout">4.2. Docker scout<a class="headerlink" href="#42-docker-scout" title="Permanent link">&para;</a></h3>
 <p>En el tutorial de docker se mostraba la herramienta <code>docker scan</code> qeu ha sido sustituida por Docker Scout</p>
 <p>Docker Scout es una herramienta de análisis de seguridad que te permite examinar tus imágenes de contenedor en busca de vulnerabilidades (CVEs). A diferencia de los escaneos tradicionales, Scout ofrece recomendaciones en tiempo real sobre cómo corregir esas vulnerabilidades, sugiriendo, por ejemplo, versiones más seguras de la imagen base.</p>
@@ -1378,13 +1465,13 @@ Total:<span class="w"> </span><span class="m">76</span><span class="w"> </span><
 <h4 id="421-instalar">4.2.1. Instalar<a class="headerlink" href="#421-instalar" title="Permanent link">&para;</a></h4>
 <p><a href="https://docs.docker.com/scout/install/">https://docs.docker.com/scout/install/</a></p>
 <p>Descargar e instalar el plugin de Docker Scout</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/docker/scout-cli/main/install.sh<span class="w"> </span>-o<span class="w"> </span>install-scout.sh
-sh<span class="w"> </span>install-scout.sh
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/docker/scout-cli/main/install.sh<span class="w"> </span>-o<span class="w"> </span>install-scout.sh
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>sh<span class="w"> </span>install-scout.sh
+</span></code></pre></div>
 <h4 id="422-iniciar-sesion">4.2.2. Iniciar sesión<a class="headerlink" href="#422-iniciar-sesion" title="Permanent link">&para;</a></h4>
 <p>Docker Scout necesita consultar una base de datos de vulnerabilidades actualizada. Para ello, debes estar autenticado:</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>login
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>docker<span class="w"> </span>login
+</span></code></pre></div>
 <h4 id="423-comandos-principales-de-analisis">4.2.3. Comandos principales de análisis<a class="headerlink" href="#423-comandos-principales-de-analisis" title="Permanent link">&para;</a></h4>
 <p>Una vez instalado, aquí tienes los comandos fundamentales :</p>
 <table>
@@ -1411,12 +1498,12 @@ sh<span class="w"> </span>install-scout.sh
 </table>
 <h4 id="424-ejemplo-practico">4.2.4. Ejemplo práctico<a class="headerlink" href="#424-ejemplo-practico" title="Permanent link">&para;</a></h4>
 <p>Suponga que tiene una imagen llamada <code>mi-app-debian:latest</code>. Para ver qué problemas tiene, ejecutar:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Ver el estado general de seguridad</span>
-$<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </span>quickview<span class="w"> </span>mi-app-debian:latest
-
-<span class="c1"># Ver detalles específicos de cada fallo de seguridad</span>
-$<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </span>cves<span class="w"> </span>mi-app-debian:latest
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Ver el estado general de seguridad</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>$<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </span>quickview<span class="w"> </span>mi-app-debian:latest
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># Ver detalles específicos de cada fallo de seguridad</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>$<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </span>cves<span class="w"> </span>mi-app-debian:latest
+</span></code></pre></div>
 
 
 
@@ -1465,7 +1552,7 @@ $<span class="w"> </span>docker<span class="w"> </span>scout<span class="w"> </s
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tracking", "navigation.footer", "navigation.path"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
