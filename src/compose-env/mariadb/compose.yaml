@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mariadb
+    env_file:   # nueva clave
+    - .env.db   # Fichero con variables de entorno para contenedor
+    volumes:
+      - mysql_datos:/var/lib/mysql
+
+  adminer:
+    image: adminer:5
+    ports:
+      - 8080:8080
+
+volumes:
+  mysql_datos:

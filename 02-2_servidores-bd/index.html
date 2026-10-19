@@ -580,11 +580,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-docker-depends/" class="md-nav__link">
+      <a href="../03-docker-compose_amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Depends
+    Varios
     
   </span>
   
@@ -602,11 +602,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../03-docker-compose_amplia/" class="md-nav__link">
+      <a href="../03-docker-depends/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Varios
+    Depends
     
   </span>
   
@@ -630,6 +630,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../04_traefik_local/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -638,10 +659,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -653,8 +674,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             DNS
           </label>
@@ -682,52 +703,9 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dns/06-2_dns-en-AWS/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    con AWS
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../04_traefik/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Traefik
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1153,7 +1131,7 @@
 <span class="normal"><a href="#__codelineno-10-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="w">  </span><span class="nt">adminer</span><span class="p">:</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adminer:5</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080&quot;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8080:8080</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
@@ -1237,7 +1215,7 @@
 <p>Hacer despliegue similar al anterior usando postgres</p>
 <ul>
 <li>Use PostgreSQL 18, cuya imagen oficial monta los datos persistentes en <code>/var/lib/postgresql</code> (atención: en PostgreSQL 17 y anteriores se utilizaba habitualmente <code>/var/lib/postgresql/data</code>). </li>
-<li>Tenga en cunenta que el cliente es psql</li>
+<li>Tenga en cuenta que el cliente es <code>psql</code></li>
 <li>Utilice inicialización de la base de datos, por ejemplo</li>
 </ul>
 <div class="language-sql highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">sql/01_inicia.sql</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>

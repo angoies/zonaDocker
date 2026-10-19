@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../03-docker-compose_amplia/">
+        <link rel="prev" href="../../04_traefik_local/">
       
       
-        <link rel="next" href="../06-2_dns-en-AWS/">
+        <link rel="next" href="../../03-docker-ejercicios/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-primera-aproximacion-etchosts" class="md-skip">
+        <a href="#dns-en-local" class="md-skip">
           Skip to content
         </a>
       
@@ -444,11 +444,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-docker-depends/" class="md-nav__link">
+      <a href="../../03-docker-compose_amplia/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Depends
+    Varios
     
   </span>
   
@@ -466,11 +466,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../03-docker-compose_amplia/" class="md-nav__link">
+      <a href="../../03-docker-depends/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Varios
+    Depends
     
   </span>
   
@@ -492,6 +492,27 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_traefik_local/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -504,10 +525,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -519,8 +540,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             DNS
           </label>
@@ -538,6 +559,8 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -569,6 +592,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -586,64 +611,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-sin-etchosts-el-dominio-locallhost" class="md-nav__link">
+  <a href="#2-el-dominio-locallhost" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Sin /etc/hosts: el dominio .locallhost
+      2. El dominio .locallhost
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-dominios-dns-gratuito" class="md-nav__link">
+  <a href="#3-usando-un-dominio-registrado" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Dominios DNS gratuito
+      3. Usando un dominio registrado
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-usando-un-gestor-dns-gratuito" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Usando un gestor DNS gratuito
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Usando un gestor DNS gratuito">
+    <nav class="md-nav" aria-label="3. Usando un dominio registrado">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-registro-en-freemyip" class="md-nav__link">
+  <a href="#31-dominios-gratuitos" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1. Registro en freemyip
+      3.1. Dominios gratuitos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-resolviendo-el-nombre-de-dominio-a-localhost" class="md-nav__link">
+  <a href="#32-usando-un-gestor-dns-gratuito" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2. Resolviendo el nombre de dominio a localhost
+      3.2. Usando un gestor DNS gratuito
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#43-resolviendo-a-ip-publicas" class="md-nav__link">
+  <a href="#33-registro-en-freemyip" class="md-nav__link">
     <span class="md-ellipsis">
-      4.3. Resolviendo a IP públicas
+      3.3. Registro en freemyip
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#44-anadir-registro-txt-en-el-dominio" class="md-nav__link">
+  <a href="#34-resolviendo-el-nombre-de-dominio-a-localhost" class="md-nav__link">
     <span class="md-ellipsis">
-      4.4. Añadir registro TXT en el dominio.
+      3.4. Resolviendo el nombre de dominio a localhost
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-anexo-freemyip" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Anexo freemyip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Anexo freemyip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-resolviendo-a-ip-publicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Resolviendo a IP públicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-anadir-registro-txt-en-el-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Añadir registro TXT en el dominio.
     </span>
   </a>
   
@@ -663,52 +712,9 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06-2_dns-en-AWS/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    con AWS
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../04_traefik/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Traefik
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -880,6 +886,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -897,64 +905,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-sin-etchosts-el-dominio-locallhost" class="md-nav__link">
+  <a href="#2-el-dominio-locallhost" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Sin /etc/hosts: el dominio .locallhost
+      2. El dominio .locallhost
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-dominios-dns-gratuito" class="md-nav__link">
+  <a href="#3-usando-un-dominio-registrado" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Dominios DNS gratuito
+      3. Usando un dominio registrado
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-usando-un-gestor-dns-gratuito" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Usando un gestor DNS gratuito
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Usando un gestor DNS gratuito">
+    <nav class="md-nav" aria-label="3. Usando un dominio registrado">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#41-registro-en-freemyip" class="md-nav__link">
+  <a href="#31-dominios-gratuitos" class="md-nav__link">
     <span class="md-ellipsis">
-      4.1. Registro en freemyip
+      3.1. Dominios gratuitos
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#42-resolviendo-el-nombre-de-dominio-a-localhost" class="md-nav__link">
+  <a href="#32-usando-un-gestor-dns-gratuito" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2. Resolviendo el nombre de dominio a localhost
+      3.2. Usando un gestor DNS gratuito
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#43-resolviendo-a-ip-publicas" class="md-nav__link">
+  <a href="#33-registro-en-freemyip" class="md-nav__link">
     <span class="md-ellipsis">
-      4.3. Resolviendo a IP públicas
+      3.3. Registro en freemyip
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#44-anadir-registro-txt-en-el-dominio" class="md-nav__link">
+  <a href="#34-resolviendo-el-nombre-de-dominio-a-localhost" class="md-nav__link">
     <span class="md-ellipsis">
-      4.4. Añadir registro TXT en el dominio.
+      3.4. Resolviendo el nombre de dominio a localhost
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-anexo-freemyip" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Anexo freemyip
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Anexo freemyip">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-resolviendo-a-ip-publicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Resolviendo a IP públicas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-anadir-registro-txt-en-el-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Añadir registro TXT en el dominio.
     </span>
   </a>
   
@@ -981,89 +1013,93 @@
 
 
 
-  <h1>en local</h1>
-
-<p>Este documento pretende utilizar un gestor de dominios gratuitos para las prácticas. </p>
-<p>En una primera aproximación se tratará el caso especial de resolver direcciones de domnioos a la dirección de hostlocal 127.0.0.1. Esto permitirá trabajar en un entorno local simulado un entrono similar al real.</p>
-<p>En una segunda aproximación se hará algo similar usand oinstancias EC2 de AWS </p>
+<h1 id="dns-en-local">DNS en local<a class="headerlink" href="#dns-en-local" title="Permanent link">&para;</a></h1>
+<p>Se trata de resolver direcciones de dominios a la dirección de host local 127.0.0.X. Esto permitirá trabajar en un entorno local.</p>
+<p>Para ellos dispone de varias aproximaciones:</p>
+<ol>
+<li>Modificar /etc/hosts</li>
+<li>Usar el dominio <code>.localhost</code></li>
+<li>usar un gestor de dominios y redirigir a 127.0.0.xxx</li>
+</ol>
+<p>En otro apartado se usaran direcciones IP públicas con una EC" de AWS.</p>
 <h2 id="1-primera-aproximacion-etchosts">1. Primera aproximación: <code>/etc/hosts</code><a class="headerlink" href="#1-primera-aproximacion-etchosts" title="Permanent link">&para;</a></h2>
-<p>Lo más sencillo para hacer pruebas en local en que los nombres deben resolver a localhost es modificar el fichero <code>/etc/hosts</code>.</p>
 <!-- TODO -->
-
-<p>Para resolver la IP de un nombre de host se consulta primero el fichero <code>/etc/hosts</code> y si no hay correspondencia se consulta a los servidores DNS. Para hacer una prueba más cercana a la realidad se puede asociar en ese fichero el nombre de un dominio (por ejemplo<code>whoami.md.internal</code>) a la dirección local 127.0.0.1 y ya podría usar ese nombre en sus pruebas en local con el navegador, etc.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>alu@xd13:~/pr/traefik$  sudo nano /etc/hosts
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>alu@xd13:~/pr/traefik$  cat /etc/hosts
+<p>Lo más sencillo para hacer pruebas en local es modificar el fichero <code>/etc/hosts</code>. Tenga en cuenta que para resolver la IP de un nombre de host se consulta primero el fichero <code>/etc/hosts</code> y si no hay correspondencia se consulta a los servidores DNS. </p>
+<p>Se puede asociar en ese fichero el nombre de un dominio (por ejemplo<code>whoami.md.internal</code>) a la dirección local 127.0.0.1 y podría usar ese nombre en sus pruebas en local con el navegador, etc.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ sudo nano /etc/hosts
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ cat /etc/hosts
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>127.0.0.1       whoami.md.internal localhost
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>127.0.1.1       xd13
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>...
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>alu@xd13:~/pr/traefik$ 
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>$ 
 </span></code></pre></div>
-<p>Puede probar ahora con <code>ping</code> la resolución del nombre a IP:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>alu@xd13:~/pr/traefik$  ping whoami.md.internal 
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>PING whoami.md.internal (127.0.0.1) 56(84) bytes of data.
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>64 bytes from whoami.md.internal (127.0.0.1): icmp_seq=1 ttl=64 time=0.064 ms
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>64 bytes from whoami.md.internal (127.0.0.1): icmp_seq=2 ttl=64 time=0.088 ms
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>^C
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>--- whoami.md.internal ping statistics ---
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>2 packets transmitted, 2 received, 0% packet loss, time 1021ms
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>rtt min/avg/max/mdev = 0.064/0.076/0.088/0.012 ms
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>alu@xd1
+<p>Puede probar la resolución del nombre a IP:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ getent hosts test.md.internal
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>127.0.0.1       test.md.internal localhost
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>$ ping -c 3 test.md.internal
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>PING test.md.internal (127.0.0.1) 56(84) bytes of data.
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>64 bytes from test.md.internal (127.0.0.1): icmp_seq=1 ttl=64 time=0.027 ms
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>...
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>3 packets transmitted, 3 received, 0% packet loss,
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>~$ 
 </span></code></pre></div>
-<p>Esta solución puede ser suficiente para el desarrolo de prácticas en local.</p>
-<h2 id="2-sin-etchosts-el-dominio-locallhost">2. Sin /etc/hosts: el dominio .locallhost<a class="headerlink" href="#2-sin-etchosts-el-dominio-locallhost" title="Permanent link">&para;</a></h2>
-<p>¿Y si no tiene permisos para modificar el ficher /etc/hosts?</p>
-<p>Se puede utilizar el "dominio" <code>.localhost</code> que resuelve por defecto a 127.0.0.1. </p>
+<p>Esta solución puede ser suficiente para el desarrollo de prácticas en local.</p>
+<h2 id="2-el-dominio-locallhost">2. El dominio .locallhost<a class="headerlink" href="#2-el-dominio-locallhost" title="Permanent link">&para;</a></h2>
+<p>¿Y si no tuviera permisos para modificar el ficher /etc/hosts? En ese caso se puede utilizar el "<em>dominio</em>" <code>.localhost</code> que resuelve por defecto a 127.0.0.1. </p>
 <p>Observe un ejemplo con el dominio <code>sitio1.localhost</code>. Si tiene funcionado un servidor web </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>clases@d13:~$ docker run -d -p 80:80 nginx
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>00dea1b6821586a53f7c827959f841b218b272a8aaa5f6caf42b44f41b702c83
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>clases@d13:~$ 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ docker run -d -p 80:80 nginx
 </span></code></pre></div>
-<p>La petición usando el dominio funciona</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>clases@d13:~$ curl sitio1.localhost
+<p>La petición usando el nombre del dominio</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ curl sitio1.localhost
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE html&gt;
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;html&gt;
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>...
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>...
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>&lt;/html&gt;
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>clases@d13:~$ 
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>$ 
 </span></code></pre></div>
-<p>O a un subdominio</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>clases@d13:~$ curl --head app.sitio1.localhost
+<p>O si hace la petición a un subdominio</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ curl --head app.sitio1.localhost
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>HTTP/1.1 200 OK
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Server: nginx/1.31.6
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>...
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Accept-Ranges: bytes
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>clases@d13:~$ 
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>$ 
 </span></code></pre></div>
-<p>Tenga en cuenta que es algo "interno"" y no es uan resoluciñon de host a IP (que sí lo era en el apartado previo)</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>clases@d13:~$ ping app.sitio1.localhost
+<p>Tenga en cuenta que es algo "<em>interno</em>" y no es una resoluciñon de host a IP (que sí lo era en el apartado previo)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ ping app.sitio1.localhost
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ping: app.sitio1.localhost: Nombre o servicio desconocido
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>clases@d13:~$ 
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>$ 
 </span></code></pre></div>
-<p>Esta solución puede ser suficiente para el desarrolo de prácticas en local.</p>
-<h2 id="3-dominios-dns-gratuito">3. Dominios  DNS gratuito<a class="headerlink" href="#3-dominios-dns-gratuito" title="Permanent link">&para;</a></h2>
-<p>Para conseguir un nombre de dominio para su IP sin coste hay varias opciones, entre ellas:</p>
+<p>Esta solución podría también ser suficiente para el desarrolo de prácticas en local.</p>
+<h2 id="3-usando-un-dominio-registrado">3. Usando un dominio registrado<a class="headerlink" href="#3-usando-un-dominio-registrado" title="Permanent link">&para;</a></h2>
+<p>Esta tercera opción pretende usar un getor de dominios para  mapear el nombre de dominio a la dirección local <code>127.0.0.X</code></p>
+<h3 id="31-dominios-gratuitos">3.1. Dominios gratuitos<a class="headerlink" href="#31-dominios-gratuitos" title="Permanent link">&para;</a></h3>
+<p>Primero necesita conseguir un nombre de dominio para su IP <strong>sin coste</strong>. Hay varias opciones, entre ellas:</p>
 <ul>
-<li>Dynu: <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></li>
 <li><a href="https://freemyip.com/">freemyip.com</a>, no es necesario registrarse. <a href="https://freemyip.com/help">Ayuda</a></li>
+<li>Dynu: <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></li>
+<li>
+<ul>
 <li>get.tech</li>
+</ul>
+</li>
 <li><em>duckdns</em>: Admite wildcards xxx.midominio.duckdns.org y admite registros tipo TXT. <a href="https://duckdns.org">https://duckdns.org</a></li>
 <li><em>noip.com</em>: <a href="https://www.noip.com/es-MX/free">https://www.noip.com/es-MX/free</a></li>
 <li><em>FreeDNS</em>:  <a href="http://freedns.afraid.org">http://freedns.afraid.org</a></li>
 <li><em>Nominalia</em>:  primer año gratis, pero hay que dar tarjeta <a href="https://www.nominalia.com/">https://www.nominalia.com/</a></li>
 <li>Freenom (parece que no funciona): <a href="https://www.freenom.com/">https://www.freenom.com/</a></li>
 </ul>
-<h2 id="4-usando-un-gestor-dns-gratuito">4. Usando un gestor DNS gratuito<a class="headerlink" href="#4-usando-un-gestor-dns-gratuito" title="Permanent link">&para;</a></h2>
-<p>En este ejemplo usaremos <a href="https://freemyip.com/">freemyip</a> que no requiere crear una cuenta y proporciona un token asociado al nombre de dominio para la gestión. </p>
-<p>Además, sus subdominios heredan la IP de forma que por ejemplo </p>
+<h3 id="32-usando-un-gestor-dns-gratuito">3.2. Usando un gestor DNS gratuito<a class="headerlink" href="#32-usando-un-gestor-dns-gratuito" title="Permanent link">&para;</a></h3>
+<p>En este ejemplo usaremos <a href="https://freemyip.com/">freemyip</a> que no requiere crear una cuenta y proporciona un token asociado al nombre de dominio para la gestión.  Además, sus subdominios heredan la IP de forma que por ejemplo </p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>midominio.freemyip.com
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>whoami.midominio.freemyip.com
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>app1.midominio.freemyip.com
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>wordpress.midominio.freemyip.com
 </span></code></pre></div>
 <p>pueden resolver todos a la misma dirección.</p>
-<h3 id="41-registro-en-freemyip">4.1. Registro en freemyip<a class="headerlink" href="#41-registro-en-freemyip" title="Permanent link">&para;</a></h3>
+<h3 id="33-registro-en-freemyip">3.3. Registro en freemyip<a class="headerlink" href="#33-registro-en-freemyip" title="Permanent link">&para;</a></h3>
 <p>Página inicial dónde se especifica el nombre deseado:</p>
 <p><img alt="" src="../figuras/dns_01.png" /></p>
 <p>Si está libre nos lo indica y da la oprtunidad de solicitarlo usando el botón <em>CLAIM IT!</em></p>
@@ -1079,7 +1115,7 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>clases@d13:~$ 
 </span></code></pre></div>
 <p>freemyip permite gestionar el dominio creado mediante peticiones URL. Tiene los detalles en su <a href="https://freemyip.com/help">ayuda</a>.</p>
-<h3 id="42-resolviendo-el-nombre-de-dominio-a-localhost">4.2. Resolviendo el nombre de dominio a localhost<a class="headerlink" href="#42-resolviendo-el-nombre-de-dominio-a-localhost" title="Permanent link">&para;</a></h3>
+<h3 id="34-resolviendo-el-nombre-de-dominio-a-localhost">3.4. Resolviendo el nombre de dominio a localhost<a class="headerlink" href="#34-resolviendo-el-nombre-de-dominio-a-localhost" title="Permanent link">&para;</a></h3>
 <p>Esto es una "solución" para el caso de pruebas en local que requieran de resolución de nombres "reales" y no desea utilizar las soluciones anteriores:</p>
 <ul>
 <li>modificar el fichero <code>/etc/hosts</code></li>
@@ -1096,9 +1132,10 @@
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$ dig +short whoami.midominio.freemyip.com
 </span></code></pre></div>
 y debería  obtener la IP de localhost. </p>
-<h3 id="43-resolviendo-a-ip-publicas">4.3. Resolviendo a IP públicas<a class="headerlink" href="#43-resolviendo-a-ip-publicas" title="Permanent link">&para;</a></h3>
+<h2 id="4-anexo-freemyip">4. Anexo freemyip<a class="headerlink" href="#4-anexo-freemyip" title="Permanent link">&para;</a></h2>
+<h3 id="41-resolviendo-a-ip-publicas">4.1. Resolviendo a IP públicas<a class="headerlink" href="#41-resolviendo-a-ip-publicas" title="Permanent link">&para;</a></h3>
 <p>El procedimento es similar: basta indicar en la URL la IP de su servidor externo o instancia AWS EC2. Tenga encuenta que la IP de las instancias AWS EC2 de los laboratorios cambia (a no ser que use IP elástica).</p>
-<h3 id="44-anadir-registro-txt-en-el-dominio">4.4. Añadir registro TXT en el dominio.<a class="headerlink" href="#44-anadir-registro-txt-en-el-dominio" title="Permanent link">&para;</a></h3>
+<h3 id="42-anadir-registro-txt-en-el-dominio">4.2. Añadir registro TXT en el dominio.<a class="headerlink" href="#42-anadir-registro-txt-en-el-dominio" title="Permanent link">&para;</a></h3>
 <p>Puede ser en algún momento necesario añadir un registro TXT asociado al dominio (por ejemplo nos pueden solicitar añadirlo un registro TXT con un texto determinado para demostrar que ser propietario del dominio). </p>
 <blockquote>
 <p>You can use an optional "&amp;txt" parameter to do that. For example, to set your TXT record to "my test text" you need to use the following URL:
@@ -1137,7 +1174,7 @@ This will also automagically work for any subdomain within your domain. If you w
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../03-docker-compose_amplia/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Varios">
+          <a href="../../04_traefik_local/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Traefik">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1147,20 +1184,20 @@ This will also automagically work for any subdomain within your domain. If you w
                 Previous
               </span>
               <div class="md-ellipsis">
-                Varios
+                Traefik
               </div>
             </div>
           </a>
         
         
           
-          <a href="../06-2_dns-en-AWS/" class="md-footer__link md-footer__link--next" aria-label="Next: con AWS">
+          <a href="../../03-docker-ejercicios/" class="md-footer__link md-footer__link--next" aria-label="Next: Ejercicios">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                con AWS
+                Ejercicios
               </div>
             </div>
             <div class="md-footer__button md-icon">
