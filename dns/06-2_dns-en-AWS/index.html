@@ -747,84 +747,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-dominio-en-dynu" class="md-nav__link">
+  <a href="#1-dominio-en-fremyip" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Dominio en Dynu
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Dominio en Dynu">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-dominio-ddns" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1. Dominio DDNS
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-todo-dominio-en-tech" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. TODO: dominio en .tech
+      1. Dominio en fremyip
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-otros-servicios-dns" class="md-nav__link">
+  <a href="#2-ejercicio-practico" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Otros servicios DNS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Otros servicios DNS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-duckdns" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1. duckdns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-noip" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2. noip
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-enlaces" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Enlaces
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-ejercicio-practico" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Ejercicio práctico
+      2. Ejercicio práctico
     </span>
   </a>
   
@@ -847,106 +781,33 @@
 
 
 <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>Objetivo: asociar la IP de una instancia EC2 a un nombre de dominio. Para conseguir un nombre de dominio para su IP sin coste hay varias opciones, entre ellas:</p>
-<ul>
-<li>Dynu: <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></li>
-<li><a href="https://freemyip.com/">freemyip.com</a>, no es necesario registrarse. <a href="https://freemyip.com/help">Ayuda</a></li>
-<li>get.tech</li>
-<li><em>duckdns</em>: Admite wildcards xxx.midominio.duckdns.org y admite registros tipo TXT. <a href="https://duckdns.org">https://duckdns.org</a></li>
-<li><em>noip.com</em>: <a href="https://www.noip.com/es-MX/free">https://www.noip.com/es-MX/free</a></li>
-<li><em>FreeDNS</em>:  <a href="http://freedns.afraid.org">http://freedns.afraid.org</a></li>
-<li><em>Nominalia</em>:  primer año gratis, pero hay que dar tarjeta <a href="https://www.nominalia.com/">https://www.nominalia.com/</a></li>
-<li>Freenom (parece que no funciona): <a href="https://www.freenom.com/">https://www.freenom.com/</a></li>
-</ul>
-<p>Además en el caso de la instancia AWS del laboratorio habría que resolver el que la IP va cambiando al detener y reiniciar la instancia. Posibles soluciones:</p>
+<p>Objetivo: asociar la IP de una instancia EC2 a un nombre de dominio. En apartados previos ha estudiado como obtener un nombre de dominio gratuito. </p>
+<div class="admonition info">
+<p class="admonition-title">Cambio en la IP</p>
+<p>En el caso de la instancia EC2 de AWS del laboratorio habrá que resolver el que la IP va cambiando al detener y reiniciar la instancia. Posibles soluciones:</p>
 <ol>
-<li>Asociarla manualmente de nuevo cuando cambie</li>
-<li>Usar una IP Elástica de AWS (tiene coste en el crédito de AWS)</li>
-<li>DNS dinámico (DDNS): instalar un script o aplicación en la instancia EC2 que detecte el cambio en la IP pública y actualize el DNS.</li>
+<li>Asociarla manualmente cuando cambie. </li>
+<li>Usar una IP Elástica de AWS (tiene coste en el crédito de AWS). Se explica como hacerlo en la zonaAWS. </li>
+<li>Usar DNS dinámico (DDNS): instalar un script o aplicación en la instancia EC2 que detecte el cambio en la IP pública y actualize el DNS.</li>
 </ol>
-<p>De entre las opciones posible se explican dos de ellas: Dynu y get.tech, esta última usando las ventajas del Student Pack de GitHub- La opción de freemyip.com la tieen dispobible en otro documento.</p>
-<h2 id="1-dominio-en-dynu">1. Dominio en Dynu<a class="headerlink" href="#1-dominio-en-dynu" title="Permanent link">&para;</a></h2>
-<p>Puede darse de alta en <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></p>
-<h3 id="11-dominio-ddns">1.1. Dominio DDNS<a class="headerlink" href="#11-dominio-ddns" title="Permanent link">&para;</a></h3>
-<p>Puede añadir un dominio en el menú <em>DDNS</em>, opción <em>SIGN UP</em>. Este debería ser el enlace:</p>
-<p><a href="https://www.dynu.com/en-US/ControlPanel/AddDDNS">https://www.dynu.com/en-US/ControlPanel/AddDDNS</a></p>
-<p>Debe usar la opción <em>Option 1: Use Our Domain Name</em>, seleccionar uno de sus dominios en el desplegable y elegir un Nombre de Host. Luego pulsar el botón  <em>Add</em></p>
-<p><img alt="../figuras/dns_dynu_01.png" src="../figuras/dns_dynu_01.png" /></p>
-<p>Una vez creado le muestra el dominio y observe que de formaautomática le ha asignado una IP a ese dominio. Esa IP es la del equipo del que se está conectando, y lo habitual es que sea la IP pública del router de la red desde la que se esté conectando en ese momento.</p>
-<p><img alt="../figuras/dns_dynu_02.png" src="../figuras/dns_dynu_02.png" /></p>
-<p><strong>Importante</strong>:</p>
-<ul>
-<li>Esa <strong>IPv4 Address</strong> será la que deberá sustitutir por la IP Elásctica de su instancia EC2.</li>
-<li>Observe que tiene activo por defecto las <em>Wirldcard IPv4 alias</em>, por lo que cualquier nombre que termine en <code>.daweb.freedns.org</code> como  <code>whoami.daweb.freedns.org</code> o <code>www.daweb.freedns.org</code> resuelve la misma IP.</li>
-<li>Puede acceder a la gestión en detalle tiene a la derecha la opción <strong>DNS Records</strong>.</li>
-</ul>
-<h2 id="2-todo-dominio-en-tech">2. TODO: dominio en <code>.tech</code><a class="headerlink" href="#2-todo-dominio-en-tech" title="Permanent link">&para;</a></h2>
-<p>El dominio <code>.tech</code> es gratuito usando el Developer Pack Student de GitHub. En este caso tenga en cuenta que:</p>
-<ol>
-<li><strong>Importante</strong>: debe realizar el alta desde esta dirección: <a href="https://get.tech/github-student-developer-pack">https://get.tech/github-student-developer-pack</a>.</li>
-<li>Buscar y seleccionar un dominio libre</li>
-<li>Al ordenar el pago hay un botón para identificarse con su cuenta de GitHub (la que esté asociada a los beneficios del github student developer pack). Al usar esa opción el coste del dominio debe ser gratuito durante un año.</li>
-<li>Para gestionar el dominio acceda a <a href="http://controlpanel.tech/customer">http://controlpanel.tech/customer</a>.</li>
-</ol>
-<h2 id="3-otros-servicios-dns">3. Otros servicios DNS<a class="headerlink" href="#3-otros-servicios-dns" title="Permanent link">&para;</a></h2>
-<h3 id="31-duckdns">3.1. duckdns<a class="headerlink" href="#31-duckdns" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Puede hacer el alta con su cuenta de Github o Google</li>
-<li>Admite registros wildcard  como  <code>xxxx.midominio.duckdns.org</code> (puede ser útil por ejemplo para la práctica de un proxy inverso como traefik).</li>
-<li>Admite registros del tipo TXT</li>
-<li>Para asociar la IP a u nombre de dominio:</li>
-<li>Se puede especificar manualmente en su web</li>
-<li>Se puede auto detectar desde su página web (pero detecta el equipo desde donde se accede)</li>
-<li>Se puede hacer una actualización con peticiones a su API HTTP desde el equipo destino. Más detalles en este <a href="https://www.duckdns.org/spec.jsp">enlace</a>.</li>
-</ul>
-<h3 id="32-noip">3.2. noip<a class="headerlink" href="#32-noip" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Sólo admite un registro para un host:  <code>midominio.ddns.net</code></li>
-<li>Se puede asociar la IP  manualmente en su web o instalar cliente en el equipo destino.</li>
-</ul>
-<h2 id="4-enlaces">4. Enlaces<a class="headerlink" href="#4-enlaces" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Duck DNS: <a href="https://www.duckdns.org/">https://www.duckdns.org/</a></li>
-<li>noip DNS: <a href="https://my.noip.com/dynamic-dns/duc">https://my.noip.com/dynamic-dns/duc</a></li>
-<li>Otras posibilidades:</li>
-<li>Best Free Dynamic DNS Services: <a href="https://www.gnutomorrow.com/best-free-dynamic-dns-services/">https://www.gnutomorrow.com/best-free-dynamic-dns-services/</a></li>
-<li>Freedns <a href="https://freedns.afraid.org/">https://freedns.afraid.org/</a> y  Dynamic DNS: <a href="https://freedns.afraid.org/dynamic/">https://freedns.afraid.org/dynamic/</a></li>
-<li>Namecheap: <a href="https://www.namecheap.com/">https://www.namecheap.com/</a> y Nc.me: Namecheap is giving university students a free bundle to kickstart their online presence.: <a href="https://nc.me/">https://nc.me/</a></li>
-<li>¿Qué son las direcciones IP elásticas de AWS y qué hacen? <a href="https://es.linux-console.net/?p=7127#google_vignette">https://es.linux-console.net/?p=7127#google_vignette</a></li>
-<li>Configurar DNS dinámico en la instancia de Amazon Linux - Amazon Elastic Compute Cloud
-<a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/dynamic-dns.html">https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/dynamic-dns.html</a></li>
-</ul>
-<h2 id="5-ejercicio-practico">5. Ejercicio práctico<a class="headerlink" href="#5-ejercicio-practico" title="Permanent link">&para;</a></h2>
-<p>En este ejemplo se usa por ejemplo la AMI Linux de AWS de 2023 (basada en Fedora).</p>
-<ol>
-<li>Crear una instancia EC2 Amazon Linux 2023</li>
-<li>
-<p>Instalar <code>nginx</code> en esa instancia</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[ec2-user@ip-172-31-18-67 ~]$ sudo dnf install -y nginx
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Last metadata expiration check: 0:00:49 ago on Sat Oct 28 13:13:01 2023.
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Dependencies resolved.
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>...
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Complete!
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>[ec2-user@ip-172-31-18-67 ~]$ 
+</div>
+<h2 id="1-dominio-en-fremyip">1. Dominio en fremyip<a class="headerlink" href="#1-dominio-en-fremyip" title="Permanent link">&para;</a></h2>
+<p>Puede encontrar cómo registrar un dominio en <code>freemyip</code> en este documento:
+<a href="../06-1_dns-practicas/">DNS en prácticas</a></p>
+<p>Una vez tenga el dominio, para actualizar la IP deberá hacer una petición con el token y la IP pública. El formato es:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl &quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>IP_PUBLICA_EC2&quot;&amp;verbose=yes&quot;
 </span></code></pre></div>
-</li>
+<p>Para comprobar la actualización basta usar el comando <code>dig</code>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ dig +short midominio.freemyip.com
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ dig +short whoami.midominio.freemyip.com
+</span></code></pre></div></p>
+<h2 id="2-ejercicio-practico">2. Ejercicio práctico<a class="headerlink" href="#2-ejercicio-practico" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Crear una instancia EC2 en AWS</li>
 <li>
-<p>Iniciar el servidor</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[ec2-user@ip-172-31-18-67 ~]$ sudo systemctl start nginx
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[ec2-user@ip-172-31-18-67 ~]$ sudo systemctl status nginx
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>● nginx.service - The nginx HTTP and reverse proxy server
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; preset: disabled)
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    Active: active (running) since Sat 2023-10-28 13:15:30 UTC; 1s ago
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>...
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Oct 28 13:15:30 ip-172-31-18-67.ec2.internal systemd[1]: Started nginx.service - The nginx HTTP and reverse proxy server.
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>[ec2-user@ip-172-31-18-67 ~]$ 
-</span></code></pre></div>
-</li>
-<li>
-<p>Probar servidor en local con <code>curl</code></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[ec2-user@ip-172-31-18-67 ~]$ curl localhost
+<p>Instalar <code>nginx</code> y comprobar en local que el servidor está iniciado y que responde
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ curl localhost
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&lt;!DOCTYPE html&gt;
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&lt;html&gt;
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&lt;head&gt;
@@ -956,51 +817,33 @@
 </span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>&lt;/body&gt;
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>&lt;/html&gt;
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>[ec2-user@ip-172-31-18-67 ~]$ 
-</span></code></pre></div>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>$ 
+</span></code></pre></div></p>
 </li>
 <li>
-<p>Habilitar arranque en reinicio:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[ec2-user@ip-172-31-18-67 ~]$ sudo systemctl enable nginx
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /usr/lib/systemd/system/nginx.service.
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[ec2-user@ip-172-31-18-67 ~]$ sudo systemctl status nginx
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>● nginx.service - The nginx HTTP and reverse proxy server
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: disabled)
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    Active: active (running) since Sat 2023-10-28 13:15:30 UTC; 7min ago
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>...
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>Oct 28 13:15:30 ip-172-31-18-67.ec2.internal systemd[1]: Started nginx.service - The nginx HTTP and reverse proxy server.
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>[ec2-user@ip-172-31-18-67 ~]$ 
-</span></code></pre></div>
+<p>Anotar la IP pública de la instancia EC2 y crear registro DNS con esa IP. Si ya estaba creado actualizar con la IP pública de EC2.</p>
 </li>
 <li>
-<p>Anotar la IP pública de la instancia EC2 y crear registro DNS.</p>
-</li>
-<li>
-<p>Esperar a las actualizaciones DNS y desde un equipo probar el nombre de dominio</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>clases@d12:~$ curl www.midominio.duckdns.org
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&lt;!DOCTYPE html&gt;
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&lt;html&gt;
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&lt;head&gt;
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>....
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>&lt;/body&gt;
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>&lt;/html&gt;
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>clases@d12:~$ 
+<p>Desde su equipo acceder usando el nombre de dominio</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>clases@d13:~$ curl www.midominio.freemiip.com
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE html&gt;
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;html&gt;
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>&lt;head&gt;
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>...
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>....
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>&lt;/body&gt;
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>&lt;/html&gt;
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>clases@d13:~$ 
 </span></code></pre></div>
 </li>
 </ol>
-<blockquote>
-<p><strong>Aviso</strong>: al reiniciar la EC2 cambia la IP.</p>
-<p><strong>Ayuda</strong>: Para instalar <code>nginx</code> directamente al crear la instancia (o desde plantilla de instancia)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nginx
-</span></code></pre></div>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Aviso</p>
+<p>al reiniciar la EC2 cambia la IP y tendrá que actualizar el registro DNS.</p>
+</div>
 
 
 
