@@ -1009,7 +1009,7 @@
 </span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="nt">ADMINER_DEFAULT_SERVER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;127.0.0.1:8085:8080&quot;</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;127.0.0.1:8080:8080&quot;</span>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
 </span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">      </span><span class="nt">db</span><span class="p">:</span>
 </span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
@@ -1039,13 +1039,12 @@
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">       </span><span class="s2">&quot;</span><span class="k">$(</span>docker<span class="w"> </span>compose<span class="w"> </span>ps<span class="w"> </span>-q<span class="w"> </span>db<span class="k">)</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 o
-  <code>bash
-docker inspect \
-       --format '{{json .State.Health}}' \
-       "$(docker compose ps -q db)" \
-       | json_pp</code>  </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>inspect<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">       </span>--format<span class="w"> </span><span class="s1">&#39;{{json .State.Health}}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">       </span><span class="s2">&quot;</span><span class="k">$(</span>docker<span class="w"> </span>compose<span class="w"> </span>ps<span class="w"> </span>-q<span class="w"> </span>db<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">       </span><span class="p">|</span><span class="w"> </span>json_pp
+</span></code></pre></div></p>
 </div>
-<p>```</p>
 <!-- 
 ## 4. Otra soluciones
 

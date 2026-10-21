@@ -1182,14 +1182,16 @@ Implementa las especificaciones Servle y JSP.</p>
 <span class="normal"><a href="#__codelineno-13-5">5</a></span>
 <span class="normal"><a href="#__codelineno-13-6">6</a></span>
 <span class="normal"><a href="#__codelineno-13-7">7</a></span>
-<span class="normal"><a href="#__codelineno-13-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nt">services</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span>
+<span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nt">services</span><span class="p">:</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">  </span><span class="nt">tomcat</span><span class="p">:</span>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tomcat</span>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mitomcat</span>
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./guess-number/guess-number.war:/usr/local/tomcat/webapps/ROOT.war</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./guess-number/guess-number.war:/usr/local/tomcat/webapps/ROOT.war</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Y para ejecutar</p>
 <div class="language-console highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="go">docker compose up -d </span>

@@ -999,11 +999,10 @@ hace que si la variable ADMINER_PORT no está definida en el fichero <code>.env<
 <h3 id="12-usando-la-clave-env_file">1.2. Usando la clave: <code>env_file</code><a class="headerlink" href="#12-usando-la-clave-env_file" title="Permanent link">&para;</a></h3>
 <p>En el ejemplo anterior se incluyen las variables que necesite del fichero y se interpolan a las variables que necesite.</p>
 <p>Otra posibilidad es pasarle a un servicio <strong>todas las variables definidas en un archivo</strong>. Para este nuevo ejemplo cree un fichero <code>.env.db</code>:</p>
-<div class="language-text highlight"><span class="filename">.env.db</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MARIADB_ROOT_PASSWORD=example
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>MYSQL_ROOT_PASSWORD=clave-aula
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>MYSQL_DATABASE=aula
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>MYSQL_USER=alumno
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>MYSQL_PASSWORD=clave-alumno
+<div class="language-text highlight"><span class="filename">.env.db</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>MYSQL_ROOT_PASSWORD=clave-aula
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>MYSQL_DATABASE=aula
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>MYSQL_USER=alumno
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>MYSQL_PASSWORD=clave-alumno
 </span></code></pre></div>
 <p>Y use por ejemplo este compose. Observe la nueva clave <code>env_file</code>:</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">services</span><span class="p">:</span>
