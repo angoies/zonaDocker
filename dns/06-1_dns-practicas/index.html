@@ -692,7 +692,7 @@
           <li class="md-nav__item">
   <a href="#42-anadir-registro-txt-en-el-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2. Añadir registro TXT en el dominio.
+      4.2. Añadir registro TXT en el dominio
     </span>
   </a>
   
@@ -1076,7 +1076,7 @@
           <li class="md-nav__item">
   <a href="#42-anadir-registro-txt-en-el-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      4.2. Añadir registro TXT en el dominio.
+      4.2. Añadir registro TXT en el dominio
     </span>
   </a>
   
@@ -1207,7 +1207,7 @@
 </div>
 <h2 id="1-primera-aproximacion-etchosts">1. Primera aproximación: <code>/etc/hosts</code><a class="headerlink" href="#1-primera-aproximacion-etchosts" title="Permanent link">&para;</a></h2>
 <!-- TODO -->
-<p>Lo más sencillo para hacer pruebas en local es modificar el fichero <code>/etc/hosts</code>. Tenga en cuenta que para resolver la IP de un nombre de host se consulta primero el fichero <code>/etc/hosts</code> y si no hay correspondencia se consulta a los servidores DNS. </p>
+<p>Lo más sencillo para hacer pruebas en local es modificar el fichero <code>/etc/hosts</code>. Tenga en cuenta que para resolver la IP de un nombre de host se consulta primero el fichero <code>/etc/hosts</code> y si no hay correspondencia se consulta a los servidores DNS.</p>
 <p>Se puede asociar en ese fichero el nombre de un dominio (por ejemplo<code>whoami.md.internal</code>) a la dirección local 127.0.0.1 y podría usar ese nombre en sus pruebas en local con el navegador, etc.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ sudo nano /etc/hosts
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>$ cat /etc/hosts
@@ -1230,44 +1230,39 @@
 <h2 id="2-el-dominio-locallhost">2. El dominio .locallhost<a class="headerlink" href="#2-el-dominio-locallhost" title="Permanent link">&para;</a></h2>
 <p>¿Y si no tuviera permisos para modificar el ficher /etc/hosts? En ese caso se puede utilizar el "<em>dominio</em>" <code>.localhost</code> que resuelve por defecto a 127.0.0.1. </p>
 <p>Observe un ejemplo con el dominio <code>sitio1.localhost</code>. Si tiene funcionado un servidor web </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ docker run -d -p 80:80 nginx
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>nginx
 </span></code></pre></div>
 <p>La petición usando el nombre del dominio</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$ curl sitio1.localhost
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE html&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>curl<span class="w"> </span>sitio1.localhost
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;html&gt;
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>...
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>...
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>&lt;/html&gt;
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>$ 
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>$<span class="w"> </span>
 </span></code></pre></div>
 <p>O si hace la petición a un subdominio</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ curl --head app.sitio1.localhost
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>HTTP/1.1 200 OK
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Server: nginx/1.31.6
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>curl<span class="w"> </span>--head<span class="w"> </span>app.sitio1.localhost
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>OK
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Server:<span class="w"> </span>nginx/1.31.6
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>...
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Accept-Ranges: bytes
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>$ 
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Accept-Ranges:<span class="w"> </span>bytes
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>$<span class="w"> </span>
 </span></code></pre></div>
-<p>Tenga en cuenta que es algo "<em>interno</em>" y no es una resoluciñon de host a IP (que sí lo era en el apartado previo)</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$ ping app.sitio1.localhost
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ping: app.sitio1.localhost: Nombre o servicio desconocido
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>$ 
+<p>Tenga en cuenta que es algo "<em>interno</em>" y no es una resolución de host a IP (que sí lo era en el apartado previo)</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>ping<span class="w"> </span>app.sitio1.localhost
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ping:<span class="w"> </span>app.sitio1.localhost:<span class="w"> </span>Nombre<span class="w"> </span>o<span class="w"> </span>servicio<span class="w"> </span>desconocido
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>$<span class="w"> </span>
 </span></code></pre></div>
 <p>Esta solución podría también ser suficiente para el desarrolo de prácticas en local.</p>
 <h2 id="3-usando-un-dominio-registrado">3. Usando un dominio registrado<a class="headerlink" href="#3-usando-un-dominio-registrado" title="Permanent link">&para;</a></h2>
-<p>Esta tercera opción pretende usar un getor de dominios para  mapear el nombre de dominio a la dirección local <code>127.0.0.xxx</code></p>
+<p>Esta tercera opción pretende usar un gestor de dominios para  mapear el nombre de dominio a la dirección local <code>127.0.0.xxx</code></p>
 <h3 id="31-dominios-gratuitos">3.1. Dominios gratuitos<a class="headerlink" href="#31-dominios-gratuitos" title="Permanent link">&para;</a></h3>
 <p>Primero necesita conseguir un nombre de dominio para su IP <strong>sin coste</strong>. Hay varias opciones, entre ellas:</p>
 <ul>
 <li><a href="https://freemyip.com/">freemyip.com</a>, no es necesario registrarse. <a href="https://freemyip.com/help">Ayuda</a></li>
 <li>Dynu: <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></li>
-<li>
-<ul>
-<li>get.tech</li>
-</ul>
-</li>
 <li><em>duckdns</em>: Admite wildcards xxx.midominio.duckdns.org y admite registros tipo TXT. <a href="https://duckdns.org">https://duckdns.org</a></li>
 <li><em>noip.com</em>: <a href="https://www.noip.com/es-MX/free">https://www.noip.com/es-MX/free</a></li>
 <li><em>FreeDNS</em>:  <a href="http://freedns.afraid.org">http://freedns.afraid.org</a></li>
@@ -1275,7 +1270,7 @@
 <li>Freenom (parece que no funciona): <a href="https://www.freenom.com/">https://www.freenom.com/</a></li>
 </ul>
 <h3 id="32-usando-un-gestor-dns-gratuito-freemyip">3.2. Usando un gestor DNS gratuito: freemyip<a class="headerlink" href="#32-usando-un-gestor-dns-gratuito-freemyip" title="Permanent link">&para;</a></h3>
-<p>En este ejemplo usaremos <a href="https://freemyip.com/">freemyip</a> que no requiere crear una cuenta y proporciona un token asociado al nombre de dominio para la gestión.  Además, sus subdominios heredan la IP de forma que por ejemplo </p>
+<p>En este ejemplo usaremos <a href="https://freemyip.com/">freemyip</a> que no requiere crear una cuenta y proporciona un token asociado al nombre de dominio para la gestión.  Además, sus subdominios heredan la IP de forma que por ejemplo</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>midominio.freemyip.com
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>whoami.midominio.freemyip.com
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>app1.midominio.freemyip.com
@@ -1284,18 +1279,17 @@
 <p>pueden resolver todos a la misma dirección.</p>
 <h3 id="33-registro-en-freemyip">3.3. Registro en freemyip<a class="headerlink" href="#33-registro-en-freemyip" title="Permanent link">&para;</a></h3>
 <p>Página inicial dónde se especifica el nombre deseado:</p>
-<p><img alt="" src="../figuras/dns_01.png" /></p>
+<p><img alt="figuras/dns_01.png" src="../figuras/dns_01.png" /></p>
 <p>Si está libre nos lo indica y da la oprtunidad de solicitarlo usando el botón <em>CLAIM IT!</em></p>
-<p><img alt="" src="../figuras/dns_02.png" /></p>
+<p><img alt="figuras/dns_02.png" src="../figuras/dns_02.png" /></p>
 <p>Y finalmente nos indica la URL para actualizar al IP, que incluye el <strong>token</strong> para la gestión y el nombre del <strong>dominio</strong>. Es importante no perder ese token porque no hay forma de recuperarlo y se pierde el dominio.</p>
-<p><img alt="" src="../figuras/dns_03.png" /></p>
-<p>https://freemyip.com/update?token=744c47cd27778805dec8a176&amp;domain=midominio.freemyip.com</p>
+<p><img alt="figuras/dns_03.png" src="../figuras/dns_03.png" /></p>
 <p>Por defecto se asocia el dominio a la IP desde que se realiza la petición.  Si desea comprobar:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>clases@d13:~$ dig +short midominio.freemyip.com
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>81.40.165.129
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>clases@d13:~$ dig +short app.midominio.freemyip.com
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>81.40.165.129
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>clases@d13:~$ 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>clases@d13:~$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">81</span>.40.165.129
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>clases@d13:~$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>app.midominio.freemyip.com
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="m">81</span>.40.165.129
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>clases@d13:~$<span class="w"> </span>
 </span></code></pre></div>
 <p>freemyip permite gestionar el dominio creado mediante peticiones URL. Tiene los detalles en su <a href="https://freemyip.com/help">ayuda</a>.</p>
 <h3 id="34-resolviendo-el-nombre-de-dominio-a-localhost">3.4. Resolviendo el nombre de dominio a localhost<a class="headerlink" href="#34-resolviendo-el-nombre-de-dominio-a-localhost" title="Permanent link">&para;</a></h3>
@@ -1305,28 +1299,36 @@
 <li>o usar el dominio <code>.localhost</code>,</li>
 </ul>
 <p>freemyip permite gestionar el dominio creado mediante peticiones URL que incluyan el <code>token</code> y el <code>domain</code>. Una de las opciones es especificar la IP que desea asociar al dominio usando el parámetro <strong><code>myip</code></strong> en la URL. Sería algo similar a </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl &quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=NUEVAIP&amp;verbose=yes&quot;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=NUEVAIP&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
-<p>Si desea asociar el dominio a su dirección de localhost podrá usar la <code>ip</code> 127.0.0.1 (es posible que la .1 le de error y tenga que usar la .2, etc). </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl &quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=127.0.0.2&amp;verbose=yes&quot;
+<p>Si desea asociar el dominio a su dirección de localhost podrá usar la <code>ip</code> 127.0.0.1 (es posible que la .1 le de error y tenga que usar la .2, etc).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=127.0.0.2&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
-<p>Para comprobar basta usar el comando <code>dig</code>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$ dig +short midominio.freemyip.com
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$ dig +short whoami.midominio.freemyip.com
+<p>Par comprobar use <code>dig</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>whoami.midominio.freemyip.com
 </span></code></pre></div>
-y debería  obtener la IP de localhost. </p>
+<p>y debería  obtener la IP de localhost.</p>
+<div class="admonition warning cuidado con la consultas a la api">
+<p class="admonition-title">Warning</p>
+<p>Si accede a la API sin especificar el campo <code>myip</code> se entiende que la IP a utilizar es la del equipo desde que hace la consulta.</p>
+</div>
 <h2 id="4-anexo-freemyip">4. Anexo freemyip<a class="headerlink" href="#4-anexo-freemyip" title="Permanent link">&para;</a></h2>
 <h3 id="41-resolviendo-a-ip-publicas">4.1. Resolviendo a IP públicas<a class="headerlink" href="#41-resolviendo-a-ip-publicas" title="Permanent link">&para;</a></h3>
 <p>El procedimento es similar: basta indicar en la URL la IP de su servidor externo o instancia AWS EC2. Tenga encuenta que la IP de las instancias AWS EC2 de los laboratorios cambia (a no ser que use IP elástica).</p>
-<h3 id="42-anadir-registro-txt-en-el-dominio">4.2. Añadir registro TXT en el dominio.<a class="headerlink" href="#42-anadir-registro-txt-en-el-dominio" title="Permanent link">&para;</a></h3>
-<p>Puede ser en algún momento necesario añadir un registro TXT asociado al dominio (por ejemplo nos pueden solicitar añadirlo un registro TXT con un texto determinado para demostrar que ser propietario del dominio). </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=IP_EC2S&amp;verbose=yes&quot;</span>
+</span></code></pre></div>
+<h3 id="42-anadir-registro-txt-en-el-dominio">4.2. Añadir registro TXT en el dominio<a class="headerlink" href="#42-anadir-registro-txt-en-el-dominio" title="Permanent link">&para;</a></h3>
+<p>Puede ser en algún momento necesario añadir un registro TXT asociado al dominio (por ejemplo nos pueden solicitar añadirlo un registro TXT con un texto determinado para demostrar que ser propietario del dominio).</p>
 <blockquote>
-<p>You can use an optional "&amp;txt" parameter to do that. For example, to set your TXT record to "my test text" you need to use the following URL:
-https://freemyip.com/update?token=YOUR_TOKEN&amp;domain=YOUR_DOMAIN.freemyip.com&amp;txt=my%20test%20text
-This will also automagically work for any subdomain within your domain. If you want to remove your TXT record, use "&amp;txt=null" or "&amp;txt=". You can also add parameter "&amp;verbose=yes" to see some more information in the output, especially if you encounter an error. Any time you change your TXT record, you will have to wait around 1 minute for DNS cache to get updated.</p>
+<p>You can use an optional "&amp;txt" parameter to do that.
+This will also automagically work for any subdomain within your domain. 
+If you want to remove your TXT record, use "&amp;txt=null" or "&amp;txt=". You can also add parameter "&amp;verbose=yes" to see some more information in the output, especially if you encounter an error.
+Any time you change your TXT record, you will have to wait around 1 minute for DNS cache to get updated.
+</p>
 </blockquote>
-<p>Algo similar a </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$ curl &quot;https://freemyip.com/update?token=TOKEN6&amp;domain=DOMINIO&amp;txt=1234567890&amp;verbose=yes&quot;
+<p>Algo similar a</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN6&amp;domain=DOMINIO&amp;txt=1234567890&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
 <h2 id="5-anexo-otros-gestores-de-dominio">5. Anexo: otros gestores de dominio<a class="headerlink" href="#5-anexo-otros-gestores-de-dominio" title="Permanent link">&para;</a></h2>
 <h3 id="51-dominio-en-dynu">5.1. Dominio en Dynu<a class="headerlink" href="#51-dominio-en-dynu" title="Permanent link">&para;</a></h3>

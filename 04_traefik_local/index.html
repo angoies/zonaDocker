@@ -694,6 +694,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#usando-etchosts-o-un-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usando /etc/hosts o un dominio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#81-fichero-composeyml-completo" class="md-nav__link">
     <span class="md-ellipsis">
       8.1. Fichero compose.yml completo
@@ -1117,6 +1126,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#usando-etchosts-o-un-dominio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usando /etc/hosts o un dominio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#81-fichero-composeyml-completo" class="md-nav__link">
     <span class="md-ellipsis">
       8.1. Fichero compose.yml completo
@@ -1206,14 +1224,14 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span><span class="w">      </span>
 </span></code></pre></div>
 <p>Como el fichero compose no tiene el nombre por defecto lo debe iniciar indicando su nombre con la opción <code>-f</code></p>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>traefik$ docker compose -f compose-traefik-01.yml up -d
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[+] up 2/2
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> ✔ Network traefik_default     Created                                               0.0s
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> ✔ Container traefik-traefik-1 Started                                               0.4s
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>traefik$ 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>traefik$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>compose-traefik-01.yml<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>up<span class="w"> </span><span class="m">2</span>/2
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>traefik_default<span class="w">     </span>Created<span class="w">                                               </span><span class="m">0</span>.0s
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>traefik-traefik-1<span class="w"> </span>Started<span class="w">                                               </span><span class="m">0</span>.4s
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>traefik$<span class="w"> </span>
 </span></code></pre></div>
-Y  puede acceder al <em>dashboard</em> en la URL <code>http://localhost:8080/</code> :</p>
-<p><img alt="" src="../figuras/traefik-01-dashboard.png" /></p>
+<p>Y  puede acceder al <em>dashboard</em> en la URL <code>http://localhost:8080/</code> :</p>
+<p><img alt="./figuras/traefik-01-dashboard.png" src="../figuras/traefik-01-dashboard.png" /></p>
 <blockquote>
 <p>Because we explicitly enabled insecure mode, the dashboard is reachable on port 8080 without authentication. <strong>Do not enable this flag in production</strong>.
 You can access the dashboard at:
@@ -1237,11 +1255,11 @@ You can access the dashboard at:
 </span></code></pre></div>
 <p>Observe la última etiqueta: Traefik descubre este nuevo servicio y lo añade a su configuración creando una ruta que enlaza la dirección <code>whoami.md.localhost</code> al servicio.</p>
 <p>Detenga  la ejecución del despliegue previo:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>traefik$ docker compose -f compose-traefik-01.yml down -v
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>[+] down 2/2
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a> ✔ Container traefik-traefik-1 removed   0.4s
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a> ✔ Network traefik_default     Removed   0.2s
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>traefik$ 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>traefik$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>compose-traefik-01.yml<span class="w"> </span>down<span class="w"> </span>-v
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span>down<span class="w"> </span><span class="m">2</span>/2
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w"> </span>✔<span class="w"> </span>Container<span class="w"> </span>traefik-traefik-1<span class="w"> </span>removed<span class="w">   </span><span class="m">0</span>.4s
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w"> </span>✔<span class="w"> </span>Network<span class="w"> </span>traefik_default<span class="w">     </span>Removed<span class="w">   </span><span class="m">0</span>.2s
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>traefik$<span class="w"> </span>
 </span></code></pre></div>
 <p>Y aplicamos el nuevo fichero <code>compose-traefik-02.yml</code> :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>traefik$ docker compose -f compose-traefik-02.yml up -d
@@ -1271,16 +1289,14 @@ You can access the dashboard at:
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a> ✔ Network traefik_default     Removed   0.2s
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>traefik$ 
 </span></code></pre></div>
-<div class="admonition tip extra">
-<p class="admonition-title">Tip</p>
-</div>
 <p>Se ha añadido al ejemplo de la guía rápida las labels:</p>
 <ul>
 <li><code>"traefik.enable=true"</code>: es una opción necesaria en el servicio si en la opciones de traefik estuviera activa la opción  <code>--providers.docker.exposedbydefault=false</code>. Por defecto cuando Traefik se conecta al socket Docker expone automáticamente todos los contenedores como servicios. Es decir, si <code>--providers.docker.exposedbydefault</code> está en true (valor por defecto), cualquier contenedor puede ser accesible públicamente si tiene un puerto abierto. Con <code>traefik.enable</code> se controla dicha exposición a nivel de servicio.</li>
-<li><code>"traefik.http.routers.whoami.entrypoints=web"</code>. En este caso esta opción no es necesaria ya que <code>web</code> y <code>websecure</code> son entrypoints ya definidos en Traefik cuando no defines explícitamente otros en la configuración (web se corresponde con el puerto 80).
-    &gt;If not specified, HTTP routers are attached to all entry points.
-    &gt;
-    &gt; the entryPoints web (port 80), websecure (port 443), traefik (port 8080) and metrics (port 9100) are created by default. The entryPoints web, websecure are exposed by default using a Service.</li>
+<li><code>"traefik.http.routers.whoami.entrypoints=web"</code>. En este caso esta opción no es necesaria ya que <code>web</code> y <code>websecure</code> son entrypoints ya definidos en Traefik cuando no defines explícitamente otros en la configuración (web se corresponde con el puerto 80).<blockquote>
+<p>If not specified, HTTP routers are attached to all entry points.</p>
+<p>the entryPoints web (port 80), websecure (port 443), traefik (port 8080) and metrics (port 9100) are created by default. The entryPoints web, websecure are exposed by default using a Service.</p>
+</blockquote>
+</li>
 </ul>
 <h2 id="4-ampliando-el-ejemplo-inicial">4. Ampliando el ejemplo inicial<a class="headerlink" href="#4-ampliando-el-ejemplo-inicial" title="Permanent link">&para;</a></h2>
 <h3 id="41-servicio-web-nginx">4.1. Servicio web nginx<a class="headerlink" href="#41-servicio-web-nginx" title="Permanent link">&para;</a></h3>
@@ -1324,7 +1340,7 @@ You can access the dashboard at:
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.entrypoints=web&quot;</span><span class="w"> </span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.rule=Host(`php.otrodominio.internal`)&quot;</span><span class="w">    </span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.rule=Host(`php.otrodominio.localhost`)&quot;</span><span class="w">    </span>
 </span></code></pre></div>
 <p>Se lanza el servicio:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>alu@xd13:~/pr/traefik$  docker compose up -d phpserver 
@@ -1342,10 +1358,10 @@ You can access the dashboard at:
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a> ✔ Container traefik-phpserver-1 Started     0.8s
 </span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>/traefik$ 
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>clases@d13:~/src/traefik$ curl php.otrodominio.localhost
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>  Server IP: 172.19.0.4 &lt;br /&gt;
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>  Hostname: 514c8620406a &lt;br /&gt;
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>clases@d13:~/src/traefik$ 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>clases@d13:~/src/traefik$<span class="w"> </span>curl<span class="w"> </span>php.otrodominio.localhost
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>Server<span class="w"> </span>IP:<span class="w"> </span><span class="m">172</span>.19.0.4<span class="w"> </span>&lt;br<span class="w"> </span>/&gt;
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>Hostname:<span class="w"> </span>514c8620406a<span class="w"> </span>&lt;br<span class="w"> </span>/&gt;
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>clases@d13:~/src/traefik$<span class="w"> </span>
 </span></code></pre></div>
 <h2 id="5-escalar-el-servicio-balanceo-de-carga">5. Escalar el servicio: balanceo de carga<a class="headerlink" href="#5-escalar-el-servicio-balanceo-de-carga" title="Permanent link">&para;</a></h2>
 <p>Si desea escalar alguno de los servicios, por ejemplo último este creado,  puede crear <em>replicas</em> con la opción <code>--scale</code>:</p>
@@ -1372,13 +1388,16 @@ You can access the dashboard at:
 </span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>traefik$
 </span></code></pre></div>
 <h2 id="6-ejercicio-propuesto">6. Ejercicio propuesto<a class="headerlink" href="#6-ejercicio-propuesto" title="Permanent link">&para;</a></h2>
-<p>Añadir a traefik un servicio <code>Wordpres</code> en el dominio <code>miblog.example.internal</code>. Tenga en cuenta que son dos servicios: wordpress y la base da datos.</p>
+<p>Añadir a traefik un servicio <code>Wordpres</code> en el dominio <code>miblog.example.localhost</code>. Tenga en cuenta que son dos servicios: wordpress y la base da datos.</p>
 <h2 id="7-enlaces">7. Enlaces<a class="headerlink" href="#7-enlaces" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://doc.traefik.io/traefik/getting-started/quick-start/">Quickstart de Traefik</a></li>
 <li><a href="https://www.middlewareinventory.com/blog/traefik-docker/?utm_source=pocket_reader">Traefik Docker Example and Introduction</a></li>
 </ul>
 <h2 id="8-anexos">8. Anexos<a class="headerlink" href="#8-anexos" title="Permanent link">&para;</a></h2>
+<h3 id="usando-etchosts-o-un-dominio">Usando <code>/etc/hosts</code> o un dominio<a class="headerlink" href="#usando-etchosts-o-un-dominio" title="Permanent link">&para;</a></h3>
+<p>Si tiene permisos para modificar el fichero <code>/etc/hosts</code> podría realizar esta práctica usando nombres de dominio diferentes de <code>.localhost</code>. O puede usar un dominio que resuelva en este caso a la IP 127.0.0.1.</p>
+<p>Tiene más información en los apartados de uso de DNS de los apuntes.</p>
 <h3 id="81-fichero-composeyml-completo">8.1. Fichero <code>compose.yml</code> completo<a class="headerlink" href="#81-fichero-composeyml-completo" title="Permanent link">&para;</a></h3>
 <!-- TODO -->
 <div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">traefik/compose.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
@@ -1467,7 +1486,7 @@ You can access the dashboard at:
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="w">  </span><span class="nt">labels</span><span class="p">:</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span><span class="w"> </span>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.app.entrypoints=web&quot;</span><span class="w">  </span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.app.rule=Host(`aplicacion.md.internal`)&quot;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.app.rule=Host(`aplicacion.md.localhost`)&quot;</span>
 </span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">        </span><span class="c1"># Esta es la etiqueta que le dice a Traefik el puerto exacto:</span>
 </span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.services.app.loadbalancer.server.port=80&quot;</span>
 </span></code></pre></div>
