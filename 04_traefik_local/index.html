@@ -12,7 +12,7 @@
         <link rel="prev" href="../03-docker-depends/">
       
       
-        <link rel="next" href="../dns/06-1_dns-practicas/">
+        <link rel="next" href="../04_traefik_local_SSL-parte-01/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Traefik - Zona Docker</title>
+        <title>Local - Zona Docker</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Traefik
+              Local
             
           </span>
         </div>
@@ -496,6 +496,44 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Traefik
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Traefik
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -508,7 +546,7 @@
           
   
   <span class="md-ellipsis">
-    Traefik
+    Local
     
   </span>
   
@@ -520,7 +558,7 @@
         
   
   <span class="md-ellipsis">
-    Traefik
+    Local
     
   </span>
   
@@ -694,27 +732,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usando-etchosts-o-un-dominio" class="md-nav__link">
+  <a href="#81-usando-etchosts-o-un-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Usando /etc/hosts o un dominio
+      8.1. Usando /etc/hosts o un dominio
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#81-fichero-composeyml-completo" class="md-nav__link">
+  <a href="#82-fichero-composeyml-completo" class="md-nav__link">
     <span class="md-ellipsis">
-      8.1. Fichero compose.yml completo
+      8.2. Fichero compose.yml completo
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#82-sobre-los-puertos-y-traefik" class="md-nav__link">
+  <a href="#83-sobre-los-puertos-y-traefik" class="md-nav__link">
     <span class="md-ellipsis">
-      8.2. Sobre los puertos y traefik
+      8.3. Sobre los puertos y traefik
     </span>
   </a>
   
@@ -728,6 +766,36 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_traefik_local_SSL-parte-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local + SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1126,27 +1194,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usando-etchosts-o-un-dominio" class="md-nav__link">
+  <a href="#81-usando-etchosts-o-un-dominio" class="md-nav__link">
     <span class="md-ellipsis">
-      Usando /etc/hosts o un dominio
+      8.1. Usando /etc/hosts o un dominio
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#81-fichero-composeyml-completo" class="md-nav__link">
+  <a href="#82-fichero-composeyml-completo" class="md-nav__link">
     <span class="md-ellipsis">
-      8.1. Fichero compose.yml completo
+      8.2. Fichero compose.yml completo
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#82-sobre-los-puertos-y-traefik" class="md-nav__link">
+  <a href="#83-sobre-los-puertos-y-traefik" class="md-nav__link">
     <span class="md-ellipsis">
-      8.2. Sobre los puertos y traefik
+      8.3. Sobre los puertos y traefik
     </span>
   </a>
   
@@ -1395,10 +1463,10 @@ You can access the dashboard at:
 <li><a href="https://www.middlewareinventory.com/blog/traefik-docker/?utm_source=pocket_reader">Traefik Docker Example and Introduction</a></li>
 </ul>
 <h2 id="8-anexos">8. Anexos<a class="headerlink" href="#8-anexos" title="Permanent link">&para;</a></h2>
-<h3 id="usando-etchosts-o-un-dominio">Usando <code>/etc/hosts</code> o un dominio<a class="headerlink" href="#usando-etchosts-o-un-dominio" title="Permanent link">&para;</a></h3>
+<h3 id="81-usando-etchosts-o-un-dominio">8.1. Usando <code>/etc/hosts</code> o un dominio<a class="headerlink" href="#81-usando-etchosts-o-un-dominio" title="Permanent link">&para;</a></h3>
 <p>Si tiene permisos para modificar el fichero <code>/etc/hosts</code> podría realizar esta práctica usando nombres de dominio diferentes de <code>.localhost</code>. O puede usar un dominio que resuelva en este caso a la IP 127.0.0.1.</p>
 <p>Tiene más información en los apartados de uso de DNS de los apuntes.</p>
-<h3 id="81-fichero-composeyml-completo">8.1. Fichero <code>compose.yml</code> completo<a class="headerlink" href="#81-fichero-composeyml-completo" title="Permanent link">&para;</a></h3>
+<h3 id="82-fichero-composeyml-completo">8.2. Fichero <code>compose.yml</code> completo<a class="headerlink" href="#82-fichero-composeyml-completo" title="Permanent link">&para;</a></h3>
 <!-- TODO -->
 <div class="language-yaml highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">traefik/compose.yml</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
@@ -1478,7 +1546,7 @@ You can access the dashboard at:
 </span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.entrypoints=web&quot;</span><span class="w"> </span>
 </span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.phpserver.rule=Host(`php.otrodominio.localhost`)&quot;</span>
 </span></code></pre></div></td></tr></table></div>
-<h3 id="82-sobre-los-puertos-y-traefik">8.2. Sobre los puertos y traefik<a class="headerlink" href="#82-sobre-los-puertos-y-traefik" title="Permanent link">&para;</a></h3>
+<h3 id="83-sobre-los-puertos-y-traefik">8.3. Sobre los puertos y traefik<a class="headerlink" href="#83-sobre-los-puertos-y-traefik" title="Permanent link">&para;</a></h3>
 <p>Una aclaración: ¿Cómo sabe Traefik a qué puerto reenviar el tráfico?</p>
 <p>Cuando se configura <code>--providers.docker=true</code>, Traefik se conecta al socket de Docker (<code>/var/run/docker.sock</code>) y escucha los eventos de los contenedores. Cuando arranca algún servicio, Traefik inspecciona los metadatos de esa imagen.</p>
 <p>Específicamente, busca la instrucción EXPOSE dentro del Dockerfile original con el que se construyó la imagen. Si la imagen expone un único puerto, Traefik es lo suficientemente inteligente como para autodetectarlo y usarlo automáticamente para enrutar el tráfico.</p>
@@ -1536,13 +1604,13 @@ You can access the dashboard at:
         
         
           
-          <a href="../dns/06-1_dns-practicas/" class="md-footer__link md-footer__link--next" aria-label="Next: en local">
+          <a href="../04_traefik_local_SSL-parte-01/" class="md-footer__link md-footer__link--next" aria-label="Next: Local + SSL">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                en local
+                Local + SSL
               </div>
             </div>
             <div class="md-footer__button md-icon">

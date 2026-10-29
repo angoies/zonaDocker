@@ -490,9 +490,19 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../04_traefik_local/" class="md-nav__link">
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Traefik
@@ -500,7 +510,63 @@
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Traefik
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_traefik_local/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_traefik_local_SSL-parte-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local + SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -781,7 +847,7 @@
 
 
 <h1 id="introduccion">Introducción<a class="headerlink" href="#introduccion" title="Permanent link">&para;</a></h1>
-<p>Objetivo: asociar la IP de una instancia EC2 a un nombre de dominio. En apartados previos ha estudiado como obtener un nombre de dominio gratuito. </p>
+<p>Objetivo: asociar la IP de una instancia EC2 a un nombre de dominio. En apartados previos ha estudiado como obtener un nombre de dominio gratuito.</p>
 <div class="admonition info">
 <p class="admonition-title">Cambio en la IP</p>
 <p>En el caso de la instancia EC2 de AWS del laboratorio habrá que resolver el que la IP va cambiando al detener y reiniciar la instancia. Posibles soluciones:</p>
@@ -795,48 +861,48 @@
 <p>Puede encontrar cómo registrar un dominio en <code>freemyip</code> en este documento:
 <a href="../06-1_dns-practicas/">DNS en prácticas</a></p>
 <p>Una vez tenga el dominio, para actualizar la IP deberá hacer una petición con el token y la IP pública. El formato es:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl &quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>IP_PUBLICA_EC2&quot;&amp;verbose=yes&quot;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s2">IP_PUBLICA_EC2&quot;</span><span class="p">&amp;</span><span class="nv">verbose</span><span class="o">=</span>yes<span class="s2">&quot;</span>
 </span></code></pre></div>
-<p>Para comprobar la actualización basta usar el comando <code>dig</code>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ dig +short midominio.freemyip.com
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>$ dig +short whoami.midominio.freemyip.com
-</span></code></pre></div></p>
+<p>Para comprobar la actualización basta usar el comando <code>dig</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.midominio.freemyip.com
+</span></code></pre></div>
 <h2 id="2-ejercicio-practico">2. Ejercicio práctico<a class="headerlink" href="#2-ejercicio-practico" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Crear una instancia EC2 en AWS</li>
 <li>
-<p>Instalar <code>nginx</code> y comprobar en local que el servidor está iniciado y que responde
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$ curl localhost
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&lt;!DOCTYPE html&gt;
+<p>Instalar <code>nginx</code> y comprobar en local que el servidor está iniciado y que responde</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>curl<span class="w"> </span>localhost
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&lt;html&gt;
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>&lt;head&gt;
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>....
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>...
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>&lt;p&gt;&lt;em&gt;Thank<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>nginx.&lt;/em&gt;&lt;/p&gt;
 </span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>&lt;/body&gt;
 </span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>&lt;/html&gt;
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>$ 
-</span></code></pre></div></p>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>$<span class="w"> </span>
+</span></code></pre></div>
 </li>
 <li>
 <p>Anotar la IP pública de la instancia EC2 y crear registro DNS con esa IP. Si ya estaba creado actualizar con la IP pública de EC2.</p>
 </li>
 <li>
 <p>Desde su equipo acceder usando el nombre de dominio</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>clases@d13:~$ curl www.midominio.freemiip.com
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE html&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>clases@d13:~$<span class="w"> </span>curl<span class="w"> </span>www.midominio.freemiip.com
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;html&gt;
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>&lt;head&gt;
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>...
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>&lt;h1&gt;Welcome to nginx!&lt;/h1&gt;
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>....
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>&lt;p&gt;&lt;em&gt;Thank you for using nginx.&lt;/em&gt;&lt;/p&gt;
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>&lt;p&gt;&lt;em&gt;Thank<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>nginx.&lt;/em&gt;&lt;/p&gt;
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>&lt;/body&gt;
 </span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>&lt;/html&gt;
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>clases@d13:~$ 
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>clases@d13:~$<span class="w"> </span>
 </span></code></pre></div>
 </li>
 </ol>

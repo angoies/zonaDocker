@@ -642,9 +642,19 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../04_traefik_local/" class="md-nav__link">
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
     Traefik
@@ -652,7 +662,63 @@
   </span>
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Traefik
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_traefik_local/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local
+    
+  </span>
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_traefik_local_SSL-parte-01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local + SSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1134,8 +1200,8 @@ Implementa las especificaciones Servle y JSP.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>mkdir<span class="w"> </span>tomcat-docker
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">cd</span><span class="w"> </span>tomcat-docker
 </span></code></pre></div>
-<p>Se le proporciona en este ejemplo una aplicacion desarrolada en JSP  que solicita que el usuario adivine un nombre. Este es el fichero que debe descargar:</p>
-<p>Fichero <a href="src/03_guess-number.zip">guess-number.zip</a></p>
+<p>Se le proporciona en los fuentes una aplicacion desarrolada en JSP  que solicita que el usuario adivine un nombre. Este es el fichero que debe descargar:</p>
+<p>Fichero <a href="../src/tomcat-docker/03_guess-number.zip">guess-number.zip</a></p>
 <p>Ahora basta descomprimir y  crear el fichero war:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>unzip<span class="w"> </span>guess-number.zip
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>guess-number
