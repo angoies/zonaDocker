@@ -12,7 +12,7 @@
         <link rel="prev" href="../04_traefik_local/">
       
       
-        <link rel="next" href="../dns/06-1_dns-practicas/">
+        <link rel="next" href="../04_traefik_local_SSL-parte-02/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -806,6 +806,28 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_traefik_local_SSL-parte-02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Local + SSL + wildcard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1280,7 +1302,11 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>nginx.mi-dominio.freemyip.com
 </span></code></pre></div>
 <p>apuntarán al propio ordenador desde el que se realiza la práctica.</p>
-<p>Para demostrar a Let's Encrypt que controlamos el dominio utilizaremos el desafío <strong>DNS-01</strong>. Traefik modificará temporalmente registros DNS de tipo <code>TXT</code> mediante la API de FreeMyIP. La arquitectura será aproximadamente la siguiente:</p>
+<p>Para demostrar a Let's Encrypt que controlamos el dominio utilizaremos el desafío <strong>DNS-01</strong>. Traefik modificará temporalmente registros DNS de tipo <code>TXT</code> mediante la API de FreeMyIP. </p>
+<!-- 
+
+La arquitectura será aproximadamente la siguiente:
+
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>                         Internet
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>                            │
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                            │ consulta DNS TXT
@@ -1321,6 +1347,9 @@
 </span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>        │
 </span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>        └──────────► nginx
 </span></code></pre></div>
+
+-->
+
 <div class="admonition important">
 <p class="admonition-title">Idea fundamental</p>
 <p>Let's Encrypt <strong>no necesita conectarse a los puertos 80 o 443 del equipo</strong> cuando utilizamos DNS-01.
@@ -2153,13 +2182,13 @@ Es la biblioteca/cliente ACME utilizada internamente por Traefik y contiene, ent
         
         
           
-          <a href="../dns/06-1_dns-practicas/" class="md-footer__link md-footer__link--next" aria-label="Next: en local">
+          <a href="../04_traefik_local_SSL-parte-02/" class="md-footer__link md-footer__link--next" aria-label="Next: Local + SSL + wildcard">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                en local
+                Local + SSL + wildcard
               </div>
             </div>
             <div class="md-footer__button md-icon">
