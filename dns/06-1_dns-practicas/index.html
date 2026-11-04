@@ -745,9 +745,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#34-resolviendo-el-nombre-de-dominio-a-localhost" class="md-nav__link">
+  <a href="#34-resolviendo-el-nombre-de-dominio-a-12700x" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4. Resolviendo el nombre de dominio a localhost
+      3.4. Resolviendo el nombre de dominio a 127.0.0.x
     </span>
   </a>
   
@@ -826,44 +826,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-todo-dominio-en-tech" class="md-nav__link">
+  <a href="#52-dominio-en-tech" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2. TODO: dominio en .tech
+      5.2. dominio en .tech
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-otros-servicios-dns" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3. Otros servicios DNS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.3. Otros servicios DNS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#531-duckdns" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3.1. duckdns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#532-noip" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3.2. noip
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -873,9 +840,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-enlaces" class="md-nav__link">
+  <a href="#6-anexo-vpns" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Enlaces
+      6. Anexo VPNs
     </span>
   </a>
   
@@ -1129,9 +1096,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#34-resolviendo-el-nombre-de-dominio-a-localhost" class="md-nav__link">
+  <a href="#34-resolviendo-el-nombre-de-dominio-a-12700x" class="md-nav__link">
     <span class="md-ellipsis">
-      3.4. Resolviendo el nombre de dominio a localhost
+      3.4. Resolviendo el nombre de dominio a 127.0.0.x
     </span>
   </a>
   
@@ -1210,44 +1177,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-todo-dominio-en-tech" class="md-nav__link">
+  <a href="#52-dominio-en-tech" class="md-nav__link">
     <span class="md-ellipsis">
-      5.2. TODO: dominio en .tech
+      5.2. dominio en .tech
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-otros-servicios-dns" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3. Otros servicios DNS
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5.3. Otros servicios DNS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#531-duckdns" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3.1. duckdns
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#532-noip" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.3.2. noip
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1257,9 +1191,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-enlaces" class="md-nav__link">
+  <a href="#6-anexo-vpns" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Enlaces
+      6. Anexo VPNs
     </span>
   </a>
   
@@ -1294,7 +1228,6 @@
 <p>En otro apartado se usaran direcciones IP públicas con una instancia EC2 de AWS.</p>
 </div>
 <h2 id="1-primera-aproximacion-etchosts">1. Primera aproximación: <code>/etc/hosts</code><a class="headerlink" href="#1-primera-aproximacion-etchosts" title="Permanent link">&para;</a></h2>
-<!-- TODO -->
 <p>Lo más sencillo para hacer pruebas en local es modificar el fichero <code>/etc/hosts</code>. Tenga en cuenta que para resolver la IP de un nombre de host se consulta primero el fichero <code>/etc/hosts</code> y si no hay correspondencia se consulta a los servidores DNS.</p>
 <p>Se puede asociar en ese fichero el nombre de un dominio (por ejemplo<code>whoami.md.internal</code>) a la dirección local 127.0.0.1 y podría usar ese nombre en sus pruebas en local con el navegador, etc.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$ sudo nano /etc/hosts
@@ -1316,8 +1249,8 @@
 </span></code></pre></div>
 <p>Esta solución puede ser suficiente para el desarrollo de prácticas en local.</p>
 <h2 id="2-el-dominio-locallhost">2. El dominio .locallhost<a class="headerlink" href="#2-el-dominio-locallhost" title="Permanent link">&para;</a></h2>
-<p>¿Y si no tuviera permisos para modificar el ficher /etc/hosts? En ese caso se puede utilizar el "<em>dominio</em>" <code>.localhost</code> que resuelve por defecto a 127.0.0.1. </p>
-<p>Observe un ejemplo con el dominio <code>sitio1.localhost</code>. Si tiene funcionado un servidor web </p>
+<p>¿Y si no tuviera permisos para modificar el fichero <code>/etc/hosts</code>? En ese caso se puede utilizar el "<em>dominio</em>" <code>.localhost</code> que resuelve por defecto a 127.0.0.1.</p>
+<p>Observe un ejemplo con el dominio <code>sitio1.localhost</code>. Si tiene funcionado un servidor web</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>nginx
 </span></code></pre></div>
 <p>La petición usando el nombre del dominio</p>
@@ -1343,22 +1276,19 @@
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ping:<span class="w"> </span>app.sitio1.localhost:<span class="w"> </span>Nombre<span class="w"> </span>o<span class="w"> </span>servicio<span class="w"> </span>desconocido
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>$<span class="w"> </span>
 </span></code></pre></div>
-<p>Esta solución podría también ser suficiente para el desarrolo de prácticas en local.</p>
+<p>Esta solución podría también ser suficiente para el desarrollo de prácticas en local.</p>
 <h2 id="3-usando-un-dominio-registrado">3. Usando un dominio registrado<a class="headerlink" href="#3-usando-un-dominio-registrado" title="Permanent link">&para;</a></h2>
 <p>Esta tercera opción pretende usar un gestor de dominios para  mapear el nombre de dominio a la dirección local <code>127.0.0.xxx</code></p>
 <h3 id="31-dominios-gratuitos">3.1. Dominios gratuitos<a class="headerlink" href="#31-dominios-gratuitos" title="Permanent link">&para;</a></h3>
-<p>Primero necesita conseguir un nombre de dominio para su IP <strong>sin coste</strong>. Hay varias opciones, entre ellas:</p>
+<p>Primero necesita conseguir un nombre de dominio para su IP <strong>sin coste</strong>. Hay varias opciones que se muestran en el anexo, entre ellas:</p>
 <ul>
-<li><a href="https://freemyip.com/">freemyip.com</a>, no es necesario registrarse. <a href="https://freemyip.com/help">Ayuda</a></li>
+<li>Freemyip: <a href="https://freemyip.com/">https://freemyip.com/</a></li>
 <li>Dynu: <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></li>
-<li><em>duckdns</em>: Admite wildcards xxx.midominio.duckdns.org y admite registros tipo TXT. <a href="https://duckdns.org">https://duckdns.org</a></li>
-<li><em>noip.com</em>: <a href="https://www.noip.com/es-MX/free">https://www.noip.com/es-MX/free</a></li>
-<li><em>FreeDNS</em>:  <a href="http://freedns.afraid.org">http://freedns.afraid.org</a></li>
-<li><em>Nominalia</em>:  primer año gratis, pero hay que dar tarjeta <a href="https://www.nominalia.com/">https://www.nominalia.com/</a></li>
-<li>Freenom (parece que no funciona): <a href="https://www.freenom.com/">https://www.freenom.com/</a></li>
+<li>Duck DNS: <a href="https://duckdns.org">https://duckdns.org</a>.</li>
+<li>El dominio <code>.tech</code> es gratuito usando el Developer Pack Student de GitHub.</li>
 </ul>
 <h3 id="32-usando-un-gestor-dns-gratuito-freemyip">3.2. Usando un gestor DNS gratuito: freemyip<a class="headerlink" href="#32-usando-un-gestor-dns-gratuito-freemyip" title="Permanent link">&para;</a></h3>
-<p>En este ejemplo usaremos <a href="https://freemyip.com/">freemyip</a> que no requiere crear una cuenta y proporciona un token asociado al nombre de dominio para la gestión.  Además, sus subdominios heredan la IP de forma que por ejemplo</p>
+<p>En este ejemplo usaremos <a href="https://freemyip.com/">freemyip</a>, que no requiere crear una cuenta y proporciona un token asociado al nombre de dominio para su gestión.  Además, sus subdominios heredan la IP de forma que por ejemplo</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>midominio.freemyip.com
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>whoami.midominio.freemyip.com
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>app1.midominio.freemyip.com
@@ -1366,59 +1296,100 @@
 </span></code></pre></div>
 <p>pueden resolver todos a la misma dirección.</p>
 <h3 id="33-registro-en-freemyip">3.3. Registro en freemyip<a class="headerlink" href="#33-registro-en-freemyip" title="Permanent link">&para;</a></h3>
-<p>Página inicial dónde se especifica el nombre deseado:</p>
+<div class="admonition warning">
+<p class="admonition-title">Sobre el acceso a freemyip desde el aula</p>
+<p>freemyip puede establecer límites si detecta muchas peticiones desde la misma IP, que es lo que ocurre normalmente desde un aula.</p>
+<p>Para evitarlo se recomienda:</p>
+<ul>
+<li>usar el navegador</li>
+<li>instalar un plugin de VPN y activarlo antes </li>
+<li>hacer las peticiones en el navegador en vez de con <code>curl</code>.</li>
+</ul>
+<p>Tiene información sobre plugins de VPN en los anexos. </p>
+</div>
+<p>Observe la página inicial dónde puede especificar el nombre deseado:</p>
 <p><img alt="figuras/dns_01.png" src="../figuras/dns_01.png" /></p>
-<p>Si está libre nos lo indica y da la oprtunidad de solicitarlo usando el botón <em>CLAIM IT!</em></p>
+<p>y si está libre nos lo indica y da la oprtunidad de solicitarlo usando el botón <em>CLAIM IT!</em></p>
 <p><img alt="figuras/dns_02.png" src="../figuras/dns_02.png" /></p>
-<p>Y finalmente nos indica la URL para actualizar al IP, que incluye el <strong>token</strong> para la gestión y el nombre del <strong>dominio</strong>. Es importante no perder ese token porque no hay forma de recuperarlo y se pierde el dominio.</p>
+<p>Finalmente si todo es correcto nos indica la URL para actualizar al IP, que incluye el <strong>token</strong> para la gestión y el <strong>nombre del dominio</strong>. Es importante no perder ese token porque no hay forma de recuperarlo y se pierde el dominio.</p>
 <p><img alt="figuras/dns_03.png" src="../figuras/dns_03.png" /></p>
-<p>Por defecto se asocia el dominio a la IP desde que se realiza la petición.  Si desea comprobar:</p>
+<p>Por defecto se asocia el dominio a la IP desde que se ha realizado la petición.  Si desea comprobar:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>clases@d13:~$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">81</span>.40.165.129
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="m">82</span>.40.155.129
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>clases@d13:~$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>app.midominio.freemyip.com
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="m">81</span>.40.165.129
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="m">83</span>.40.155.129
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>clases@d13:~$<span class="w"> </span>
 </span></code></pre></div>
 <p>freemyip permite gestionar el dominio creado mediante peticiones URL. Tiene los detalles en su <a href="https://freemyip.com/help">ayuda</a>.</p>
-<h3 id="34-resolviendo-el-nombre-de-dominio-a-localhost">3.4. Resolviendo el nombre de dominio a localhost<a class="headerlink" href="#34-resolviendo-el-nombre-de-dominio-a-localhost" title="Permanent link">&para;</a></h3>
-<p>Esto es una "solución" para el caso de pruebas en local que requieran de resolución de nombres "reales" y no desea utilizar las soluciones anteriores:</p>
-<ul>
-<li>modificar el fichero <code>/etc/hosts</code></li>
-<li>o usar el dominio <code>.localhost</code>,</li>
-</ul>
-<p>freemyip permite gestionar el dominio creado mediante peticiones URL que incluyan el <code>token</code> y el <code>domain</code>. Una de las opciones es especificar la IP que desea asociar al dominio usando el parámetro <strong><code>myip</code></strong> en la URL. Sería algo similar a </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=NUEVAIP&amp;verbose=yes&quot;</span>
+<h3 id="34-resolviendo-el-nombre-de-dominio-a-12700x">3.4. Resolviendo el nombre de dominio a <code>127.0.0.x</code><a class="headerlink" href="#34-resolviendo-el-nombre-de-dominio-a-12700x" title="Permanent link">&para;</a></h3>
+<p>Esto es una "solución" para el caso de pruebas en local que requieran de resolución de nombres "reales" y no desea utilizar las soluciones anteriores de modificar el fichero <code>/etc/hosts</code> * o usar el dominio <code>.localhost</code>,</p>
+<p>freemyip gestiona el dominio creado mediante peticiones URL que incluyan el <code>token</code> y el <code>domain</code>. Una de las posibilidades es especificar la IP que desea asociar al dominio usando además el parámetro <strong><code>myip</code></strong> en la URL.</p>
+<p>El formato sería:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=NUEVAIP&amp;verbose=yes&quot;
 </span></code></pre></div>
-<p>Si desea asociar el dominio a su dirección de localhost podrá usar la <code>ip</code> 127.0.0.1 (es posible que la .1 le de error y tenga que usar la .2, etc).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=127.0.0.2&amp;verbose=yes&quot;</span>
+<p>Si desea asociar el dominio a su dirección de localhost puede usar como ip <code>127.0.0.1</code>(es posible que la .1 porovoque un error y tenga que usar la .2, etc).</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>firefox<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=127.0.0.2&amp;verbose=yes&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># o en CLI</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>curl<span class="w"> </span><span class="se">\ </span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=127.0.0.2&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
-<p>Par comprobar use <code>dig</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span>whoami.midominio.freemyip.com
+<div class="admonition important">
+<p class="admonition-title">Uso de comillas en la URL</p>
+<p>Es necesario e importante delimitar la URL con comillas.</p>
+</div>
+<p>Para comprobar el resultado use <code>dig</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.midominio.freemyip.com
 </span></code></pre></div>
 <p>y debería  obtener la IP de localhost.</p>
 <div class="admonition warning cuidado con la consultas a la api">
 <p class="admonition-title">Warning</p>
-<p>Si accede a la API sin especificar el campo <code>myip</code> se entiende que la IP a utilizar es la del equipo desde que hace la consulta.</p>
+<p>Si accede a la API sin especificar el campo <code>myip</code> se entiende que la IP a utilizar es la del equipo desde que hace la consulta y se pierde la anterior.</p>
+<p>Lo mismo ocurre si intenta modificar la IP y no delimita la URL con comillas.</p>
 </div>
 <h2 id="4-anexo-freemyip">4. Anexo freemyip<a class="headerlink" href="#4-anexo-freemyip" title="Permanent link">&para;</a></h2>
 <h3 id="41-resolviendo-a-ip-publicas">4.1. Resolviendo a IP públicas<a class="headerlink" href="#41-resolviendo-a-ip-publicas" title="Permanent link">&para;</a></h3>
 <p>El procedimento es similar: basta indicar en la URL la IP de su servidor externo o instancia AWS EC2. Tenga encuenta que la IP de las instancias AWS EC2 de los laboratorios cambia (a no ser que use IP elástica).</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=IP_EC2S&amp;verbose=yes&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>firefox<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=IP&amp;verbose=yes&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># o desde CLI</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>curl<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=IP&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
 <h3 id="42-anadir-registro-txt-en-el-dominio">4.2. Añadir registro TXT en el dominio<a class="headerlink" href="#42-anadir-registro-txt-en-el-dominio" title="Permanent link">&para;</a></h3>
 <p>Puede ser en algún momento necesario añadir un registro TXT asociado al dominio (por ejemplo nos pueden solicitar añadirlo un registro TXT con un texto determinado para demostrar que ser propietario del dominio).</p>
 <blockquote>
 <p>You can use an optional "&amp;txt" parameter to do that.
-This will also automagically work for any subdomain within your domain. 
+This will also automagically work for any subdomain within your domain.
 If you want to remove your TXT record, use "&amp;txt=null" or "&amp;txt=". You can also add parameter "&amp;verbose=yes" to see some more information in the output, especially if you encounter an error.
 Any time you change your TXT record, you will have to wait around 1 minute for DNS cache to get updated.
 </p>
 </blockquote>
 <p>Algo similar a</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN6&amp;domain=DOMINIO&amp;txt=1234567890&amp;verbose=yes&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN6&amp;domain=DOMINIO&amp;txt=texto&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
 <h2 id="5-anexo-otros-gestores-de-dominio">5. Anexo: otros gestores de dominio<a class="headerlink" href="#5-anexo-otros-gestores-de-dominio" title="Permanent link">&para;</a></h2>
+<p>Entre otros:</p>
+<ul>
+<li><a href="https://freemyip.com/">freemyip.com</a>, donde no es necesario registrarse. <a href="https://freemyip.com/help">Ayuda</a></li>
+<li>Dynu: <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></li>
+<li>Duck DNS: <a href="https://duckdns.org">https://duckdns.org</a>. Admite wildcards y  registros tipo TXT.</li>
+<li><em>noip.com</em>: <a href="https://www.noip.com/es-MX/free">https://www.noip.com/es-MX/free</a></li>
+<li><em>FreeDNS</em>:  <a href="http://freedns.afraid.org">http://freedns.afraid.org</a> y Dynamic DNS: <a href="https://freedns.afraid.org/dynamic/">https://freedns.afraid.org/dynamic/</a></li>
+<li><em>Nominalia</em>:  primer año gratis, pero hay que dar tarjeta <a href="https://www.nominalia.com/">https://www.nominalia.com/</a></li>
+<li>Freenom (parece que no funciona): <a href="https://www.freenom.com/">https://www.freenom.com/</a></li>
+<li>
+<ul>
+<li>Namecheap: <a href="https://www.namecheap.com/">https://www.namecheap.com/</a> y Nc.me: Namecheap is giving university students a free bundle to kickstart their online presence.: <a href="https://nc.me/">https://nc.me/</a></li>
+</ul>
+</li>
+<li>Best Free Dynamic DNS Services: <a href="https://www.gnutomorrow.com/best-free-dynamic-dns-services/">https://www.gnutomorrow.com/best-free-dynamic-dns-services/</a></li>
+<li></li>
+</ul>
+<!-- * Configurar DNS dinámico en la instancia de Amazon Linux - Amazon Elastic Compute Cloud
+<https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/dynamic-dns.html> -->
+
 <h3 id="51-dominio-en-dynu">5.1. Dominio en Dynu<a class="headerlink" href="#51-dominio-en-dynu" title="Permanent link">&para;</a></h3>
 <p>Puede darse de alta en <a href="https://www.dynu.com/en-US/">https://www.dynu.com/en-US/</a></p>
 <h4 id="511-dominio-ddns">5.1.1. Dominio DDNS<a class="headerlink" href="#511-dominio-ddns" title="Permanent link">&para;</a></h4>
@@ -1434,7 +1405,7 @@ Any time you change your TXT record, you will have to wait around 1 minute for D
 <li>Observe que tiene activo por defecto las <em>Wirldcard IPv4 alias</em>, por lo que cualquier nombre que termine en <code>.daweb.freedns.org</code> como  <code>whoami.daweb.freedns.org</code> o <code>www.daweb.freedns.org</code> resuelve la misma IP.</li>
 <li>Puede acceder a la gestión en detalle tiene a la derecha la opción <strong>DNS Records</strong>.</li>
 </ul>
-<h3 id="52-todo-dominio-en-tech">5.2. TODO: dominio en <code>.tech</code><a class="headerlink" href="#52-todo-dominio-en-tech" title="Permanent link">&para;</a></h3>
+<h3 id="52-dominio-en-tech">5.2. dominio en <code>.tech</code><a class="headerlink" href="#52-dominio-en-tech" title="Permanent link">&para;</a></h3>
 <p>El dominio <code>.tech</code> es gratuito usando el Developer Pack Student de GitHub. En este caso tenga en cuenta que:</p>
 <ol>
 <li><strong>Importante</strong>: debe realizar el alta desde esta dirección: <a href="https://get.tech/github-student-developer-pack">https://get.tech/github-student-developer-pack</a>.</li>
@@ -1442,33 +1413,39 @@ Any time you change your TXT record, you will have to wait around 1 minute for D
 <li>Al ordenar el pago hay un botón para identificarse con su cuenta de GitHub (la que esté asociada a los beneficios del github student developer pack). Al usar esa opción el coste del dominio debe ser gratuito durante un año.</li>
 <li>Para gestionar el dominio acceda a <a href="http://controlpanel.tech/customer">http://controlpanel.tech/customer</a>.</li>
 </ol>
-<h3 id="53-otros-servicios-dns">5.3. Otros servicios DNS<a class="headerlink" href="#53-otros-servicios-dns" title="Permanent link">&para;</a></h3>
-<h4 id="531-duckdns">5.3.1. duckdns<a class="headerlink" href="#531-duckdns" title="Permanent link">&para;</a></h4>
+<!-- ### 5.3. Otros servicios DNS
+
+#### 5.3.1. duckdns
+
+* Puede hacer el alta con su cuenta de Github o Google
+* Admite registros wildcard  como  `xxxx.midominio.duckdns.org` (puede ser útil por ejemplo para la práctica de un proxy inverso como traefik).
+* Admite registros del tipo TXT
+* Para asociar la IP a u nombre de dominio:
+  * Se puede especificar manualmente en su web
+  * Se puede auto detectar desde su página web (pero detecta el equipo desde donde se accede)
+  * Se puede hacer una actualización con peticiones a su API HTTP desde el equipo destino. Más detalles en este [enlace](https://www.duckdns.org/spec.jsp).
+
+#### 5.3.2. noip
+
+* Sólo admite un registro para un host:  `midominio.ddns.net`
+* Se puede asociar la IP  manualmente en su web o instalar cliente en el equipo destino. 
+
+-->
+
+<h2 id="6-anexo-vpns">6. Anexo VPNs<a class="headerlink" href="#6-anexo-vpns" title="Permanent link">&para;</a></h2>
+<p>Posibles plugins de VPN para navegadores.</p>
+<p>Sin registro:</p>
 <ul>
-<li>Puede hacer el alta con su cuenta de Github o Google</li>
-<li>Admite registros wildcard  como  <code>xxxx.midominio.duckdns.org</code> (puede ser útil por ejemplo para la práctica de un proxy inverso como traefik).</li>
-<li>Admite registros del tipo TXT</li>
-<li>Para asociar la IP a u nombre de dominio:</li>
-<li>Se puede especificar manualmente en su web</li>
-<li>Se puede auto detectar desde su página web (pero detecta el equipo desde donde se accede)</li>
-<li>Se puede hacer una actualización con peticiones a su API HTTP desde el equipo destino. Más detalles en este <a href="https://www.duckdns.org/spec.jsp">enlace</a>.</li>
+<li>hide.me VPN Free Proxy</li>
+<li>Planet VPN</li>
+<li>Browsec VPN</li>
+<li>VPN por 1VPN</li>
+<li>VeePN – Free VPN Gratis &amp; Rápido Seguridad Proxy</li>
 </ul>
-<h4 id="532-noip">5.3.2. noip<a class="headerlink" href="#532-noip" title="Permanent link">&para;</a></h4>
+<p>Con registro:</p>
 <ul>
-<li>Sólo admite un registro para un host:  <code>midominio.ddns.net</code></li>
-<li>Se puede asociar la IP  manualmente en su web o instalar cliente en el equipo destino.</li>
-</ul>
-<h2 id="6-enlaces">6. Enlaces<a class="headerlink" href="#6-enlaces" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Duck DNS: <a href="https://www.duckdns.org/">https://www.duckdns.org/</a></li>
-<li>noip DNS: <a href="https://my.noip.com/dynamic-dns/duc">https://my.noip.com/dynamic-dns/duc</a></li>
-<li>Otras posibilidades:</li>
-<li>Best Free Dynamic DNS Services: <a href="https://www.gnutomorrow.com/best-free-dynamic-dns-services/">https://www.gnutomorrow.com/best-free-dynamic-dns-services/</a></li>
-<li>Freedns <a href="https://freedns.afraid.org/">https://freedns.afraid.org/</a> y  Dynamic DNS: <a href="https://freedns.afraid.org/dynamic/">https://freedns.afraid.org/dynamic/</a></li>
-<li>Namecheap: <a href="https://www.namecheap.com/">https://www.namecheap.com/</a> y Nc.me: Namecheap is giving university students a free bundle to kickstart their online presence.: <a href="https://nc.me/">https://nc.me/</a></li>
-<li>¿Qué son las direcciones IP elásticas de AWS y qué hacen? <a href="https://es.linux-console.net/?p=7127#google_vignette">https://es.linux-console.net/?p=7127#google_vignette</a></li>
-<li>Configurar DNS dinámico en la instancia de Amazon Linux - Amazon Elastic Compute Cloud
-<a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/dynamic-dns.html">https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/dynamic-dns.html</a></li>
+<li>Windscribe</li>
+<li>Proton VPN — Mejor para uso general</li>
 </ul>
 
 

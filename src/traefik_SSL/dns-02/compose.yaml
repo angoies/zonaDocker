@@ -1,0 +1,80 @@
+services:
+
+  traefik:
+    image: traefik:v3.7
+
+    command:
+      # API y dashboard para el entorno de prácticas
+      - "--api.insecure=true"
+
+      # Proveedor Docker
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+
+      # Puntos de entrada
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+
+      # Redirección HTTP -> HTTPS
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+
+      # Parte añadida para wildcard
+      - "--entrypoints.websecure.http.tls.certresolver=le"
+      - "--entrypoints.websecure.http.tls.domains[0].main=${DOMAIN}"
+      - "--entrypoints.websecure.http.tls.domains[0].sans=*.${DOMAIN}"
+
+      # Resolver ACME
+      - "--certificatesresolvers.le.acme.email=${LE_EMAIL}"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+
+      # Desafío DNS-01
+      - "--certificatesresolvers.le.acme.dnschallenge=true"
+      - "--certificatesresolvers.le.acme.dnschallenge.provider=freemyip"
+      # DNS utilizados por Traefik para comprobar la propagación
+      - "--certificatesresolvers.le.acme.dnschallenge.resolvers=1.1.1.1:53,8.8.8.8:53"
+
+      # Entorno de pruebas de Let's Encrypt
+      - "--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+
+      # Logs
+      - "--log.level=INFO"
+
+    environment:
+      - FREEMYIP_TOKEN=${FREEMYIP_TOKEN}
+
+    ports:
+      - "80:80"      # "127.0.0.1:80:80"
+      - "443:443"    # "127.0.0.1:443:443"
+      - "8080:8080"  # "127.0.0.1:8080:8080"
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./letsencrypt:/letsencrypt
+
+
+  whoami:
+    image: traefik/whoami
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.${DOMAIN}`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      # SE omiten en configuración wildcard
+      # - "traefik.http.routers.whoami.tls=true"
+      # - "traefik.http.routers.whoami.tls.certresolver=le"
+
+  nginx:
+    image: nginx:alpine
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=Host(`nginx.${DOMAIN}`)"
+      - "traefik.http.routers.nginx.entrypoints=websecure"
+  
+  apache:
+    image: httpd:alpine
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.apache.rule=Host(`apache.${DOMAIN}`)"
+      - "traefik.http.routers.apache.entrypoints=websecure"      
+  
