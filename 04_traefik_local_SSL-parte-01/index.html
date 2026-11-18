@@ -1447,10 +1447,15 @@ La validación se realiza consultando un registro DNS de tipo <code>TXT</code>.<
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.env
 </span></code></pre></div>
 <p>con el siguiente contenido:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>DOMAIN=alumno01.freemyip.com
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>FREEMYIP_TOKEN=TU_TOKEN
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>LE_EMAIL=tu_correo@example.com
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>IP=127.0.0.10
+<div class="language-ini highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">IP</span><span class="o">=</span><span class="s">127.0.0.10</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">LE_EMAIL</span><span class="o">=</span><span class="s">tu_correo@example.com</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">DOMAIN</span><span class="o">=</span><span class="s">alumno01.freemyip.com</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">FREEMYIP_TOKEN</span><span class="o">=</span><span class="s">TU_TOKEN_EN_FREEMYIP</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">## descomentar si usa duckdns</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># DOMAIN=alumno01.duckdns.org</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># DUCKDNS_TOKEN=TU_TOKEN_EN_DUCKDNS</span>
 </span></code></pre></div>
 <p>Sustituye con tus propios datos y protege el fichero:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>.env
@@ -1468,58 +1473,70 @@ La validación se realiza consultando un registro DNS de tipo <code>TXT</code>.<
 <p>Activa la exportación automática, carga las variables y las exporta y desactiva la exportación automática (conserva las variables cargadas).
 Esas variables están ahora disponibles para comandos o scripts que ejecutemos desde nuestra shell.</p>
 </div>
-<p>Y ahora actualiza el dominio <strong>usando en la URL esas variables de entorno</strong>:</p>
+<p>Y ahora actualiza la IP asociada al dominio <strong>usando en la URL esas variables de entorno</strong>:</p>
+<p>con freemyip:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>firefox<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="s2">&quot;https://freemyip.com/update?token=</span><span class="si">${</span><span class="nv">FREEMYIP_TOKEN</span><span class="si">}</span><span class="s2">&amp;domain=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;myip=</span><span class="si">${</span><span class="nv">IP</span><span class="si">}</span><span class="s2">&amp;verbose=yes&quot;</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># curl \</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1">#   &quot;https://freemyip.com/update?token=${FREEMYIP_TOKEN}&amp;domain=${DOMAIN}&amp;myip=${IP}&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
-<p>FreeMyIP debería responder indicando que la actualización se ha realizado correctamente.</p>
+<p>O con duckdns, donde la URL tiene un formato ligeramente  diferente (ip, domains, verbose=true..) <code>https://www.duckdns.org/update?domains={DOMAIN}&amp;token={DUCKDNS_TOKEN}&amp;ip={IP}&amp;verbose=true</code></p>
+<div class="admonition info">
+<p class="admonition-title">Cambio de IP en duckdns</p>
+<p>duckdns permite modificar la IP mediante su API o en su interfaz web tras identificarse con su usuario.</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>firefox<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="s2">&quot;https://www.duckdns.org/update?domains={DOMAIN}&amp;token={DUCKDNS_TOKEN}&amp;ip={IP}&amp;verbose=true&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># curl \</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">#   &quot;https://www.duckdns.org/update?domains={DOMAIN}&amp;token={DUCKDNS_TOKEN}&amp;ip={IP}&amp;verbose=true&quot;</span>
+</span></code></pre></div>
+<p>FreeMyIP o Duckdns debería responder indicando que la actualización se ha realizado correctamente.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Utilizar variables evita escribir el token directamente en el comando guardado en el historial del <em>shell</em>.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Si sólo quiere tener disponibles estas variables para el fichero compose.yml no es nEcesario exportarlas, compose las lee automáticamente del fichero <code>.env</code></p>
+<p>Si sólo quiere tener disponibles estas variables para el fichero compose.yml no es necesario exportarlas, compose las lee automáticamente del fichero <code>.env</code></p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Es posible que se genere un error al usar la IP 127.0.0.1, Pruebe con otra del rango 127.0.0.X</p>
 </div>
 <p>Para comprobar la resolución DNS</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="m">127</span>.0.0.1
-</span></code></pre></div>
-<p>Ahora prueba un subdominio que todavía no existe como servicio:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">$dig</span><span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>$<span class="w"> </span>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="m">127</span>.0.0.1
 </span></code></pre></div>
-<p>FreeMyIP hace que los subdominios del nombre asignado resuelvan a la misma dirección IP. Por tanto:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>alumno01.freemyip.com
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>whoami.alumno01.freemyip.com
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>nginx.alumno01.freemyip.com
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>apache.alumno01.freemyip.com
+<p>Ahora prueba un subdominio que todavía no existe como servicio:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nv">$dig</span><span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="m">127</span>.0.0.1
+</span></code></pre></div>
+<p>FreeMyIP y duckdns hacen que los subdominios del nombre asignado resuelvan a la misma dirección IP. Por tanto:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>alumno01.freemyip.com
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>whoami.alumno01.freemyip.com
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>nginx.alumno01.freemyip.com
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>apache.alumno01.freemyip.com
 </span></code></pre></div>
 <p>pueden resolver todos a <code>127.0.0.1</code>. Esto permite utilizar Traefik para decidir qué contenedor debe responder dependiendo del nombre solicitado.</p>
 <h2 id="2-traefik-y-https">2. Traefik y HTTPS<a class="headerlink" href="#2-traefik-y-https" title="Permanent link">&para;</a></h2>
 <p>El proyecto tendrá inicialmente esta estructura:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>traefik-dns01/
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>├── .env
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>├── .gitignore
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>├── compose.yml
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>└── letsencrypt/
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    └── acme.json
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>traefik-dns01/
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>├── .env
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>├── .gitignore
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>├── compose.yml
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>└── letsencrypt/
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    └── acme.json
 </span></code></pre></div>
 <p>Crea el directorio y el fichero de almacenamiento de ACME:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>letsencrypt
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>touch<span class="w"> </span>letsencrypt/acme.json
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>letsencrypt/acme.json
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>letsencrypt
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>touch<span class="w"> </span>letsencrypt/acme.json
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>letsencrypt/acme.json
 </span></code></pre></div>
 <p>Crea <code>.gitignore</code> con:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>.env
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>letsencrypt/acme.json
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>.env
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>letsencrypt/acme.json
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1528,108 +1545,111 @@ Esas variables están ahora disponibles para comandos o scripts que ejecutemos d
 <h2 id="3-primer-servicio">3. Primer servicio<a class="headerlink" href="#3-primer-servicio" title="Permanent link">&para;</a></h2>
 <h3 id="31-composeyml-inicial">3.1. <code>compose.yml</code> inicial<a class="headerlink" href="#31-composeyml-inicial" title="Permanent link">&para;</a></h3>
 <p>Crea compose.yml con el siguiente contenido:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik:v3.7</span>
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span>
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">      </span><span class="c1"># API y dashboard para el entorno de prácticas</span>
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--api.insecure=true&quot;</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">      </span><span class="c1"># Proveedor Docker</span>
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker=true&quot;</span>
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker.exposedbydefault=false&quot;</span>
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">      </span><span class="c1"># Puntos de entrada</span>
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
-</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.websecure.address=:443&quot;</span>
-</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
-</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">      </span><span class="c1"># Redirección HTTP -&gt; HTTPS</span>
-</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.to=websecure&quot;</span>
-</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.scheme=https&quot;</span>
-</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>
-</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">      </span><span class="c1"># Resolver ACME</span>
-</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.email=${LE_EMAIL}&quot;</span>
-</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json&quot;</span>
-</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a>
-</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">      </span><span class="c1"># Desafío DNS-01</span>
-</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge=true&quot;</span>
-</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot;</span>
-</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a>
-</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="w">      </span><span class="c1"># DNS utilizados por Traefik para comprobar la propagación</span>
-</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.resolvers=1.1.1.1:53,8.8.8.8:53&quot;</span>
-</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a>
-</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="w">      </span><span class="c1"># Entorno de pruebas de Let&#39;s Encrypt</span>
-</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory&quot;</span>
-</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35" href="#__codelineno-16-35"></a>
-</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36" href="#__codelineno-16-36"></a><span class="w">      </span><span class="c1"># Logs</span>
-</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37" href="#__codelineno-16-37"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--log.level=INFO&quot;</span>
-</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38" href="#__codelineno-16-38"></a>
-</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39" href="#__codelineno-16-39"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40" href="#__codelineno-16-40"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FREEMYIP_TOKEN=${FREEMYIP_TOKEN}</span>
-</span><span id="__span-16-41"><a id="__codelineno-16-41" name="__codelineno-16-41" href="#__codelineno-16-41"></a>
-</span><span id="__span-16-42"><a id="__codelineno-16-42" name="__codelineno-16-42" href="#__codelineno-16-42"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-</span><span id="__span-16-43"><a id="__codelineno-16-43" name="__codelineno-16-43" href="#__codelineno-16-43"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span><span class="w">      </span><span class="c1"># &quot;127.0.0.1:80:80&quot;</span>
-</span><span id="__span-16-44"><a id="__codelineno-16-44" name="__codelineno-16-44" href="#__codelineno-16-44"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span><span class="w">    </span><span class="c1"># &quot;127.0.0.1:443:443&quot;</span>
-</span><span id="__span-16-45"><a id="__codelineno-16-45" name="__codelineno-16-45" href="#__codelineno-16-45"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span><span class="w">  </span><span class="c1"># &quot;127.0.0.1:8080:8080&quot;</span>
-</span><span id="__span-16-46"><a id="__codelineno-16-46" name="__codelineno-16-46" href="#__codelineno-16-46"></a>
-</span><span id="__span-16-47"><a id="__codelineno-16-47" name="__codelineno-16-47" href="#__codelineno-16-47"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-</span><span id="__span-16-48"><a id="__codelineno-16-48" name="__codelineno-16-48" href="#__codelineno-16-48"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
-</span><span id="__span-16-49"><a id="__codelineno-16-49" name="__codelineno-16-49" href="#__codelineno-16-49"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./letsencrypt:/letsencrypt</span>
-</span><span id="__span-16-50"><a id="__codelineno-16-50" name="__codelineno-16-50" href="#__codelineno-16-50"></a>
-</span><span id="__span-16-51"><a id="__codelineno-16-51" name="__codelineno-16-51" href="#__codelineno-16-51"></a>
-</span><span id="__span-16-52"><a id="__codelineno-16-52" name="__codelineno-16-52" href="#__codelineno-16-52"></a><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span>
-</span><span id="__span-16-53"><a id="__codelineno-16-53" name="__codelineno-16-53" href="#__codelineno-16-53"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik/whoami</span>
-</span><span id="__span-16-54"><a id="__codelineno-16-54" name="__codelineno-16-54" href="#__codelineno-16-54"></a>
-</span><span id="__span-16-55"><a id="__codelineno-16-55" name="__codelineno-16-55" href="#__codelineno-16-55"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
-</span><span id="__span-16-56"><a id="__codelineno-16-56" name="__codelineno-16-56" href="#__codelineno-16-56"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
-</span><span id="__span-16-57"><a id="__codelineno-16-57" name="__codelineno-16-57" href="#__codelineno-16-57"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.rule=Host(`whoami.${DOMAIN}`)&quot;</span>
-</span><span id="__span-16-58"><a id="__codelineno-16-58" name="__codelineno-16-58" href="#__codelineno-16-58"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.entrypoints=websecure&quot;</span>
-</span><span id="__span-16-59"><a id="__codelineno-16-59" name="__codelineno-16-59" href="#__codelineno-16-59"></a>
-</span><span id="__span-16-60"><a id="__codelineno-16-60" name="__codelineno-16-60" href="#__codelineno-16-60"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.tls=true&quot;</span>
-</span><span id="__span-16-61"><a id="__codelineno-16-61" name="__codelineno-16-61" href="#__codelineno-16-61"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.tls.certresolver=le&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik:v3.7</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">      </span><span class="c1"># API y dashboard para el entorno de prácticas</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--api.insecure=true&quot;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">      </span><span class="c1"># Proveedor Docker</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker=true&quot;</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker.exposedbydefault=false&quot;</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">      </span><span class="c1"># Puntos de entrada</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.websecure.address=:443&quot;</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">      </span><span class="c1"># Redirección HTTP -&gt; HTTPS</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.to=websecure&quot;</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.scheme=https&quot;</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">      </span><span class="c1"># Resolver ACME</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.email=${LE_EMAIL}&quot;</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json&quot;</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">      </span><span class="c1"># Desafío DNS-01</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge=true&quot;</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot;</span><span class="w"> </span><span class="c1"># ELEGIR </span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="w">      </span><span class="c1"># - &quot;--certificatesresolvers.le.acme.dnschallenge.provider=duckdns&quot; </span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">      </span><span class="c1"># DNS utilizados por Traefik para comprobar la propagación</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.resolvers=1.1.1.1:53,8.8.8.8:53&quot;</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">      </span><span class="c1"># Entorno de pruebas de Let&#39;s Encrypt</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory&quot;</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">      </span><span class="c1"># Logs</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--log.level=INFO&quot;</span>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">  </span><span class="c1"># ELEGIR </span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FREEMYIP_TOKEN=${FREEMYIP_TOKEN}</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="w">      </span><span class="c1"># - DUCKDNS_TOKEN=${DUCKDNS_TOKEN} </span>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-17-46"><a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:80&quot;</span><span class="w">      </span><span class="c1"># &quot;127.0.0.1:80:80&quot;</span>
+</span><span id="__span-17-47"><a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;443:443&quot;</span><span class="w">    </span><span class="c1"># &quot;127.0.0.1:443:443&quot;</span>
+</span><span id="__span-17-48"><a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span><span class="w">  </span><span class="c1"># &quot;127.0.0.1:8080:8080&quot;</span>
+</span><span id="__span-17-49"><a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a>
+</span><span id="__span-17-50"><a id="__codelineno-17-50" name="__codelineno-17-50" href="#__codelineno-17-50"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-17-51"><a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+</span><span id="__span-17-52"><a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./letsencrypt:/letsencrypt</span>
+</span><span id="__span-17-53"><a id="__codelineno-17-53" name="__codelineno-17-53" href="#__codelineno-17-53"></a>
+</span><span id="__span-17-54"><a id="__codelineno-17-54" name="__codelineno-17-54" href="#__codelineno-17-54"></a>
+</span><span id="__span-17-55"><a id="__codelineno-17-55" name="__codelineno-17-55" href="#__codelineno-17-55"></a><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span>
+</span><span id="__span-17-56"><a id="__codelineno-17-56" name="__codelineno-17-56" href="#__codelineno-17-56"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik/whoami</span>
+</span><span id="__span-17-57"><a id="__codelineno-17-57" name="__codelineno-17-57" href="#__codelineno-17-57"></a>
+</span><span id="__span-17-58"><a id="__codelineno-17-58" name="__codelineno-17-58" href="#__codelineno-17-58"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-17-59"><a id="__codelineno-17-59" name="__codelineno-17-59" href="#__codelineno-17-59"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
+</span><span id="__span-17-60"><a id="__codelineno-17-60" name="__codelineno-17-60" href="#__codelineno-17-60"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.rule=Host(`whoami.${DOMAIN}`)&quot;</span>
+</span><span id="__span-17-61"><a id="__codelineno-17-61" name="__codelineno-17-61" href="#__codelineno-17-61"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.entrypoints=websecure&quot;</span>
+</span><span id="__span-17-62"><a id="__codelineno-17-62" name="__codelineno-17-62" href="#__codelineno-17-62"></a>
+</span><span id="__span-17-63"><a id="__codelineno-17-63" name="__codelineno-17-63" href="#__codelineno-17-63"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.tls=true&quot;</span>
+</span><span id="__span-17-64"><a id="__codelineno-17-64" name="__codelineno-17-64" href="#__codelineno-17-64"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.tls.certresolver=le&quot;</span>
 </span></code></pre></div>
 <p>Y comentemos ahora las novedades en este fichero.</p>
 <p>Con</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker=true&quot;</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker.exposedbydefault=false&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker=true&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--providers.docker.exposedbydefault=false&quot;</span>
 </span></code></pre></div>
 <p>Traefik observa los contenedores mediante la API de Docker. Las reglas de publicación se especificarán utilizando <strong>labels</strong>. Y un contenedor solo será publicado si incluye <code>- "traefik.enable=true"</code>. Esta configuración evita exponer accidentalmente servicios.</p>
 <p>Se crean dos puntos de entrada:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.websecure.address=:443&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.address=:80&quot;</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.websecure.address=:443&quot;</span>
 </span></code></pre></div>
 <p>Recuerde que por convenio:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>web        → HTTP  → puerto 80
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>websecure  → HTTPS → puerto 443
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>web        → HTTP  → puerto 80
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>websecure  → HTTPS → puerto 443
 </span></code></pre></div>
 <p>Gracias a </p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.to=websecure&quot;</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.scheme=https&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.to=websecure&quot;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--entrypoints.web.http.redirections.entrypoint.scheme=https&quot;</span>
 </span></code></pre></div>
 <p>Una petición http será redirigida a https, por lo que </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>http://whoami.alumno01.freemyip.com
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>=&gt; será redirigida a:
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>https://whoami.alumno01.freemyip.com
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>http://whoami.alumno01.freemyip.com
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>=&gt; será redirigida a:
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>https://whoami.alumno01.freemyip.com
 </span></code></pre></div>
 <p>Se crea un resolver llamado <code>le</code> mediante:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.email=${LE_EMAIL}&quot;</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.email=${LE_EMAIL}&quot;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json&quot;</span>
 </span></code></pre></div>
 <p>El nombre <code>le</code> es arbitrario. Podría llamarse de otra forma, pero debe coincidir con el utilizado posteriormente:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.tls.certresolver=le&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.whoami.tls.certresolver=le&quot;</span>
 </span></code></pre></div>
 <p>Ahora se le indica a Traefik que debe demostrar el control del dominio mediante DNS y que el proveedor de dominio será <code>freemyip</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge=true&quot;</span>
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge=true&quot;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot;</span>
 </span></code></pre></div>
 <p>La credencial de FreeMyIP la utiliza Traefik para permitir que el componente ACME pueda modificar temporalmente los registros DNS necesarios. El token se obtiene del fichero de entorno <code>.env</code></p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FREEMYIP_TOKEN=${FREEMYIP_TOKEN}</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FREEMYIP_TOKEN=${FREEMYIP_TOKEN}</span>
 </span></code></pre></div>
 <p>Durante las pruebas <strong>no debemos solicitar continuamente certificados reales</strong>. Let's Encrypt proporciona un entorno de pruebas. Por eso en nuestra configuración aparece:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory&quot;</span>
 </span></code></pre></div>
 <p>Los certificados emitidos por este entorno <strong>no son confiables para los navegadores</strong>, pero permiten comprobar que:</p>
 <ul>
@@ -1653,54 +1673,54 @@ Esas variables están ahora disponibles para comandos o scripts que ejecutemos d
 </ul>
 <h2 id="4-lanzar-el-proyecto">4. Lanzar el proyecto<a class="headerlink" href="#4-lanzar-el-proyecto" title="Permanent link">&para;</a></h2>
 <p>Ejecutar, comprobar, y observar los logs con</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>traefik
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>traefik
 </span></code></pre></div>
 <p>y busca mensajes relacionados con <code>domain</code>, <code>solver</code>, <code>certificate</code> o dns-01.</p>
 <h3 id="41-acceder-a-whoami">4.1. Acceder a whoami<a class="headerlink" href="#41-acceder-a-whoami" title="Permanent link">&para;</a></h3>
 <p>Accede al servicio, por ejemplo:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>firefox<span class="w"> </span>https://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="p">&amp;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>firefox<span class="w"> </span>https://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="p">&amp;</span>
 </span></code></pre></div>
 <p>El navegador mostrará una advertencia de certificado. Esto es loesperado porque todavía estamos utilizando <strong>Let's Encrypt Staging</strong>. Si continúas, deberías visualizar la respuesta del contenedor <code>traefik/whoami</code>.</p>
 <p>O Puede probar con <code>curl</code></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>curl<span class="w"> </span>-vk<span class="w"> </span>https://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>curl<span class="w"> </span>-vk<span class="w"> </span>https://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 <p>La opción <code>-k</code> permite continuar aunque el certificado de Staging no sea de confianza.</p>
 <p>Si quiere probar la redirección use la opción <code>-L</code></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>curl<span class="w"> </span>http://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>http://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>curl<span class="w"> </span>-kL<span class="w"> </span>http://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>curl<span class="w"> </span>http://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>curl<span class="w"> </span>-L<span class="w"> </span>http://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>curl<span class="w"> </span>-kL<span class="w"> </span>http://whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 <h3 id="42-explicacion">4.2. Explicación<a class="headerlink" href="#42-explicacion" title="Permanent link">&para;</a></h3>
 <p>Para obtener el certificado de <code>whoami.alumno01.freemyip.com</code> Let's Encrypt solicita demostrar el control del DNS. El proceso simplificado es:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>Traefik
-</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>   │
-</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>   │ solicita certificado
-</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>   ▼
-</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>Let&#39;s Encrypt
-</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>   │
-</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>   │ solicita desafío DNS-01
-</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>   ▼
-</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>Traefik / lego
-</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>   │
-</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>   │ usa FREEMYIP_TOKEN
-</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>   ▼
-</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a>API de FreeMyIP
-</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a>   │
-</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a>   │ crea TXT temporal
-</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a>   ▼
-</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a>_acme-challenge.whoami.alumno01.freemyip.com
-</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a>
-</span><span id="__span-31-19"><a id="__codelineno-31-19" name="__codelineno-31-19" href="#__codelineno-31-19"></a>   │
-</span><span id="__span-31-20"><a id="__codelineno-31-20" name="__codelineno-31-20" href="#__codelineno-31-20"></a>   ▼
-</span><span id="__span-31-21"><a id="__codelineno-31-21" name="__codelineno-31-21" href="#__codelineno-31-21"></a>Let&#39;s Encrypt consulta el TXT
-</span><span id="__span-31-22"><a id="__codelineno-31-22" name="__codelineno-31-22" href="#__codelineno-31-22"></a>   │
-</span><span id="__span-31-23"><a id="__codelineno-31-23" name="__codelineno-31-23" href="#__codelineno-31-23"></a>   ▼
-</span><span id="__span-31-24"><a id="__codelineno-31-24" name="__codelineno-31-24" href="#__codelineno-31-24"></a>validación correcta
-</span><span id="__span-31-25"><a id="__codelineno-31-25" name="__codelineno-31-25" href="#__codelineno-31-25"></a>   │
-</span><span id="__span-31-26"><a id="__codelineno-31-26" name="__codelineno-31-26" href="#__codelineno-31-26"></a>   ▼
-</span><span id="__span-31-27"><a id="__codelineno-31-27" name="__codelineno-31-27" href="#__codelineno-31-27"></a>emisión del certificado
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Traefik
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>   │
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>   │ solicita certificado
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>   ▼
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>Let&#39;s Encrypt
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>   │
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>   │ solicita desafío DNS-01
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>   ▼
+</span><span id="__span-32-9"><a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>Traefik / lego
+</span><span id="__span-32-10"><a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>   │
+</span><span id="__span-32-11"><a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>   │ usa FREEMYIP_TOKEN
+</span><span id="__span-32-12"><a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>   ▼
+</span><span id="__span-32-13"><a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a>API de FreeMyIP
+</span><span id="__span-32-14"><a id="__codelineno-32-14" name="__codelineno-32-14" href="#__codelineno-32-14"></a>   │
+</span><span id="__span-32-15"><a id="__codelineno-32-15" name="__codelineno-32-15" href="#__codelineno-32-15"></a>   │ crea TXT temporal
+</span><span id="__span-32-16"><a id="__codelineno-32-16" name="__codelineno-32-16" href="#__codelineno-32-16"></a>   ▼
+</span><span id="__span-32-17"><a id="__codelineno-32-17" name="__codelineno-32-17" href="#__codelineno-32-17"></a>_acme-challenge.whoami.alumno01.freemyip.com
+</span><span id="__span-32-18"><a id="__codelineno-32-18" name="__codelineno-32-18" href="#__codelineno-32-18"></a>
+</span><span id="__span-32-19"><a id="__codelineno-32-19" name="__codelineno-32-19" href="#__codelineno-32-19"></a>   │
+</span><span id="__span-32-20"><a id="__codelineno-32-20" name="__codelineno-32-20" href="#__codelineno-32-20"></a>   ▼
+</span><span id="__span-32-21"><a id="__codelineno-32-21" name="__codelineno-32-21" href="#__codelineno-32-21"></a>Let&#39;s Encrypt consulta el TXT
+</span><span id="__span-32-22"><a id="__codelineno-32-22" name="__codelineno-32-22" href="#__codelineno-32-22"></a>   │
+</span><span id="__span-32-23"><a id="__codelineno-32-23" name="__codelineno-32-23" href="#__codelineno-32-23"></a>   ▼
+</span><span id="__span-32-24"><a id="__codelineno-32-24" name="__codelineno-32-24" href="#__codelineno-32-24"></a>validación correcta
+</span><span id="__span-32-25"><a id="__codelineno-32-25" name="__codelineno-32-25" href="#__codelineno-32-25"></a>   │
+</span><span id="__span-32-26"><a id="__codelineno-32-26" name="__codelineno-32-26" href="#__codelineno-32-26"></a>   ▼
+</span><span id="__span-32-27"><a id="__codelineno-32-27" name="__codelineno-32-27" href="#__codelineno-32-27"></a>emisión del certificado
 </span></code></pre></div>
 <p>Después de finalizar la validación el registro temporal puede eliminarse.</p>
 <!-- 
@@ -1708,17 +1728,17 @@ Esas variables están ahora disponibles para comandos o scripts que ejecutemos d
 
 Mientras se está realizando una nueva solicitud ACME puedes intentar:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>dig<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>dig<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 o consultar directamente a Cloudflare:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 También puedes utilizar:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">&quot;dig +short TXT _acme-challenge.whoami.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">&quot;dig +short TXT _acme-challenge.whoami.</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 
 !!! note
@@ -1729,11 +1749,11 @@ También puedes utilizar:
 
 <h2 id="5-examinar-el-certificado">5. Examinar el certificado<a class="headerlink" href="#5-examinar-el-certificado" title="Permanent link">&para;</a></h2>
 <p>Aunque no es el objetivo profundiza en el uso de certificados, puede utilizar OpenSSL y ejcutar el comando</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">  </span>-servername<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-dates
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">  </span>-servername<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-dates
 </span></code></pre></div>
 <p>Observe en la salida el subject (el dominio), que es un certificado de pruebas (<em>staging</em>) y el rango de fechas de validez del certificado.</p>
 <div class="admonition info">
@@ -1742,31 +1762,31 @@ También puedes utilizar:
 <p>SNI (Server Name Indication) es una extensión del protocolo TLS que permite que un servidor web aloje varios sitios HTTPS con distintos certificados, utilizando una única dirección IP y el mismo puerto 443. SNI permite resolver un problema que aparece antes del establecimiento de HTTPS: saber qué certificado presentar cuando varios dominios comparten la misma dirección IP y el mismo puerto.</p>
 </div>
 <p>Puede tambien  comprobar el contenido del fichero <code>letsencrypt/acme.json</code> donde se almacena por defecto la información de los certificados.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>$<span class="w"> </span>cat<span class="w"> </span>letsencrypt/acme.json
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>...
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">    </span><span class="s2">&quot;Certificates&quot;</span>:<span class="w"> </span><span class="o">[</span>
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="w">      </span><span class="o">{</span>
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="w">        </span><span class="s2">&quot;domain&quot;</span>:<span class="w"> </span><span class="o">{</span>
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="w">          </span><span class="s2">&quot;main&quot;</span>:<span class="w"> </span><span class="s2">&quot;whoami.midominio.freemyip.com&quot;</span>
-</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="w">        </span><span class="o">}</span>,
-</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="w">        </span><span class="s2">&quot;certificate&quot;</span>:<span class="w"> </span>
-</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>...
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>$<span class="w"> </span>cat<span class="w"> </span>letsencrypt/acme.json
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>...
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">    </span><span class="s2">&quot;Certificates&quot;</span>:<span class="w"> </span><span class="o">[</span>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">      </span><span class="o">{</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">        </span><span class="s2">&quot;domain&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">          </span><span class="s2">&quot;main&quot;</span>:<span class="w"> </span><span class="s2">&quot;whoami.midominio.freemyip.com&quot;</span>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">        </span><span class="o">}</span>,
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">        </span><span class="s2">&quot;certificate&quot;</span>:<span class="w"> </span>
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>...
 </span></code></pre></div>
 <h2 id="6-anadir-otro-servicio">6. Añadir otro servicio<a class="headerlink" href="#6-anadir-otro-servicio" title="Permanent link">&para;</a></h2>
 <p>Añade al final de <code>compose.yml</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
-</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:alpine</span>
-</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
-</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
-</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.rule=Host(`nginx.${DOMAIN}`)&quot;</span>
-</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.entrypoints=websecure&quot;</span>
-</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.tls=true&quot;</span>
-</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.tls.certresolver=le&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="w">  </span><span class="nt">nginx</span><span class="p">:</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:alpine</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.rule=Host(`nginx.${DOMAIN}`)&quot;</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.entrypoints=websecure&quot;</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.tls=true&quot;</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.nginx.tls.certresolver=le&quot;</span>
 </span></code></pre></div>
 <p>Aplica los cambios y comprueba</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>nginx
-</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
-</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>traefik
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>nginx
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>ps
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>traefik
 </span></code></pre></div>
 <p>Traefik necesitará ahora un certificado para <code>nginx.alumno01.freemyip.com</code>. Puede comprobar en el log todo el proceso</p>
 <div class="admonition info">
@@ -1775,31 +1795,31 @@ También puedes utilizar:
 <p>En esta parte de la práctica estamos trabajando con <strong>certificados individuales</strong>, uno para cada servicio.</p>
 <p>Se pueden usar certificados <em>wildcard</em> para cubrir ambos nombres. En esta rpáctica inicial no se cubre esa opción.</p>
 <p>Para comprobar el nuevo servicio</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>curl<span class="w"> </span>-vk<span class="w"> </span>https://nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>firefox<span class="w"> </span>https://nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="p">&amp;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>curl<span class="w"> </span>-vk<span class="w"> </span>https://nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>firefox<span class="w"> </span>https://nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="p">&amp;</span>
 </span></code></pre></div>
 <p>Puede ver el nuevo certificado: basta con reutilizar el comando previo  y modificar el <code>servername</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="w">  </span>-servername<span class="w"> </span>nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-serial<span class="w"> </span>-dates
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span>-servername<span class="w"> </span>nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-serial<span class="w"> </span>-dates
 </span></code></pre></div>
 <p>O visualizarlo el el fichero <code>acme.json</code></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>$<span class="w"> </span>cat<span class="w"> </span>letsencrypt/acme.json<span class="w"> </span>
-</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="o">{</span>
-</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="w">  </span><span class="s2">&quot;le&quot;</span>:<span class="w"> </span><span class="o">{</span>
-</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">    </span><span class="s2">&quot;Account&quot;</span>:<span class="w"> </span><span class="o">{</span>
-</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>...
-</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
-</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="w">        </span><span class="s2">&quot;domain&quot;</span>:<span class="w"> </span><span class="o">{</span>
-</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="w">          </span><span class="s2">&quot;main&quot;</span>:<span class="w"> </span><span class="s2">&quot;nginx.midominio.freemyip.com&quot;</span>
-</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="w">        </span><span class="o">}</span>,
-</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="w">        </span><span class="s2">&quot;certificate&quot;</span>:<span class="w"> </span>...
-</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>
-</span><span id="__span-41-12"><a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="w">        </span><span class="s2">&quot;Store&quot;</span>:<span class="w"> </span><span class="s2">&quot;default&quot;</span>
-</span><span id="__span-41-13"><a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>...
-</span><span id="__span-41-14"><a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a>$
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>$<span class="w"> </span>cat<span class="w"> </span>letsencrypt/acme.json<span class="w"> </span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="o">{</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="w">  </span><span class="s2">&quot;le&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="s2">&quot;Account&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-42-5"><a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>...
+</span><span id="__span-42-6"><a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+</span><span id="__span-42-7"><a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="w">        </span><span class="s2">&quot;domain&quot;</span>:<span class="w"> </span><span class="o">{</span>
+</span><span id="__span-42-8"><a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="w">          </span><span class="s2">&quot;main&quot;</span>:<span class="w"> </span><span class="s2">&quot;nginx.midominio.freemyip.com&quot;</span>
+</span><span id="__span-42-9"><a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a><span class="w">        </span><span class="o">}</span>,
+</span><span id="__span-42-10"><a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="w">        </span><span class="s2">&quot;certificate&quot;</span>:<span class="w"> </span>...
+</span><span id="__span-42-11"><a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a>
+</span><span id="__span-42-12"><a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a><span class="w">        </span><span class="s2">&quot;Store&quot;</span>:<span class="w"> </span><span class="s2">&quot;default&quot;</span>
+</span><span id="__span-42-13"><a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a>...
+</span><span id="__span-42-14"><a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a>$
 </span></code></pre></div>
 <div class="admonition important">
 <p class="admonition-title">¿Por qué funciona si el servidor no es público?</p>
@@ -1826,9 +1846,9 @@ También puedes utilizar:
 
 Ejecuta:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>dig<span class="w"> </span>+short<span class="w"> </span>nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>dig<span class="w"> </span>+short<span class="w"> </span>nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 #### 12.1.1. Preguntas
@@ -1842,7 +1862,7 @@ Ejecuta:
 
 Desde otro ordenador consulta:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.TU-DOMINIO.freemyip.com
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.TU-DOMINIO.freemyip.com
 </span></code></pre></div>
 
 #### 12.2.1. Preguntas
@@ -1870,11 +1890,11 @@ Completa la tabla:
 
 Utiliza:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">  </span>-servername<span class="w"> </span>nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-serial<span class="w"> </span>-dates
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">  </span>-servername<span class="w"> </span>nginx.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-serial<span class="w"> </span>-dates
 </span></code></pre></div>
 
 Anota:
@@ -1890,25 +1910,25 @@ Anota:
 
 Añade:
 
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="w">  </span><span class="nt">apache</span><span class="p">:</span>
-</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd:alpine</span>
-</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
-</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
-</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
-</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.rule=Host(`apache.${DOMAIN}`)&quot;</span>
-</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.entrypoints=websecure&quot;</span>
-</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.tls=true&quot;</span>
-</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.tls.certresolver=le&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="w">  </span><span class="nt">apache</span><span class="p">:</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd:alpine</span>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.enable=true&quot;</span>
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.rule=Host(`apache.${DOMAIN}`)&quot;</span>
+</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.entrypoints=websecure&quot;</span>
+</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.tls=true&quot;</span>
+</span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;traefik.http.routers.apache.tls.certresolver=le&quot;</span>
 </span></code></pre></div>
 
 Aplica:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </span></code></pre></div>
 
 Comprueba:
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>https://apache.TU-DOMINIO.freemyip.com
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>https://apache.TU-DOMINIO.freemyip.com
 </span></code></pre></div>
 
 #### 12.5.1. Pregunta
@@ -1922,31 +1942,31 @@ La entrega deberá incluir:
 
 1. captura o salida de:
 
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 2. captura o salida de:
 
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 3. acceso correcto a:
 
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>https://whoami.TU-DOMINIO.freemyip.com
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>https://whoami.TU-DOMINIO.freemyip.com
 </span></code></pre></div>
 
 4. acceso correcto a:
 
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>https://nginx.TU-DOMINIO.freemyip.com
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>https://nginx.TU-DOMINIO.freemyip.com
 </span></code></pre></div>
 
 5. salida de:
 
-    <div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="w">  </span>-servername<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
-</span><span id="__span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-serial<span class="w"> </span>-dates
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>openssl<span class="w"> </span>s_client<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">  </span>-connect<span class="w"> </span><span class="m">127</span>.0.0.1:443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="w">  </span>-servername<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="w">  </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span>
+</span><span id="__span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>-issuer<span class="w"> </span>-serial<span class="w"> </span>-dates
 </span></code></pre></div>
 
 6. explicación breve de:
@@ -1960,41 +1980,44 @@ La entrega deberá incluir:
 !!! danger "No incluir secretos"
     Antes de entregar, comprueba que ninguna captura contiene:
 
-    <div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>FREEMYIP_TOKEN
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>FREEMYIP_TOKEN
 </span></code></pre></div>
 -->
 
 <h2 id="9-anexos">9. Anexos<a class="headerlink" href="#9-anexos" title="Permanent link">&para;</a></h2>
 <h3 id="91-otro-proveedor-dns-duckdns">9.1. Otro proveedor DNS: duckdns<a class="headerlink" href="#91-otro-proveedor-dns-duckdns" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.duckdns.org">https://www.duckdns.org</a></p>
-<p>El cambio de freemyip a duickdns es sencillo. En este caso si en necesario registrarse. Se obtiene dominio y token.</p>
+<p>El cambio de freemyip a duckdns es sencillo. En este caso duckdns si solicita registrarse. Se obtiene dominio y token.</p>
 <p>Cambios necesarios en <code>compose.yml</code></p>
 <ol>
 <li>
 <p>Se cambia el "proveedor" DNS en traefik</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1"># - &quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot; </span>
-</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=duckdns&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># - &quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot; </span>
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=duckdns&quot;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Se modifica variable de entorno en traefik</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">    </span><span class="c1"># - FREEMYIP_TOKEN=${FREEMYIP_TOKEN}  </span>
-</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DUCKDNS_TOKEN=${DUCKDNS_TOKEN}</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="w">    </span><span class="c1"># - FREEMYIP_TOKEN=${FREEMYIP_TOKEN}  </span>
+</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DUCKDNS_TOKEN=${DUCKDNS_TOKEN}</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Y el fichero <code>.env</code></p>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="na">DOMAIN</span><span class="o">=</span><span class="s">sudominio.duckdns.org</span>
+</span><span id="__span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="na">DUCKDNS_TOKEN</span><span class="o">=</span><span class="s">xxxxxxx-xxxx-yyy-abcd12345nmf345</span>
+</span><span id="__span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="na">LE_EMAIL</span><span class="o">=</span><span class="s">email@local.com</span>
+</span><span id="__span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="na">IP</span><span class="o">=</span><span class="s">127.0.0.11</span>
 </span></code></pre></div>
 </li>
 </ol>
-<p>Y el fichero <code>.env</code></p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="na">DOMAIN</span><span class="o">=</span><span class="s">sudominio.duckdns.org</span>
-</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="na">DUCKDNS_TOKEN</span><span class="o">=</span><span class="s">xxxxxxx-xxxx-yyy-abcd12345nmf345</span>
-</span><span id="__span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="na">LE_EMAIL</span><span class="o">=</span><span class="s">email@local.com</span>
-</span></code></pre></div>
 <h3 id="92-seguridad">9.2. Seguridad<a class="headerlink" href="#92-seguridad" title="Permanent link">&para;</a></h3>
 <p>La variable <code>**FREEMYIP_TOKEN**</code> debe tratarse como una contraseña. Por eso está almacenada en <code>.env</code> y <code>.env</code> aparece  en <code>.gitignore</code>.</p>
 <p>Y sobre el fichero <code>acme.json</code> no muestres ni publiques su contenido. Contiene información sensible asociada a ACME y a los certificados.</p>
 <p>Por lo tanto ambos debe permanecer protegidos con permisos 600 e incluidos en <code>.gitignore</code>:</p>
 <p>Por otra parte Traefik necesita acceder a <code>/var/run/docker.sock</code> del host para descubrir los contenedores. En esta práctica lo montamos en solo lectura desde el punto de vista del contenedor con el sufijo <code>:ro</code></p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock:ro</span>
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2003,22 +2026,22 @@ La entrega deberá incluir:
 <p>Y por último, en la práctica se utiliza <code>"--api.insecure=true"</code>. Esto permite acceder localmente a http://localhost:8080/dashboard/. Se utiliza por comodidad en un laboratorio y  no es una configuración recomendable para producción.</p>
 <h3 id="93-posibles-errores">9.3. Posibles errores<a class="headerlink" href="#93-posibles-errores" title="Permanent link">&para;</a></h3>
 <p>Puede terner problemas con el dominio, y este no resuelve a <code>127.0.0.1</code>. Comprueba con:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>dig<span class="w"> </span>+short<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-59-2"><a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 <p>Si no vuelve a ejecutar:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=</span><span class="si">${</span><span class="nv">FREEMYIP_TOKEN</span><span class="si">}</span><span class="s2">&amp;domain=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;myip=127.0.0.1&amp;verbose=yes&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=</span><span class="si">${</span><span class="nv">FREEMYIP_TOKEN</span><span class="si">}</span><span class="s2">&amp;domain=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;myip=127.0.0.1&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
 <p>Puede modificar el servidor DNS que resuelve dig (en este caso Cloudflare o Google)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
-</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>dig<span class="w"> </span>@8.8.8.8<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>dig<span class="w"> </span>@8.8.8.8<span class="w"> </span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 <p>Otro posible problema es que el certificado no se genere. Comprueba los logs con</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>traefik
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>traefik
 </span></code></pre></div>
 <p>Debe buscar  errores relacionados con <code>certificate</code>, <code>dns</code>, <code>propagation</code>, <code>challenge</code> o <code>freemyip</code>.</p>
 <p>Para mayor detalle, puede cambiar temporalmente el nivel de log de INFO a DEBUG:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--log.level=DEBUG&quot;</span><span class="w">  </span><span class="c1"># &quot;--log.level=INFO&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--log.level=DEBUG&quot;</span><span class="w">  </span><span class="c1"># &quot;--log.level=INFO&quot;</span>
 </span></code></pre></div>
 <p>y recrea Traefik con <code>docker compose up -d</code></p>
 <!--  
@@ -2026,12 +2049,12 @@ La entrega deberá incluir:
 
 Comprueba manualmente:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>dig<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>dig<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 y:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>dig<span class="w"> </span>@1.1.1.1<span class="w"> </span>TXT<span class="w"> </span>_acme-challenge.whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 
 DNS-01 requiere que el registro TXT se propague antes de que la CA pueda validarlo. -->
@@ -2039,71 +2062,71 @@ DNS-01 requiere que el registro TXT se propague antes de que la CA pueda validar
 <p>Recuerde que como estamos usando el modo "staging" el navegador muestra un certificado no confiable, no es un error. Además si usa el comando curl deberá usar <code>-k</code>(y <code>-L</code> para la redireción)</p>
 <p>Otro error frecuente es que los puertos 80 o 443 están ocupados por contenedores previos u otros servicios. </p>
 <p>Puede comprobar antes de lanzar traefik si hay contenedores usando esos puertos:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>docker<span class="w"> </span>ps
-</span><span id="__span-65-2"><a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>docker<span class="w"> </span>ps
+</span><span id="__span-66-2"><a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a
 </span></code></pre></div>
 <p>o si hay otros servicios:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>ss<span class="w"> </span>-ltn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;:(80|443)\b&#39;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>ss<span class="w"> </span>-ltn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;:(80|443)\b&#39;</span>
 </span></code></pre></div>
 <p>Otro posible problema es que Traefik no detecta el servicio que se añade. Comprueba las <code>labels</code> con:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>config
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>config
 </span></code></pre></div>
 <p>y verifica especialmente si está habilitado el servicio y el nombre de las rutas y reglas:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>traefik.enable=true
-</span><span id="__span-68-2"><a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>traefik.http.routers.NOMBRE.rule
-</span><span id="__span-68-3"><a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>...
+<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>traefik.enable=true
+</span><span id="__span-69-2"><a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>traefik.http.routers.NOMBRE.rule
+</span><span id="__span-69-3"><a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>...
 </span></code></pre></div>
 <h3 id="94-que-es-lego">9.4. ¿Qué es <code>lego</code>?<a class="headerlink" href="#94-que-es-lego" title="Permanent link">&para;</a></h3>
 <p>Antes de ver que es lego, conviene recordar que que Let's Encrypt actúa como <strong>Autoridad de Certificación</strong>, y que el protocolo  <strong>ACME</strong> (<em>Automatic Certificate Management Environment</em>) se utiliza para automatizar operaciones como demostrar el control de un dominio, solicitar certificados, obtenerlos, renovarlos o revocarlos. Y que Traefik necesita un cliente ACME para comunicarse con Let's Encrypt.</p>
 <p><code>lego</code>  es un un proyecto (independiente de Traefik) compatible con numerosos proveedores DNS. Es una biblioteca escrita en Go y con un cliente ACME. Traefik no necesita que instalemos <code>lego</code> por separado porque lo utiliza como biblioteca interna. </p>
 <p>Traefik utiliza internamente <strong>lego</strong> (no necesita que se instale) para las operaciones ACME. Cuando configura:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot;</span>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--certificatesresolvers.le.acme.dnschallenge.provider=freemyip&quot;</span>
 </span></code></pre></div>
 <p>Traefik selecciona el proveedor DNS de FreeMyIP implementado por <code>lego</code>. Por este motivo debemos proporcionar la variable <code>FREEMYIP_TOKEN</code>, que es la credencial utilizada por el proveedor <code>freemyip</code> de <code>lego</code>.</p>
 <p>El flujo simplificado durante DNS-01 sería</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>Traefik
-</span><span id="__span-70-2"><a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a>   │
-</span><span id="__span-70-3"><a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a>   ▼
-</span><span id="__span-70-4"><a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>lego
-</span><span id="__span-70-5"><a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>   │
-</span><span id="__span-70-6"><a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a>   │ ACME
-</span><span id="__span-70-7"><a id="__codelineno-70-7" name="__codelineno-70-7" href="#__codelineno-70-7"></a>   ▼
-</span><span id="__span-70-8"><a id="__codelineno-70-8" name="__codelineno-70-8" href="#__codelineno-70-8"></a>Let&#39;s Encrypt
-</span><span id="__span-70-9"><a id="__codelineno-70-9" name="__codelineno-70-9" href="#__codelineno-70-9"></a>   │
-</span><span id="__span-70-10"><a id="__codelineno-70-10" name="__codelineno-70-10" href="#__codelineno-70-10"></a>   │ challenge
-</span><span id="__span-70-11"><a id="__codelineno-70-11" name="__codelineno-70-11" href="#__codelineno-70-11"></a>   ▼
-</span><span id="__span-70-12"><a id="__codelineno-70-12" name="__codelineno-70-12" href="#__codelineno-70-12"></a>lego
-</span><span id="__span-70-13"><a id="__codelineno-70-13" name="__codelineno-70-13" href="#__codelineno-70-13"></a>   │
-</span><span id="__span-70-14"><a id="__codelineno-70-14" name="__codelineno-70-14" href="#__codelineno-70-14"></a>   │ API FreeMyIP
-</span><span id="__span-70-15"><a id="__codelineno-70-15" name="__codelineno-70-15" href="#__codelineno-70-15"></a>   ▼
-</span><span id="__span-70-16"><a id="__codelineno-70-16" name="__codelineno-70-16" href="#__codelineno-70-16"></a>TXT _acme-challenge.whoami....
-</span><span id="__span-70-17"><a id="__codelineno-70-17" name="__codelineno-70-17" href="#__codelineno-70-17"></a>   │
-</span><span id="__span-70-18"><a id="__codelineno-70-18" name="__codelineno-70-18" href="#__codelineno-70-18"></a>   ▼
-</span><span id="__span-70-19"><a id="__codelineno-70-19" name="__codelineno-70-19" href="#__codelineno-70-19"></a>Let&#39;s Encrypt
-</span><span id="__span-70-20"><a id="__codelineno-70-20" name="__codelineno-70-20" href="#__codelineno-70-20"></a>   │
-</span><span id="__span-70-21"><a id="__codelineno-70-21" name="__codelineno-70-21" href="#__codelineno-70-21"></a>   │ validación correcta
-</span><span id="__span-70-22"><a id="__codelineno-70-22" name="__codelineno-70-22" href="#__codelineno-70-22"></a>   ▼
-</span><span id="__span-70-23"><a id="__codelineno-70-23" name="__codelineno-70-23" href="#__codelineno-70-23"></a>certificado
-</span><span id="__span-70-24"><a id="__codelineno-70-24" name="__codelineno-70-24" href="#__codelineno-70-24"></a>   │
-</span><span id="__span-70-25"><a id="__codelineno-70-25" name="__codelineno-70-25" href="#__codelineno-70-25"></a>   ▼
-</span><span id="__span-70-26"><a id="__codelineno-70-26" name="__codelineno-70-26" href="#__codelineno-70-26"></a>Traefik
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>Traefik
+</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>   │
+</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>   ▼
+</span><span id="__span-71-4"><a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>lego
+</span><span id="__span-71-5"><a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a>   │
+</span><span id="__span-71-6"><a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a>   │ ACME
+</span><span id="__span-71-7"><a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a>   ▼
+</span><span id="__span-71-8"><a id="__codelineno-71-8" name="__codelineno-71-8" href="#__codelineno-71-8"></a>Let&#39;s Encrypt
+</span><span id="__span-71-9"><a id="__codelineno-71-9" name="__codelineno-71-9" href="#__codelineno-71-9"></a>   │
+</span><span id="__span-71-10"><a id="__codelineno-71-10" name="__codelineno-71-10" href="#__codelineno-71-10"></a>   │ challenge
+</span><span id="__span-71-11"><a id="__codelineno-71-11" name="__codelineno-71-11" href="#__codelineno-71-11"></a>   ▼
+</span><span id="__span-71-12"><a id="__codelineno-71-12" name="__codelineno-71-12" href="#__codelineno-71-12"></a>lego
+</span><span id="__span-71-13"><a id="__codelineno-71-13" name="__codelineno-71-13" href="#__codelineno-71-13"></a>   │
+</span><span id="__span-71-14"><a id="__codelineno-71-14" name="__codelineno-71-14" href="#__codelineno-71-14"></a>   │ API FreeMyIP
+</span><span id="__span-71-15"><a id="__codelineno-71-15" name="__codelineno-71-15" href="#__codelineno-71-15"></a>   ▼
+</span><span id="__span-71-16"><a id="__codelineno-71-16" name="__codelineno-71-16" href="#__codelineno-71-16"></a>TXT _acme-challenge.whoami....
+</span><span id="__span-71-17"><a id="__codelineno-71-17" name="__codelineno-71-17" href="#__codelineno-71-17"></a>   │
+</span><span id="__span-71-18"><a id="__codelineno-71-18" name="__codelineno-71-18" href="#__codelineno-71-18"></a>   ▼
+</span><span id="__span-71-19"><a id="__codelineno-71-19" name="__codelineno-71-19" href="#__codelineno-71-19"></a>Let&#39;s Encrypt
+</span><span id="__span-71-20"><a id="__codelineno-71-20" name="__codelineno-71-20" href="#__codelineno-71-20"></a>   │
+</span><span id="__span-71-21"><a id="__codelineno-71-21" name="__codelineno-71-21" href="#__codelineno-71-21"></a>   │ validación correcta
+</span><span id="__span-71-22"><a id="__codelineno-71-22" name="__codelineno-71-22" href="#__codelineno-71-22"></a>   ▼
+</span><span id="__span-71-23"><a id="__codelineno-71-23" name="__codelineno-71-23" href="#__codelineno-71-23"></a>certificado
+</span><span id="__span-71-24"><a id="__codelineno-71-24" name="__codelineno-71-24" href="#__codelineno-71-24"></a>   │
+</span><span id="__span-71-25"><a id="__codelineno-71-25" name="__codelineno-71-25" href="#__codelineno-71-25"></a>   ▼
+</span><span id="__span-71-26"><a id="__codelineno-71-26" name="__codelineno-71-26" href="#__codelineno-71-26"></a>Traefik
 </span></code></pre></div>
 <p>Por lo tanto Traefik (usanddo lego) automatiza todo el ciclo de detectar, solicitar el dominio (gestionando el desafio), y luego almaacenar el certificado, utilizarlo y renovarlo si hace falta.</p>
 <!-- 
 
 El proveedor FreeMyIP de `lego` admite, entre otras, variables como:
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>FREEMYIP_TOKEN
-</span><span id="__span-71-2"><a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>FREEMYIP_HTTP_TIMEOUT
-</span><span id="__span-71-3"><a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>FREEMYIP_POLLING_INTERVAL
-</span><span id="__span-71-4"><a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>FREEMYIP_PROPAGATION_TIMEOUT
-</span><span id="__span-71-5"><a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a>FREEMYIP_SEQUENCE_INTERVAL
-</span><span id="__span-71-6"><a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a>FREEMYIP_TTL
+<div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>FREEMYIP_TOKEN
+</span><span id="__span-72-2"><a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>FREEMYIP_HTTP_TIMEOUT
+</span><span id="__span-72-3"><a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>FREEMYIP_POLLING_INTERVAL
+</span><span id="__span-72-4"><a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>FREEMYIP_PROPAGATION_TIMEOUT
+</span><span id="__span-72-5"><a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>FREEMYIP_SEQUENCE_INTERVAL
+</span><span id="__span-72-6"><a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a>FREEMYIP_TTL
 </span></code></pre></div>
 
 Normalmente únicamente necesitaremos:
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>FREEMYIP_TOKEN
+<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>FREEMYIP_TOKEN
 </span></code></pre></div>
 
 Los demás parámetros permiten ajustar aspectos relacionados con:
@@ -2124,10 +2147,10 @@ No deben modificarse sin necesidad.
 
 ### 12.1. DNS normal
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>whoami.alumno01.freemyip.com
-</span><span id="__span-73-2"><a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>                 │
-</span><span id="__span-73-3"><a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>                 ▼
-</span><span id="__span-73-4"><a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a>             127.0.0.1
+<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>whoami.alumno01.freemyip.com
+</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>                 │
+</span><span id="__span-74-3"><a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>                 ▼
+</span><span id="__span-74-4"><a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a>             127.0.0.1
 </span></code></pre></div>
 
 Sirve para que el navegador encuentre Traefik.
@@ -2135,13 +2158,13 @@ Sirve para que el navegador encuentre Traefik.
 
 ### 12.2. DNS-01
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>_acme-challenge.whoami.alumno01.freemyip.com
-</span><span id="__span-74-2"><a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>                         │
-</span><span id="__span-74-3"><a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>                         ▼
-</span><span id="__span-74-4"><a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a>                     registro TXT
-</span><span id="__span-74-5"><a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a>                         │
-</span><span id="__span-74-6"><a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a>                         ▼
-</span><span id="__span-74-7"><a id="__codelineno-74-7" name="__codelineno-74-7" href="#__codelineno-74-7"></a>                   Let&#39;s Encrypt
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>_acme-challenge.whoami.alumno01.freemyip.com
+</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>                         │
+</span><span id="__span-75-3"><a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>                         ▼
+</span><span id="__span-75-4"><a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a>                     registro TXT
+</span><span id="__span-75-5"><a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>                         │
+</span><span id="__span-75-6"><a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>                         ▼
+</span><span id="__span-75-7"><a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>                   Let&#39;s Encrypt
 </span></code></pre></div>
 
 Sirve para demostrar que controlamos el DNS.
@@ -2149,13 +2172,13 @@ Sirve para demostrar que controlamos el DNS.
 
 ### 12.3. SNI
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>127.0.0.1:443
-</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>     │
-</span><span id="__span-75-3"><a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>     ├── whoami.dominio
-</span><span id="__span-75-4"><a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a>     │
-</span><span id="__span-75-5"><a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>     ├── nginx.dominio
-</span><span id="__span-75-6"><a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>     │
-</span><span id="__span-75-7"><a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>     └── apache.dominio
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>127.0.0.1:443
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>     │
+</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>     ├── whoami.dominio
+</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>     │
+</span><span id="__span-76-5"><a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>     ├── nginx.dominio
+</span><span id="__span-76-6"><a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a>     │
+</span><span id="__span-76-7"><a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a>     └── apache.dominio
 </span></code></pre></div>
 
 Permite compartir el mismo puerto HTTPS entre varios nombres.
@@ -2165,14 +2188,14 @@ Permite compartir el mismo puerto HTTPS entre varios nombres.
 
 Realiza:
 
-<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>petición HTTPS
-</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>      │
-</span><span id="__span-76-3"><a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>      ▼
-</span><span id="__span-76-4"><a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>    Traefik
-</span><span id="__span-76-5"><a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>      │
-</span><span id="__span-76-6"><a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a>      ├── Host whoami... ───► whoami
-</span><span id="__span-76-7"><a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a>      │
-</span><span id="__span-76-8"><a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a>      └── Host nginx... ─────► nginx
+<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>petición HTTPS
+</span><span id="__span-77-2"><a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>      │
+</span><span id="__span-77-3"><a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>      ▼
+</span><span id="__span-77-4"><a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>    Traefik
+</span><span id="__span-77-5"><a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>      │
+</span><span id="__span-77-6"><a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>      ├── Host whoami... ───► whoami
+</span><span id="__span-77-7"><a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>      │
+</span><span id="__span-77-8"><a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>      └── Host nginx... ─────► nginx
 </span></code></pre></div>
 
 
