@@ -1123,6 +1123,14 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>curl<span class="w"> </span>-Lk<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
 </span></code></pre></div>
 <h2 id="6-probar-desde-host">6. Probar desde host<a class="headerlink" href="#6-probar-desde-host" title="Permanent link">&para;</a></h2>
+<p>Antes de probar COMPRUEBE:</p>
+<ul>
+<li>que en el fichero <code>/etc/hosts</code>no tiene definido su dominio. </li>
+<li>que tiene definida la variable de entorno <code>DOMAIN</code></li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-Lk<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>firefox<span class="w"> </span>--private-window<span class="w"> </span>whoami.<span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span>
+</span></code></pre></div>
 
 
 

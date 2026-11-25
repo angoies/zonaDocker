@@ -1456,7 +1456,8 @@ Any time you change your TXT record, you will have to wait around 1 minute for D
 <p>La principal diferencia con FreeMyIp es que necesita registro para obtener el dominio y el token asociado. Una vez obtenidos su API ofrece un funcionamiento similar.</p>
 <p><img alt="" src="../figuras/duckdns_token.png" /></p>
 <p>LA URL necesaria sería similar a </p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>https://www.duckdns.org/update?domains<span class="o">={</span>YOURVALUE<span class="o">}</span><span class="p">&amp;</span><span class="nv">token</span><span class="o">={</span>YOURVALUE<span class="o">}[</span><span class="p">&amp;</span><span class="nv">ip</span><span class="o">={</span>YOURVALUE<span class="o">}][</span><span class="p">&amp;</span><span class="nv">ipv6</span><span class="o">={</span>YOURVALUE<span class="o">}][</span><span class="p">&amp;</span><span class="nv">verbose</span><span class="o">=</span>true<span class="o">]</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="s2">&quot;https://www.duckdns.org/update?domains=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;token=</span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&amp;ip=</span><span class="si">${</span><span class="nv">IP</span><span class="si">}</span><span class="s2">&amp;verbose=true&quot;</span>
 </span></code></pre></div>
 <blockquote>
 <blockquote>
