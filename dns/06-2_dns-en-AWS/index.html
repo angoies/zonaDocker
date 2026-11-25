@@ -721,9 +721,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-ejercicio-practico" class="md-nav__link">
+  <a href="#2-dominio-en-duckdns" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Ejercicio práctico
+      2. Dominio en duckdns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ejercicio-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ejercicio práctico
     </span>
   </a>
   
@@ -773,103 +782,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05_docker_swarm/" class="md-nav__link">
+      <a href="../../clase_resumen/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Docker Swarm
+    Clase repaso
     
   </span>
   
 
       </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
-        
-          
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Otros
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            Otros
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../02-4_servidores-apache-amplia/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Configuración Apache
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../03-docker-repo-local/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Repo local
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -902,11 +824,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../clase_resumen/" class="md-nav__link">
+      <a href="../../pdf/document.pdf" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Clase Resumen
+    Volcado PDF
     
   </span>
   
@@ -952,9 +874,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-ejercicio-practico" class="md-nav__link">
+  <a href="#2-dominio-en-duckdns" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Ejercicio práctico
+      2. Dominio en duckdns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ejercicio-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ejercicio práctico
     </span>
   </a>
   
@@ -990,34 +921,40 @@
 <h2 id="1-dominio-en-fremyip">1. Dominio en fremyip<a class="headerlink" href="#1-dominio-en-fremyip" title="Permanent link">&para;</a></h2>
 <p>Puede encontrar cómo registrar un dominio en <code>freemyip</code> en este documento:
 <a href="../06-1_dns-practicas/">DNS en prácticas</a></p>
-<p>Una vez tenga el dominio, para actualizar la IP deberá hacer una petición con el token y la IP pública. El formato es:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=TOKEN&amp;domain=DOMINIO&amp;myip=</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s2">IP_EC2&quot;</span><span class="p">&amp;</span><span class="nv">verbose</span><span class="o">=</span>yes<span class="s2">&quot;</span>
-</span></code></pre></div>
-<p><strong>Si está conectado a la instancia EC2</strong> y definidas las variables de entorno no hace falta especificar la IP de EC2 y el comando sería:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=</span><span class="si">${</span><span class="nv">FREEMYIP_TOKEN</span><span class="si">}</span><span class="s2">&amp;domain=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;verbose=yes&quot;</span>
+<p>Una vez tenga el dominio, para actualizar la IP deberá hacer una petición con el token, el dominio y la IP.</p>
+<p><strong>Si está conectado a la instancia EC2</strong> y definidas las variables de entorno no hace falta especificar la IP de EC2 y el comando sería</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=</span><span class="si">${</span><span class="nv">FREEMYIP_TOKEN</span><span class="si">}</span><span class="s2">&amp;domain=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;verbose=yes&quot;</span>
 </span></code></pre></div>
 <p>Para comprobar la actualización basta usar el comando <code>dig</code></p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.midominio.freemyip.com
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dig<span class="w"> </span>+short<span class="w"> </span>midominio.freemyip.com
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>dig<span class="w"> </span>+short<span class="w"> </span>whoami.midominio.freemyip.com
 </span></code></pre></div>
-<h2 id="2-ejercicio-practico">2. Ejercicio práctico<a class="headerlink" href="#2-ejercicio-practico" title="Permanent link">&para;</a></h2>
+<p>Aunque en este caso no es necesario, si desea especificar la IP la petición sería</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w"> </span><span class="s2">&quot;https://freemyip.com/update?token=</span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&amp;domain=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;myip=IPAWS&quot;</span><span class="p">&amp;</span><span class="nv">verbose</span><span class="o">=</span>yes<span class="s2">&quot;</span>
+</span></code></pre></div>
+<h2 id="2-dominio-en-duckdns">2. Dominio en duckdns<a class="headerlink" href="#2-dominio-en-duckdns" title="Permanent link">&para;</a></h2>
+<p>La forma de hacerlo es similar a freemyip, teneindo encuenta que cambia el nombre de uno de los parámetros y el valor de <code>verbose</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w"> </span><span class="s2">&quot;https://www.duckdns.org/update?token=</span><span class="si">${</span><span class="nv">TOKEN</span><span class="si">}</span><span class="s2">&amp;domains=</span><span class="si">${</span><span class="nv">DOMAIN</span><span class="si">}</span><span class="s2">&amp;verbose=true&quot;</span>
+</span></code></pre></div>
+<h2 id="3-ejercicio-practico">3. Ejercicio práctico<a class="headerlink" href="#3-ejercicio-practico" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Crear una instancia EC2 en AWS</li>
 <li>
 <p>Instalar <code>nginx</code> y comprobar en local que el servidor está iniciado y que responde</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>$<span class="w"> </span>curl<span class="w"> </span>localhost
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&lt;html&gt;
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>&lt;head&gt;
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>....
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>...
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>&lt;p&gt;&lt;em&gt;Thank<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>nginx.&lt;/em&gt;&lt;/p&gt;
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>&lt;/body&gt;
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>&lt;/html&gt;
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>$<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>curl<span class="w"> </span>localhost
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&lt;html&gt;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&lt;head&gt;
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>....
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>...
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>&lt;p&gt;&lt;em&gt;Thank<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>nginx.&lt;/em&gt;&lt;/p&gt;
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>&lt;/body&gt;
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>&lt;/html&gt;
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>$<span class="w"> </span>
 </span></code></pre></div>
 </li>
 <li>
@@ -1025,18 +962,18 @@
 </li>
 <li>
 <p>Desde su equipo acceder usando el nombre de dominio</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>clases@d13:~$<span class="w"> </span>curl<span class="w"> </span>www.midominio.freemiip.com
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&lt;html&gt;
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&lt;head&gt;
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>...
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>....
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>&lt;p&gt;&lt;em&gt;Thank<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>nginx.&lt;/em&gt;&lt;/p&gt;
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>&lt;/body&gt;
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>&lt;/html&gt;
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>clases@d13:~$<span class="w"> </span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>clases@d13:~$<span class="w"> </span>curl<span class="w"> </span>www.midominio.freemiip.com
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&lt;!DOCTYPE<span class="w"> </span>html&gt;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&lt;html&gt;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>&lt;head&gt;
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>...
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>&lt;h1&gt;Welcome<span class="w"> </span>to<span class="w"> </span>nginx!&lt;/h1&gt;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>....
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>&lt;p&gt;&lt;em&gt;Thank<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>nginx.&lt;/em&gt;&lt;/p&gt;
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>&lt;/body&gt;
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>&lt;/html&gt;
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>clases@d13:~$<span class="w"> </span>
 </span></code></pre></div>
 </li>
 </ol>
